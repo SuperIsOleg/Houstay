@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  Houstay
+
+  Created by Oleg Kalistratov on 29.08.22.
+  
+*/
+
+// Mark: Onboarding
+
+onboarding.title = "";

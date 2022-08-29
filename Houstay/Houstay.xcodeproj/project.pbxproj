@@ -7,14 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		023EEAC528BCCF4F00446893 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 023EEAC428BCCF4F00446893 /* Localizable.strings */; };
+		023EEAC928BCD0CE00446893 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023EEAC828BCD0CE00446893 /* R.generated.swift */; };
+		023EEACB28BCD24400446893 /* roboto-medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 023EEACA28BCD24400446893 /* roboto-medium.ttf */; };
+		023EEACD28BCD25E00446893 /* roboto-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 023EEACC28BCD25E00446893 /* roboto-regular.ttf */; };
 		0286246828BCBE00006C12C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0286246728BCBE00006C12C5 /* AppDelegate.swift */; };
 		0286246C28BCBE00006C12C5 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0286246B28BCBE00006C12C5 /* OnboardingViewController.swift */; };
 		0286247128BCBE04006C12C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0286247028BCBE04006C12C5 /* Assets.xcassets */; };
 		0286247428BCBE04006C12C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0286247228BCBE04006C12C5 /* LaunchScreen.storyboard */; };
 		0286248428BCC939006C12C5 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0286248328BCC939006C12C5 /* OnboardingView.swift */; };
+		A2B3E143E9556E544620167E /* Pods_Houstay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB75DE0874EAEC3C2A7D2F45 /* Pods_Houstay.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		023EEAC428BCCF4F00446893 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		023EEAC828BCD0CE00446893 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		023EEACA28BCD24400446893 /* roboto-medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "roboto-medium.ttf"; sourceTree = "<group>"; };
+		023EEACC28BCD25E00446893 /* roboto-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "roboto-regular.ttf"; sourceTree = "<group>"; };
 		0286246428BCBE00006C12C5 /* Houstay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Houstay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0286246728BCBE00006C12C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0286246B28BCBE00006C12C5 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +31,9 @@
 		0286247328BCBE04006C12C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0286247528BCBE04006C12C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0286248328BCC939006C12C5 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		80C35C1268B3C39A509A9F6B /* Pods-Houstay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Houstay.debug.xcconfig"; path = "Target Support Files/Pods-Houstay/Pods-Houstay.debug.xcconfig"; sourceTree = "<group>"; };
+		B865715D735DC631BA84A24E /* Pods-Houstay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Houstay.release.xcconfig"; path = "Target Support Files/Pods-Houstay/Pods-Houstay.release.xcconfig"; sourceTree = "<group>"; };
+		FB75DE0874EAEC3C2A7D2F45 /* Pods_Houstay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Houstay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +41,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2B3E143E9556E544620167E /* Pods_Houstay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		023EEAC628BCCFE800446893 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				023EEAC428BCCF4F00446893 /* Localizable.strings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		023EEAC728BCCFF300446893 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				023EEACC28BCD25E00446893 /* roboto-regular.ttf */,
+				023EEACA28BCD24400446893 /* roboto-medium.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		0286245B28BCBE00006C12C5 = {
 			isa = PBXGroup;
 			children = (
 				0286246628BCBE00006C12C5 /* Houstay */,
 				0286246528BCBE00006C12C5 /* Products */,
+				C567DABDDD6C068BF36BF263 /* Pods */,
+				BD080C594E4B7850478A460A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,9 +86,8 @@
 		0286246628BCBE00006C12C5 /* Houstay */ = {
 			isa = PBXGroup;
 			children = (
-				0286247E28BCC870006C12C5 /* Onboarding */,
 				0286247B28BCC7CE006C12C5 /* Application */,
-				0286247D28BCC831006C12C5 /* Resources */,
+				0286247E28BCC870006C12C5 /* Onboarding */,
 			);
 			path = Houstay;
 			sourceTree = "<group>";
@@ -64,6 +95,7 @@
 		0286247B28BCC7CE006C12C5 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				0286247D28BCC831006C12C5 /* Resources */,
 				0286246728BCBE00006C12C5 /* AppDelegate.swift */,
 			);
 			path = Application;
@@ -72,7 +104,10 @@
 		0286247D28BCC831006C12C5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				023EEAC728BCCFF300446893 /* Fonts */,
+				023EEAC628BCCFE800446893 /* Localization */,
 				0286247028BCBE04006C12C5 /* Assets.xcassets */,
+				023EEAC828BCD0CE00446893 /* R.generated.swift */,
 				0286247228BCBE04006C12C5 /* LaunchScreen.storyboard */,
 				0286247528BCBE04006C12C5 /* Info.plist */,
 			);
@@ -104,6 +139,23 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		BD080C594E4B7850478A460A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FB75DE0874EAEC3C2A7D2F45 /* Pods_Houstay.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C567DABDDD6C068BF36BF263 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				80C35C1268B3C39A509A9F6B /* Pods-Houstay.debug.xcconfig */,
+				B865715D735DC631BA84A24E /* Pods-Houstay.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -111,9 +163,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0286247828BCBE04006C12C5 /* Build configuration list for PBXNativeTarget "Houstay" */;
 			buildPhases = (
+				B42C519DF96F679186025D0F /* [CP] Check Pods Manifest.lock */,
+				023EEAC328BCCC6100446893 /* ShellScript */,
 				0286246028BCBE00006C12C5 /* Sources */,
 				0286246128BCBE00006C12C5 /* Frameworks */,
 				0286246228BCBE00006C12C5 /* Resources */,
+				7ED611205E22E63B129C2D52 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -162,12 +217,76 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				023EEACB28BCD24400446893 /* roboto-medium.ttf in Resources */,
 				0286247428BCBE04006C12C5 /* LaunchScreen.storyboard in Resources */,
+				023EEACD28BCD25E00446893 /* roboto-regular.ttf in Resources */,
+				023EEAC528BCCF4F00446893 /* Localizable.strings in Resources */,
 				0286247128BCBE04006C12C5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		023EEAC328BCCC6100446893 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/Houstay/Application/Resources/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/Houstay/Application/Resources/R.generated.swift\"\n";
+		};
+		7ED611205E22E63B129C2D52 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Houstay/Pods-Houstay-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Houstay/Pods-Houstay-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Houstay/Pods-Houstay-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B42C519DF96F679186025D0F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Houstay-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0286246028BCBE00006C12C5 /* Sources */ = {
@@ -177,6 +296,7 @@
 				0286248428BCC939006C12C5 /* OnboardingView.swift in Sources */,
 				0286246C28BCBE00006C12C5 /* OnboardingViewController.swift in Sources */,
 				0286246828BCBE00006C12C5 /* AppDelegate.swift in Sources */,
+				023EEAC928BCD0CE00446893 /* R.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +430,7 @@
 		};
 		0286247928BCBE04006C12C5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80C35C1268B3C39A509A9F6B /* Pods-Houstay.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -317,8 +438,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PJYSX9RNA2;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Houstay/Resources/Info.plist;
+				INFOPLIST_FILE = Houstay/Application/Resources/Info.plist;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
@@ -331,12 +453,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		0286247A28BCBE04006C12C5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B865715D735DC631BA84A24E /* Pods-Houstay.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -344,8 +467,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PJYSX9RNA2;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Houstay/Resources/Info.plist;
+				INFOPLIST_FILE = Houstay/Application/Resources/Info.plist;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
@@ -358,7 +482,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

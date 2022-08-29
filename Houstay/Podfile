@@ -1,0 +1,13 @@
+# Uncomment the next line to define a global platform for your project
+  platform :ios, '15.5'
+
+target 'Houstay' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for Houstay
+
+  pod 'R.swift', '~> 6.1.0'
+  pod 'SnapKit', '~> 5.6.0'
+
+end
