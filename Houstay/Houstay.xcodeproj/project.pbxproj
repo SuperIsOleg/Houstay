@@ -11,11 +11,13 @@
 		023EEAC928BCD0CE00446893 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023EEAC828BCD0CE00446893 /* R.generated.swift */; };
 		023EEACB28BCD24400446893 /* roboto-medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 023EEACA28BCD24400446893 /* roboto-medium.ttf */; };
 		023EEACD28BCD25E00446893 /* roboto-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 023EEACC28BCD25E00446893 /* roboto-regular.ttf */; };
+		023EEAD028BCE86700446893 /* OnboardingCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023EEACF28BCE86700446893 /* OnboardingCollectionView.swift */; };
+		023EEAD228BCE89900446893 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023EEAD128BCE89900446893 /* OnboardingCollectionViewCell.swift */; };
+		023EEAD528BCF9D700446893 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023EEAD428BCF9D700446893 /* OnboardingViewModel.swift */; };
 		0286246828BCBE00006C12C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0286246728BCBE00006C12C5 /* AppDelegate.swift */; };
 		0286246C28BCBE00006C12C5 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0286246B28BCBE00006C12C5 /* OnboardingViewController.swift */; };
 		0286247128BCBE04006C12C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0286247028BCBE04006C12C5 /* Assets.xcassets */; };
 		0286247428BCBE04006C12C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0286247228BCBE04006C12C5 /* LaunchScreen.storyboard */; };
-		0286248428BCC939006C12C5 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0286248328BCC939006C12C5 /* OnboardingView.swift */; };
 		A2B3E143E9556E544620167E /* Pods_Houstay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB75DE0874EAEC3C2A7D2F45 /* Pods_Houstay.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,13 +26,15 @@
 		023EEAC828BCD0CE00446893 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		023EEACA28BCD24400446893 /* roboto-medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "roboto-medium.ttf"; sourceTree = "<group>"; };
 		023EEACC28BCD25E00446893 /* roboto-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "roboto-regular.ttf"; sourceTree = "<group>"; };
+		023EEACF28BCE86700446893 /* OnboardingCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionView.swift; sourceTree = "<group>"; };
+		023EEAD128BCE89900446893 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
+		023EEAD428BCF9D700446893 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		0286246428BCBE00006C12C5 /* Houstay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Houstay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0286246728BCBE00006C12C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0286246B28BCBE00006C12C5 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		0286247028BCBE04006C12C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0286247328BCBE04006C12C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0286247528BCBE04006C12C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0286248328BCC939006C12C5 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		80C35C1268B3C39A509A9F6B /* Pods-Houstay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Houstay.debug.xcconfig"; path = "Target Support Files/Pods-Houstay/Pods-Houstay.debug.xcconfig"; sourceTree = "<group>"; };
 		B865715D735DC631BA84A24E /* Pods-Houstay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Houstay.release.xcconfig"; path = "Target Support Files/Pods-Houstay/Pods-Houstay.release.xcconfig"; sourceTree = "<group>"; };
 		FB75DE0874EAEC3C2A7D2F45 /* Pods_Houstay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Houstay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +67,23 @@
 				023EEACA28BCD24400446893 /* roboto-medium.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		023EEACE28BCE71400446893 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				023EEACF28BCE86700446893 /* OnboardingCollectionView.swift */,
+				023EEAD128BCE89900446893 /* OnboardingCollectionViewCell.swift */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		023EEAD328BCF9B200446893 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				023EEAD428BCF9D700446893 /* OnboardingViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		0286245B28BCBE00006C12C5 = {
@@ -117,6 +138,7 @@
 		0286247E28BCC870006C12C5 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				023EEAD328BCF9B200446893 /* ViewModel */,
 				0286247F28BCC897006C12C5 /* Screens */,
 			);
 			path = Onboarding;
@@ -134,7 +156,7 @@
 		0286248028BCC8A8006C12C5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0286248328BCC939006C12C5 /* OnboardingView.swift */,
+				023EEACE28BCE71400446893 /* CollectionView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -293,10 +315,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0286248428BCC939006C12C5 /* OnboardingView.swift in Sources */,
 				0286246C28BCBE00006C12C5 /* OnboardingViewController.swift in Sources */,
+				023EEAD528BCF9D700446893 /* OnboardingViewModel.swift in Sources */,
 				0286246828BCBE00006C12C5 /* AppDelegate.swift in Sources */,
 				023EEAC928BCD0CE00446893 /* R.generated.swift in Sources */,
+				023EEAD028BCE86700446893 /* OnboardingCollectionView.swift in Sources */,
+				023EEAD228BCE89900446893 /* OnboardingCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

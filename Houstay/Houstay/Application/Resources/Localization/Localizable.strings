@@ -6,6 +6,7 @@
   
 */
 
-// Mark: Onboarding
+// Mark: Onboarding1
 
-onboarding.title = "";
+onboarding1.title = "Welcome to Houstay";
+onboarding1.description = "accommodation search platform № 1 online in Belarus";
