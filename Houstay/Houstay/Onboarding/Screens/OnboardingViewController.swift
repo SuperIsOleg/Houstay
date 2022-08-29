@@ -8,12 +8,18 @@
 import UIKit
 
 class OnboardingViewController: UIViewController {
+    private let onboardingView = OnboardingView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .red
+        setupLayout()
     }
 
-
+    private func setupLayout() {
+        self.view.addSubview(onboardingView)
+        onboardingView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+    }
 }
 
