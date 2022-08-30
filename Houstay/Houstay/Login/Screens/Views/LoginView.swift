@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoginView: UIView {
+class LoginView: BasicView {
     
     private let logoImage: UIImageView = {
         let imageView = UIImageView()
@@ -115,20 +115,20 @@ class LoginView: UIView {
         passwordTextField.delegate = self
         
         self.backgroundColor = R.color.white500()
-        self.addSubview(logoImage)
+        contentView.addSubview(logoImage)
         logoImage.snp.makeConstraints {
             $0.top.equalToSuperview().offset(150)
             $0.centerX.equalToSuperview()
             $0.height.width.equalTo(90)
         }
         
-        self.addSubview(logoLabel)
+        contentView.addSubview(logoLabel)
         logoLabel.snp.makeConstraints {
             $0.top.equalTo(logoImage.snp.bottom).offset(16)
             $0.centerX.equalToSuperview()
         }
         
-        self.addSubview(emailTextField)
+        contentView.addSubview(emailTextField)
         emailTextField.snp.makeConstraints {
             $0.top.equalTo(logoLabel.snp.bottom).offset(40)
             $0.leading.equalToSuperview().offset(16)
@@ -137,7 +137,7 @@ class LoginView: UIView {
             $0.height.equalTo(50)
         }
         
-        self.addSubview(passwordTextField)
+        contentView.addSubview(passwordTextField)
         passwordTextField.snp.makeConstraints {
             $0.top.equalTo(emailTextField.snp.bottom).offset(16)
             $0.leading.equalTo(emailTextField)
@@ -146,7 +146,7 @@ class LoginView: UIView {
             $0.height.equalTo(50)
         }
         
-        self.addSubview(logInButton)
+        contentView.addSubview(logInButton)
         logInButton.snp.makeConstraints {
             $0.top.equalTo(passwordTextField.snp.bottom).offset(30)
             $0.leading.equalTo(emailTextField)
@@ -155,19 +155,19 @@ class LoginView: UIView {
             $0.height.equalTo(50)
         }
         
-        self.addSubview(noAccountLabel)
+        contentView.addSubview(noAccountLabel)
         noAccountLabel.snp.makeConstraints {
             $0.top.equalTo(logInButton.snp.bottom).offset(24)
             $0.centerX.equalToSuperview()
         }
         
-        self.addSubview(forgotPasswordLabel)
+        contentView.addSubview(forgotPasswordLabel)
         forgotPasswordLabel.snp.makeConstraints {
             $0.top.equalTo((noAccountLabel).snp.bottom).offset(16)
             $0.centerX.equalToSuperview()
         }
 
-        self.addSubview(lineView)
+        contentView.addSubview(lineView)
         lineView.snp.makeConstraints {
             $0.top.equalTo((forgotPasswordLabel).snp.bottom).offset(35)
             $0.leading.equalTo(logInButton)
@@ -181,19 +181,20 @@ class LoginView: UIView {
             $0.centerX.centerY.equalToSuperview()
         }
         
-        self.addSubview(googleImage)
+        contentView.addSubview(googleImage)
         googleImage.snp.makeConstraints {
             $0.top.equalTo((lineView).snp.bottom).offset(35)
+            $0.bottom.equalToSuperview()
             $0.centerX.equalToSuperview()
         }
         
-        self.addSubview(appleImage)
+        contentView.addSubview(appleImage)
         appleImage.snp.makeConstraints {
             $0.top.equalTo(googleImage)
             $0.trailing.equalTo(googleImage.snp.leading).offset(-20)
         }
         
-        self.addSubview(facebookImage)
+        contentView.addSubview(facebookImage)
         facebookImage.snp.makeConstraints {
             $0.top.equalTo(googleImage)
             $0.leading.equalTo(googleImage.snp.trailing).offset(20)

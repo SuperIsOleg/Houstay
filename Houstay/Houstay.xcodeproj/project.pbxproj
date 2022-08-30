@@ -26,6 +26,7 @@
 		02952B3328BE2BA800B2F43F /* AppFlowNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02952B3228BE2BA800B2F43F /* AppFlowNavigationController.swift */; };
 		A2B3E143E9556E544620167E /* Pods_Houstay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB75DE0874EAEC3C2A7D2F45 /* Pods_Houstay.framework */; };
 		F4480ACB28BE7011001AA98B /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4480ACA28BE7011001AA98B /* CustomTextField.swift */; };
+		F4480ACD28BE8E99001AA98B /* BasicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4480ACC28BE8E99001AA98B /* BasicView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		80C35C1268B3C39A509A9F6B /* Pods-Houstay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Houstay.debug.xcconfig"; path = "Target Support Files/Pods-Houstay/Pods-Houstay.debug.xcconfig"; sourceTree = "<group>"; };
 		B865715D735DC631BA84A24E /* Pods-Houstay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Houstay.release.xcconfig"; path = "Target Support Files/Pods-Houstay/Pods-Houstay.release.xcconfig"; sourceTree = "<group>"; };
 		F4480ACA28BE7011001AA98B /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		F4480ACC28BE8E99001AA98B /* BasicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicView.swift; sourceTree = "<group>"; };
 		FB75DE0874EAEC3C2A7D2F45 /* Pods_Houstay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Houstay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -267,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				F4480ACA28BE7011001AA98B /* CustomTextField.swift */,
+				F4480ACC28BE8E99001AA98B /* BasicView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				0286246828BCBE00006C12C5 /* AppDelegate.swift in Sources */,
 				023EEAC928BCD0CE00446893 /* R.generated.swift in Sources */,
 				02952B3028BE2A8C00B2F43F /* SplashScreenViewController.swift in Sources */,
+				F4480ACD28BE8E99001AA98B /* BasicView.swift in Sources */,
 				02952B3328BE2BA800B2F43F /* AppFlowNavigationController.swift in Sources */,
 				02952B2228BDDE7D00B2F43F /* OnboardingModel.swift in Sources */,
 				02952B2428BDE6D800B2F43F /* OnboardingView.swift in Sources */,
