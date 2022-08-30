@@ -20,6 +20,10 @@
 		0286247428BCBE04006C12C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0286247228BCBE04006C12C5 /* LaunchScreen.storyboard */; };
 		02952B2228BDDE7D00B2F43F /* OnboardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02952B2128BDDE7D00B2F43F /* OnboardingModel.swift */; };
 		02952B2428BDE6D800B2F43F /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02952B2328BDE6D800B2F43F /* OnboardingView.swift */; };
+		02952B2B28BE22DA00B2F43F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02952B2A28BE22DA00B2F43F /* LoginViewController.swift */; };
+		02952B2D28BE22F000B2F43F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02952B2C28BE22F000B2F43F /* LoginView.swift */; };
+		02952B3028BE2A8C00B2F43F /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02952B2F28BE2A8C00B2F43F /* SplashScreenViewController.swift */; };
+		02952B3328BE2BA800B2F43F /* AppFlowNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02952B3228BE2BA800B2F43F /* AppFlowNavigationController.swift */; };
 		A2B3E143E9556E544620167E /* Pods_Houstay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB75DE0874EAEC3C2A7D2F45 /* Pods_Houstay.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +43,10 @@
 		0286247528BCBE04006C12C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02952B2128BDDE7D00B2F43F /* OnboardingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingModel.swift; sourceTree = "<group>"; };
 		02952B2328BDE6D800B2F43F /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		02952B2A28BE22DA00B2F43F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		02952B2C28BE22F000B2F43F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		02952B2F28BE2A8C00B2F43F /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
+		02952B3228BE2BA800B2F43F /* AppFlowNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowNavigationController.swift; sourceTree = "<group>"; };
 		80C35C1268B3C39A509A9F6B /* Pods-Houstay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Houstay.debug.xcconfig"; path = "Target Support Files/Pods-Houstay/Pods-Houstay.debug.xcconfig"; sourceTree = "<group>"; };
 		B865715D735DC631BA84A24E /* Pods-Houstay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Houstay.release.xcconfig"; path = "Target Support Files/Pods-Houstay/Pods-Houstay.release.xcconfig"; sourceTree = "<group>"; };
 		FB75DE0874EAEC3C2A7D2F45 /* Pods_Houstay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Houstay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,7 +120,10 @@
 			isa = PBXGroup;
 			children = (
 				0286247B28BCC7CE006C12C5 /* Application */,
+				02952B3128BE2B7000B2F43F /* Appflow */,
+				02952B2E28BE2A2E00B2F43F /* SplashScreen */,
 				0286247E28BCC870006C12C5 /* Onboarding */,
+				02952B2528BE225900B2F43F /* Login */,
 			);
 			path = Houstay;
 			sourceTree = "<group>";
@@ -173,6 +184,63 @@
 				02952B2128BDDE7D00B2F43F /* OnboardingModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		02952B2528BE225900B2F43F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				02952B2628BE22A100B2F43F /* Screens */,
+				02952B2828BE22B000B2F43F /* ViewModel */,
+				02952B2728BE22A800B2F43F /* Model */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		02952B2628BE22A100B2F43F /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				02952B2928BE22BE00B2F43F /* Views */,
+				02952B2A28BE22DA00B2F43F /* LoginViewController.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		02952B2728BE22A800B2F43F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		02952B2828BE22B000B2F43F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		02952B2928BE22BE00B2F43F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				02952B2C28BE22F000B2F43F /* LoginView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		02952B2E28BE2A2E00B2F43F /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				02952B2F28BE2A8C00B2F43F /* SplashScreenViewController.swift */,
+			);
+			path = SplashScreen;
+			sourceTree = "<group>";
+		};
+		02952B3128BE2B7000B2F43F /* Appflow */ = {
+			isa = PBXGroup;
+			children = (
+				02952B3228BE2BA800B2F43F /* AppFlowNavigationController.swift */,
+			);
+			path = Appflow;
 			sourceTree = "<group>";
 		};
 		BD080C594E4B7850478A460A /* Frameworks */ = {
@@ -329,13 +397,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02952B2B28BE22DA00B2F43F /* LoginViewController.swift in Sources */,
 				0286246C28BCBE00006C12C5 /* OnboardingViewController.swift in Sources */,
 				023EEAD528BCF9D700446893 /* OnboardingViewModel.swift in Sources */,
 				0286246828BCBE00006C12C5 /* AppDelegate.swift in Sources */,
 				023EEAC928BCD0CE00446893 /* R.generated.swift in Sources */,
+				02952B3028BE2A8C00B2F43F /* SplashScreenViewController.swift in Sources */,
+				02952B3328BE2BA800B2F43F /* AppFlowNavigationController.swift in Sources */,
 				02952B2228BDDE7D00B2F43F /* OnboardingModel.swift in Sources */,
 				02952B2428BDE6D800B2F43F /* OnboardingView.swift in Sources */,
 				023EEAD028BCE86700446893 /* OnboardingCollectionView.swift in Sources */,
+				02952B2D28BE22F000B2F43F /* LoginView.swift in Sources */,
 				023EEAD228BCE89900446893 /* OnboardingCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -493,7 +565,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -522,7 +594,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

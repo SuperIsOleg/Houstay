@@ -17,6 +17,11 @@ class OnboardingViewController: UIViewController {
         onboardingView.getOnboardingCollectionView().reloadData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        super.viewWillAppear(animated)
+    }
+    
     private func setupLayout() {
         onboardingView.getOnboardingCollectionView().delegate = self
         onboardingView.getOnboardingCollectionView().dataSource = self
@@ -50,7 +55,7 @@ extension OnboardingViewController: UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let sizeForItemAt = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        let sizeForItemAt = CGSize(width: UIScreen.main.bounds.width, height: collectionView.frame.height + 20)
         return sizeForItemAt
     }
     
@@ -67,7 +72,9 @@ extension OnboardingViewController: OnboardingViewDelegate {
     func nextAction() {
         
         if viewModel.onboardingSlide.count - 1 == onboardingView.getPageControll().currentPage {
-            print("Push")
+            UserDefaults.standard.set(true, forKey: "isFirstLaunch")
+            let loginViewController = LoginViewController()
+            self.navigationController?.pushViewController(loginViewController, animated: true)
         } else {
             onboardingView.getPageControll().currentPage += 1
             onboardingView.getOnboardingCollectionView().isPagingEnabled = false

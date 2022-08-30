@@ -14,8 +14,11 @@ class OnboardingCollectionView: UICollectionView {
     init() {
         super.init(frame: .zero, collectionViewLayout: layout)
         layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 0
         contentInset = .zero
         showsHorizontalScrollIndicator = false
+        showsVerticalScrollIndicator = false
+        isPagingEnabled = true
         register(OnboardingCollectionViewCell.self, forCellWithReuseIdentifier: OnboardingCollectionViewCell.identifier)
     }
     

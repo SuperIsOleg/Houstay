@@ -12,7 +12,7 @@ class OnboardingCollectionViewCell: UICollectionViewCell {
     
     private let onboardingImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleToFill
         imageView.image = R.image.onboarding1()
         return imageView
     }()

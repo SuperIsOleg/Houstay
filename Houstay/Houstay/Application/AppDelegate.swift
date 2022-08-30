@@ -14,8 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
+        
+        let appFlowNavigationController = AppFlowNavigationController()
         window?.makeKeyAndVisible()
-        window?.rootViewController = OnboardingViewController()
+        window?.rootViewController = appFlowNavigationController
         window?.overrideUserInterfaceStyle = .light
         return true
     }

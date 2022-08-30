@@ -14,7 +14,6 @@ protocol OnboardingViewDelegate {
 class OnboardingView: UIView {
     private let onboardingCollectionView: OnboardingCollectionView = {
         let collectionView = OnboardingCollectionView()
-        collectionView.isPagingEnabled = true
         return collectionView
     }()
     
@@ -24,6 +23,8 @@ class OnboardingView: UIView {
         pageControll.pageIndicatorTintColor = R.color.white500()
         pageControll.numberOfPages = 3
         pageControll.currentPage = 0
+        pageControll.contentMode = .left
+        pageControll.contentHorizontalAlignment = .left
         pageControll.isUserInteractionEnabled = false
         return pageControll
     }()
@@ -41,8 +42,9 @@ class OnboardingView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupLayout()
+        setIndicatorImage()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -69,6 +71,12 @@ class OnboardingView: UIView {
         }
         
         nextButton.addTarget(self, action: #selector(nextTap), for: .touchUpInside)
+    }
+    
+    private func setIndicatorImage() {
+        for numbers in 0..<pageControll.numberOfPages {
+            pageControll.setIndicatorImage(R.image.whiteRectangle(), forPage: numbers)
+        }
     }
     
     @objc
