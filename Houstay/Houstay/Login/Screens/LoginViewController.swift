@@ -21,9 +21,25 @@ class LoginViewController: UIViewController {
     }
 
     private func setupLayout() {
+        loginView.loginViewDelegate = self
+        
         view.addSubview(loginView)
         loginView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+    }
+}
+
+// MARK: - LoginViewDelegate
+
+extension LoginViewController: LoginViewDelegate {
+    func targetRegistrationViewAction() {
+        let registrationViewController = RegistrationViewController()
+        self.navigationController?.pushViewController(registrationViewController, animated: true)
+    }
+    
+    func targetForgetPasswordViewAction() {
+        let forgetPasswordViewController = ForgetPasswordViewController()
+        self.navigationController?.pushViewController(forgetPasswordViewController, animated: true)
     }
 }

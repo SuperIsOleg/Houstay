@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol LoginViewDelegate {
+    func targetForgetPasswordViewAction()
+    func targetRegistrationViewAction()
+}
+
 class LoginView: BasicView {
     
     private let logoImage: UIImageView = {
@@ -16,7 +21,7 @@ class LoginView: BasicView {
     }()
     
     private let logoLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.text = R.string.localizable.loginTitle()
         label.font = R.font.robotoMedium(size: 24)
         label.textColor = R.color.blue100()
@@ -50,7 +55,7 @@ class LoginView: BasicView {
     }()
     
     private let noAccountLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.text = ""
         label.font = R.font.robotoRegular(size: 14)
         label.textColor = R.color.lnk50()
@@ -58,7 +63,7 @@ class LoginView: BasicView {
     }()
     
     private let forgotPasswordLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.text = R.string.localizable.loginForgotPassword()
         label.font = R.font.robotoRegular(size: 14)
         label.textColor = R.color.lnk100()
@@ -66,13 +71,13 @@ class LoginView: BasicView {
     }()
     
     private let lineView: UIView = {
-       let view = UIView()
+        let view = UIView()
         view.backgroundColor = R.color.lnk10()
         return view
     }()
     
     private let orLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.text = R.string.localizable.loginOr()
         label.textAlignment = .center
         label.font = R.font.robotoRegular(size: 14)
@@ -98,7 +103,9 @@ class LoginView: BasicView {
         imageView.image = R.image.facebook()
         return imageView
     }()
-
+    
+    internal var loginViewDelegate: LoginViewDelegate?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupLayout()
@@ -166,7 +173,7 @@ class LoginView: BasicView {
             $0.top.equalTo((noAccountLabel).snp.bottom).offset(16)
             $0.centerX.equalToSuperview()
         }
-
+        
         contentView.addSubview(lineView)
         lineView.snp.makeConstraints {
             $0.top.equalTo((forgotPasswordLabel).snp.bottom).offset(35)
@@ -174,7 +181,7 @@ class LoginView: BasicView {
             $0.trailing.equalTo(logInButton)
             $0.height.equalTo(1)
         }
-    
+        
         lineView.addSubview(orLabel)
         orLabel.snp.makeConstraints {
             $0.width.equalTo(50)
@@ -199,6 +206,16 @@ class LoginView: BasicView {
             $0.top.equalTo(googleImage)
             $0.leading.equalTo(googleImage.snp.trailing).offset(20)
         }
+        
+        let gestureForgetPasswordView = UITapGestureRecognizer(target: self, action: #selector(targetForgetPasswordViewDidTapped))
+        gestureForgetPasswordView.numberOfTapsRequired = 1
+        forgotPasswordLabel.isUserInteractionEnabled = true
+        forgotPasswordLabel.addGestureRecognizer(gestureForgetPasswordView)
+        
+        let gestureRegistrationView = UITapGestureRecognizer(target: self, action: #selector(targetRegistrationViewDidTapped))
+        gestureRegistrationView.numberOfTapsRequired = 1
+        noAccountLabel.isUserInteractionEnabled = true
+        noAccountLabel.addGestureRecognizer(gestureRegistrationView)
     }
     
     private func configureTextField() {
@@ -226,11 +243,21 @@ class LoginView: BasicView {
             .foregroundColor: R.color.lnk100() as Any,
             .font: R.font.robotoRegular(size: 14.0) as Any
         ]
-
+        
         noAccountLabelMutableString.addAttributes(blackTextAtributes, range: rangeText)
         
         noAccountLabel.attributedText = noAccountLabelMutableString
-
+        
+    }
+    
+    @objc
+    private func targetForgetPasswordViewDidTapped() {
+        loginViewDelegate?.targetForgetPasswordViewAction()
+    }
+    
+    @objc
+    private func targetRegistrationViewDidTapped() {
+        loginViewDelegate?.targetRegistrationViewAction()
     }
 }
 

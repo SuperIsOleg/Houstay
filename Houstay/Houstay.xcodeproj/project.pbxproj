@@ -27,6 +27,10 @@
 		A2B3E143E9556E544620167E /* Pods_Houstay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB75DE0874EAEC3C2A7D2F45 /* Pods_Houstay.framework */; };
 		F4480ACB28BE7011001AA98B /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4480ACA28BE7011001AA98B /* CustomTextField.swift */; };
 		F4480ACD28BE8E99001AA98B /* BasicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4480ACC28BE8E99001AA98B /* BasicView.swift */; };
+		F4480AD228BE95A1001AA98B /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4480AD128BE95A1001AA98B /* ForgetPasswordViewController.swift */; };
+		F4480AD428BE95C6001AA98B /* ForgetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4480AD328BE95C6001AA98B /* ForgetPasswordView.swift */; };
+		F4480ADA28BE9ED6001AA98B /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4480AD928BE9ED6001AA98B /* RegistrationViewController.swift */; };
+		F4480ADC28BE9EEC001AA98B /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4480ADB28BE9EEC001AA98B /* RegistrationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +57,10 @@
 		B865715D735DC631BA84A24E /* Pods-Houstay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Houstay.release.xcconfig"; path = "Target Support Files/Pods-Houstay/Pods-Houstay.release.xcconfig"; sourceTree = "<group>"; };
 		F4480ACA28BE7011001AA98B /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		F4480ACC28BE8E99001AA98B /* BasicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicView.swift; sourceTree = "<group>"; };
+		F4480AD128BE95A1001AA98B /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
+		F4480AD328BE95C6001AA98B /* ForgetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordView.swift; sourceTree = "<group>"; };
+		F4480AD928BE9ED6001AA98B /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		F4480ADB28BE9EEC001AA98B /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		FB75DE0874EAEC3C2A7D2F45 /* Pods_Houstay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Houstay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -125,10 +133,12 @@
 			children = (
 				0286247B28BCC7CE006C12C5 /* Application */,
 				02952B3128BE2B7000B2F43F /* Appflow */,
-				F4480AC928BE6FD4001AA98B /* CustomView */,
 				02952B2E28BE2A2E00B2F43F /* SplashScreen */,
+				F4480AC928BE6FD4001AA98B /* CustomView */,
 				0286247E28BCC870006C12C5 /* Onboarding */,
 				02952B2528BE225900B2F43F /* Login */,
+				F4480AD528BE9E46001AA98B /* Registration */,
+				F4480ACE28BE951A001AA98B /* ForgetPassword */,
 			);
 			path = Houstay;
 			sourceTree = "<group>";
@@ -274,6 +284,56 @@
 			path = CustomView;
 			sourceTree = "<group>";
 		};
+		F4480ACE28BE951A001AA98B /* ForgetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				F4480ACF28BE9538001AA98B /* Screens */,
+				F4480AD128BE95A1001AA98B /* ForgetPasswordViewController.swift */,
+			);
+			path = ForgetPassword;
+			sourceTree = "<group>";
+		};
+		F4480ACF28BE9538001AA98B /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				F4480AD028BE955B001AA98B /* Views */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		F4480AD028BE955B001AA98B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F4480AD328BE95C6001AA98B /* ForgetPasswordView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F4480AD528BE9E46001AA98B /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				F4480AD628BE9EA6001AA98B /* Screens */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		F4480AD628BE9EA6001AA98B /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				F4480AD728BE9EB1001AA98B /* Views */,
+				F4480AD928BE9ED6001AA98B /* RegistrationViewController.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		F4480AD728BE9EB1001AA98B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F4480ADB28BE9EEC001AA98B /* RegistrationView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -414,10 +474,14 @@
 				F4480ACB28BE7011001AA98B /* CustomTextField.swift in Sources */,
 				02952B2B28BE22DA00B2F43F /* LoginViewController.swift in Sources */,
 				0286246C28BCBE00006C12C5 /* OnboardingViewController.swift in Sources */,
+				F4480ADC28BE9EEC001AA98B /* RegistrationView.swift in Sources */,
 				023EEAD528BCF9D700446893 /* OnboardingViewModel.swift in Sources */,
 				0286246828BCBE00006C12C5 /* AppDelegate.swift in Sources */,
 				023EEAC928BCD0CE00446893 /* R.generated.swift in Sources */,
 				02952B3028BE2A8C00B2F43F /* SplashScreenViewController.swift in Sources */,
+				F4480AD228BE95A1001AA98B /* ForgetPasswordViewController.swift in Sources */,
+				F4480ADA28BE9ED6001AA98B /* RegistrationViewController.swift in Sources */,
+				F4480AD428BE95C6001AA98B /* ForgetPasswordView.swift in Sources */,
 				F4480ACD28BE8E99001AA98B /* BasicView.swift in Sources */,
 				02952B3328BE2BA800B2F43F /* AppFlowNavigationController.swift in Sources */,
 				02952B2228BDDE7D00B2F43F /* OnboardingModel.swift in Sources */,
