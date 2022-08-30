@@ -65,4 +65,10 @@ class OnboardingCollectionViewCell: UICollectionViewCell {
         }
         
     }
+    
+    internal func configure(_ onboardingModel: OnboardingModel) {
+        self.onboardingImage.image = onboardingModel.image
+        self.titleLabel.text = onboardingModel.title
+        self.descriptionLabel.text = onboardingModel.description
+    }
 }

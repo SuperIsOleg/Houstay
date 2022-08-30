@@ -8,5 +8,15 @@
 
 // Mark: Onboarding1
 
-onboarding1.title = "Welcome to Houstay";
-onboarding1.description = "accommodation search platform № 1 online in Belarus";
+onboarding1.title = "Добро пожаловать в Houstay";
+onboarding1.description = "платформа для поиска жилья № 1 в Беларуси";
+
+// Mark: Onboarding2
+
+onboarding2.title = "Испытайте комфорт проживания";
+onboarding2.description = "быстро, дружелюбно и очень точно";
+
+// Mark: Onboarding3
+
+onboarding3.title = "Смело выбирайте с Houstay";
+onboarding3.description = "1000+ комфортабельных аппартаментов по всей Белурси";

@@ -18,6 +18,8 @@
 		0286246C28BCBE00006C12C5 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0286246B28BCBE00006C12C5 /* OnboardingViewController.swift */; };
 		0286247128BCBE04006C12C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0286247028BCBE04006C12C5 /* Assets.xcassets */; };
 		0286247428BCBE04006C12C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0286247228BCBE04006C12C5 /* LaunchScreen.storyboard */; };
+		02952B2228BDDE7D00B2F43F /* OnboardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02952B2128BDDE7D00B2F43F /* OnboardingModel.swift */; };
+		02952B2428BDE6D800B2F43F /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02952B2328BDE6D800B2F43F /* OnboardingView.swift */; };
 		A2B3E143E9556E544620167E /* Pods_Houstay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB75DE0874EAEC3C2A7D2F45 /* Pods_Houstay.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +37,8 @@
 		0286247028BCBE04006C12C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0286247328BCBE04006C12C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0286247528BCBE04006C12C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02952B2128BDDE7D00B2F43F /* OnboardingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingModel.swift; sourceTree = "<group>"; };
+		02952B2328BDE6D800B2F43F /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		80C35C1268B3C39A509A9F6B /* Pods-Houstay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Houstay.debug.xcconfig"; path = "Target Support Files/Pods-Houstay/Pods-Houstay.debug.xcconfig"; sourceTree = "<group>"; };
 		B865715D735DC631BA84A24E /* Pods-Houstay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Houstay.release.xcconfig"; path = "Target Support Files/Pods-Houstay/Pods-Houstay.release.xcconfig"; sourceTree = "<group>"; };
 		FB75DE0874EAEC3C2A7D2F45 /* Pods_Houstay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Houstay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,8 +142,9 @@
 		0286247E28BCC870006C12C5 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				023EEAD328BCF9B200446893 /* ViewModel */,
 				0286247F28BCC897006C12C5 /* Screens */,
+				023EEAD328BCF9B200446893 /* ViewModel */,
+				02952B1F28BDDE4000B2F43F /* Model */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -157,8 +162,17 @@
 			isa = PBXGroup;
 			children = (
 				023EEACE28BCE71400446893 /* CollectionView */,
+				02952B2328BDE6D800B2F43F /* OnboardingView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		02952B1F28BDDE4000B2F43F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				02952B2128BDDE7D00B2F43F /* OnboardingModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		BD080C594E4B7850478A460A /* Frameworks */ = {
@@ -319,6 +333,8 @@
 				023EEAD528BCF9D700446893 /* OnboardingViewModel.swift in Sources */,
 				0286246828BCBE00006C12C5 /* AppDelegate.swift in Sources */,
 				023EEAC928BCD0CE00446893 /* R.generated.swift in Sources */,
+				02952B2228BDDE7D00B2F43F /* OnboardingModel.swift in Sources */,
+				02952B2428BDE6D800B2F43F /* OnboardingView.swift in Sources */,
 				023EEAD028BCE86700446893 /* OnboardingCollectionView.swift in Sources */,
 				023EEAD228BCE89900446893 /* OnboardingCollectionViewCell.swift in Sources */,
 			);
