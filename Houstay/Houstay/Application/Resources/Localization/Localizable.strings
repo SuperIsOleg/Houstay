@@ -24,3 +24,4 @@ onboarding3.description = "1000+ комфортабельных аппартам
 // Mark: Login
 
 login.title = "Houstay";
+login.login = "Войти";
