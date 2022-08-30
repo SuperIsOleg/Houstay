@@ -25,3 +25,9 @@ onboarding3.description = "1000+ комфортабельных аппартам
 
 login.title = "Houstay";
 login.login = "Войти";
+login.mail = "Эл. почта";
+login.password = "Пароль";
+login.noAccount = "Нет аккаунта?";
+login.registration = "Регистрация";
+login.forgotPassword = "Забыли пароль?";
+login.or = "Или";

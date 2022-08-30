@@ -23,16 +23,16 @@ class LoginView: UIView {
         return label
     }()
     
-    private let emailTextField: UITextField = {
-        let textField = UITextField()
+    private let emailTextField: CustomTextField = {
+        let textField = CustomTextField()
         textField.layer.cornerRadius = 12
         textField.layer.borderWidth = 1
         textField.layer.borderColor = R.color.blue100()?.cgColor
         return textField
     }()
     
-    private let passwordTextField: UITextField = {
-        let textField = UITextField()
+    private let passwordTextField: CustomTextField = {
+        let textField = CustomTextField()
         textField.layer.cornerRadius = 12
         textField.layer.borderWidth = 1
         textField.layer.borderColor = R.color.blue100()?.cgColor
@@ -49,9 +49,61 @@ class LoginView: UIView {
         return button
     }()
     
+    private let noAccountLabel: UILabel = {
+       let label = UILabel()
+        label.text = ""
+        label.font = R.font.robotoRegular(size: 14)
+        label.textColor = R.color.lnk50()
+        return label
+    }()
+    
+    private let forgotPasswordLabel: UILabel = {
+       let label = UILabel()
+        label.text = R.string.localizable.loginForgotPassword()
+        label.font = R.font.robotoRegular(size: 14)
+        label.textColor = R.color.lnk100()
+        return label
+    }()
+    
+    private let lineView: UIView = {
+       let view = UIView()
+        view.backgroundColor = R.color.lnk10()
+        return view
+    }()
+    
+    private let orLabel: UILabel = {
+       let label = UILabel()
+        label.text = R.string.localizable.loginOr()
+        label.textAlignment = .center
+        label.font = R.font.robotoRegular(size: 14)
+        label.textColor = R.color.lnk50()
+        label.backgroundColor = R.color.white500()
+        return label
+    }()
+    
+    private let appleImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = R.image.apple()
+        return imageView
+    }()
+    
+    private let googleImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = R.image.google()
+        return imageView
+    }()
+    
+    private let facebookImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = R.image.facebook()
+        return imageView
+    }()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupLayout()
+        configureTextField()
+        configureLabel()
     }
     
     required init?(coder: NSCoder) {
@@ -59,6 +111,9 @@ class LoginView: UIView {
     }
     
     private func setupLayout() {
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        
         self.backgroundColor = R.color.white500()
         self.addSubview(logoImage)
         logoImage.snp.makeConstraints {
@@ -85,20 +140,102 @@ class LoginView: UIView {
         self.addSubview(passwordTextField)
         passwordTextField.snp.makeConstraints {
             $0.top.equalTo(emailTextField.snp.bottom).offset(16)
-            $0.leading.equalToSuperview().offset(16)
-            $0.trailing.equalToSuperview().offset(-16)
-            $0.centerX.equalToSuperview()
+            $0.leading.equalTo(emailTextField)
+            $0.trailing.equalTo(emailTextField)
+            $0.centerX.equalTo(emailTextField)
             $0.height.equalTo(50)
         }
         
         self.addSubview(logInButton)
         logInButton.snp.makeConstraints {
             $0.top.equalTo(passwordTextField.snp.bottom).offset(30)
-            $0.leading.equalToSuperview().offset(16)
-            $0.trailing.equalToSuperview().offset(-16)
-            $0.centerX.equalToSuperview()
+            $0.leading.equalTo(emailTextField)
+            $0.trailing.equalTo(emailTextField)
+            $0.centerX.equalTo(emailTextField)
             $0.height.equalTo(50)
         }
         
+        self.addSubview(noAccountLabel)
+        noAccountLabel.snp.makeConstraints {
+            $0.top.equalTo(logInButton.snp.bottom).offset(24)
+            $0.centerX.equalToSuperview()
+        }
+        
+        self.addSubview(forgotPasswordLabel)
+        forgotPasswordLabel.snp.makeConstraints {
+            $0.top.equalTo((noAccountLabel).snp.bottom).offset(16)
+            $0.centerX.equalToSuperview()
+        }
+
+        self.addSubview(lineView)
+        lineView.snp.makeConstraints {
+            $0.top.equalTo((forgotPasswordLabel).snp.bottom).offset(35)
+            $0.leading.equalTo(logInButton)
+            $0.trailing.equalTo(logInButton)
+            $0.height.equalTo(1)
+        }
+    
+        lineView.addSubview(orLabel)
+        orLabel.snp.makeConstraints {
+            $0.width.equalTo(50)
+            $0.centerX.centerY.equalToSuperview()
+        }
+        
+        self.addSubview(googleImage)
+        googleImage.snp.makeConstraints {
+            $0.top.equalTo((lineView).snp.bottom).offset(35)
+            $0.centerX.equalToSuperview()
+        }
+        
+        self.addSubview(appleImage)
+        appleImage.snp.makeConstraints {
+            $0.top.equalTo(googleImage)
+            $0.trailing.equalTo(googleImage.snp.leading).offset(-20)
+        }
+        
+        self.addSubview(facebookImage)
+        facebookImage.snp.makeConstraints {
+            $0.top.equalTo(googleImage)
+            $0.leading.equalTo(googleImage.snp.trailing).offset(20)
+        }
+    }
+    
+    private func configureTextField() {
+        emailTextField.placeholder = NSLocalizedString(R.string.localizable.loginMail(), comment: "")
+        emailTextField.font = R.font.robotoRegular(size: 16.0)
+        emailTextField.returnKeyType = .done
+        emailTextField.clearButtonMode = .whileEditing
+        
+        passwordTextField.placeholder = NSLocalizedString(R.string.localizable.loginPassword(), comment: "")
+        passwordTextField.font = R.font.robotoRegular(size: 16.0)
+        passwordTextField.returnKeyType = .done
+        passwordTextField.clearButtonMode = .whileEditing
+    }
+    
+    private func configureLabel() {
+        let noAccountString = R.string.localizable.loginNoAccount()
+        let registrationString = R.string.localizable.loginRegistration()
+        
+        let text = "\(noAccountString) \(registrationString)"
+        
+        let noAccountLabelMutableString = NSMutableAttributedString(string: text)
+        let rangeText = NSString(string: text).range(of: registrationString)
+        
+        let blackTextAtributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: R.color.lnk100() as Any,
+            .font: R.font.robotoRegular(size: 14.0) as Any
+        ]
+
+        noAccountLabelMutableString.addAttributes(blackTextAtributes, range: rangeText)
+        
+        noAccountLabel.attributedText = noAccountLabelMutableString
+
+    }
+}
+
+extension LoginView: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
