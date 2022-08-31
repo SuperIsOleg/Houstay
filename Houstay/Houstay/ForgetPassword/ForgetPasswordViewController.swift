@@ -13,6 +13,9 @@ class ForgetPasswordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        forgetPasswordView.forgetPasswordViewDelegate = self
+        
+        self.hideKeyboardOnTap()
         setupLayout()
     }
     
@@ -27,5 +30,16 @@ class ForgetPasswordViewController: UIViewController {
             $0.edges.equalToSuperview()
         }
     }
-   
+
+}
+
+extension ForgetPasswordViewController: ForgetPasswordViewDelegate {
+    func targetRegistrationViewAction() {
+        let registrationViewController = RegistrationViewController()
+        registrationViewController.modalTransitionStyle = .flipHorizontal
+        navigationController?.navigationBar.tintColor = R.color.blue100()
+        self.navigationController?.pushViewController(registrationViewController, animated: true)
+    }
+    
+    
 }

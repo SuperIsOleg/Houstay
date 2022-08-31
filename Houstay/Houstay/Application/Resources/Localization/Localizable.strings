@@ -31,3 +31,9 @@ login.noAccount = "Нет аккаунта?";
 login.registration = "Регистрация";
 login.forgotPassword = "Забыли пароль?";
 login.or = "Или";
+
+// Mark: ForgotPassword
+
+forgotPassword.forgotPassword = "Забыли пароль";
+forgotPassword.continue = "Продолжить";
+forgotPassword.mail = "Введите адрес эл. почты";

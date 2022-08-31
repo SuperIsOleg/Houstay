@@ -13,7 +13,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
-        self.hiseKeyboardOnTap()
+        self.hideKeyboardOnTap()
     }
     
     override func viewWillAppear(_ animated: Bool) {
