@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class AppFlowNavigationController: UINavigationController {
     
@@ -20,8 +21,16 @@ class AppFlowNavigationController: UINavigationController {
     
     private func mainFlowSetup() {
         if UserDefaults.standard.bool(forKey: "isFirstLaunch") {
-            let loginViewController = LoginViewController()
-            self.setViewControllers([loginViewController], animated: false)
+            Auth.auth().addStateDidChangeListener { (auth, user) in
+                if user == nil {
+                    let loginViewController = LoginViewController()
+                    self.setViewControllers([loginViewController], animated: false)
+                } else {
+                    let homeViewController = HomeViewController()
+                    self.setViewControllers([homeViewController], animated: false)
+                }
+            }
+            
         } else {
             let onboardingViewController = OnboardingViewController()
             self.setViewControllers([onboardingViewController], animated: false)

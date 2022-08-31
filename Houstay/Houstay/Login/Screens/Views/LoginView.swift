@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 protocol LoginViewDelegate {
     func targetForgetPasswordViewAction()
@@ -258,6 +259,21 @@ class LoginView: BasicView {
 
 extension LoginView: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let email = emailTextField.text!
+        let password = passwordTextField.text!
+        
+        if (!email.isEmpty && !password.isEmpty) {
+            Auth.auth().signIn(withEmail: email, password: password) { result, error in
+                if error == nil {
+                    print("Вход выполнен")
+                } else {
+                    print("Вход не выполнен")
+                }
+            }
+        } else {
+            print("заполните поля")
+        }
+        
         textField.resignFirstResponder()
         return true
     }

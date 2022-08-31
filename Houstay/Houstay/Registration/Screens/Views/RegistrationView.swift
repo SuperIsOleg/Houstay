@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class RegistrationView: BasicView {
     
@@ -253,7 +254,27 @@ class RegistrationView: BasicView {
 
 extension RegistrationView: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        let name = enterAccountNameTextField.text!
+        let email = mailTextField.text!
+        let password = enterNewPasswordTextField.text!
+        
+        if (!name.isEmpty && !email.isEmpty && !password.isEmpty) {
+            Auth.auth().createUser(withEmail: email, password: password) { result, error in
+                if error == nil {
+                    if let result = result {
+                        print(result.user.uid)
+                        let reference = Database.database().reference().child("users")
+                        reference.child(result.user.uid).updateChildValues(["name": name, "email": email])
+                    }
+                }
+            }
+        } else {
+            print("заполните поля")
+        }
+        
         textField.resignFirstResponder()
         return true
     }
+    
 }
