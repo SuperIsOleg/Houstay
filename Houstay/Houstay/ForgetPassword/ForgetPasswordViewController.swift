@@ -30,10 +30,19 @@ class ForgetPasswordViewController: UIViewController {
             $0.edges.equalToSuperview()
         }
     }
-
+    
 }
 
 extension ForgetPasswordViewController: ForgetPasswordViewDelegate {
+    func continueButtonAction() {
+        let chekPasswordViewController = ChekPasswordViewController()
+        guard let text = forgetPasswordView.setEmailTextField().text else { return }
+        chekPasswordViewController.setChekPasswordView().configurePasswordAccountLabel(emalString: text)
+        chekPasswordViewController.modalTransitionStyle = .flipHorizontal
+        navigationController?.navigationBar.tintColor = R.color.blue100()
+        self.navigationController?.pushViewController(chekPasswordViewController, animated: true)
+    }
+    
     func targetRegistrationViewAction() {
         let registrationViewController = RegistrationViewController()
         registrationViewController.modalTransitionStyle = .flipHorizontal

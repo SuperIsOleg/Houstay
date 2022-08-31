@@ -9,6 +9,8 @@ import UIKit
 
 protocol ForgetPasswordViewDelegate {
     func targetRegistrationViewAction()
+    func continueButtonAction()
+    
 }
 
 class ForgetPasswordView: BasicView {
@@ -80,7 +82,6 @@ class ForgetPasswordView: BasicView {
             $0.top.equalTo(forgetPasswordogoLabel.snp.bottom).offset(40)
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().offset(-16)
-            $0.centerX.equalToSuperview()
             $0.height.equalTo(50)
         }
         
@@ -89,7 +90,6 @@ class ForgetPasswordView: BasicView {
             $0.top.equalTo(emailTextField.snp.bottom).offset(30)
             $0.leading.equalTo(emailTextField)
             $0.trailing.equalTo(emailTextField)
-            $0.centerX.equalTo(emailTextField)
             $0.height.equalTo(50)
         }
         
@@ -98,6 +98,8 @@ class ForgetPasswordView: BasicView {
             $0.top.equalTo(continueButton.snp.bottom).offset(24)
             $0.centerX.equalToSuperview()
         }
+        
+        continueButton.addTarget(self, action: #selector(continueButtonTap), for: .touchUpInside)
         
         let gestureRegistrationView = UITapGestureRecognizer(target: self, action: #selector(targetRegistrationViewDidTapped))
         gestureRegistrationView.numberOfTapsRequired = 1
@@ -124,9 +126,20 @@ class ForgetPasswordView: BasicView {
         noAccountLabel.attributedText = noAccountLabelMutableString
     }
     
+    internal func setEmailTextField() -> CustomTextField {
+        return emailTextField
+    }
+    
+    
+    
     @objc
     private func targetRegistrationViewDidTapped() {
         forgetPasswordViewDelegate?.targetRegistrationViewAction()
+    }
+    
+    @objc
+    private func continueButtonTap() {
+        forgetPasswordViewDelegate?.continueButtonAction()
     }
  
 }

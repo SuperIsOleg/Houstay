@@ -37,3 +37,12 @@ login.or = "Или";
 forgotPassword.forgotPassword = "Забыли пароль";
 forgotPassword.continue = "Продолжить";
 forgotPassword.mail = "Введите адрес эл. почты";
+
+// Mark: ChekPassword
+
+chekPassword.verifyAccount = "Подтвердите учетную запись";
+chekPassword.passwordAccount = "Вам отправлен 4-х значный код на вашу электронную почту";
+chekPassword.dontGetPasswordAccount = "Вы не получили код?";
+chekPassword.sendPasswordAccount = "Отправить";
+chekPassword.continue = "Продолжить";
+
