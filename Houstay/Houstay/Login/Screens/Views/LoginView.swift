@@ -242,9 +242,7 @@ class LoginView: BasicView {
         ]
         
         noAccountLabelMutableString.addAttributes(blackTextAtributes, range: rangeText)
-        
         noAccountLabel.attributedText = noAccountLabelMutableString
-        
     }
     
     @objc

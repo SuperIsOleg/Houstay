@@ -32,15 +32,26 @@ login.registration = "Регистрация";
 login.forgotPassword = "Забыли пароль?";
 login.or = "Или";
 
+// Mark: Registration
+
+registration.title = "Зарегистрируйте новую учетную запись";
+registration.enterAccountName = "Введите имя учетной записи";
+registration.mail = "Введите адрес эл. почты";
+registration.enterNewPassword = "Введите новый пароль";
+registration.savePassword = "Повторите пароль";
+registration.register = "Зарегистрироваться";
+registration.tapRegister = "Нажимая «Зарегистрироваться», вы соглашаетесь c";
+registration.termOfUse = "нашими Условиями использования.";
+
 // Mark: ForgotPassword
 
-forgotPassword.forgotPassword = "Забыли пароль";
+forgotPassword.title = "Забыли пароль";
 forgotPassword.continue = "Продолжить";
 forgotPassword.mail = "Введите адрес эл. почты";
 
 // Mark: ChekPassword
 
-chekPassword.verifyAccount = "Подтвердите учетную запись";
+chekPassword.title = "Подтвердите учетную запись";
 chekPassword.passwordAccount = "Вам отправлен 4-х значный код на вашу электронную почту";
 chekPassword.dontGetPasswordAccount = "Вы не получили код?";
 chekPassword.sendPasswordAccount = "Отправить";
@@ -48,7 +59,7 @@ chekPassword.continue = "Продолжить";
 
 // Mark: CreateNewPassword
 
-createNewPassword.createNewPassword = "Создайте новый пароль";
+createNewPassword.title = "Создайте новый пароль";
 createNewPassword.enterNewPassword = "Введите новый пароль";
 createNewPassword.repeatPassword = "Повторите пароль";
 createNewPassword.savePassword = "Сохранить";

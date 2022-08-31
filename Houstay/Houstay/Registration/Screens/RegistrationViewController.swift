@@ -13,6 +13,7 @@ class RegistrationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardOnTap()
         setupLayout()
     }
     

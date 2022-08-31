@@ -16,7 +16,7 @@ class ChekPasswordView: BasicView {
     
     private let verifyAccountLabel: UILabel = {
         let label = UILabel()
-        label.text = R.string.localizable.chekPasswordVerifyAccount()
+        label.text = R.string.localizable.chekPasswordTitle()
         label.font = R.font.robotoMedium(size: 24)
         label.textColor = R.color.lnk100()
         label.numberOfLines = 0

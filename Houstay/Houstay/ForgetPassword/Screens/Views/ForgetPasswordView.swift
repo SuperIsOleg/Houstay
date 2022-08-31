@@ -17,7 +17,7 @@ class ForgetPasswordView: BasicView {
     
     private let forgetPasswordogoLabel: UILabel = {
         let label = UILabel()
-        label.text = R.string.localizable.forgotPasswordForgotPassword()
+        label.text = R.string.localizable.forgotPasswordTitle()
         label.font = R.font.robotoMedium(size: 24)
         label.textColor = R.color.lnk100()
         return label

@@ -9,9 +9,9 @@ import UIKit
 
 class CreateNewPasswordView: BasicView {
     
-    private let verifyAccountLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = R.string.localizable.createNewPasswordCreateNewPassword()
+        label.text = R.string.localizable.createNewPasswordTitle()
         label.font = R.font.robotoMedium(size: 24)
         label.textColor = R.color.lnk100()
         label.numberOfLines = 0
@@ -69,15 +69,15 @@ class CreateNewPasswordView: BasicView {
         repeatPasswordTextField.delegate = self
         
         self.backgroundColor = R.color.white500()
-        contentView.addSubview(verifyAccountLabel)
-        verifyAccountLabel.snp.makeConstraints {
+        contentView.addSubview(titleLabel)
+        titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(50)
             $0.centerX.equalToSuperview()
         }
         
         contentView.addSubview(enterNewPasswordTextField)
         enterNewPasswordTextField.snp.makeConstraints {
-            $0.top.equalTo(verifyAccountLabel.snp.bottom).offset(40)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(40)
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().offset(-16)
             $0.centerX.equalToSuperview()
