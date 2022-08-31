@@ -211,7 +211,7 @@ class ChekPasswordView: BasicView {
     
     @objc
     private func continueButtonTap() {
-       
+        chekPasswordViewDelegate?.continueButtonAction()
     }
  
 }

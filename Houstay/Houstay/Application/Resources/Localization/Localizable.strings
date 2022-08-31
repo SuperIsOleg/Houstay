@@ -46,3 +46,9 @@ chekPassword.dontGetPasswordAccount = "Вы не получили код?";
 chekPassword.sendPasswordAccount = "Отправить";
 chekPassword.continue = "Продолжить";
 
+// Mark: CreateNewPassword
+
+createNewPassword.createNewPassword = "Создайте новый пароль";
+createNewPassword.enterNewPassword = "Введите новый пароль";
+createNewPassword.repeatPassword = "Повторите пароль";
+createNewPassword.savePassword = "Сохранить";

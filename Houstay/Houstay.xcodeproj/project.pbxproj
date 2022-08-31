@@ -27,6 +27,8 @@
 		02C4FEFE28BF3946005869F1 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C4FEFD28BF3946005869F1 /* UIViewController+Extensions.swift */; };
 		02C4FF0328BF6281005869F1 /* ChekPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C4FF0228BF6281005869F1 /* ChekPasswordViewController.swift */; };
 		02C4FF0528BF629C005869F1 /* ChekPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C4FF0428BF629C005869F1 /* ChekPasswordView.swift */; };
+		02C4FF0A28BF7F3C005869F1 /* CreateNewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C4FF0928BF7F3C005869F1 /* CreateNewPasswordViewController.swift */; };
+		02C4FF0C28BF7F54005869F1 /* CreateNewPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C4FF0B28BF7F54005869F1 /* CreateNewPasswordView.swift */; };
 		A2B3E143E9556E544620167E /* Pods_Houstay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB75DE0874EAEC3C2A7D2F45 /* Pods_Houstay.framework */; };
 		F4480ACB28BE7011001AA98B /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4480ACA28BE7011001AA98B /* CustomTextField.swift */; };
 		F4480ACD28BE8E99001AA98B /* BasicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4480ACC28BE8E99001AA98B /* BasicView.swift */; };
@@ -59,6 +61,8 @@
 		02C4FEFD28BF3946005869F1 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		02C4FF0228BF6281005869F1 /* ChekPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChekPasswordViewController.swift; sourceTree = "<group>"; };
 		02C4FF0428BF629C005869F1 /* ChekPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChekPasswordView.swift; sourceTree = "<group>"; };
+		02C4FF0928BF7F3C005869F1 /* CreateNewPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPasswordViewController.swift; sourceTree = "<group>"; };
+		02C4FF0B28BF7F54005869F1 /* CreateNewPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPasswordView.swift; sourceTree = "<group>"; };
 		80C35C1268B3C39A509A9F6B /* Pods-Houstay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Houstay.debug.xcconfig"; path = "Target Support Files/Pods-Houstay/Pods-Houstay.debug.xcconfig"; sourceTree = "<group>"; };
 		B865715D735DC631BA84A24E /* Pods-Houstay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Houstay.release.xcconfig"; path = "Target Support Files/Pods-Houstay/Pods-Houstay.release.xcconfig"; sourceTree = "<group>"; };
 		F4480ACA28BE7011001AA98B /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -145,6 +149,7 @@
 				F4480AD528BE9E46001AA98B /* Registration */,
 				F4480ACE28BE951A001AA98B /* ForgetPassword */,
 				02C4FEFF28BF6232005869F1 /* ChekPassword */,
+				02C4FF0628BF7EDD005869F1 /* CreateNewPassword */,
 			);
 			path = Houstay;
 			sourceTree = "<group>";
@@ -295,6 +300,31 @@
 			isa = PBXGroup;
 			children = (
 				02C4FF0428BF629C005869F1 /* ChekPasswordView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		02C4FF0628BF7EDD005869F1 /* CreateNewPassword */ = {
+			isa = PBXGroup;
+			children = (
+				02C4FF0728BF7F0D005869F1 /* Screens */,
+			);
+			path = CreateNewPassword;
+			sourceTree = "<group>";
+		};
+		02C4FF0728BF7F0D005869F1 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				02C4FF0828BF7F18005869F1 /* Views */,
+				02C4FF0928BF7F3C005869F1 /* CreateNewPasswordViewController.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		02C4FF0828BF7F18005869F1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				02C4FF0B28BF7F54005869F1 /* CreateNewPasswordView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -522,6 +552,7 @@
 				023EEAC928BCD0CE00446893 /* R.generated.swift in Sources */,
 				02952B3028BE2A8C00B2F43F /* SplashScreenViewController.swift in Sources */,
 				F4480AD228BE95A1001AA98B /* ForgetPasswordViewController.swift in Sources */,
+				02C4FF0A28BF7F3C005869F1 /* CreateNewPasswordViewController.swift in Sources */,
 				F4480ADA28BE9ED6001AA98B /* RegistrationViewController.swift in Sources */,
 				F4480AD428BE95C6001AA98B /* ForgetPasswordView.swift in Sources */,
 				F4480ACD28BE8E99001AA98B /* BasicView.swift in Sources */,
@@ -533,6 +564,7 @@
 				02952B2D28BE22F000B2F43F /* LoginView.swift in Sources */,
 				02C4FF0528BF629C005869F1 /* ChekPasswordView.swift in Sources */,
 				023EEAD228BCE89900446893 /* OnboardingCollectionViewCell.swift in Sources */,
+				02C4FF0C28BF7F54005869F1 /* CreateNewPasswordView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

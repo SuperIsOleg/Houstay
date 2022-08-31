@@ -23,6 +23,8 @@ class ChekPasswordViewController: UIViewController {
     }
     
     private func setupLayout() {
+        chekPasswordView.chekPasswordViewDelegate = self
+        
         self.view.addSubview(chekPasswordView)
         chekPasswordView.snp.makeConstraints {
             $0.edges.equalToSuperview()
@@ -32,6 +34,19 @@ class ChekPasswordViewController: UIViewController {
     
     internal func setChekPasswordView() -> ChekPasswordView {
         return chekPasswordView
+    }
+    
+}
+
+extension ChekPasswordViewController: ChekPasswordViewDelegate {
+    func targetDontGetPasswordAccountAction() {
+    }
+    
+    func continueButtonAction() {
+        let createNewPasswordViewController = CreateNewPasswordViewController()
+        createNewPasswordViewController.modalTransitionStyle = .flipHorizontal
+        navigationController?.navigationBar.tintColor = R.color.blue100()
+        self.navigationController?.pushViewController(createNewPasswordViewController, animated: true)
     }
     
     
