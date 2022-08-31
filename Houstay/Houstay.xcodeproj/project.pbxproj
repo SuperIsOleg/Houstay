@@ -24,6 +24,7 @@
 		02952B2D28BE22F000B2F43F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02952B2C28BE22F000B2F43F /* LoginView.swift */; };
 		02952B3028BE2A8C00B2F43F /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02952B2F28BE2A8C00B2F43F /* SplashScreenViewController.swift */; };
 		02952B3328BE2BA800B2F43F /* AppFlowNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02952B3228BE2BA800B2F43F /* AppFlowNavigationController.swift */; };
+		02C4FEFE28BF3946005869F1 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C4FEFD28BF3946005869F1 /* UIViewController+Extensions.swift */; };
 		A2B3E143E9556E544620167E /* Pods_Houstay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB75DE0874EAEC3C2A7D2F45 /* Pods_Houstay.framework */; };
 		F4480ACB28BE7011001AA98B /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4480ACA28BE7011001AA98B /* CustomTextField.swift */; };
 		F4480ACD28BE8E99001AA98B /* BasicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4480ACC28BE8E99001AA98B /* BasicView.swift */; };
@@ -53,6 +54,7 @@
 		02952B2C28BE22F000B2F43F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		02952B2F28BE2A8C00B2F43F /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		02952B3228BE2BA800B2F43F /* AppFlowNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowNavigationController.swift; sourceTree = "<group>"; };
+		02C4FEFD28BF3946005869F1 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		80C35C1268B3C39A509A9F6B /* Pods-Houstay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Houstay.debug.xcconfig"; path = "Target Support Files/Pods-Houstay/Pods-Houstay.debug.xcconfig"; sourceTree = "<group>"; };
 		B865715D735DC631BA84A24E /* Pods-Houstay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Houstay.release.xcconfig"; path = "Target Support Files/Pods-Houstay/Pods-Houstay.release.xcconfig"; sourceTree = "<group>"; };
 		F4480ACA28BE7011001AA98B /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -132,7 +134,6 @@
 			isa = PBXGroup;
 			children = (
 				0286247B28BCC7CE006C12C5 /* Application */,
-				02952B3128BE2B7000B2F43F /* Appflow */,
 				02952B2E28BE2A2E00B2F43F /* SplashScreen */,
 				F4480AC928BE6FD4001AA98B /* CustomView */,
 				0286247E28BCC870006C12C5 /* Onboarding */,
@@ -146,6 +147,8 @@
 		0286247B28BCC7CE006C12C5 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				02C4FEFC28BF3902005869F1 /* Extensions */,
+				02952B3128BE2B7000B2F43F /* Appflow */,
 				0286247D28BCC831006C12C5 /* Resources */,
 				0286246728BCBE00006C12C5 /* AppDelegate.swift */,
 			);
@@ -256,6 +259,14 @@
 				02952B3228BE2BA800B2F43F /* AppFlowNavigationController.swift */,
 			);
 			path = Appflow;
+			sourceTree = "<group>";
+		};
+		02C4FEFC28BF3902005869F1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				02C4FEFD28BF3946005869F1 /* UIViewController+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		BD080C594E4B7850478A460A /* Frameworks */ = {
@@ -477,6 +488,7 @@
 				F4480ADC28BE9EEC001AA98B /* RegistrationView.swift in Sources */,
 				023EEAD528BCF9D700446893 /* OnboardingViewModel.swift in Sources */,
 				0286246828BCBE00006C12C5 /* AppDelegate.swift in Sources */,
+				02C4FEFE28BF3946005869F1 /* UIViewController+Extensions.swift in Sources */,
 				023EEAC928BCD0CE00446893 /* R.generated.swift in Sources */,
 				02952B3028BE2A8C00B2F43F /* SplashScreenViewController.swift in Sources */,
 				F4480AD228BE95A1001AA98B /* ForgetPasswordViewController.swift in Sources */,

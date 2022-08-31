@@ -13,8 +13,12 @@ class RegistrationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationBar()
         setupLayout()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     private func setupLayout() {
@@ -23,10 +27,5 @@ class RegistrationViewController: UIViewController {
             $0.edges.equalToSuperview()
         }
     }
-    
-    private func setupNavigationBar() {
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
-    }
-    
-   
+ 
 }

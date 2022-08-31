@@ -33,6 +33,11 @@ class LoginView: BasicView {
         textField.layer.cornerRadius = 12
         textField.layer.borderWidth = 1
         textField.layer.borderColor = R.color.blue100()?.cgColor
+        textField.placeholder = NSLocalizedString(R.string.localizable.loginMail(), comment: "")
+        textField.font = R.font.robotoRegular(size: 16.0)
+        textField.keyboardType = .emailAddress
+        textField.returnKeyType = .done
+        textField.clearButtonMode = .whileEditing
         return textField
     }()
     
@@ -41,6 +46,11 @@ class LoginView: BasicView {
         textField.layer.cornerRadius = 12
         textField.layer.borderWidth = 1
         textField.layer.borderColor = R.color.blue100()?.cgColor
+        textField.placeholder = NSLocalizedString(R.string.localizable.loginPassword(), comment: "")
+        textField.isSecureTextEntry = true
+        textField.font = R.font.robotoRegular(size: 16.0)
+        textField.returnKeyType = .done
+        textField.clearButtonMode = .whileEditing
         return textField
     }()
     
@@ -109,7 +119,6 @@ class LoginView: BasicView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupLayout()
-        configureTextField()
         configureLabel()
     }
     
@@ -124,7 +133,7 @@ class LoginView: BasicView {
         self.backgroundColor = R.color.white500()
         contentView.addSubview(logoImage)
         logoImage.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(150)
+            $0.top.equalToSuperview().offset(110)
             $0.centerX.equalToSuperview()
             $0.height.width.equalTo(90)
         }
@@ -191,7 +200,7 @@ class LoginView: BasicView {
         contentView.addSubview(googleImage)
         googleImage.snp.makeConstraints {
             $0.top.equalTo((lineView).snp.bottom).offset(35)
-            $0.bottom.equalToSuperview()
+            $0.bottom.lessThanOrEqualToSuperview()
             $0.centerX.equalToSuperview()
         }
         
@@ -217,19 +226,7 @@ class LoginView: BasicView {
         noAccountLabel.isUserInteractionEnabled = true
         noAccountLabel.addGestureRecognizer(gestureRegistrationView)
     }
-    
-    private func configureTextField() {
-        emailTextField.placeholder = NSLocalizedString(R.string.localizable.loginMail(), comment: "")
-        emailTextField.font = R.font.robotoRegular(size: 16.0)
-        emailTextField.returnKeyType = .done
-        emailTextField.clearButtonMode = .whileEditing
-        
-        passwordTextField.placeholder = NSLocalizedString(R.string.localizable.loginPassword(), comment: "")
-        passwordTextField.font = R.font.robotoRegular(size: 16.0)
-        passwordTextField.returnKeyType = .done
-        passwordTextField.clearButtonMode = .whileEditing
-    }
-    
+
     private func configureLabel() {
         let noAccountString = R.string.localizable.loginNoAccount()
         let registrationString = R.string.localizable.loginRegistration()
