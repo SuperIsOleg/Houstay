@@ -342,9 +342,8 @@ extension RegistrationView: UITextFieldDelegate {
         return true
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {        
+    func textFieldDidBeginEditing(_ textField: UITextField) {
             if !textField.placeholder!.isEmpty {
-                textField.text = nil
                 self.passwordNotMatchLabel.isHidden = true
                 self.emailIncorrectlyLabel.isHidden = true
                 textField.layer.borderColor = R.color.blue100()?.cgColor

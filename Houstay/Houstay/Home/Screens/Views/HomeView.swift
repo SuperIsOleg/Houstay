@@ -7,7 +7,15 @@
 
 import UIKit
 
+protocol HomeViewDelegate {
+    func exitAction()
+}
+
 class HomeView: BasicView {
+    
+    private let headerView = HeaderView()
+    
+    internal var homeViewDelegate: HomeViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -20,7 +28,34 @@ class HomeView: BasicView {
     }
     
     private func setupLayout() {
+        headerView.headerViewDelegate = self
+        
         contentView.backgroundColor = R.color.blue100()
+        
+        self.addSubview(headerView)
+        headerView.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
+            $0.height.equalTo(140)
+        }
+        
+        contentView.snp.remakeConstraints {
+            $0.top.equalTo(headerView.snp.bottom)
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
+            $0.width.equalToSuperview()
+            $0.bottom.equalToSuperview()
+            $0.height.equalToSuperview().priority(.low)
+        }
     }
+    
+}
+
+extension HomeView: HeaderViewDelegate {
+    func exitAction() {
+        homeViewDelegate?.exitAction()
+    }
+    
     
 }

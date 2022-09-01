@@ -51,6 +51,7 @@ registration.emailIncorrectly = "Не верно введен адрес эле�
 forgotPassword.title = "Забыли пароль";
 forgotPassword.continue = "Продолжить";
 forgotPassword.mail = "Введите адрес эл. почты";
+forgotPassword.emailIsInvalid = "Электронная почта недействительна";
 
 // Mark: ChekPassword
 

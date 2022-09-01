@@ -23,6 +23,15 @@ class ForgetPasswordView: BasicView {
         return label
     }()
     
+    private let stackView: UIStackView = {
+       let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.alignment = .center
+        stackView.distribution = .equalCentering
+        stackView.spacing = 16.0
+        return stackView
+    }()
+    
     private let emailTextField: CustomTextField = {
         let textField = CustomTextField()
         textField.layer.cornerRadius = 12
@@ -34,6 +43,17 @@ class ForgetPasswordView: BasicView {
         textField.returnKeyType = .done
         textField.clearButtonMode = .whileEditing
         return textField
+    }()
+    
+    private let emailIsInvalidLabel: UILabel = {
+        let label = UILabel()
+        label.text = R.string.localizable.forgotPasswordEmailIsInvalid()
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.font = R.font.robotoRegular(size: 14)
+        label.textColor = R.color.red100()
+        label.isHidden = true
+        return label
     }()
     
     private let continueButton: UIButton = {
@@ -77,17 +97,29 @@ class ForgetPasswordView: BasicView {
             $0.centerX.equalToSuperview()
         }
         
-        contentView.addSubview(emailTextField)
-        emailTextField.snp.makeConstraints {
+        contentView.addSubview(stackView)
+        stackView.snp.makeConstraints {
             $0.top.equalTo(forgetPasswordogoLabel.snp.bottom).offset(40)
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
+        }
+        
+        stackView.addArrangedSubview(emailTextField)
+        emailTextField.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().offset(-16)
             $0.height.equalTo(50)
         }
         
+        stackView.addArrangedSubview(emailIsInvalidLabel)
+        emailIsInvalidLabel.snp.makeConstraints {
+            $0.leading.equalTo(emailTextField)
+            $0.trailing.equalTo(emailTextField)
+        }
+        
         contentView.addSubview(continueButton)
         continueButton.snp.makeConstraints {
-            $0.top.equalTo(emailTextField.snp.bottom).offset(30)
+            $0.top.equalTo(stackView.snp.bottom).offset(30)
             $0.leading.equalTo(emailTextField)
             $0.trailing.equalTo(emailTextField)
             $0.height.equalTo(50)
@@ -130,8 +162,10 @@ class ForgetPasswordView: BasicView {
         return emailTextField
     }
     
-    
-    
+    internal func isWrongLoginOrPasswordLabelEnabled() {
+        self.emailIsInvalidLabel.isHidden = false
+    }
+
     @objc
     private func targetRegistrationViewDidTapped() {
         forgetPasswordViewDelegate?.targetRegistrationViewAction()
@@ -148,6 +182,13 @@ extension ForgetPasswordView: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+            if !textField.placeholder!.isEmpty {
+                self.emailIsInvalidLabel.isHidden = true
+                emailTextField.layer.borderColor = R.color.blue100()?.cgColor
+            }
     }
     
 }

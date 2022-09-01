@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ForgetPasswordViewController: UIViewController {
     
@@ -35,12 +36,21 @@ class ForgetPasswordViewController: UIViewController {
 
 extension ForgetPasswordViewController: ForgetPasswordViewDelegate {
     func continueButtonAction() {
-        let chekPasswordViewController = ChekPasswordViewController()
-        guard let text = forgetPasswordView.setEmailTextField().text else { return }
-        chekPasswordViewController.setChekPasswordView().configurePasswordAccountLabel(emalString: text)
-        chekPasswordViewController.modalTransitionStyle = .flipHorizontal
-        navigationController?.navigationBar.tintColor = R.color.blue100()
-        self.navigationController?.pushViewController(chekPasswordViewController, animated: true)
+        let emailTextField = forgetPasswordView.setEmailTextField()
+        guard let textEmailTextField = emailTextField.text else { return }
+        
+        if !textEmailTextField.isEmpty {
+            Auth.auth().sendPasswordReset(withEmail: textEmailTextField) { error in
+                if error == nil {
+                    let loginViewController = LoginViewController()
+                    self.navigationController?.popViewController(animated: true)
+                } else {
+                    self.forgetPasswordView.isWrongLoginOrPasswordLabelEnabled()
+                    emailTextField.layer.borderColor = R.color.red100()?.cgColor
+                }
+            }
+        }
+
     }
     
     func targetRegistrationViewAction() {

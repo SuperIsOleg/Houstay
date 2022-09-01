@@ -21,18 +21,16 @@ class AppFlowNavigationController: UINavigationController {
     
     private func mainFlowSetup() {
         if UserDefaults.standard.bool(forKey: "isFirstLaunch") {
-            Auth.auth().addStateDidChangeListener { (auth, user) in
-                if user == nil {
-                    let loginViewController = LoginViewController()
-                    self.setViewControllers([loginViewController], animated: false)
-                } else {
-                    let loginViewController = LoginViewController()
-                    self.setViewControllers([loginViewController], animated: false)
-//                    let homeViewController = HomeViewController()
-//                    self.setViewControllers([homeViewController], animated: false)
-                }
-            }
-            
+                        Auth.auth().addStateDidChangeListener { (auth, user) in
+                            if user == nil {
+                                let loginViewController = LoginViewController()
+                                self.setViewControllers([loginViewController], animated: false)
+                            } else {
+                                let homeViewController = HomeViewController()
+                                self.setViewControllers([homeViewController], animated: false)
+                            }
+                        }
+     
         } else {
             let onboardingViewController = OnboardingViewController()
             self.setViewControllers([onboardingViewController], animated: false)

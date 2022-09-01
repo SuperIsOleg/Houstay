@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class HomeViewController: UIViewController {
     
@@ -23,6 +24,7 @@ class HomeViewController: UIViewController {
     }
 
     private func setupLayout() {
+        homeView.homeViewDelegate = self
         
         self.view.backgroundColor = R.color.blue100()
         
@@ -32,4 +34,19 @@ class HomeViewController: UIViewController {
         }
     }
 
+}
+
+extension HomeViewController: HomeViewDelegate {
+    func exitAction() {
+        
+        do {
+            try  Auth.auth().signOut()
+        } catch {
+            print("Error") 
+        }
+        
+       
+    }
+    
+    
 }
