@@ -6,7 +6,10 @@
 //
 
 import UIKit
-import Firebase
+
+protocol RegistrationViewDelegate {
+    func registerAction()
+}
 
 class RegistrationView: BasicView {
     
@@ -18,6 +21,15 @@ class RegistrationView: BasicView {
         label.textAlignment = .center
         label.numberOfLines = 0
         return label
+    }()
+    
+    private let stackView: UIStackView = {
+       let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.alignment = .center
+        stackView.distribution = .equalCentering
+        stackView.spacing = 16.0
+        return stackView
     }()
     
     private let enterAccountNameTextField: CustomTextField = {
@@ -44,6 +56,17 @@ class RegistrationView: BasicView {
         textField.clearButtonMode = .whileEditing
         return textField
     }()
+
+    private let emailIncorrectlyLabel: UILabel = {
+        let label = UILabel()
+        label.text = R.string.localizable.registrationEmailIncorrectly()
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.font = R.font.robotoRegular(size: 14)
+        label.textColor = R.color.red100()
+        label.isHidden = true
+        return label
+    }()
     
     private let enterNewPasswordTextField: CustomTextField = {
         let textField = CustomTextField()
@@ -58,7 +81,7 @@ class RegistrationView: BasicView {
         return textField
     }()
     
-    private let savePasswordTextField: CustomTextField = {
+    private let repeatPasswordTextField: CustomTextField = {
         let textField = CustomTextField()
         textField.layer.cornerRadius = 12
         textField.layer.borderWidth = 1
@@ -69,6 +92,17 @@ class RegistrationView: BasicView {
         textField.returnKeyType = .done
         textField.clearButtonMode = .whileEditing
         return textField
+    }()
+    
+    private let passwordNotMatchLabel: UILabel = {
+        let label = UILabel()
+        label.text = R.string.localizable.registrationPasswordNotMatch()
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.font = R.font.robotoRegular(size: 14)
+        label.textColor = R.color.red100()
+        label.isHidden = true
+        return label
     }()
     
     private let termOfUseLabel: UILabel = {
@@ -125,6 +159,8 @@ class RegistrationView: BasicView {
         return imageView
     }()
     
+    internal var registrationViewDelegate: RegistrationViewDelegate?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupLayout()
@@ -139,7 +175,7 @@ class RegistrationView: BasicView {
         enterAccountNameTextField.delegate = self
         mailTextField.delegate = self
         enterNewPasswordTextField.delegate = self
-        savePasswordTextField.delegate = self
+        repeatPasswordTextField.delegate = self
         
         self.backgroundColor = R.color.white500()
         contentView.addSubview(titleLabel)
@@ -149,41 +185,58 @@ class RegistrationView: BasicView {
             $0.trailing.equalToSuperview().offset(-16)
         }
         
-        contentView.addSubview(enterAccountNameTextField)
-        enterAccountNameTextField.snp.makeConstraints {
+        contentView.addSubview(stackView)
+        stackView.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(40)
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
+        }
+        
+        stackView.addArrangedSubview(enterAccountNameTextField)
+        enterAccountNameTextField.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().offset(-16)
             $0.height.equalTo(50)
         }
         
-        contentView.addSubview(mailTextField)
+        stackView.addArrangedSubview(mailTextField)
         mailTextField.snp.makeConstraints {
-            $0.top.equalTo(enterAccountNameTextField.snp.bottom).offset(16)
             $0.leading.equalTo(enterAccountNameTextField)
             $0.trailing.equalTo(enterAccountNameTextField)
             $0.height.equalTo(50)
         }
         
-        contentView.addSubview(enterNewPasswordTextField)
-        enterNewPasswordTextField.snp.makeConstraints {
+        stackView.addArrangedSubview(emailIncorrectlyLabel)
+        emailIncorrectlyLabel.snp.makeConstraints {
             $0.top.equalTo(mailTextField.snp.bottom).offset(16)
             $0.leading.equalTo(enterAccountNameTextField)
             $0.trailing.equalTo(enterAccountNameTextField)
-            $0.height.equalTo(50)
         }
         
-        contentView.addSubview(savePasswordTextField)
-        savePasswordTextField.snp.makeConstraints {
-            $0.top.equalTo(enterNewPasswordTextField.snp.bottom).offset(16)
+        stackView.addArrangedSubview(enterNewPasswordTextField)
+        enterNewPasswordTextField.snp.makeConstraints {
             $0.leading.equalTo(enterAccountNameTextField)
             $0.trailing.equalTo(enterAccountNameTextField)
             $0.height.equalTo(50)
+        }
+        
+        stackView.addArrangedSubview(repeatPasswordTextField)
+        repeatPasswordTextField.snp.makeConstraints {
+            $0.leading.equalTo(enterAccountNameTextField)
+            $0.trailing.equalTo(enterAccountNameTextField)
+            $0.height.equalTo(50)
+        }
+        
+        stackView.addArrangedSubview(passwordNotMatchLabel)
+        passwordNotMatchLabel.snp.makeConstraints {
+            $0.top.equalTo(repeatPasswordTextField.snp.bottom).offset(16)
+            $0.leading.equalTo(enterAccountNameTextField)
+            $0.trailing.equalTo(enterAccountNameTextField)
         }
         
         contentView.addSubview(termOfUseLabel)
         termOfUseLabel.snp.makeConstraints {
-            $0.top.equalTo(savePasswordTextField.snp.bottom).offset(16)
+            $0.top.equalTo(stackView.snp.bottom).offset(16)
             $0.leading.equalTo(enterAccountNameTextField)
             $0.trailing.equalTo(enterAccountNameTextField)
             $0.height.equalTo(50)
@@ -230,6 +283,8 @@ class RegistrationView: BasicView {
             $0.leading.equalTo(googleImage.snp.trailing).offset(20)
             
         }
+        
+        registerButton.addTarget(self, action: #selector(registerButtonTap), for: .touchUpInside)
     }
     
     private func configureLabel() {
@@ -250,31 +305,50 @@ class RegistrationView: BasicView {
         termOfUseLabel.attributedText = termOfUseLabelMutableString
     }
     
+    @objc
+    private func registerButtonTap() {
+        registrationViewDelegate?.registerAction()
+    }
+    
+    internal func setEnterAccountNameTextField() -> CustomTextField {
+        return enterAccountNameTextField
+    }
+    
+    internal func setMailTextField() -> CustomTextField {
+        return mailTextField
+    }
+    
+    internal func setEnterNewPasswordTextField() -> CustomTextField {
+        return enterNewPasswordTextField
+    }
+    
+    internal func setRepeatPasswordTextField() -> CustomTextField {
+        return repeatPasswordTextField
+    }
+    
+    internal func isPasswordNotMatchLabelEnabled() {
+        self.passwordNotMatchLabel.isHidden = false
+    }
+    
+    internal func isEmailIncorrectlyLabelEnabled() {
+        self.emailIncorrectlyLabel.isHidden = false
+    }
+    
 }
 
 extension RegistrationView: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        let name = enterAccountNameTextField.text!
-        let email = mailTextField.text!
-        let password = enterNewPasswordTextField.text!
-        
-        if (!name.isEmpty && !email.isEmpty && !password.isEmpty) {
-            Auth.auth().createUser(withEmail: email, password: password) { result, error in
-                if error == nil {
-                    if let result = result {
-                        print(result.user.uid)
-                        let reference = Database.database().reference().child("users")
-                        reference.child(result.user.uid).updateChildValues(["name": name, "email": email])
-                    }
-                }
-            }
-        } else {
-            print("заполните поля")
-        }
-        
         textField.resignFirstResponder()
         return true
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {        
+            if !textField.placeholder!.isEmpty {
+                textField.text = nil
+                self.passwordNotMatchLabel.isHidden = true
+                self.emailIncorrectlyLabel.isHidden = true
+                textField.layer.borderColor = R.color.blue100()?.cgColor
+            }
+    }
+  
 }

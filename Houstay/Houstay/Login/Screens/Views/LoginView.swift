@@ -6,9 +6,9 @@
 //
 
 import UIKit
-import Firebase
 
 protocol LoginViewDelegate {
+    func logInAction()
     func targetForgetPasswordViewAction()
     func targetRegistrationViewAction()
 }
@@ -27,6 +27,15 @@ class LoginView: BasicView {
         label.font = R.font.robotoMedium(size: 24)
         label.textColor = R.color.blue100()
         return label
+    }()
+    
+    private let stackView: UIStackView = {
+       let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.alignment = .center
+        stackView.distribution = .equalCentering
+        stackView.spacing = 16.0
+        return stackView
     }()
     
     private let emailTextField: CustomTextField = {
@@ -53,6 +62,17 @@ class LoginView: BasicView {
         textField.returnKeyType = .done
         textField.clearButtonMode = .whileEditing
         return textField
+    }()
+    
+    private let wrongLoginOrPasswordLabel: UILabel = {
+        let label = UILabel()
+        label.text = R.string.localizable.loginWrongLoginOrPassword()
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.font = R.font.robotoRegular(size: 14)
+        label.textColor = R.color.red100()
+        label.isHidden = true
+        return label
     }()
     
     private let logInButton: UIButton = {
@@ -145,30 +165,39 @@ class LoginView: BasicView {
             $0.centerX.equalToSuperview()
         }
         
-        contentView.addSubview(emailTextField)
-        emailTextField.snp.makeConstraints {
+        contentView.addSubview(stackView)
+        stackView.snp.makeConstraints {
             $0.top.equalTo(logoLabel.snp.bottom).offset(40)
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
+        }
+        
+        stackView.addArrangedSubview(emailTextField)
+        emailTextField.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().offset(-16)
-            $0.centerX.equalToSuperview()
             $0.height.equalTo(50)
         }
         
-        contentView.addSubview(passwordTextField)
+        stackView.addArrangedSubview(passwordTextField)
         passwordTextField.snp.makeConstraints {
-            $0.top.equalTo(emailTextField.snp.bottom).offset(16)
             $0.leading.equalTo(emailTextField)
             $0.trailing.equalTo(emailTextField)
-            $0.centerX.equalTo(emailTextField)
             $0.height.equalTo(50)
+        }
+        
+        stackView.addArrangedSubview(wrongLoginOrPasswordLabel)
+        wrongLoginOrPasswordLabel.snp.makeConstraints {
+            $0.top.equalTo(passwordTextField.snp.bottom).offset(16)
+            $0.leading.equalTo(emailTextField)
+            $0.trailing.equalTo(emailTextField)
         }
         
         contentView.addSubview(logInButton)
         logInButton.snp.makeConstraints {
-            $0.top.equalTo(passwordTextField.snp.bottom).offset(30)
+            $0.top.equalTo(stackView.snp.bottom).offset(30)
             $0.leading.equalTo(emailTextField)
             $0.trailing.equalTo(emailTextField)
-            $0.centerX.equalTo(emailTextField)
             $0.height.equalTo(50)
         }
         
@@ -217,6 +246,8 @@ class LoginView: BasicView {
             $0.leading.equalTo(googleImage.snp.trailing).offset(20)
         }
         
+        logInButton.addTarget(self, action: #selector(logInTap), for: .touchUpInside)
+        
         let gestureForgetPasswordView = UITapGestureRecognizer(target: self, action: #selector(targetForgetPasswordViewDidTapped))
         gestureForgetPasswordView.numberOfTapsRequired = 1
         forgotPasswordLabel.isUserInteractionEnabled = true
@@ -246,6 +277,23 @@ class LoginView: BasicView {
         noAccountLabel.attributedText = noAccountLabelMutableString
     }
     
+    internal func getEmailTextField() -> CustomTextField {
+        return emailTextField
+    }
+    
+    internal func getPasswordTextField() -> CustomTextField {
+        return passwordTextField
+    }
+    
+    internal func isWrongLoginOrPasswordLabelEnabled() {
+        self.wrongLoginOrPasswordLabel.isHidden = false
+    }
+    
+    @objc
+    private func logInTap() {
+        loginViewDelegate?.logInAction()
+    }
+    
     @objc
     private func targetForgetPasswordViewDidTapped() {
         loginViewDelegate?.targetForgetPasswordViewAction()
@@ -255,26 +303,20 @@ class LoginView: BasicView {
     private func targetRegistrationViewDidTapped() {
         loginViewDelegate?.targetRegistrationViewAction()
     }
+    
 }
 
 extension LoginView: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        let email = emailTextField.text!
-        let password = passwordTextField.text!
-        
-        if (!email.isEmpty && !password.isEmpty) {
-            Auth.auth().signIn(withEmail: email, password: password) { result, error in
-                if error == nil {
-                    print("Вход выполнен")
-                } else {
-                    print("Вход не выполнен")
-                }
-            }
-        } else {
-            print("заполните поля")
-        }
-        
         textField.resignFirstResponder()
         return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+            if !textField.placeholder!.isEmpty {
+                self.wrongLoginOrPasswordLabel.isHidden = true
+                emailTextField.layer.borderColor = R.color.blue100()?.cgColor
+                passwordTextField.layer.borderColor = R.color.blue100()?.cgColor
+            }
     }
 }

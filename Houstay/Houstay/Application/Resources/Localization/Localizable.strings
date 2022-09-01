@@ -27,6 +27,7 @@ login.title = "Houstay";
 login.login = "Войти";
 login.mail = "Эл. почта";
 login.password = "Пароль";
+login.wrongLoginOrPassword = "Неверный логин или пароль";
 login.noAccount = "Нет аккаунта?";
 login.registration = "Регистрация";
 login.forgotPassword = "Забыли пароль?";
@@ -42,6 +43,8 @@ registration.savePassword = "Повторите пароль";
 registration.register = "Зарегистрироваться";
 registration.tapRegister = "Нажимая «Зарегистрироваться», вы соглашаетесь c";
 registration.termOfUse = "нашими Условиями использования.";
+registration.passwordNotMatch = "Повторно введенный пароль не совпадает";
+registration.emailIncorrectly = "Не верно введен адрес электронной почты";
 
 // Mark: ForgotPassword
 

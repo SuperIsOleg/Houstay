@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginViewController: UIViewController {
     private let loginView = LoginView()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
@@ -20,7 +21,7 @@ class LoginViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         super.viewWillAppear(animated)
     }
-
+    
     private func setupLayout() {
         loginView.loginViewDelegate = self
         
@@ -34,6 +35,30 @@ class LoginViewController: UIViewController {
 // MARK: - LoginViewDelegate
 
 extension LoginViewController: LoginViewDelegate {
+    func logInAction() {
+        let email = loginView.getEmailTextField()
+        let enterPassword = loginView.getPasswordTextField()
+        
+        guard let emailText = email.text,
+              let enterPasswordText = enterPassword.text else { return }
+        
+        if !emailText.isEmpty && !enterPasswordText.isEmpty {
+            Auth.auth().signIn(withEmail: emailText, password: enterPasswordText) { result, error in
+                if error == nil {
+                    let homeViewController = HomeViewController()
+                    self.navigationController?.setViewControllers([homeViewController], animated: false)
+                } else {
+                    self.loginView.isWrongLoginOrPasswordLabelEnabled()
+                    email.layer.borderColor = R.color.red100()?.cgColor
+                    enterPassword.layer.borderColor = R.color.red100()?.cgColor
+                }
+            }
+        } else {
+            print("заполните поля")
+        }
+        
+    }
+    
     func targetRegistrationViewAction() {
         let registrationViewController = RegistrationViewController()
         registrationViewController.modalTransitionStyle = .flipHorizontal
