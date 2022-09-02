@@ -9,6 +9,8 @@ import UIKit
 import FirebaseCore
 import FirebaseFirestore
 import FirebaseAuth
+import GoogleSignIn
+import GoogleSignInSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,6 +27,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = appFlowNavigationController
         window?.overrideUserInterfaceStyle = .light
         return true
+    }
+    
+    func application(_ application: UIApplication, open url: URL,
+                     options: [UIApplication.OpenURLOptionsKey: Any])
+      -> Bool {
+      return GIDSignIn.sharedInstance.handle(url)
     }
 }
 

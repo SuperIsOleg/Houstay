@@ -11,6 +11,7 @@ protocol LoginViewDelegate {
     func logInAction()
     func targetForgetPasswordViewAction()
     func targetRegistrationViewAction()
+    func targetGoogleImageAction()
 }
 
 class LoginView: BasicView {
@@ -257,6 +258,11 @@ class LoginView: BasicView {
         gestureRegistrationView.numberOfTapsRequired = 1
         noAccountLabel.isUserInteractionEnabled = true
         noAccountLabel.addGestureRecognizer(gestureRegistrationView)
+        
+        let gestureRegistrationImage = UITapGestureRecognizer(target: self, action: #selector(targetGoogleImageDidTapped))
+        gestureRegistrationImage.numberOfTapsRequired = 1
+        googleImage.isUserInteractionEnabled = true
+        googleImage.addGestureRecognizer(gestureRegistrationImage)
     }
 
     private func configureLabel() {
@@ -302,6 +308,11 @@ class LoginView: BasicView {
     @objc
     private func targetRegistrationViewDidTapped() {
         loginViewDelegate?.targetRegistrationViewAction()
+    }
+    
+    @objc
+    private func targetGoogleImageDidTapped() {
+        loginViewDelegate?.targetGoogleImageAction()
     }
     
 }
