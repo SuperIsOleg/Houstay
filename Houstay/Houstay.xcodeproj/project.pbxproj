@@ -18,6 +18,13 @@
 		028097C128C1DE1A00C2ECD9 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 028097C028C1DE1A00C2ECD9 /* GoogleSignInSwift */; };
 		028097C328C2021C00C2ECD9 /* SearcheTextFieldBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028097C228C2021C00C2ECD9 /* SearcheTextFieldBase.swift */; };
 		028097C628C211DD00C2ECD9 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028097C528C211DD00C2ECD9 /* HomeViewModel.swift */; };
+		028097CC28C22C9F00C2ECD9 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028097CB28C22C9F00C2ECD9 /* TabBarController.swift */; };
+		028097D928C22E3F00C2ECD9 /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028097D828C22E3E00C2ECD9 /* FavouritesViewController.swift */; };
+		028097DB28C22E5300C2ECD9 /* FavouritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028097DA28C22E5300C2ECD9 /* FavouritesView.swift */; };
+		028097DD28C22E7100C2ECD9 /* BlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028097DC28C22E7100C2ECD9 /* BlogViewController.swift */; };
+		028097DF28C22E8300C2ECD9 /* BlogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028097DE28C22E8300C2ECD9 /* BlogView.swift */; };
+		028097E128C22E9A00C2ECD9 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028097E028C22E9A00C2ECD9 /* AccountViewController.swift */; };
+		028097E328C22EAE00C2ECD9 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028097E228C22EAE00C2ECD9 /* Account.swift */; };
 		0286246828BCBE00006C12C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0286246728BCBE00006C12C5 /* AppDelegate.swift */; };
 		0286246C28BCBE00006C12C5 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0286246B28BCBE00006C12C5 /* OnboardingViewController.swift */; };
 		0286247128BCBE04006C12C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0286247028BCBE04006C12C5 /* Assets.xcassets */; };
@@ -65,6 +72,13 @@
 		028097BD28C0ED5900C2ECD9 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		028097C228C2021C00C2ECD9 /* SearcheTextFieldBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearcheTextFieldBase.swift; sourceTree = "<group>"; };
 		028097C528C211DD00C2ECD9 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		028097CB28C22C9F00C2ECD9 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		028097D828C22E3E00C2ECD9 /* FavouritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
+		028097DA28C22E5300C2ECD9 /* FavouritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesView.swift; sourceTree = "<group>"; };
+		028097DC28C22E7100C2ECD9 /* BlogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogViewController.swift; sourceTree = "<group>"; };
+		028097DE28C22E8300C2ECD9 /* BlogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogView.swift; sourceTree = "<group>"; };
+		028097E028C22E9A00C2ECD9 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		028097E228C22EAE00C2ECD9 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		0286246428BCBE00006C12C5 /* Houstay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Houstay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0286246728BCBE00006C12C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0286246B28BCBE00006C12C5 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -160,6 +174,89 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		028097CA28C22C6100C2ECD9 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				028097CB28C22C9F00C2ECD9 /* TabBarController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		028097CD28C22CED00C2ECD9 /* Favourites */ = {
+			isa = PBXGroup;
+			children = (
+				028097D128C22D9700C2ECD9 /* Screens */,
+				028097D828C22E3E00C2ECD9 /* FavouritesViewController.swift */,
+			);
+			path = Favourites;
+			sourceTree = "<group>";
+		};
+		028097CE28C22CF500C2ECD9 /* Blog */ = {
+			isa = PBXGroup;
+			children = (
+				028097D328C22DA900C2ECD9 /* Screens */,
+				028097DC28C22E7100C2ECD9 /* BlogViewController.swift */,
+			);
+			path = Blog;
+			sourceTree = "<group>";
+		};
+		028097CF28C22D0400C2ECD9 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				028097D528C22DBE00C2ECD9 /* Screens */,
+				028097E028C22E9A00C2ECD9 /* AccountViewController.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		028097D128C22D9700C2ECD9 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				028097D228C22DA100C2ECD9 /* Views */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		028097D228C22DA100C2ECD9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				028097DA28C22E5300C2ECD9 /* FavouritesView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		028097D328C22DA900C2ECD9 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				028097D428C22DB600C2ECD9 /* Views */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		028097D428C22DB600C2ECD9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				028097DE28C22E8300C2ECD9 /* BlogView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		028097D528C22DBE00C2ECD9 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				028097D628C22DC800C2ECD9 /* Views */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		028097D628C22DC800C2ECD9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				028097E228C22EAE00C2ECD9 /* Account.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		0286245B28BCBE00006C12C5 = {
 			isa = PBXGroup;
 			children = (
@@ -190,7 +287,11 @@
 				F4480ACE28BE951A001AA98B /* ForgetPassword */,
 				02C4FEFF28BF6232005869F1 /* ChekPassword */,
 				02C4FF0628BF7EDD005869F1 /* CreateNewPassword */,
+				028097CA28C22C6100C2ECD9 /* TabBar */,
 				F42C174928BFC8640056CF59 /* Home */,
+				028097CD28C22CED00C2ECD9 /* Favourites */,
+				028097CE28C22CF500C2ECD9 /* Blog */,
+				028097CF28C22D0400C2ECD9 /* Account */,
 			);
 			path = Houstay;
 			sourceTree = "<group>";
@@ -638,6 +739,7 @@
 				023EEAD528BCF9D700446893 /* OnboardingViewModel.swift in Sources */,
 				0286246828BCBE00006C12C5 /* AppDelegate.swift in Sources */,
 				02C4FEFE28BF3946005869F1 /* UIViewController+Extensions.swift in Sources */,
+				028097E128C22E9A00C2ECD9 /* AccountViewController.swift in Sources */,
 				023EEAC928BCD0CE00446893 /* R.generated.swift in Sources */,
 				02952B3028BE2A8C00B2F43F /* SplashScreenViewController.swift in Sources */,
 				F4480AD228BE95A1001AA98B /* ForgetPasswordViewController.swift in Sources */,
@@ -648,15 +750,21 @@
 				F4480AD428BE95C6001AA98B /* ForgetPasswordView.swift in Sources */,
 				F4480ACD28BE8E99001AA98B /* BasicView.swift in Sources */,
 				02952B3328BE2BA800B2F43F /* AppFlowNavigationController.swift in Sources */,
+				028097D928C22E3F00C2ECD9 /* FavouritesViewController.swift in Sources */,
+				028097E328C22EAE00C2ECD9 /* Account.swift in Sources */,
 				02952B2228BDDE7D00B2F43F /* OnboardingModel.swift in Sources */,
 				02952B2428BDE6D800B2F43F /* OnboardingView.swift in Sources */,
 				02C4FF0328BF6281005869F1 /* ChekPasswordViewController.swift in Sources */,
+				028097DD28C22E7100C2ECD9 /* BlogViewController.swift in Sources */,
 				023EEAD028BCE86700446893 /* OnboardingCollectionView.swift in Sources */,
 				02952B2D28BE22F000B2F43F /* LoginView.swift in Sources */,
+				028097DF28C22E8300C2ECD9 /* BlogView.swift in Sources */,
+				028097CC28C22C9F00C2ECD9 /* TabBarController.swift in Sources */,
 				028097C628C211DD00C2ECD9 /* HomeViewModel.swift in Sources */,
 				02C4FF0528BF629C005869F1 /* ChekPasswordView.swift in Sources */,
 				023EEAD228BCE89900446893 /* OnboardingCollectionViewCell.swift in Sources */,
 				02C4FF0C28BF7F54005869F1 /* CreateNewPasswordView.swift in Sources */,
+				028097DB28C22E5300C2ECD9 /* FavouritesView.swift in Sources */,
 				028097BE28C0ED5900C2ECD9 /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

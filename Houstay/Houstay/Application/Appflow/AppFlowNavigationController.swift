@@ -26,8 +26,8 @@ class AppFlowNavigationController: UINavigationController {
                                 let loginViewController = LoginViewController()
                                 self.setViewControllers([loginViewController], animated: false)
                             } else {
-                                let homeViewController = HomeViewController()
-                                self.setViewControllers([homeViewController], animated: false)
+                                let tabBar = TabBarController()
+                                self.setViewControllers([tabBar], animated: true)
                             }
                         }
      
