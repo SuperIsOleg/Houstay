@@ -67,3 +67,8 @@ createNewPassword.title = "Создайте новый пароль";
 createNewPassword.enterNewPassword = "Введите новый пароль";
 createNewPassword.repeatPassword = "Повторите пароль";
 createNewPassword.savePassword = "Сохранить";
+
+// Mark: Header
+
+header.goodMorning = "Доброе утро";
+header.search = "Поиск ...";
