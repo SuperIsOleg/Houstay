@@ -70,7 +70,7 @@ class HeaderView: UIView {
         
         self.addSubview(photoImage)
         photoImage.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(80)
+            $0.top.equalToSuperview().offset(60)
             $0.leading.equalToSuperview().offset(16)
             $0.height.width.equalTo(48)
         }
@@ -86,7 +86,7 @@ class HeaderView: UIView {
         self.addSubview(goodMorningLabel)
         goodMorningLabel.snp.makeConstraints {
             $0.top.equalTo(photoImage).offset(2)
-            $0.leading.equalTo(photoImage.snp.trailing).offset(12)  
+            $0.leading.equalTo(photoImage.snp.trailing).offset(12)
         }
         
         self.addSubview(userNameLabel)
