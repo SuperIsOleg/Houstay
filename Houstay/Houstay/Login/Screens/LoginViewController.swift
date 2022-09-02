@@ -59,8 +59,8 @@ extension LoginViewController: LoginViewDelegate {
             
             Auth.auth().signIn(with: credential) { authResult, error in
                 if  error == nil {
-                    let homeViewController = HomeViewController()
-                    self.navigationController?.setViewControllers([homeViewController], animated: false)
+                    let tabBar = TabBarController()
+                    self.navigationController?.setViewControllers([tabBar], animated: true)
                 } else {
                     print("Вход не выполнен")
                 }
@@ -78,8 +78,8 @@ extension LoginViewController: LoginViewDelegate {
         if !emailText.isEmpty && !enterPasswordText.isEmpty {
             Auth.auth().signIn(withEmail: emailText, password: enterPasswordText) { result, error in
                 if error == nil {
-                    let homeViewController = HomeViewController()
-                    self.navigationController?.setViewControllers([homeViewController], animated: false)
+                    let tabBar = TabBarController()
+                    self.navigationController?.setViewControllers([tabBar], animated: true)
                 } else {
                     self.loginView.isWrongLoginOrPasswordLabelEnabled()
                     email.layer.borderColor = R.color.red100()?.cgColor

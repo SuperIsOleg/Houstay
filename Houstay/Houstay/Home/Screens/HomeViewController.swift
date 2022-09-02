@@ -47,8 +47,6 @@ extension HomeViewController: HomeViewDelegate {
             print("Error")
         }
         
-       
     }
-    
     
 }

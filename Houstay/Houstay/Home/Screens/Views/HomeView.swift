@@ -39,15 +39,7 @@ class HomeView: BasicView {
             $0.trailing.equalToSuperview()
             $0.height.equalTo(180)
         }
-        
-        contentView.snp.remakeConstraints {
-            $0.top.equalTo(headerView.snp.bottom)
-            $0.leading.equalToSuperview()
-            $0.trailing.equalToSuperview()
-            $0.width.equalToSuperview()
-            $0.bottom.equalToSuperview()
-            $0.height.equalToSuperview().priority(.low)
-        }
+
     }
     
     internal func setNameUserLabel(userName: String) {

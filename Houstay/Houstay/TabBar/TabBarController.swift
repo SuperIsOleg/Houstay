@@ -17,6 +17,7 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareTabBarItems()
+        setTabBarAppearance()
     }
     
     private func prepareTabBarItems() {
@@ -34,12 +35,34 @@ class TabBarController: UITabBarController {
                                                       selectedImage: R.image.accountActive())
         
         self.viewControllers = [
-            homeViewController, favouritesViewController,
+            homeViewController, favouritesViewController, 
             blogViewController, accountViewController
         ]
-        self.selectedIndex = 0
+    }
+    
+    private func setTabBarAppearance() {
         
-        self.tabBar.backgroundColor = R.color.white500()
+        let positionX = 10.0
+        let positionY = 10.0
+        let width = tabBar.bounds.width - positionX * 2
+        let height = tabBar.bounds.height + positionY
+        
+        let roundLayer = CAShapeLayer()
+        
+        let bezierPath = UIBezierPath(roundedRect: CGRect(x: positionX,
+                                                          y: tabBar.bounds.minY - positionY,
+                                                          width: width, height: height),
+                                      cornerRadius: height / 2)
+        
+        roundLayer.path = bezierPath.cgPath
+        
+        tabBar.layer.insertSublayer(roundLayer, at: 0)
+        
+        tabBar.itemWidth = width
+        tabBar.itemPositioning = .centered
+        
+        roundLayer.fillColor = R.color.white500()?.cgColor
+
     }
 
 }
