@@ -70,5 +70,5 @@ createNewPassword.savePassword = "Сохранить";
 
 // Mark: Header
 
-header.goodMorning = "Доброе утро";
+header.goodMorning = "Доброе утро,";
 header.search = "Поиск ...";

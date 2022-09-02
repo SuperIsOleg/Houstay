@@ -50,6 +50,10 @@ class HomeView: BasicView {
         }
     }
     
+    internal func setNameUserLabel(userName: String) {
+        headerView.setUserName(userName: userName)
+    }
+    
 }
 
 extension HomeView: HeaderViewDelegate {

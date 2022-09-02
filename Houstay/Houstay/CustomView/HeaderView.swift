@@ -28,6 +28,14 @@ class HeaderView: UIView {
         return label
     }()
     
+    private let userNameLabel: UILabel = {
+       let label = UILabel()
+        label.text = "No name"
+        label.font = R.font.robotoMedium(size: 20)
+        label.textColor = R.color.lnk100()
+        return label
+    }()
+    
     private let searchTextField: SearcheTextFieldBase = {
         let textField = SearcheTextFieldBase()
 
@@ -67,10 +75,25 @@ class HeaderView: UIView {
             $0.height.width.equalTo(48)
         }
         
+        self.addSubview(exitButton)
+        exitButton.snp.makeConstraints {
+            $0.trailing.equalToSuperview().offset(-20)
+            $0.centerY.equalTo(photoImage)
+            $0.height.equalTo(30)
+            $0.width.equalTo(77)
+        }
+        
         self.addSubview(goodMorningLabel)
         goodMorningLabel.snp.makeConstraints {
             $0.top.equalTo(photoImage).offset(2)
-            $0.leading.equalTo(photoImage.snp.trailing).offset(12)
+            $0.leading.equalTo(photoImage.snp.trailing).offset(12)  
+        }
+        
+        self.addSubview(userNameLabel)
+        userNameLabel.snp.makeConstraints {
+            $0.bottom.equalTo(photoImage).offset(-2)
+            $0.leading.equalTo(goodMorningLabel)
+            $0.trailing.equalTo(exitButton.snp.leading).offset(-10)
         }
         
         self.addSubview(searchTextField)
@@ -80,16 +103,12 @@ class HeaderView: UIView {
             $0.trailing.equalToSuperview().offset(-16)
             $0.height.equalTo(44)
         }
-        
-        self.addSubview(exitButton)
-        exitButton.snp.makeConstraints {
-            $0.trailing.equalToSuperview().offset(-20)
-            $0.centerY.equalTo(photoImage)
-            $0.height.equalTo(30)
-            $0.width.equalTo(77)
-        }
-        
+
         exitButton.addTarget(self, action: #selector(exitTap), for: .touchUpInside)
+    }
+    
+    internal func setUserName(userName: String) {
+        userNameLabel.text = userName
     }
     
     @objc func exitTap() {

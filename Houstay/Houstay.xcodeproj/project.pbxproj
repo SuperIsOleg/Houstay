@@ -17,6 +17,7 @@
 		028097BE28C0ED5900C2ECD9 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028097BD28C0ED5900C2ECD9 /* HeaderView.swift */; };
 		028097C128C1DE1A00C2ECD9 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 028097C028C1DE1A00C2ECD9 /* GoogleSignInSwift */; };
 		028097C328C2021C00C2ECD9 /* SearcheTextFieldBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028097C228C2021C00C2ECD9 /* SearcheTextFieldBase.swift */; };
+		028097C628C211DD00C2ECD9 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028097C528C211DD00C2ECD9 /* HomeViewModel.swift */; };
 		0286246828BCBE00006C12C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0286246728BCBE00006C12C5 /* AppDelegate.swift */; };
 		0286246C28BCBE00006C12C5 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0286246B28BCBE00006C12C5 /* OnboardingViewController.swift */; };
 		0286247128BCBE04006C12C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0286247028BCBE04006C12C5 /* Assets.xcassets */; };
@@ -63,6 +64,7 @@
 		023EEAD428BCF9D700446893 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		028097BD28C0ED5900C2ECD9 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		028097C228C2021C00C2ECD9 /* SearcheTextFieldBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearcheTextFieldBase.swift; sourceTree = "<group>"; };
+		028097C528C211DD00C2ECD9 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		0286246428BCBE00006C12C5 /* Houstay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Houstay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0286246728BCBE00006C12C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0286246B28BCBE00006C12C5 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +148,14 @@
 			isa = PBXGroup;
 			children = (
 				023EEAD428BCF9D700446893 /* OnboardingViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		028097C428C2114800C2ECD9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				028097C528C211DD00C2ECD9 /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -382,6 +392,7 @@
 			isa = PBXGroup;
 			children = (
 				F42C174A28BFC87B0056CF59 /* Screens */,
+				028097C428C2114800C2ECD9 /* ViewModel */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -642,6 +653,7 @@
 				02C4FF0328BF6281005869F1 /* ChekPasswordViewController.swift in Sources */,
 				023EEAD028BCE86700446893 /* OnboardingCollectionView.swift in Sources */,
 				02952B2D28BE22F000B2F43F /* LoginView.swift in Sources */,
+				028097C628C211DD00C2ECD9 /* HomeViewModel.swift in Sources */,
 				02C4FF0528BF629C005869F1 /* ChekPasswordView.swift in Sources */,
 				023EEAD228BCE89900446893 /* OnboardingCollectionViewCell.swift in Sources */,
 				02C4FF0C28BF7F54005869F1 /* CreateNewPasswordView.swift in Sources */,

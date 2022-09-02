@@ -11,12 +11,12 @@ import Firebase
 class HomeViewController: UIViewController {
     
     private let homeView = HomeView()
+    private let homeViewModel = HomeViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardOnTap()
         setupLayout()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -26,6 +26,8 @@ class HomeViewController: UIViewController {
 
     private func setupLayout() {
         homeView.homeViewDelegate = self
+        
+        homeView.setNameUserLabel(userName: homeViewModel.name)
 
         self.view.backgroundColor = R.color.blue100()
         self.view.addSubview(homeView)
