@@ -136,14 +136,6 @@ class HomeViewController: UIViewController {
                 
                 cell.layer.cornerRadius = 12
                 cell.backgroundColor = R.color.white500()
-//                cell.configure(itemIdentifier)
-//
-//                cell.layer.borderWidth = 0.0
-//                cell.layer.shadowColor = R.color.lnk10()?.cgColor
-//                cell.layer.shadowOffset = CGSize(width: 0, height: 4)
-//                cell.layer.shadowRadius = 15.0
-//                cell.layer.shadowOpacity = 1
-//                cell.layer.masksToBounds = false
                 return cell
             case .recentlyPosted:
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecentlyPostedCell.reuseIdentifier, for: indexPath) as?
@@ -221,11 +213,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         case .offers:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OffersCell.reuseIdentifier, for: indexPath) as?
                     OffersCell else { return UICollectionViewCell() }
-            
+            cell.configure(item)
             cell.layer.cornerRadius = 12
             cell.backgroundColor = R.color.white500()
-            cell.configure(item)
-            
             cell.layer.borderWidth = 0.0
             cell.layer.shadowColor = R.color.lnk10()?.cgColor
             cell.layer.shadowOffset = CGSize(width: 0, height: 4)
@@ -236,10 +226,15 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         case .recentlyPosted:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecentlyPostedCell.reuseIdentifier, for: indexPath) as?
                     RecentlyPostedCell else { return UICollectionViewCell() }
-            
+            cell.configure(item)
             cell.layer.cornerRadius = 12
-            cell.backgroundColor = R.color.blue80()
-            
+            cell.backgroundColor = R.color.white500()
+            cell.layer.borderWidth = 0.0
+            cell.layer.shadowColor = R.color.lnk10()?.cgColor
+            cell.layer.shadowOffset = CGSize(width: 0, height: 4)
+            cell.layer.shadowRadius = 15.0
+            cell.layer.shadowOpacity = 1
+            cell.layer.masksToBounds = false
             return cell
         case .allOffers:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AllOffersCell.reuseIdentifier, for: indexPath) as?
