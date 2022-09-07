@@ -1,5 +1,5 @@
 //
-//  UIViewController+Extensions.swift
+//  UIViewController+Extension.swift
 //  Houstay
 //
 //  Created by Oleg Kalistratov on 31.08.22.

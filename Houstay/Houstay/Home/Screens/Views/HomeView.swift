@@ -11,10 +11,9 @@ protocol HomeViewDelegate {
     func exitAction()
 }
 
-class HomeView: BasicView {
+class HomeView: UIView {
     
     private let headerView = HeaderView()
-    
     internal var homeViewDelegate: HomeViewDelegate?
     
     override init(frame: CGRect) {
@@ -22,16 +21,13 @@ class HomeView: BasicView {
         setupLayout()
     }
     
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     private func setupLayout() {
         headerView.headerViewDelegate = self
-        
-        contentView.backgroundColor = R.color.blue100()
-        
+
         self.addSubview(headerView)
         headerView.snp.makeConstraints {
             $0.top.equalToSuperview()
@@ -46,6 +42,10 @@ class HomeView: BasicView {
         headerView.setUserName(userName: userName)
     }
     
+    internal func getHeader() -> HeaderView {
+        return headerView
+    }
+
 }
 
 extension HomeView: HeaderViewDelegate {

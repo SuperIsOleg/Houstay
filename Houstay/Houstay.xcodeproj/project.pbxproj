@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02065FBC28C603FF0064F2F1 /* model.json in Resources */ = {isa = PBXBuildFile; fileRef = 02065FBB28C603FF0064F2F1 /* model.json */; };
+		02065FBE28C60A6A0064F2F1 /* Bundle+Extrnsion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02065FBD28C60A6A0064F2F1 /* Bundle+Extrnsion.swift */; };
+		02065FC128C60C040064F2F1 /* HomeSectionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02065FC028C60C040064F2F1 /* HomeSectionsModel.swift */; };
+		02065FC528C613CF0064F2F1 /* OffersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02065FC428C613CF0064F2F1 /* OffersCell.swift */; };
+		02065FC728C6141B0064F2F1 /* RecentlyPostedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02065FC628C6141B0064F2F1 /* RecentlyPostedCell.swift */; };
+		02065FC928C6143A0064F2F1 /* AllOffersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02065FC828C6143A0064F2F1 /* AllOffersCell.swift */; };
+		02065FCC28C62D550064F2F1 /* FavoriteEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02065FCB28C62D550064F2F1 /* FavoriteEnum.swift */; };
+		02065FCE28C757210064F2F1 /* HomeItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02065FCD28C757210064F2F1 /* HomeItemsModel.swift */; };
 		023EEAC528BCCF4F00446893 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 023EEAC428BCCF4F00446893 /* Localizable.strings */; };
 		023EEAC928BCD0CE00446893 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023EEAC828BCD0CE00446893 /* R.generated.swift */; };
 		023EEACB28BCD24400446893 /* roboto-medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 023EEACA28BCD24400446893 /* roboto-medium.ttf */; };
@@ -35,7 +43,7 @@
 		02952B2D28BE22F000B2F43F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02952B2C28BE22F000B2F43F /* LoginView.swift */; };
 		02952B3028BE2A8C00B2F43F /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02952B2F28BE2A8C00B2F43F /* SplashScreenViewController.swift */; };
 		02952B3328BE2BA800B2F43F /* AppFlowNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02952B3228BE2BA800B2F43F /* AppFlowNavigationController.swift */; };
-		02C4FEFE28BF3946005869F1 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C4FEFD28BF3946005869F1 /* UIViewController+Extensions.swift */; };
+		02C4FEFE28BF3946005869F1 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C4FEFD28BF3946005869F1 /* UIViewController+Extension.swift */; };
 		02C4FF0328BF6281005869F1 /* ChekPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C4FF0228BF6281005869F1 /* ChekPasswordViewController.swift */; };
 		02C4FF0528BF629C005869F1 /* ChekPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C4FF0428BF629C005869F1 /* ChekPasswordView.swift */; };
 		02C4FF0A28BF7F3C005869F1 /* CreateNewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C4FF0928BF7F3C005869F1 /* CreateNewPasswordViewController.swift */; };
@@ -62,6 +70,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02065FBB28C603FF0064F2F1 /* model.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = model.json; sourceTree = "<group>"; };
+		02065FBD28C60A6A0064F2F1 /* Bundle+Extrnsion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extrnsion.swift"; sourceTree = "<group>"; };
+		02065FC028C60C040064F2F1 /* HomeSectionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionsModel.swift; sourceTree = "<group>"; };
+		02065FC428C613CF0064F2F1 /* OffersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffersCell.swift; sourceTree = "<group>"; };
+		02065FC628C6141B0064F2F1 /* RecentlyPostedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyPostedCell.swift; sourceTree = "<group>"; };
+		02065FC828C6143A0064F2F1 /* AllOffersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllOffersCell.swift; sourceTree = "<group>"; };
+		02065FCB28C62D550064F2F1 /* FavoriteEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteEnum.swift; sourceTree = "<group>"; };
+		02065FCD28C757210064F2F1 /* HomeItemsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemsModel.swift; sourceTree = "<group>"; };
 		023EEAC428BCCF4F00446893 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		023EEAC828BCD0CE00446893 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		023EEACA28BCD24400446893 /* roboto-medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "roboto-medium.ttf"; sourceTree = "<group>"; };
@@ -91,7 +107,7 @@
 		02952B2C28BE22F000B2F43F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		02952B2F28BE2A8C00B2F43F /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		02952B3228BE2BA800B2F43F /* AppFlowNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowNavigationController.swift; sourceTree = "<group>"; };
-		02C4FEFD28BF3946005869F1 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		02C4FEFD28BF3946005869F1 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		02C4FF0228BF6281005869F1 /* ChekPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChekPasswordViewController.swift; sourceTree = "<group>"; };
 		02C4FF0428BF629C005869F1 /* ChekPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChekPasswordView.swift; sourceTree = "<group>"; };
 		02C4FF0928BF7F3C005869F1 /* CreateNewPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPasswordViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +148,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02065FBF28C60BDD0064F2F1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				02065FC028C60C040064F2F1 /* HomeSectionsModel.swift */,
+				02065FCD28C757210064F2F1 /* HomeItemsModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		02065FC328C6139E0064F2F1 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				02065FC428C613CF0064F2F1 /* OffersCell.swift */,
+				02065FC628C6141B0064F2F1 /* RecentlyPostedCell.swift */,
+				02065FC828C6143A0064F2F1 /* AllOffersCell.swift */,
+			);
+			name = Cells;
+			path = ../Cells;
+			sourceTree = "<group>";
+		};
+		02065FCA28C62D2D0064F2F1 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				02065FCB28C62D550064F2F1 /* FavoriteEnum.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
 		023EEAC628BCCFE800446893 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
@@ -292,6 +336,7 @@
 				028097CD28C22CED00C2ECD9 /* Favourites */,
 				028097CE28C22CF500C2ECD9 /* Blog */,
 				028097CF28C22D0400C2ECD9 /* Account */,
+				02065FBB28C603FF0064F2F1 /* model.json */,
 			);
 			path = Houstay;
 			sourceTree = "<group>";
@@ -299,6 +344,7 @@
 		0286247B28BCC7CE006C12C5 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				02065FCA28C62D2D0064F2F1 /* Enum */,
 				02C4FEFC28BF3902005869F1 /* Extensions */,
 				02952B3128BE2B7000B2F43F /* Appflow */,
 				0286247D28BCC831006C12C5 /* Resources */,
@@ -417,7 +463,8 @@
 		02C4FEFC28BF3902005869F1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				02C4FEFD28BF3946005869F1 /* UIViewController+Extensions.swift */,
+				02C4FEFD28BF3946005869F1 /* UIViewController+Extension.swift */,
+				02065FBD28C60A6A0064F2F1 /* Bundle+Extrnsion.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -494,6 +541,7 @@
 			children = (
 				F42C174A28BFC87B0056CF59 /* Screens */,
 				028097C428C2114800C2ECD9 /* ViewModel */,
+				02065FBF28C60BDD0064F2F1 /* Model */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -510,6 +558,7 @@
 		F42C174B28BFC8850056CF59 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				02065FC328C6139E0064F2F1 /* Cells */,
 				F42C174E28BFC8BA0056CF59 /* HomeView.swift */,
 			);
 			path = Views;
@@ -655,6 +704,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				023EEACB28BCD24400446893 /* roboto-medium.ttf in Resources */,
+				02065FBC28C603FF0064F2F1 /* model.json in Resources */,
 				0286247428BCBE04006C12C5 /* LaunchScreen.storyboard in Resources */,
 				023EEACD28BCD25E00446893 /* roboto-regular.ttf in Resources */,
 				023EEAC528BCCF4F00446893 /* Localizable.strings in Resources */,
@@ -738,10 +788,14 @@
 				F4480ADC28BE9EEC001AA98B /* RegistrationView.swift in Sources */,
 				023EEAD528BCF9D700446893 /* OnboardingViewModel.swift in Sources */,
 				0286246828BCBE00006C12C5 /* AppDelegate.swift in Sources */,
-				02C4FEFE28BF3946005869F1 /* UIViewController+Extensions.swift in Sources */,
+				02C4FEFE28BF3946005869F1 /* UIViewController+Extension.swift in Sources */,
 				028097E128C22E9A00C2ECD9 /* AccountViewController.swift in Sources */,
+				02065FCE28C757210064F2F1 /* HomeItemsModel.swift in Sources */,
 				023EEAC928BCD0CE00446893 /* R.generated.swift in Sources */,
+				02065FCC28C62D550064F2F1 /* FavoriteEnum.swift in Sources */,
+				02065FC528C613CF0064F2F1 /* OffersCell.swift in Sources */,
 				02952B3028BE2A8C00B2F43F /* SplashScreenViewController.swift in Sources */,
+				02065FC928C6143A0064F2F1 /* AllOffersCell.swift in Sources */,
 				F4480AD228BE95A1001AA98B /* ForgetPasswordViewController.swift in Sources */,
 				028097C328C2021C00C2ECD9 /* SearcheTextFieldBase.swift in Sources */,
 				02C4FF0A28BF7F3C005869F1 /* CreateNewPasswordViewController.swift in Sources */,
@@ -753,7 +807,10 @@
 				028097D928C22E3F00C2ECD9 /* FavouritesViewController.swift in Sources */,
 				028097E328C22EAE00C2ECD9 /* Account.swift in Sources */,
 				02952B2228BDDE7D00B2F43F /* OnboardingModel.swift in Sources */,
+				02065FBE28C60A6A0064F2F1 /* Bundle+Extrnsion.swift in Sources */,
+				02065FC728C6141B0064F2F1 /* RecentlyPostedCell.swift in Sources */,
 				02952B2428BDE6D800B2F43F /* OnboardingView.swift in Sources */,
+				02065FC128C60C040064F2F1 /* HomeSectionsModel.swift in Sources */,
 				02C4FF0328BF6281005869F1 /* ChekPasswordViewController.swift in Sources */,
 				028097DD28C22E7100C2ECD9 /* BlogViewController.swift in Sources */,
 				023EEAD028BCE86700446893 /* OnboardingCollectionView.swift in Sources */,

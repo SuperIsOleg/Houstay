@@ -10,6 +10,7 @@ import Firebase
 
 class HomeViewModel {
     var name: String = ""
+    let sections = Bundle.main.decode([HomeSectionsModel].self, from: "model.json")
     
     init() {
         guard let userName = Auth.auth().currentUser?.displayName else { return }
