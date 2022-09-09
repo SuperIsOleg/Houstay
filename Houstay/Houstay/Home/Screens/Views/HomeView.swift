@@ -26,8 +26,6 @@ class HomeView: UIView {
     }
     
     private func setupLayout() {
-        headerView.headerViewDelegate = self
-
         self.addSubview(headerView)
         headerView.snp.makeConstraints {
             $0.top.equalTo(self.safeAreaLayoutGuide.snp.top)
@@ -45,12 +43,4 @@ class HomeView: UIView {
         return headerView
     }
 
-}
-
-extension HomeView: HeaderViewDelegate {
-    func exitAction() {
-        homeViewDelegate?.exitAction()
-    }
-    
-    
 }

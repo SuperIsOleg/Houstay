@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol HeaderViewDelegate {
-    func exitAction()
-}
-
 class HeaderView: UIView {
     
     private let photoImage: UIImageView = {
@@ -41,20 +37,6 @@ class HeaderView: UIView {
 
         return textField
     }()
-    
-    private let exitButton: UIButton = {
-        let button = UIButton()
-        button.layer.cornerRadius = 8
-        button.layer.borderWidth = 1
-        button.layer.borderColor = R.color.blue100()?.cgColor
-        button.setTitle("Выйти", for: .normal)
-        button.titleLabel?.font = R.font.robotoMedium(size: 16)
-        button.setTitleColor(R.color.blue100(), for: .normal)
-        button.backgroundColor = R.color.white500()
-        return button
-    }()
-    
-    internal var headerViewDelegate: HeaderViewDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -74,15 +56,7 @@ class HeaderView: UIView {
             $0.leading.equalToSuperview().offset(16)
             $0.height.width.equalTo(56)
         }
-        
-        self.addSubview(exitButton)
-        exitButton.snp.makeConstraints {
-            $0.trailing.equalToSuperview().offset(-20)
-            $0.centerY.equalTo(photoImage)
-            $0.height.equalTo(30)
-            $0.width.equalTo(77)
-        }
-        
+
         self.addSubview(goodMorningLabel)
         goodMorningLabel.snp.makeConstraints {
             $0.top.equalTo(photoImage).offset(5)
@@ -103,16 +77,10 @@ class HeaderView: UIView {
             $0.height.equalTo(44)
             $0.bottom.equalToSuperview().offset(-10)
         }
-
-        exitButton.addTarget(self, action: #selector(exitTap), for: .touchUpInside)
     }
     
     internal func setUserName(userName: String) {
         userNameLabel.text = userName
-    }
-    
-    @objc func exitTap() {
-        headerViewDelegate?.exitAction()
     }
 
 }

@@ -33,7 +33,6 @@ class HomeViewController: UIViewController {
     }
     
     private func setupLayout() {
-        homeView.homeViewDelegate = self
         homeCollectionView.delegate = self
         homeCollectionView.dataSource = self
         homeView.setNameUserLabel(userName: homeViewModel.name)
@@ -166,21 +165,6 @@ class HomeViewController: UIViewController {
             snapshot.appendItems(section.items, toSection: section)
         }
         dataSource?.apply(snapshot)
-    }
-    
-}
-
-// MARK: - HomeViewDelegate
-
-extension HomeViewController: HomeViewDelegate {
-    func exitAction() {
-        
-        do {
-            try  Auth.auth().signOut()
-        } catch {
-            print("Error")
-        }
-        
     }
     
 }

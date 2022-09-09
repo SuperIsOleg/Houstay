@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import Firebase
 
 class AccountViewController: UIViewController {
     
-    private let account = Account()
+    private let accountView = AccountView()
     private let accountViewModel = AccountViewModel()
 
     override func viewDidLoad() {
@@ -18,14 +19,29 @@ class AccountViewController: UIViewController {
     }
     
     private func setupLayout() {
+        accountView.accountViewDelegate = self
         
         self.view.backgroundColor = R.color.white500()
-        account.setNameUserAndEmailLabel(userName: accountViewModel.name,
+        accountView.setNameUserAndEmailLabel(userName: accountViewModel.name,
                                          email: accountViewModel.email)
         
-        view.addSubview(account)
-        account.snp.makeConstraints {
+        view.addSubview(accountView)
+        accountView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
     }
+}
+
+// MARK: - AccountViewDelegate
+
+extension AccountViewController: AccountViewDelegate {
+    func exitAction() {
+        do {
+            try  Auth.auth().signOut()
+        } catch {
+            print("Error")
+        }
+    }
+    
+    
 }

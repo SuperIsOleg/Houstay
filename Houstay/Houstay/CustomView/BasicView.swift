@@ -30,6 +30,7 @@ class BasicView: UIView {
             $0.trailing.equalToSuperview()
             $0.bottom.equalTo(self.keyboardLayoutGuide.snp.top)
         })
+        contentScrollView.showsVerticalScrollIndicator = false
         
         
         contentScrollView.addSubview(contentView)

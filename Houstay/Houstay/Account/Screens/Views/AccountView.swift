@@ -1,5 +1,5 @@
 //
-//  Account.swift
+//  AccountView.swift
 //  Houstay
 //
 //  Created by Oleg Kalistratov on 2.09.22.
@@ -7,7 +7,11 @@
 
 import UIKit
 
-class Account: BasicView {
+protocol AccountViewDelegate {
+    func exitAction()
+}
+
+class AccountView: BasicView {
     
     private let headerView: UIView = {
         let view = UIView()
@@ -44,6 +48,24 @@ class Account: BasicView {
         return label
     }()
     
+    private let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.backgroundColor = .blue
+        return tableView
+    }()
+    
+    private let exitButton: UIButton = {
+        let button = UIButton()
+        button.layer.cornerRadius = 12
+        button.backgroundColor = R.color.blue5()
+        button.setTitle(R.string.localizable.accountExit(), for: .normal)
+        button.titleLabel?.font = R.font.robotoMedium(size: 16)
+        button.setTitleColor(R.color.blue100(), for: .normal)
+        return button
+    }()
+    
+    internal var accountViewDelegate: AccountViewDelegate?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupLayout()
@@ -61,7 +83,7 @@ class Account: BasicView {
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(100)
         }
-        
+
         headerView.addSubview(accoutImage)
         accoutImage.snp.makeConstraints {
             $0.top.equalToSuperview().offset(5)
@@ -88,10 +110,32 @@ class Account: BasicView {
             $0.top.equalTo(userNameLabel.snp.bottom).offset(7)
             $0.leading.equalTo(userNameLabel)
         }
+        
+        contentView.addSubview(tableView)
+        tableView.snp.makeConstraints {
+            $0.top.equalTo(headerView.snp.bottom)
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(800)
+        }
+        
+        contentView.addSubview(exitButton)
+        exitButton.snp.makeConstraints {
+            $0.top.equalTo(tableView.snp.bottom).offset(30)
+            $0.leading.equalToSuperview().offset(16)
+            $0.trailing.equalToSuperview().offset(-16)
+            $0.height.equalTo(50)
+            $0.bottom.equalToSuperview().offset(-50)
+        }
+        
+        exitButton.addTarget(self, action: #selector(exitTap), for: .touchUpInside)
     }
     
     internal func setNameUserAndEmailLabel(userName: String, email: String) {
         self.userNameLabel.text = userName
         self.emailLabel.text = email
+    }
+    
+    @objc func exitTap() {
+        accountViewDelegate?.exitAction()
     }
 }
