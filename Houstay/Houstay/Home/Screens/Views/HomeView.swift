@@ -30,10 +30,9 @@ class HomeView: UIView {
 
         self.addSubview(headerView)
         headerView.snp.makeConstraints {
-            $0.top.equalToSuperview()
+            $0.top.equalTo(self.safeAreaLayoutGuide.snp.top)
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview()
-            $0.height.equalTo(180)
         }
 
     }

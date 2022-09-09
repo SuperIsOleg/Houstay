@@ -38,7 +38,7 @@ class HomeViewController: UIViewController {
         homeCollectionView.dataSource = self
         homeView.setNameUserLabel(userName: homeViewModel.name)
         
-        self.view.backgroundColor = R.color.blue100()
+        self.view.backgroundColor = R.color.white500()
         self.view.addSubview(homeView)
         homeView.snp.makeConstraints {
             $0.edges.equalToSuperview()

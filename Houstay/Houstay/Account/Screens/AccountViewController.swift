@@ -10,6 +10,7 @@ import UIKit
 class AccountViewController: UIViewController {
     
     private let account = Account()
+    private let accountViewModel = AccountViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +19,10 @@ class AccountViewController: UIViewController {
     
     private func setupLayout() {
         
-        self.view.backgroundColor = R.color.red100()
+        self.view.backgroundColor = R.color.white500()
+        account.setNameUserAndEmailLabel(userName: accountViewModel.name,
+                                         email: accountViewModel.email)
+        
         view.addSubview(account)
         account.snp.makeConstraints {
             $0.edges.equalToSuperview()

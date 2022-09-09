@@ -70,7 +70,7 @@ createNewPassword.savePassword = "Сохранить";
 
 // Mark: Header
 
-header.goodMorning = "Доброе утро,";
+header.goodMorning = "Приветствую,";
 header.search = "Поиск ...";
 
 // Mark: Favourites

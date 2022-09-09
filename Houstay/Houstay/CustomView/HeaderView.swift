@@ -16,7 +16,7 @@ class HeaderView: UIView {
     private let photoImage: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 12
-        imageView.backgroundColor = R.color.lnk10()
+        imageView.backgroundColor = R.color.lnk30()
         return imageView
     }()
     
@@ -70,9 +70,9 @@ class HeaderView: UIView {
         
         self.addSubview(photoImage)
         photoImage.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(60)
+            $0.top.equalToSuperview().offset(5)
             $0.leading.equalToSuperview().offset(16)
-            $0.height.width.equalTo(48)
+            $0.height.width.equalTo(56)
         }
         
         self.addSubview(exitButton)
@@ -85,15 +85,14 @@ class HeaderView: UIView {
         
         self.addSubview(goodMorningLabel)
         goodMorningLabel.snp.makeConstraints {
-            $0.top.equalTo(photoImage).offset(2)
+            $0.top.equalTo(photoImage).offset(5)
             $0.leading.equalTo(photoImage.snp.trailing).offset(12)
         }
         
         self.addSubview(userNameLabel)
         userNameLabel.snp.makeConstraints {
-            $0.bottom.equalTo(photoImage).offset(-2)
+            $0.top.equalTo(goodMorningLabel.snp.bottom).offset(7)
             $0.leading.equalTo(goodMorningLabel)
-            $0.trailing.equalTo(exitButton.snp.leading).offset(-10)
         }
         
         self.addSubview(searchTextField)
@@ -102,6 +101,7 @@ class HeaderView: UIView {
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().offset(-16)
             $0.height.equalTo(44)
+            $0.bottom.equalToSuperview().offset(-10)
         }
 
         exitButton.addTarget(self, action: #selector(exitTap), for: .touchUpInside)
