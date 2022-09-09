@@ -77,3 +77,17 @@ header.search = "Поиск ...";
 
 favourites.liked = "Понравившиеся";
 favourites.dontHaveFavorite = "У вас пока нет избранного";
+
+// Mark: Account
+
+account.information = "Информация";
+account.password = "Пароль";
+account.notify = "Уведомление";
+account.language = "Язык";
+account.messages = "Переписка";
+account.policyAndPrivacy = "Политика и конфиденциальность";
+account.aboutUs = "О нас";
+account.exit = "Выйти";
+account.english = "Английский";
+account.russian = "Русский";
+
