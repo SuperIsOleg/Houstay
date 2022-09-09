@@ -17,8 +17,8 @@ class FavouritesViewController: UIViewController {
     }
     
     private func setupLayout() {
+        favouritesView.setupFavouritesView(.dontHave)
         
-        self.view.backgroundColor = R.color.green100()
         view.addSubview(favouritesView)
         favouritesView.snp.makeConstraints {
             $0.edges.equalToSuperview()

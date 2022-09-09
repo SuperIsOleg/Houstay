@@ -76,15 +76,16 @@ class HomeViewController: UIViewController {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                               heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+        
         
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9),
                                                heightDimension: .estimated(232))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-        
-        
+
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets.init(top: 0, leading: 10, bottom: 0, trailing: 10)
+        section.contentInsets = NSDirectionalEdgeInsets.init(top: 0, leading: 16, bottom: 0, trailing: 16)
+        section.interGroupSpacing = 16
         
         section.orthogonalScrollingBehavior = .groupPaging
         return section
@@ -119,7 +120,7 @@ class HomeViewController: UIViewController {
         
         let section = NSCollectionLayoutSection(group: group)
         section.interGroupSpacing = 16.0
-        section.contentInsets = NSDirectionalEdgeInsets.init(top: 16, leading: 16, bottom: 10, trailing: 16)
+        section.contentInsets = NSDirectionalEdgeInsets.init(top: 16, leading: 16, bottom: 16, trailing: 16)
         
         return section
     }
@@ -199,7 +200,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         case .recentlyPosted:
             return 4
         case .allOffers:
-            return homeViewModel.sections[section].items.count
+            return 4
         }
     }
     
@@ -239,10 +240,15 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         case .allOffers:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AllOffersCell.reuseIdentifier, for: indexPath) as?
                     AllOffersCell else { return UICollectionViewCell() }
-            
+            cell.configure(item)
             cell.layer.cornerRadius = 12
-            cell.backgroundColor = R.color.lnk50()
-            
+            cell.backgroundColor = R.color.white500()
+            cell.layer.borderWidth = 0.0
+            cell.layer.shadowColor = R.color.lnk10()?.cgColor
+            cell.layer.shadowOffset = CGSize(width: 0, height: 4)
+            cell.layer.shadowRadius = 15.0
+            cell.layer.shadowOpacity = 1
+            cell.layer.masksToBounds = false
             return cell
         }
     }

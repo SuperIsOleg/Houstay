@@ -7,6 +7,8 @@
 
 import UIKit
 
+
+
 class OffersCell: UICollectionViewCell {
     static var reuseIdentifier = String(describing: OffersCell.self)
     

@@ -7,7 +7,39 @@
 
 import UIKit
 
-class FavouritesView: BasicView {
+class FavouritesView: UIView {
+    
+    enum FavouritesHaveEnum {
+        case have
+        case dontHave
+    }
+    
+    private let likedLabel: UILabel = {
+       let label = UILabel()
+        label.text = R.string.localizable.favouritesLiked()
+        label.font = R.font.robotoMedium(size: 20)
+        label.textColor = R.color.lnk100()
+        label.isHidden = true
+        return label
+    }()
+    
+    private let boxImages: UIImageView = {
+       let imageView = UIImageView()
+        imageView.image = R.image.box()
+        imageView.contentMode = .scaleAspectFill
+        imageView.isHidden = true
+        return imageView
+    }()
+    
+    private let dontHaveFavoriteLabel: UILabel = {
+       let label = UILabel()
+        label.text = R.string.localizable.favouritesDontHaveFavorite()
+        label.font = R.font.robotoRegular(size: 16)
+        label.textColor = R.color.lnk50()
+        label.isHidden = true
+        return label
+    }()
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -20,6 +52,34 @@ class FavouritesView: BasicView {
     
     
     private func setupLayout() {
-        contentView.backgroundColor = R.color.green100()
+        self.backgroundColor = R.color.white500()
+        
+        self.addSubview(likedLabel)
+        likedLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(70)
+            $0.centerX.equalToSuperview()
+        }
+        
+        self.addSubview(boxImages)
+        boxImages.snp.makeConstraints {
+            $0.centerX.centerY.equalToSuperview()
+        }
+        
+        self.addSubview(dontHaveFavoriteLabel)
+        dontHaveFavoriteLabel.snp.makeConstraints {
+            $0.top.equalTo(boxImages.snp.bottom).offset(10)
+            $0.centerX.equalTo(boxImages)
+        }
+    }
+    
+    internal func setupFavouritesView( _ setView: FavouritesHaveEnum) {
+        switch setView {
+        case .have:
+            break
+        case .dontHave:
+            likedLabel.isHidden = false
+            boxImages.isHidden = false
+            dontHaveFavoriteLabel.isHidden = false
+        }
     }
 }

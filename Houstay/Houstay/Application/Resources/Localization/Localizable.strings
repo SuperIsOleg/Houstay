@@ -72,3 +72,8 @@ createNewPassword.savePassword = "Сохранить";
 
 header.goodMorning = "Доброе утро,";
 header.search = "Поиск ...";
+
+// Mark: Favourites
+
+favourites.liked = "Понравившиеся";
+favourites.dontHaveFavorite = "У вас пока нет избранного";
