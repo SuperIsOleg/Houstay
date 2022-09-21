@@ -47,13 +47,7 @@ class AccountView: BasicView {
         label.textColor = R.color.lnk50()
         return label
     }()
-    
-    private let tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.backgroundColor = .blue
-        return tableView
-    }()
-    
+
     private let exitButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = 12
@@ -64,7 +58,10 @@ class AccountView: BasicView {
         return button
     }()
     
+    private lazy var accountCollectionView = UICollectionView(frame: .zero, collectionViewLayout: self.createCompositionalLayout())
+    
     internal var accountViewDelegate: AccountViewDelegate?
+    internal var header: UIView { headerView }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -111,30 +108,40 @@ class AccountView: BasicView {
             $0.leading.equalTo(userNameLabel)
         }
         
-        contentView.addSubview(tableView)
-        tableView.snp.makeConstraints {
+        contentView.addSubview(accountCollectionView)
+        accountCollectionView.snp.makeConstraints {
             $0.top.equalTo(headerView.snp.bottom)
             $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(800)
         }
-        
+
         contentView.addSubview(exitButton)
         exitButton.snp.makeConstraints {
-            $0.top.equalTo(tableView.snp.bottom).offset(30)
+            $0.top.equalTo(accountCollectionView.snp.bottom).offset(24)
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().offset(-16)
             $0.height.equalTo(50)
             $0.bottom.equalToSuperview().offset(-50)
         }
-        
+
         exitButton.addTarget(self, action: #selector(exitTap), for: .touchUpInside)
     }
+    
+    
+    private func createCompositionalLayout() -> UICollectionViewLayout {
+        let config = UICollectionLayoutListConfiguration(appearance: .plain)
+        return UICollectionViewCompositionalLayout.list(using: config)
+    }
+    
     
     internal func setNameUserAndEmailLabel(userName: String, email: String) {
         self.userNameLabel.text = userName
         self.emailLabel.text = email
     }
     
+    internal func getAccountCollectionView() -> UICollectionView {
+        return accountCollectionView
+    }
+
     @objc func exitTap() {
         accountViewDelegate?.exitAction()
     }

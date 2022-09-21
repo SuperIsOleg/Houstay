@@ -7,12 +7,6 @@
 
 import Foundation
 
-enum HomeSectionEnum: String, Codable {
-    case offers = "offers"
-    case recentlyPosted = "recently posted"
-    case allOffers = "all offers"
-}
-
 struct HomeSectionsModel: Codable, Hashable {
     let type: HomeSectionEnum
     let title: String

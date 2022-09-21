@@ -9,13 +9,50 @@ import Foundation
 import Firebase
 
 class AccountViewModel {
-    var name: String = ""
-    var email: String = ""
+    internal var settingsItemsModel = [SettingsItemsModel]()
+    internal var name: String = ""
+    internal var email: String = ""
     
     init() {
         guard let userName = Auth.auth().currentUser?.displayName,
               let userEmail = Auth.auth().currentUser?.email else  { return }
         self.name = userName
         self.email = userEmail
+        settingsItemsModel = [SettingsItemsModel(imageSettings: R.image.information() ?? UIImage(),
+                                                 title: R.string.localizable.accountInformation(),
+                                                 imageArrows: R.image.arrowsRight() ?? UIImage(),
+                                                 switchSounds: true,
+                                                 language: ""),
+                              SettingsItemsModel(imageSettings: R.image.lock() ?? UIImage(),
+                                                 title: R.string.localizable.accountPassword(),
+                                                 imageArrows: R.image.arrowsRight() ?? UIImage(),
+                                                 switchSounds: true,
+                                                 language: ""),
+                              SettingsItemsModel(imageSettings: R.image.ring() ?? UIImage(),
+                                                 title: R.string.localizable.accountNotify(),
+                                                 imageArrows: UIImage(),
+                                                 switchSounds: false,
+                                                 language: ""),
+                              SettingsItemsModel(imageSettings: R.image.globus() ?? UIImage(),
+                                                 title: R.string.localizable.accountLanguage(),
+                                                 imageArrows: R.image.arrowsDown() ?? UIImage(),
+                                                 switchSounds: true,
+                                                 language: R.string.localizable.accountRussian()),
+                              SettingsItemsModel(imageSettings: R.image.message() ?? UIImage(),
+                                                 title: R.string.localizable.accountMessages(),
+                                                 imageArrows: R.image.arrowsRight() ?? UIImage(),
+                                                 switchSounds: true,
+                                                 language: ""),
+                              SettingsItemsModel(imageSettings: R.image.policyAndPrivacy() ?? UIImage(),
+                                                 title: R.string.localizable.accountPolicyAndPrivacy(),
+                                                 imageArrows: R.image.arrowsRight() ?? UIImage(),
+                                                 switchSounds: true,
+                                                 language: ""),
+                              SettingsItemsModel(imageSettings: R.image.aboutUs() ?? UIImage(),
+                                                 title: R.string.localizable.accountAboutUs(),
+                                                 imageArrows: R.image.arrowsRight() ?? UIImage(),
+                                                 switchSounds: true,
+                                                 language: "")
+        ]
     }
 }

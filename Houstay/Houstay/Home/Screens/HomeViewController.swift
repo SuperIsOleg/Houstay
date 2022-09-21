@@ -14,7 +14,9 @@ class HomeViewController: UIViewController {
     private lazy var homeCollectionView = UICollectionView(frame: view.bounds, collectionViewLayout: self.createCompositionalLayout())
     private let homeViewModel = HomeViewModel()
     private lazy var sections = self.homeViewModel.sections
-    private var dataSource: UICollectionViewDiffableDataSource<HomeSectionsModel, HomeItemsModel>?
+    private var dataSource: UICollectionViewDiffableDataSource<HomeSectionsModel, HomeItemsModel>! = nil
+    
+    var count = [HomeItemsModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +25,8 @@ class HomeViewController: UIViewController {
         self.homeCollectionView.register(RecentlyPostedCell.self, forCellWithReuseIdentifier: RecentlyPostedCell.reuseIdentifier)
         self.homeCollectionView.register(AllOffersCell.self, forCellWithReuseIdentifier: AllOffersCell.reuseIdentifier)
         setupLayout()
-        //        createDataSource()
-        //        reloadData()
+//                createDataSource()
+//                reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -126,41 +128,43 @@ class HomeViewController: UIViewController {
     
 //    MARK: - UICollectionViewDiffableDataSource
     private func createDataSource() {
-        dataSource = UICollectionViewDiffableDataSource<HomeSectionsModel, HomeItemsModel>(collectionView: homeCollectionView, cellProvider: { (collectionView, indexPath, itemIdentifier) ->  UICollectionViewCell? in
-            
+        dataSource = UICollectionViewDiffableDataSource<HomeSectionsModel, HomeItemsModel>(collectionView: homeCollectionView, cellProvider: { (collectionView, indexPath, model) ->  UICollectionViewCell? in
+
             switch self.sections[indexPath.section].type {
-                
+
             case .offers:
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OffersCell.reuseIdentifier, for: indexPath) as?
                         OffersCell else { return UICollectionViewCell() }
-                
+
                 cell.layer.cornerRadius = 12
                 cell.backgroundColor = R.color.white500()
+                cell.configure(model)
                 return cell
             case .recentlyPosted:
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecentlyPostedCell.reuseIdentifier, for: indexPath) as?
                         RecentlyPostedCell else { return UICollectionViewCell() }
-                
+
                 cell.layer.cornerRadius = 12
                 cell.backgroundColor = R.color.blue80()
-                
+                cell.configure(model)
                 return cell
             case .allOffers:
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AllOffersCell.reuseIdentifier, for: indexPath) as?
                         AllOffersCell else { return UICollectionViewCell() }
-                
+
                 cell.layer.cornerRadius = 12
                 cell.backgroundColor = R.color.lnk50()
-                
+                cell.configure(model)
                 return cell
             }
         })
+        
     }
     
     private func reloadData() {
         var snapshot = NSDiffableDataSourceSnapshot<HomeSectionsModel, HomeItemsModel>()
         snapshot.appendSections(sections)
-        
+
         for section in sections {
             snapshot.appendItems(section.items, toSection: section)
         }
