@@ -11,7 +11,7 @@ import Foundation
 import UIKit
 
 class AccountCell: UICollectionViewCell {
-    static var reuseIdentifier = String(describing: AccountCell.self)
+    static var reuseIdentifier = UUID()
     
     private let settingsImageView: UIImageView = {
         let imageView = UIImageView()

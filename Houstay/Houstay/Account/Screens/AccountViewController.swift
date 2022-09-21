@@ -70,8 +70,9 @@ extension AccountViewController: AccountViewDelegate {
 extension AccountViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath)
-        collectionView.deselectItem(at: indexPath, animated: true)
+        if indexPath.row == 3 {
+            print(indexPath)
+        }
     }
     
 }

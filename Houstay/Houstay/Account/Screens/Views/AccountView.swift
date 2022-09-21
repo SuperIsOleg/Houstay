@@ -57,7 +57,7 @@ class AccountView: BasicView {
         button.setTitleColor(R.color.blue100(), for: .normal)
         return button
     }()
-    
+
     private lazy var accountCollectionView = UICollectionView(frame: .zero, collectionViewLayout: self.createCompositionalLayout())
     
     internal var accountViewDelegate: AccountViewDelegate?
