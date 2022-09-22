@@ -14,7 +14,7 @@ class AccountViewController: UIViewController {
     private let accountViewModel = AccountViewModel()
     private lazy var accountCollectionView = accountView.getAccountCollectionView()
     private var dataSource: UICollectionViewDiffableDataSource<AccountSectionEnum, SettingsItemsModel>! = nil
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
@@ -33,13 +33,25 @@ class AccountViewController: UIViewController {
             $0.edges.equalToSuperview()
         }
     }
-
+    
     /// - Tag: CellRegistration
     private func configureDataSource() {
         let cellRegistration = UICollectionView.CellRegistration<AccountCell, SettingsItemsModel> { (cell, indexPath, item) in
             cell.configure(self.accountViewModel.settingsItemsModel[indexPath.row])
+            if indexPath.row == 3 {
+                
+                let languageRussian = UIAction(title: R.string.localizable.accountRussian()) { (_) in
+                    cell.getLanguageLabelText(R.string.localizable.accountRussian())
+                }
+                
+                let languageEnglish = UIAction(title: R.string.localizable.accountEnglish()) { (_) in
+                    cell.getLanguageLabelText(R.string.localizable.accountEnglish())
+                }
+                cell.arrowButton.showsMenuAsPrimaryAction = true
+                cell.arrowButton.menu = UIMenu(title: R.string.localizable.accountChooseLanguage(), children: [languageRussian, languageEnglish])
+            }
         }
-
+        
         dataSource = UICollectionViewDiffableDataSource<AccountSectionEnum, SettingsItemsModel>(collectionView: accountCollectionView) {
             (collectionView: UICollectionView, indexPath: IndexPath, item: SettingsItemsModel) -> UICollectionViewCell? in
             return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: item)
@@ -70,10 +82,23 @@ extension AccountViewController: AccountViewDelegate {
 extension AccountViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.row == 3 {
-            print(indexPath)
-        }
+//        switch indexPath.row {
+//        case 0:
+//            return print(indexPath.row)
+//        case 1:
+//            return print(indexPath.row)
+//        case 2:
+//            return print(indexPath.row)
+//        case 3:
+//            return print(indexPath.row)
+//        case 4:
+//            return print(indexPath.row)
+//        case 5:
+//            return print(indexPath.row)
+//        case 6:
+//            return print(indexPath.row)
+//        default:
+//            break
+//        }
     }
-    
 }
-

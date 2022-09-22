@@ -36,11 +36,9 @@ class AccountCell: UICollectionViewCell {
         return label
     }()
     
-    private let arrowsImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        return imageView
+    private let arrowsButton: UIButton = {
+        let button = UIButton()
+        return button
     }()
     
     private let switchSounds: UISwitch = {
@@ -51,6 +49,8 @@ class AccountCell: UICollectionViewCell {
         switchSounds.isHidden = true
         return switchSounds
     }()
+    
+    internal var arrowButton: UIButton { arrowsButton }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -76,9 +76,10 @@ class AccountCell: UICollectionViewCell {
             $0.centerY.equalTo(settingsImageView)
         }
         
-        self.addSubview(arrowsImageView)
-        arrowsImageView.snp.makeConstraints {
+        self.addSubview(arrowsButton)
+        arrowsButton.snp.makeConstraints {
             $0.trailing.equalToSuperview().offset(-24)
+            $0.height.width.equalTo(16)
             $0.centerY.equalTo(settingsImageView)
         }
         
@@ -99,9 +100,13 @@ class AccountCell: UICollectionViewCell {
     internal func configure( _ model: SettingsItemsModel) {
         self.settingsImageView.image = model.imageSettings
         self.titleLabel.text = model.title
-        self.arrowsImageView.image = model.imageArrows
+        self.arrowsButton.setImage(model.imageArrows, for: .normal)
         self.switchSounds.isHidden = model.switchSounds
         self.languageLabel.text = model.language
+    }
+    
+    internal func getLanguageLabelText(_ text: String) {
+        self.languageLabel.text = text
     }
     
 }

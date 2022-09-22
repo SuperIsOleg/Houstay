@@ -90,4 +90,4 @@ account.aboutUs = "О нас";
 account.exit = "Выйти";
 account.english = "Английский";
 account.russian = "Русский";
-
+account.chooseLanguage = "Выберите язык";
