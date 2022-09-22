@@ -82,23 +82,27 @@ extension AccountViewController: AccountViewDelegate {
 extension AccountViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        switch indexPath.row {
-//        case 0:
-//            return print(indexPath.row)
-//        case 1:
-//            return print(indexPath.row)
-//        case 2:
-//            return print(indexPath.row)
-//        case 3:
-//            return print(indexPath.row)
-//        case 4:
-//            return print(indexPath.row)
-//        case 5:
-//            return print(indexPath.row)
-//        case 6:
-//            return print(indexPath.row)
-//        default:
-//            break
-//        }
+        switch indexPath.row {
+        case 0:
+            return print(indexPath.row)
+        case 1:
+            return print(indexPath.row)
+        case 2:
+            return print(indexPath.row)
+        case 3:
+            return print(indexPath.row)
+        case 4:
+            return print(indexPath.row)
+        case 5:
+            return print(indexPath.row)
+        case 6:
+            let aboutAppViewController = AboutAppViewController()
+            aboutAppViewController.modalTransitionStyle = .flipHorizontal
+            navigationController?.navigationBar.tintColor = R.color.blue100()
+            self.navigationController?.pushViewController(aboutAppViewController, animated: true)
+            return print(indexPath.row)
+        default:
+            break
+        }
     }
 }
