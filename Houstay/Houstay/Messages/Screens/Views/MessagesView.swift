@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MessagesView: BasicView {
+class MessagesView: UIView {
     
     private let noMessagesViewImages: UIImageView = {
         let imageView = UIImageView()
@@ -34,15 +34,15 @@ class MessagesView: BasicView {
     }
     
     private func setupLayout() {
-        contentView.backgroundColor = R.color.white500()
+        self.backgroundColor = R.color.white500()
         
-        contentView.addSubview(noMessagesViewImages)
+        self.addSubview(noMessagesViewImages)
         noMessagesViewImages.snp.makeConstraints {
             $0.top.equalToSuperview().offset(160)
             $0.centerX.equalToSuperview()
         }
         
-        contentView.addSubview(noMessagesLabel)
+        self.addSubview(noMessagesLabel)
         noMessagesLabel.snp.makeConstraints {
             $0.top.equalTo(noMessagesViewImages.snp.bottom).offset(25)
             $0.centerX.equalTo(noMessagesViewImages)

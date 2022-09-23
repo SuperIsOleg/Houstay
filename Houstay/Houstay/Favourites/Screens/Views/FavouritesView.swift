@@ -47,7 +47,8 @@ class FavouritesView: UIView {
 
         self.addSubview(boxImages)
         boxImages.snp.makeConstraints {
-            $0.centerX.centerY.equalToSuperview()
+            $0.top.equalToSuperview().offset(160)
+            $0.centerX.equalToSuperview()
         }
         
         self.addSubview(dontHaveFavoriteLabel)
