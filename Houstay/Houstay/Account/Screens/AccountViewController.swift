@@ -45,11 +45,13 @@ class AccountViewController: UIViewController {
             cell.configure(self.accountViewModel.settingsItemsModel[indexPath.row])
             if indexPath.row == 3 {
                 
-                let languageRussian = UIAction(title: R.string.localizable.accountRussian()) { (_) in
+                let languageRussian = UIAction(title: R.string.localizable.accountRussian(),
+                                               image: R.image.russian()) { (_) in
                     cell.getLanguageLabelText(R.string.localizable.accountRussian())
                 }
                 
-                let languageEnglish = UIAction(title: R.string.localizable.accountEnglish()) { (_) in
+                let languageEnglish = UIAction(title: R.string.localizable.accountEnglish(),
+                                               image: R.image.english()) { (_) in
                     cell.getLanguageLabelText(R.string.localizable.accountEnglish())
                 }
                 cell.arrowButton.showsMenuAsPrimaryAction = true
