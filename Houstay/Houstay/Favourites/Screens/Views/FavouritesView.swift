@@ -13,16 +13,7 @@ class FavouritesView: UIView {
         case have
         case dontHave
     }
-    
-    private let likedLabel: UILabel = {
-       let label = UILabel()
-        label.text = R.string.localizable.favouritesLiked()
-        label.font = R.font.robotoMedium(size: 20)
-        label.textColor = R.color.lnk100()
-        label.isHidden = true
-        return label
-    }()
-    
+
     private let boxImages: UIImageView = {
        let imageView = UIImageView()
         imageView.image = R.image.box()
@@ -53,13 +44,7 @@ class FavouritesView: UIView {
     
     private func setupLayout() {
         self.backgroundColor = R.color.white500()
-        
-        self.addSubview(likedLabel)
-        likedLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(70)
-            $0.centerX.equalToSuperview()
-        }
-        
+
         self.addSubview(boxImages)
         boxImages.snp.makeConstraints {
             $0.centerX.centerY.equalToSuperview()
@@ -77,7 +62,6 @@ class FavouritesView: UIView {
         case .have:
             break
         case .dontHave:
-            likedLabel.isHidden = false
             boxImages.isHidden = false
             dontHaveFavoriteLabel.isHidden = false
         }
