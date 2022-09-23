@@ -23,8 +23,7 @@ class AboutAppViewController: UIViewController {
     
     private func setupLayout() {
         
-        self.view.backgroundColor = R.color.yellow100()
-        
+        self.view.backgroundColor = R.color.white500()
         view.addSubview(aboutAppView)
         aboutAppView.snp.makeConstraints {
             $0.edges.equalToSuperview()
@@ -39,3 +38,5 @@ class AboutAppViewController: UIViewController {
     }
     
 }
+
+

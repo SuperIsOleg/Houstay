@@ -25,4 +25,12 @@ extension Bundle {
         
         return loaded
     }
+    
+    public var appVersionShort: String {
+            if let result = infoDictionary?["CFBundleShortVersionString"] as? String {
+                return result
+            } else {
+                return "⚠️"
+            }
+        }
 }
