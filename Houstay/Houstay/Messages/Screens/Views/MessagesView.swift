@@ -1,29 +1,29 @@
 //
-//  AboutAppView.swift
+//  MessagesView.swift
 //  Houstay
 //
-//  Created by Oleg Kalistratov on 22.09.22.
+//  Created by Oleg Kalistratov on 23.09.22.
 //
 
 import UIKit
 
-class AboutAppView: BasicView {
+class MessagesView: BasicView {
     
-    private let aboutAppImages: UIImageView = {
+    private let noMessagesViewImages: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = R.image.aboutApp()
+        imageView.image = R.image.noMessages()
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
-    private let versionLabel: UILabel = {
+    private let noMessagesLabel: UILabel = {
         let label = UILabel()
-        label.text = "\(R.string.localizable.aboutAppVersion()) \(Bundle.main.appVersionShort)"
+        label.text = R.string.localizable.messagesNoMessages()
         label.font = R.font.robotoRegular(size: 16)
         label.textColor = R.color.lnk50()
         return label
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupLayout()
@@ -36,17 +36,18 @@ class AboutAppView: BasicView {
     private func setupLayout() {
         contentView.backgroundColor = R.color.white500()
         
-        contentView.addSubview(aboutAppImages)
-        aboutAppImages.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(25)
+        contentView.addSubview(noMessagesViewImages)
+        noMessagesViewImages.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(160)
             $0.centerX.equalToSuperview()
         }
         
-        contentView.addSubview(versionLabel)
-        versionLabel.snp.makeConstraints {
-            $0.top.equalTo(aboutAppImages.snp.bottom).offset(25)
-            $0.centerX.equalTo(aboutAppImages)
+        contentView.addSubview(noMessagesLabel)
+        noMessagesLabel.snp.makeConstraints {
+            $0.top.equalTo(noMessagesViewImages.snp.bottom).offset(25)
+            $0.centerX.equalTo(noMessagesViewImages)
         }
+
     }
    
 }

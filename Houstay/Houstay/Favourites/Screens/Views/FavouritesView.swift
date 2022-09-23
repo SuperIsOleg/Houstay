@@ -67,7 +67,7 @@ class FavouritesView: UIView {
         
         self.addSubview(dontHaveFavoriteLabel)
         dontHaveFavoriteLabel.snp.makeConstraints {
-            $0.top.equalTo(boxImages.snp.bottom).offset(10)
+            $0.top.equalTo(boxImages.snp.bottom).offset(25)
             $0.centerX.equalTo(boxImages)
         }
     }

@@ -98,3 +98,8 @@ aboutApp.aboutApp = "О приложении";
 aboutApp.version = "Версия";
 aboutApp.appDescription = "Описания приложения";
 aboutApp.policyAndPrivacy = "Политика и конфиденциальность";
+
+// Mark: Messages
+
+messages.messages = "Переписка";
+messages.noMessages = "У вас нет открытых диалогов";
