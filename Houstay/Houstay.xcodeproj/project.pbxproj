@@ -60,6 +60,8 @@
 		02C4FF0C28BF7F54005869F1 /* CreateNewPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C4FF0B28BF7F54005869F1 /* CreateNewPasswordView.swift */; };
 		02F8E1E128CB76E000517C69 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F8E1E028CB76E000517C69 /* AccountViewModel.swift */; };
 		A2B3E143E9556E544620167E /* Pods_Houstay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB75DE0874EAEC3C2A7D2F45 /* Pods_Houstay.framework */; };
+		F41F4A5C28DE222500958A91 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41F4A5B28DE222500958A91 /* ProfileViewController.swift */; };
+		F41F4A5E28DE223300958A91 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41F4A5D28DE223300958A91 /* ProfileView.swift */; };
 		F42C173728BFC27B0056CF59 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F42C173628BFC27B0056CF59 /* FirebaseAnalytics */; };
 		F42C173928BFC27B0056CF59 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F42C173828BFC27B0056CF59 /* FirebaseAnalyticsSwift */; };
 		F42C173B28BFC27B0056CF59 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F42C173A28BFC27B0056CF59 /* FirebaseAuth */; };
@@ -136,6 +138,8 @@
 		02F8E1E028CB76E000517C69 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		80C35C1268B3C39A509A9F6B /* Pods-Houstay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Houstay.debug.xcconfig"; path = "Target Support Files/Pods-Houstay/Pods-Houstay.debug.xcconfig"; sourceTree = "<group>"; };
 		B865715D735DC631BA84A24E /* Pods-Houstay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Houstay.release.xcconfig"; path = "Target Support Files/Pods-Houstay/Pods-Houstay.release.xcconfig"; sourceTree = "<group>"; };
+		F41F4A5B28DE222500958A91 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		F41F4A5D28DE223300958A91 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		F42C174C28BFC8A70056CF59 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F42C174E28BFC8BA0056CF59 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F4329DED28BFBE3900D38EAE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -363,6 +367,7 @@
 				028097CD28C22CED00C2ECD9 /* Favourites */,
 				028097CE28C22CF500C2ECD9 /* Blog */,
 				028097CF28C22D0400C2ECD9 /* Account */,
+				F41F4A5828DE21E600958A91 /* Profile */,
 				02ABB21F28DDA741004ECD55 /* Messages */,
 				02ABB21828DD9551004ECD55 /* PolicyAndPrivacy */,
 				02ABB20F28DC57B7004ECD55 /* AboutApp */,
@@ -665,6 +670,31 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		F41F4A5828DE21E600958A91 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				F41F4A5928DE21FD00958A91 /* Screens */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		F41F4A5928DE21FD00958A91 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				F41F4A5A28DE220A00958A91 /* Views */,
+				F41F4A5B28DE222500958A91 /* ProfileViewController.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		F41F4A5A28DE220A00958A91 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F41F4A5D28DE223300958A91 /* ProfileView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		F42C174928BFC8640056CF59 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -916,6 +946,7 @@
 				02ABB21128DC57D6004ECD55 /* AboutAppViewController.swift in Sources */,
 				02ABB21C28DD95A8004ECD55 /* PolicyAndPrivacyViewController.swift in Sources */,
 				0286246C28BCBE00006C12C5 /* OnboardingViewController.swift in Sources */,
+				F41F4A5C28DE222500958A91 /* ProfileViewController.swift in Sources */,
 				F42C174F28BFC8BB0056CF59 /* HomeView.swift in Sources */,
 				F4480ADC28BE9EEC001AA98B /* RegistrationView.swift in Sources */,
 				023EEAD528BCF9D700446893 /* OnboardingViewModel.swift in Sources */,
@@ -951,6 +982,7 @@
 				02C4FF0328BF6281005869F1 /* ChekPasswordViewController.swift in Sources */,
 				028097DD28C22E7100C2ECD9 /* BlogViewController.swift in Sources */,
 				02ABB21628DC5815004ECD55 /* AboutAppView.swift in Sources */,
+				F41F4A5E28DE223300958A91 /* ProfileView.swift in Sources */,
 				02ABB22528DDA7B4004ECD55 /* MessagesView.swift in Sources */,
 				023EEAD028BCE86700446893 /* OnboardingCollectionView.swift in Sources */,
 				02952B2D28BE22F000B2F43F /* LoginView.swift in Sources */,

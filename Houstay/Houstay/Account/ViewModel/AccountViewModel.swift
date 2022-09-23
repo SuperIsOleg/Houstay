@@ -19,7 +19,7 @@ class AccountViewModel {
         self.name = userName
         self.email = userEmail
         settingsItemsModel = [SettingsItemsModel(imageSettings: R.image.information() ?? UIImage(),
-                                                 title: R.string.localizable.accountInformation(),
+                                                 title: R.string.localizable.accountProfile(),
                                                  imageArrows: R.image.arrowsRight() ?? UIImage(),
                                                  switchSounds: true,
                                                  language: ""),

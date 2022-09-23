@@ -80,7 +80,7 @@ favourites.dontHaveFavorite = "У вас пока нет избранного";
 
 // Mark: Account
 
-account.information = "Информация";
+account.profile = "Профиль";
 account.password = "Пароль";
 account.notify = "Уведомление";
 account.language = "Язык";
@@ -103,3 +103,7 @@ aboutApp.policyAndPrivacy = "Политика и конфиденциально�
 
 messages.messages = "Переписка";
 messages.noMessages = "У вас нет открытых диалогов";
+
+// Mark: Profile
+
+profile.profile = "Профиль";

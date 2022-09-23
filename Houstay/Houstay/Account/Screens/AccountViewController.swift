@@ -89,7 +89,8 @@ extension AccountViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            return print(indexPath.row)
+            self.setNavigationItemTitleAndPush(viewController: ProfileViewController(),
+                                         title: R.string.localizable.profileProfile())
         case 1:
             return print(indexPath.row)
         case 2:
