@@ -97,22 +97,21 @@ extension AccountViewController: UICollectionViewDelegate {
         case 3:
             return print(indexPath.row)
         case 4:
-            self.setNavigationBarAndPush(viewController: MessagesViewController(), title: R.string.localizable.accountMessages())
+            self.setNavigationItemTitleAndPush(viewController: MessagesViewController(),
+                                         title: R.string.localizable.accountMessages())
         case 5:
-            self.setNavigationBarAndPush(viewController: PolicyAndPrivacyViewController(), title: R.string.localizable.aboutAppPolicyAndPrivacy())
+            self.setNavigationItemTitleAndPush(viewController: PolicyAndPrivacyViewController(),
+                                         title: R.string.localizable.aboutAppPolicyAndPrivacy())
         case 6:
-            self.setNavigationBarAndPush(viewController: AboutAppViewController(), title: R.string.localizable.aboutAppAboutApp())
+            self.setNavigationItemTitleAndPush(viewController: AboutAppViewController(),
+                                         title: R.string.localizable.aboutAppAboutApp())
         default:
             break
         }
     }
     
-    private func setNavigationBarAndPush(viewController: UIViewController, title: String) {
-        viewController.modalTransitionStyle = .flipHorizontal
-        viewController.navigationController?.navigationBar.tintColor = R.color.blue100()
+    private func setNavigationItemTitleAndPush(viewController: UIViewController, title: String) {
         viewController.navigationItem.title = title
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: R.font.robotoMedium(size: 20) ?? UIFont(),
-                                                                         NSAttributedString.Key.foregroundColor: R.color.white100() ?? UIColor()]
         self.navigationController?.pushViewController(viewController, animated: true)
         
     }

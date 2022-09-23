@@ -13,8 +13,8 @@ class FavouritesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.topItem?.title = R.string.localizable.favouritesLiked()
         setupLayout()
-        setupNavigationBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,11 +29,5 @@ class FavouritesViewController: UIViewController {
         favouritesView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-    }
-    
-    private func setupNavigationBar() {
-        self.navigationController?.navigationBar.topItem?.title = R.string.localizable.favouritesLiked()
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: R.font.robotoMedium(size: 20) ?? UIFont(),
-                                                                         NSAttributedString.Key.foregroundColor: R.color.white100() ?? UIColor()]
     }
 }

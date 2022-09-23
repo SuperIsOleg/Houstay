@@ -20,8 +20,8 @@ class LoginViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
         super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     private func setupLayout() {
@@ -32,8 +32,7 @@ class LoginViewController: UIViewController {
             $0.edges.equalToSuperview()
         }
     }
-    
-    
+   
 }
 
 // MARK: - LoginViewDelegate
@@ -94,15 +93,11 @@ extension LoginViewController: LoginViewDelegate {
     
     func targetRegistrationViewAction() {
         let registrationViewController = RegistrationViewController()
-        registrationViewController.modalTransitionStyle = .flipHorizontal
-        navigationController?.navigationBar.tintColor = R.color.blue100()
         self.navigationController?.pushViewController(registrationViewController, animated: true)
     }
     
     func targetForgetPasswordViewAction() {
         let forgetPasswordViewController = ForgetPasswordViewController()
-        forgetPasswordViewController.modalTransitionStyle = .flipHorizontal
-        navigationController?.navigationBar.tintColor = R.color.blue100()
         self.navigationController?.pushViewController(forgetPasswordViewController, animated: true)
     }
 }
