@@ -10,15 +10,15 @@ import UIKit
 class AboutAppViewController: UIViewController {
     
     private let aboutAppView = AboutAppView()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupLayout()
+        self.setupLayout()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.setupNavigationBar()
     }
     
     private func setupLayout() {
@@ -30,5 +30,12 @@ class AboutAppViewController: UIViewController {
             $0.edges.equalToSuperview()
         }
     }
-
+    
+    private func setupNavigationBar() {
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.navigationController?.navigationBar.topItem?.title = R.string.localizable.aboutAppAboutApp()
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: R.font.robotoMedium(size: 20) ?? UIFont(),
+                                                                         NSAttributedString.Key.foregroundColor: R.color.white100() ?? UIColor()]
+    }
+    
 }

@@ -91,3 +91,9 @@ account.exit = "Выйти";
 account.english = "Английский";
 account.russian = "Русский";
 account.chooseLanguage = "Выберите язык";
+
+// Mark: AboutApp
+
+aboutApp.aboutApp = "О приложении";
+aboutApp.version = "Версия";
+aboutApp.appDescription = "Описания приложения";
