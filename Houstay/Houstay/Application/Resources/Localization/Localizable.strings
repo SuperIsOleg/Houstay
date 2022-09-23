@@ -109,4 +109,5 @@ messages.noMessages = "У вас нет открытых диалогов";
 profile.profile = "Профиль";
 profile.name = "Имя";
 profile.email = "Эл. почта";
-profile.number = "Номер телефона";
+profile.phoneNumber = "Номер телефона";
+profile.isEmpty = "Пусто";

@@ -63,6 +63,7 @@
 		F41F4A5C28DE222500958A91 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41F4A5B28DE222500958A91 /* ProfileViewController.swift */; };
 		F41F4A5E28DE223300958A91 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41F4A5D28DE223300958A91 /* ProfileView.swift */; };
 		F41F4A6028DE278B00958A91 /* FabricViewForProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41F4A5F28DE278B00958A91 /* FabricViewForProfileView.swift */; };
+		F41F4A6328DE338300958A91 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41F4A6228DE338300958A91 /* ProfileViewModel.swift */; };
 		F42C173728BFC27B0056CF59 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F42C173628BFC27B0056CF59 /* FirebaseAnalytics */; };
 		F42C173928BFC27B0056CF59 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F42C173828BFC27B0056CF59 /* FirebaseAnalyticsSwift */; };
 		F42C173B28BFC27B0056CF59 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F42C173A28BFC27B0056CF59 /* FirebaseAuth */; };
@@ -142,6 +143,7 @@
 		F41F4A5B28DE222500958A91 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F41F4A5D28DE223300958A91 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		F41F4A5F28DE278B00958A91 /* FabricViewForProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FabricViewForProfileView.swift; sourceTree = "<group>"; };
+		F41F4A6228DE338300958A91 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		F42C174C28BFC8A70056CF59 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F42C174E28BFC8BA0056CF59 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F4329DED28BFBE3900D38EAE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -444,8 +446,6 @@
 			isa = PBXGroup;
 			children = (
 				02952B2628BE22A100B2F43F /* Screens */,
-				02952B2828BE22B000B2F43F /* ViewModel */,
-				02952B2728BE22A800B2F43F /* Model */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -457,20 +457,6 @@
 				02952B2A28BE22DA00B2F43F /* LoginViewController.swift */,
 			);
 			path = Screens;
-			sourceTree = "<group>";
-		};
-		02952B2728BE22A800B2F43F /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		02952B2828BE22B000B2F43F /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		02952B2928BE22BE00B2F43F /* Views */ = {
@@ -676,6 +662,7 @@
 			isa = PBXGroup;
 			children = (
 				F41F4A5928DE21FD00958A91 /* Screens */,
+				F41F4A6128DE330400958A91 /* ViewModel */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -695,6 +682,14 @@
 				F41F4A5D28DE223300958A91 /* ProfileView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		F41F4A6128DE330400958A91 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F41F4A6228DE338300958A91 /* ProfileViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		F42C174928BFC8640056CF59 /* Home */ = {
@@ -982,6 +977,7 @@
 				02065FBE28C60A6A0064F2F1 /* Bundle+Extrnsion.swift in Sources */,
 				02065FC728C6141B0064F2F1 /* RecentlyPostedCell.swift in Sources */,
 				02952B2428BDE6D800B2F43F /* OnboardingView.swift in Sources */,
+				F41F4A6328DE338300958A91 /* ProfileViewModel.swift in Sources */,
 				02065FC128C60C040064F2F1 /* HomeSectionsModel.swift in Sources */,
 				02C4FF0328BF6281005869F1 /* ChekPasswordViewController.swift in Sources */,
 				028097DD28C22E7100C2ECD9 /* BlogViewController.swift in Sources */,

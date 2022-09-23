@@ -20,10 +20,13 @@ class FabricViewForProfileView: UIView {
         let textField = CustomTextField()
         textField.textColor = R.color.lnk100()
         textField.font = R.font.robotoRegular(size: 16.0)
+        textField.placeholder = NSLocalizedString(R.string.localizable.profileIsEmpty(), comment: "")
         textField.returnKeyType = .done
         textField.clearButtonMode = .whileEditing
         return textField
     }()
+    
+    internal var textFieldCongirure: CustomTextField { textField }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -56,7 +59,7 @@ class FabricViewForProfileView: UIView {
         }
     }
     
-    internal func configure(_ titleText: String,  _ textFieldText: String ) {
+    internal func configure(_ titleText: String,  _ textFieldText: String) {
         self.titleLabel.text = titleText
         self.textField.text = textFieldText
     }
