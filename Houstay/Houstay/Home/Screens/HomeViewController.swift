@@ -211,6 +211,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.layer.shadowRadius = 15.0
             cell.layer.shadowOpacity = 1
             cell.layer.masksToBounds = false
+            cell.collectionViewCellDelegate = self
             return cell
         case .recentlyPosted:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecentlyPostedCell.reuseIdentifier, for: indexPath) as?
@@ -239,6 +240,13 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.layer.masksToBounds = false
             return cell
         }
+    }
+    
+}
+
+extension HomeViewController: CollectionViewCellDelegate {
+    func favoriteAppartementAction() {
+        
     }
     
 }

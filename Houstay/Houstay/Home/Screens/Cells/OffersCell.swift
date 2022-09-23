@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol CollectionViewCellDelegate {
+    func favoriteAppartementAction()
+}
+
 class OffersCell: UICollectionViewCell {
     static var reuseIdentifier = String(describing: OffersCell.self)
     
@@ -49,6 +53,7 @@ class OffersCell: UICollectionViewCell {
         return label
     }()
     
+    internal var collectionViewCellDelegate: CollectionViewCellDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -96,6 +101,13 @@ class OffersCell: UICollectionViewCell {
             $0.trailing.equalToSuperview().offset(-8)
         }
         
+        favoriteAppartementButton.addTarget(self, action: #selector(favoriteAppartementTap), for: .touchUpInside)
+        
+    }
+    
+    @objc
+    private func favoriteAppartementTap() {
+        self.collectionViewCellDelegate?.favoriteAppartementAction()
     }
     
     internal func configure( _ model: HomeItemsModel) {
