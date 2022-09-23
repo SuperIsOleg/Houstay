@@ -21,6 +21,11 @@ class AccountViewController: UIViewController {
         configureDataSource()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
     private func setupLayout() {
         accountView.accountViewDelegate = self
         accountCollectionView.delegate = self
@@ -98,9 +103,11 @@ extension AccountViewController: UICollectionViewDelegate {
         case 6:
             let aboutAppViewController = AboutAppViewController()
             aboutAppViewController.modalTransitionStyle = .flipHorizontal
-            navigationController?.navigationBar.tintColor = R.color.blue100()
+            aboutAppViewController.navigationController?.navigationBar.tintColor = R.color.blue100()
+            aboutAppViewController.navigationItem.title = R.string.localizable.aboutAppAboutApp()
+            self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: R.font.robotoMedium(size: 20) ?? UIFont(),
+                                                                             NSAttributedString.Key.foregroundColor: R.color.white100() ?? UIColor()]
             self.navigationController?.pushViewController(aboutAppViewController, animated: true)
-            return print(indexPath.row)
         default:
             break
         }
