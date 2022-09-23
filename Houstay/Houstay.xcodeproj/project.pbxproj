@@ -62,6 +62,7 @@
 		A2B3E143E9556E544620167E /* Pods_Houstay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB75DE0874EAEC3C2A7D2F45 /* Pods_Houstay.framework */; };
 		F41F4A5C28DE222500958A91 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41F4A5B28DE222500958A91 /* ProfileViewController.swift */; };
 		F41F4A5E28DE223300958A91 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41F4A5D28DE223300958A91 /* ProfileView.swift */; };
+		F41F4A6028DE278B00958A91 /* FabricViewForProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41F4A5F28DE278B00958A91 /* FabricViewForProfileView.swift */; };
 		F42C173728BFC27B0056CF59 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F42C173628BFC27B0056CF59 /* FirebaseAnalytics */; };
 		F42C173928BFC27B0056CF59 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F42C173828BFC27B0056CF59 /* FirebaseAnalyticsSwift */; };
 		F42C173B28BFC27B0056CF59 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F42C173A28BFC27B0056CF59 /* FirebaseAuth */; };
@@ -140,6 +141,7 @@
 		B865715D735DC631BA84A24E /* Pods-Houstay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Houstay.release.xcconfig"; path = "Target Support Files/Pods-Houstay/Pods-Houstay.release.xcconfig"; sourceTree = "<group>"; };
 		F41F4A5B28DE222500958A91 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F41F4A5D28DE223300958A91 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		F41F4A5F28DE278B00958A91 /* FabricViewForProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FabricViewForProfileView.swift; sourceTree = "<group>"; };
 		F42C174C28BFC8A70056CF59 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F42C174E28BFC8BA0056CF59 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F4329DED28BFBE3900D38EAE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -354,8 +356,8 @@
 			isa = PBXGroup;
 			children = (
 				0286247B28BCC7CE006C12C5 /* Application */,
-				02952B2E28BE2A2E00B2F43F /* SplashScreen */,
 				F4480AC928BE6FD4001AA98B /* CustomView */,
+				02952B2E28BE2A2E00B2F43F /* SplashScreen */,
 				0286247E28BCC870006C12C5 /* Onboarding */,
 				02952B2528BE225900B2F43F /* Login */,
 				F4480AD528BE9E46001AA98B /* Registration */,
@@ -730,6 +732,7 @@
 				F4480ACC28BE8E99001AA98B /* BasicView.swift */,
 				028097BD28C0ED5900C2ECD9 /* HeaderView.swift */,
 				028097C228C2021C00C2ECD9 /* SearcheTextFieldBase.swift */,
+				F41F4A5F28DE278B00958A91 /* FabricViewForProfileView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -946,6 +949,7 @@
 				02ABB21128DC57D6004ECD55 /* AboutAppViewController.swift in Sources */,
 				02ABB21C28DD95A8004ECD55 /* PolicyAndPrivacyViewController.swift in Sources */,
 				0286246C28BCBE00006C12C5 /* OnboardingViewController.swift in Sources */,
+				F41F4A6028DE278B00958A91 /* FabricViewForProfileView.swift in Sources */,
 				F41F4A5C28DE222500958A91 /* ProfileViewController.swift in Sources */,
 				F42C174F28BFC8BB0056CF59 /* HomeView.swift in Sources */,
 				F4480ADC28BE9EEC001AA98B /* RegistrationView.swift in Sources */,

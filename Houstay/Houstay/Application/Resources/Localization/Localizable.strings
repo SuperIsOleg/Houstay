@@ -107,3 +107,6 @@ messages.noMessages = "У вас нет открытых диалогов";
 // Mark: Profile
 
 profile.profile = "Профиль";
+profile.name = "Имя";
+profile.email = "Эл. почта";
+profile.number = "Номер телефона";
