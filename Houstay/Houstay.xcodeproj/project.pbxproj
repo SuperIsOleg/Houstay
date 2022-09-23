@@ -64,6 +64,8 @@
 		F41F4A5E28DE223300958A91 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41F4A5D28DE223300958A91 /* ProfileView.swift */; };
 		F41F4A6028DE278B00958A91 /* FabricViewForProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41F4A5F28DE278B00958A91 /* FabricViewForProfileView.swift */; };
 		F41F4A6328DE338300958A91 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41F4A6228DE338300958A91 /* ProfileViewModel.swift */; };
+		F41F4A6828DE651100958A91 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41F4A6728DE651100958A91 /* PasswordViewController.swift */; };
+		F41F4A6A28DE652000958A91 /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41F4A6928DE652000958A91 /* PasswordView.swift */; };
 		F42C173728BFC27B0056CF59 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F42C173628BFC27B0056CF59 /* FirebaseAnalytics */; };
 		F42C173928BFC27B0056CF59 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F42C173828BFC27B0056CF59 /* FirebaseAnalyticsSwift */; };
 		F42C173B28BFC27B0056CF59 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F42C173A28BFC27B0056CF59 /* FirebaseAuth */; };
@@ -144,6 +146,8 @@
 		F41F4A5D28DE223300958A91 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		F41F4A5F28DE278B00958A91 /* FabricViewForProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FabricViewForProfileView.swift; sourceTree = "<group>"; };
 		F41F4A6228DE338300958A91 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		F41F4A6728DE651100958A91 /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
+		F41F4A6928DE652000958A91 /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
 		F42C174C28BFC8A70056CF59 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F42C174E28BFC8BA0056CF59 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F4329DED28BFBE3900D38EAE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -372,6 +376,7 @@
 				028097CE28C22CF500C2ECD9 /* Blog */,
 				028097CF28C22D0400C2ECD9 /* Account */,
 				F41F4A5828DE21E600958A91 /* Profile */,
+				F41F4A6428DE64BA00958A91 /* Password */,
 				02ABB21F28DDA741004ECD55 /* Messages */,
 				02ABB21828DD9551004ECD55 /* PolicyAndPrivacy */,
 				02ABB20F28DC57B7004ECD55 /* AboutApp */,
@@ -692,6 +697,31 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		F41F4A6428DE64BA00958A91 /* Password */ = {
+			isa = PBXGroup;
+			children = (
+				F41F4A6528DE64C900958A91 /* Screens */,
+			);
+			path = Password;
+			sourceTree = "<group>";
+		};
+		F41F4A6528DE64C900958A91 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				F41F4A6628DE64D100958A91 /* Views */,
+				F41F4A6728DE651100958A91 /* PasswordViewController.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		F41F4A6628DE64D100958A91 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F41F4A6928DE652000958A91 /* PasswordView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		F42C174928BFC8640056CF59 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -969,6 +999,8 @@
 				F4480ADA28BE9ED6001AA98B /* RegistrationViewController.swift in Sources */,
 				F4480AD428BE95C6001AA98B /* ForgetPasswordView.swift in Sources */,
 				F4480ACD28BE8E99001AA98B /* BasicView.swift in Sources */,
+				F41F4A6A28DE652000958A91 /* PasswordView.swift in Sources */,
+				F41F4A6828DE651100958A91 /* PasswordViewController.swift in Sources */,
 				02952B3328BE2BA800B2F43F /* AppFlowNavigationController.swift in Sources */,
 				028097D928C22E3F00C2ECD9 /* FavouritesViewController.swift in Sources */,
 				02ABB20B28DB00DC004ECD55 /* SettingsItemsModel.swift in Sources */,

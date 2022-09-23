@@ -94,11 +94,12 @@ extension AccountViewController: UICollectionViewDelegate {
             self.setNavigationItemTitleAndPush(viewController: ProfileViewController(),
                                          title: R.string.localizable.profileProfile())
         case 1:
-            return print(indexPath.row)
+            self.setNavigationItemTitleAndPush(viewController: PasswordViewController(),
+                                         title: R.string.localizable.passwordChangPpassword())
         case 2:
-            return print(indexPath.row)
+            break
         case 3:
-            return print(indexPath.row)
+            break
         case 4:
             self.setNavigationItemTitleAndPush(viewController: MessagesViewController(),
                                          title: R.string.localizable.accountMessages())

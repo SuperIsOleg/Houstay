@@ -111,3 +111,7 @@ profile.name = "Имя";
 profile.email = "Эл. почта";
 profile.phoneNumber = "Номер телефона";
 profile.isEmpty = "Пусто";
+
+// Mark: Password
+
+password.changPpassword = "Cменить пароль";
