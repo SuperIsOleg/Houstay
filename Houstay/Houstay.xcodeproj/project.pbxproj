@@ -49,6 +49,8 @@
 		02ABB20B28DB00DC004ECD55 /* SettingsItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02ABB20A28DB00DC004ECD55 /* SettingsItemsModel.swift */; };
 		02ABB21128DC57D6004ECD55 /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02ABB21028DC57D6004ECD55 /* AboutAppViewController.swift */; };
 		02ABB21628DC5815004ECD55 /* AboutAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02ABB21528DC5815004ECD55 /* AboutAppView.swift */; };
+		02ABB21C28DD95A8004ECD55 /* PolicyAndPrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02ABB21B28DD95A8004ECD55 /* PolicyAndPrivacyViewController.swift */; };
+		02ABB21E28DD95B6004ECD55 /* PolicyAndPrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02ABB21D28DD95B6004ECD55 /* PolicyAndPrivacyView.swift */; };
 		02C4FEFE28BF3946005869F1 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C4FEFD28BF3946005869F1 /* UIViewController+Extension.swift */; };
 		02C4FF0328BF6281005869F1 /* ChekPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C4FF0228BF6281005869F1 /* ChekPasswordViewController.swift */; };
 		02C4FF0528BF629C005869F1 /* ChekPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C4FF0428BF629C005869F1 /* ChekPasswordView.swift */; };
@@ -120,6 +122,8 @@
 		02ABB20A28DB00DC004ECD55 /* SettingsItemsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemsModel.swift; sourceTree = "<group>"; };
 		02ABB21028DC57D6004ECD55 /* AboutAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
 		02ABB21528DC5815004ECD55 /* AboutAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppView.swift; sourceTree = "<group>"; };
+		02ABB21B28DD95A8004ECD55 /* PolicyAndPrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyAndPrivacyViewController.swift; sourceTree = "<group>"; };
+		02ABB21D28DD95B6004ECD55 /* PolicyAndPrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyAndPrivacyView.swift; sourceTree = "<group>"; };
 		02C4FEFD28BF3946005869F1 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		02C4FF0228BF6281005869F1 /* ChekPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChekPasswordViewController.swift; sourceTree = "<group>"; };
 		02C4FF0428BF629C005869F1 /* ChekPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChekPasswordView.swift; sourceTree = "<group>"; };
@@ -355,6 +359,7 @@
 				028097CD28C22CED00C2ECD9 /* Favourites */,
 				028097CE28C22CF500C2ECD9 /* Blog */,
 				028097CF28C22D0400C2ECD9 /* Account */,
+				02ABB21828DD9551004ECD55 /* PolicyAndPrivacy */,
 				02ABB20F28DC57B7004ECD55 /* AboutApp */,
 				02065FBB28C603FF0064F2F1 /* model.json */,
 			);
@@ -492,7 +497,6 @@
 			isa = PBXGroup;
 			children = (
 				02ABB21228DC57DC004ECD55 /* Screens */,
-				02ABB21428DC57FA004ECD55 /* ViewModel */,
 			);
 			path = AboutApp;
 			sourceTree = "<group>";
@@ -514,11 +518,29 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		02ABB21428DC57FA004ECD55 /* ViewModel */ = {
+		02ABB21828DD9551004ECD55 /* PolicyAndPrivacy */ = {
 			isa = PBXGroup;
 			children = (
+				02ABB21928DD9566004ECD55 /* Screens */,
 			);
-			path = ViewModel;
+			path = PolicyAndPrivacy;
+			sourceTree = "<group>";
+		};
+		02ABB21928DD9566004ECD55 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				02ABB21A28DD9585004ECD55 /* Views */,
+				02ABB21B28DD95A8004ECD55 /* PolicyAndPrivacyViewController.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		02ABB21A28DD9585004ECD55 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				02ABB21D28DD95B6004ECD55 /* PolicyAndPrivacyView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		02C4FEFC28BF3902005869F1 /* Extensions */ = {
@@ -861,12 +883,14 @@
 				F4480ACB28BE7011001AA98B /* CustomTextField.swift in Sources */,
 				02952B2B28BE22DA00B2F43F /* LoginViewController.swift in Sources */,
 				02ABB21128DC57D6004ECD55 /* AboutAppViewController.swift in Sources */,
+				02ABB21C28DD95A8004ECD55 /* PolicyAndPrivacyViewController.swift in Sources */,
 				0286246C28BCBE00006C12C5 /* OnboardingViewController.swift in Sources */,
 				F42C174F28BFC8BB0056CF59 /* HomeView.swift in Sources */,
 				F4480ADC28BE9EEC001AA98B /* RegistrationView.swift in Sources */,
 				023EEAD528BCF9D700446893 /* OnboardingViewModel.swift in Sources */,
 				0286246828BCBE00006C12C5 /* AppDelegate.swift in Sources */,
 				02F8E1E128CB76E000517C69 /* AccountViewModel.swift in Sources */,
+				02ABB21E28DD95B6004ECD55 /* PolicyAndPrivacyView.swift in Sources */,
 				02C4FEFE28BF3946005869F1 /* UIViewController+Extension.swift in Sources */,
 				02ABB20328DAFA73004ECD55 /* AccountCell.swift in Sources */,
 				028097E128C22E9A00C2ECD9 /* AccountViewController.swift in Sources */,

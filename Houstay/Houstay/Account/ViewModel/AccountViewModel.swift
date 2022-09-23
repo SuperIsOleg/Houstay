@@ -49,7 +49,7 @@ class AccountViewModel {
                                                  switchSounds: true,
                                                  language: ""),
                               SettingsItemsModel(imageSettings: R.image.aboutUs() ?? UIImage(),
-                                                 title: R.string.localizable.accountAboutUs(),
+                                                 title: R.string.localizable.accountAboutApp(),
                                                  imageArrows: R.image.arrowsRight() ?? UIImage(),
                                                  switchSounds: true,
                                                  language: "")

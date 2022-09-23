@@ -1,15 +1,15 @@
 //
-//  AboutAppViewController.swift
+//  PolicyAndPrivacyViewController.swift
 //  Houstay
 //
-//  Created by Oleg Kalistratov on 22.09.22.
+//  Created by Oleg Kalistratov on 23.09.22.
 //
 
 import UIKit
 
-class AboutAppViewController: UIViewController {
+class PolicyAndPrivacyViewController: UIViewController {
     
-    private let aboutAppView = AboutAppView()
+    private let policyAndPrivacyView = PolicyAndPrivacyView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +24,8 @@ class AboutAppViewController: UIViewController {
     private func setupLayout() {
         
         self.view.backgroundColor = R.color.white500()
-        view.addSubview(aboutAppView)
-        aboutAppView.snp.makeConstraints {
+        view.addSubview(policyAndPrivacyView)
+        policyAndPrivacyView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
     }

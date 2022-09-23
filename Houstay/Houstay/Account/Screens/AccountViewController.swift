@@ -99,7 +99,13 @@ extension AccountViewController: UICollectionViewDelegate {
         case 4:
             return print(indexPath.row)
         case 5:
-            return print(indexPath.row)
+            let policyAndPrivacyViewController = PolicyAndPrivacyViewController()
+            policyAndPrivacyViewController.modalTransitionStyle = .flipHorizontal
+            policyAndPrivacyViewController.navigationController?.navigationBar.tintColor = R.color.blue100()
+            policyAndPrivacyViewController.navigationItem.title = R.string.localizable.aboutAppPolicyAndPrivacy()
+            self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: R.font.robotoMedium(size: 20) ?? UIFont(),
+                                                                             NSAttributedString.Key.foregroundColor: R.color.white100() ?? UIColor()]
+            self.navigationController?.pushViewController(policyAndPrivacyViewController, animated: true)
         case 6:
             let aboutAppViewController = AboutAppViewController()
             aboutAppViewController.modalTransitionStyle = .flipHorizontal
