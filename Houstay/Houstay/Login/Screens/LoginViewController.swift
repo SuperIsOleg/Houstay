@@ -6,9 +6,9 @@
 //
 
 import UIKit
-import Firebase
+import FirebaseCore
 import GoogleSignIn
-import GoogleSignInSwift
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
     private let loginView = LoginView()

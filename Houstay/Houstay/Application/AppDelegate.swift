@@ -10,7 +10,6 @@ import FirebaseCore
 import FirebaseFirestore
 import FirebaseAuth
 import GoogleSignIn
-import GoogleSignInSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
