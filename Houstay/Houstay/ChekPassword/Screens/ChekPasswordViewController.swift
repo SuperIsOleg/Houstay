@@ -10,27 +10,43 @@ import UIKit
 class ChekPasswordViewController: UIViewController {
     
     private let chekPasswordView = ChekPasswordView()
+    
+    override func loadView() {
+        super.loadView()
+        self.view = chekPasswordView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardOnTap()
-        setupLayout()
+        chekPasswordView.chekPasswordViewDelegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: false)
+        setupNavigationBar()
+    }
+
+    private func setupNavigationBar() {
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithTransparentBackground()
+        appearance.backgroundColor = R.color.white500()
+        self.navigationItem.standardAppearance = appearance
+        self.navigationItem.scrollEdgeAppearance = appearance
+        self.navigationItem.compactAppearance = appearance
+        self.navigationController?.navigationBar.tintColor = R.color.lnk100()
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: R.image.chevronLeft(),
+                                                                style: .plain,
+                                                                target: self,
+                                                                action: #selector(self.popViewController))
     }
     
-    private func setupLayout() {
-        chekPasswordView.chekPasswordViewDelegate = self
-        
-        self.view.addSubview(chekPasswordView)
-        chekPasswordView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
-        
+    @objc
+    private func popViewController() {
+        self.navigationController?.popViewController(animated: true)
     }
+  
     
     internal func setChekPasswordView() -> ChekPasswordView {
         return chekPasswordView

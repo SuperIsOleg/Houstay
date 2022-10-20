@@ -12,24 +12,40 @@ class ForgetPasswordViewController: UIViewController {
     
     private let forgetPasswordView = ForgetPasswordView()
     
+    override func loadView() {
+        super.loadView()
+        self.view = forgetPasswordView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         forgetPasswordView.forgetPasswordViewDelegate = self
-        
         self.hideKeyboardOnTap()
-        setupLayout()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: false)
+        setupNavigationBar()
     }
 
-    private func setupLayout() {
-        view.addSubview(forgetPasswordView)
-        forgetPasswordView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
+    private func setupNavigationBar() {
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithTransparentBackground()
+        appearance.backgroundColor = R.color.white500()
+        self.navigationItem.standardAppearance = appearance
+        self.navigationItem.scrollEdgeAppearance = appearance
+        self.navigationItem.compactAppearance = appearance
+        self.navigationController?.navigationBar.tintColor = R.color.lnk100()
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: R.image.chevronLeft(),
+                                                                style: .plain,
+                                                                target: self,
+                                                                action: #selector(self.popViewController))
+    }
+    
+    @objc
+    private func popViewController() {
+        self.navigationController?.popViewController(animated: true)
     }
     
 }

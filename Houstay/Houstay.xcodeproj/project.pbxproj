@@ -746,7 +746,6 @@
 			isa = PBXGroup;
 			children = (
 				F4480ACF28BE9538001AA98B /* Screens */,
-				F4480AD128BE95A1001AA98B /* ForgetPasswordViewController.swift */,
 			);
 			path = ForgetPassword;
 			sourceTree = "<group>";
@@ -755,6 +754,7 @@
 			isa = PBXGroup;
 			children = (
 				F4480AD028BE955B001AA98B /* Views */,
+				F4480AD128BE95A1001AA98B /* ForgetPasswordViewController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";

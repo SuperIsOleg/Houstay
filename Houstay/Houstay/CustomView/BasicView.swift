@@ -22,6 +22,7 @@ class BasicView: UIView {
     }
     
     private func setupLayout() {
+        self.backgroundColor = R.color.white500()
         self.addSubview(contentScrollView)
         contentScrollView.backgroundColor = R.color.white500()
         contentScrollView.snp.makeConstraints({

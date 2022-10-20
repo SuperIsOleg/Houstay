@@ -78,6 +78,10 @@ header.search = "Поиск ...";
 favourites.liked = "Понравившиеся";
 favourites.dontHaveFavorite = "У вас пока нет избранного";
 
+// Mark: Blog
+
+blog.blog = "Блог";
+
 // Mark: Account
 
 account.profile = "Профиль";

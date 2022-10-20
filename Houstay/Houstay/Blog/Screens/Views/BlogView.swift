@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BlogView: BasicView {
+class BlogView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -20,6 +20,6 @@ class BlogView: BasicView {
     
     
     private func setupLayout() {
-        contentView.backgroundColor = R.color.yellow100()
+        self.backgroundColor = R.color.white500()
     }
 }

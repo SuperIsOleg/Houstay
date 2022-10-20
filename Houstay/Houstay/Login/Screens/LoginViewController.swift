@@ -13,9 +13,14 @@ import FirebaseAuth
 class LoginViewController: UIViewController {
     private let loginView = LoginView()
     
+    override func loadView() {
+        super.loadView()
+        self.view = loginView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupLayout()
+        loginView.loginViewDelegate = self
         self.hideKeyboardOnTap()
     }
     
@@ -23,16 +28,7 @@ class LoginViewController: UIViewController {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
-    
-    private func setupLayout() {
-        loginView.loginViewDelegate = self
-        
-        view.addSubview(loginView)
-        loginView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
-    }
-   
+
 }
 
 // MARK: - LoginViewDelegate

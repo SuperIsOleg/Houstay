@@ -18,36 +18,34 @@ class HomeViewController: UIViewController {
     
     var count = [HomeItemsModel]()
     
+    override func loadView() {
+        super.loadView()
+        self.view = homeView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardOnTap()
         self.homeCollectionView.register(OffersCell.self, forCellWithReuseIdentifier: OffersCell.reuseIdentifier)
         self.homeCollectionView.register(RecentlyPostedCell.self, forCellWithReuseIdentifier: RecentlyPostedCell.reuseIdentifier)
         self.homeCollectionView.register(AllOffersCell.self, forCellWithReuseIdentifier: AllOffersCell.reuseIdentifier)
+        homeCollectionView.delegate = self
+        homeCollectionView.dataSource = self
         setupLayout()
 //                createDataSource()
 //                reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
         super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     private func setupLayout() {
-        homeCollectionView.delegate = self
-        homeCollectionView.dataSource = self
-        homeView.setNameUserLabel(userName: homeViewModel.name)
-        
         self.view.backgroundColor = R.color.white500()
-        self.view.addSubview(homeView)
-        homeView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
-        
         homeView.addSubview(homeCollectionView)
         homeCollectionView.snp.makeConstraints {
-            $0.top.equalTo(homeView.getHeader().snp.bottom)
+            $0.top.equalToSuperview()
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview()
             $0.bottom.equalToSuperview()

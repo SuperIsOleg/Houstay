@@ -10,24 +10,36 @@ import UIKit
 class FavouritesViewController: UIViewController {
     
     private let favouritesView = FavouritesView()
+    
+    override func loadView() {
+        super.loadView()
+        self.view = favouritesView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.topItem?.title = R.string.localizable.favouritesLiked()
-        setupLayout()
+        favouritesView.setupFavouritesView(.dontHave)
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setupNavigationBar()
+    }
+
+    private func setupNavigationBar() {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithTransparentBackground()
+        appearance.backgroundColor = R.color.white500()
+        self.navigationItem.standardAppearance = appearance
+        self.navigationItem.scrollEdgeAppearance = appearance
+        self.navigationItem.compactAppearance = appearance
+        self.navigationController?.navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: R.color.lnk100() ?? .black,
+            NSAttributedString.Key.font: R.font.robotoMedium(size: 20) ?? .systemFont(ofSize: 20)
+        ]
+        self.navigationController?.navigationItem.title = R.string.localizable.favouritesLiked()
+//        self.navigationItem.title = R.string.localizable.favouritesLiked()
     }
     
-    private func setupLayout() {
-        favouritesView.setupFavouritesView(.dontHave)
-        
-        view.addSubview(favouritesView)
-        favouritesView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
-    }
 }

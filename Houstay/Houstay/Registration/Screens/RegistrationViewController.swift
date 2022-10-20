@@ -13,26 +13,42 @@ class RegistrationViewController: UIViewController {
     
     private let registrationView = RegistrationView()
     
+    override func loadView() {
+        super.loadView()
+        self.view = registrationView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardOnTap()
-        setupLayout()
+        registrationView.registrationViewDelegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: false)
+        setupNavigationBar()
     }
     
-    private func setupLayout() {
-        registrationView.registrationViewDelegate = self
-        
-        view.addSubview(registrationView)
-        registrationView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
+    private func setupNavigationBar() {
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithTransparentBackground()
+        appearance.backgroundColor = R.color.white500()
+        self.navigationItem.standardAppearance = appearance
+        self.navigationItem.scrollEdgeAppearance = appearance
+        self.navigationItem.compactAppearance = appearance
+        self.navigationController?.navigationBar.tintColor = R.color.lnk100()
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: R.image.chevronLeft(),
+                                                                style: .plain,
+                                                                target: self,
+                                                                action: #selector(self.popViewController))
     }
     
+    @objc
+    private func popViewController() {
+        self.navigationController?.popViewController(animated: true)
+    }
+  
 }
 
 extension RegistrationViewController: RegistrationViewDelegate {

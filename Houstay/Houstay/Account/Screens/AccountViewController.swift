@@ -14,10 +14,18 @@ class AccountViewController: UIViewController {
     private let accountViewModel = AccountViewModel()
     private lazy var accountCollectionView = accountView.getAccountCollectionView()
     private var dataSource: UICollectionViewDiffableDataSource<AccountSectionEnum, SettingsItemsModel>! = nil
+    
+    override func loadView() {
+        super.loadView()
+        self.view = accountView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupLayout()
+        accountView.accountViewDelegate = self
+        accountCollectionView.delegate = self
+        accountView.setNameUserAndEmailLabel(userName: accountViewModel.name,
+                                             email: accountViewModel.email)
         configureDataSource()
     }
     
@@ -25,20 +33,7 @@ class AccountViewController: UIViewController {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
-    
-    private func setupLayout() {
-        accountView.accountViewDelegate = self
-        accountCollectionView.delegate = self
-        accountView.setNameUserAndEmailLabel(userName: accountViewModel.name,
-                                             email: accountViewModel.email)
-        
-        self.view.backgroundColor = R.color.white500()
-        view.addSubview(accountView)
-        accountView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
-    }
-    
+
     /// - Tag: CellRegistration
     private func configureDataSource() {
         let cellRegistration = UICollectionView.CellRegistration<AccountCell, SettingsItemsModel> { (cell, indexPath, item) in
@@ -91,32 +86,22 @@ extension AccountViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            self.setNavigationItemTitleAndPush(viewController: ProfileViewController(),
-                                         title: R.string.localizable.profileProfile())
+            self.navigationController?.pushViewController(ProfileViewController(), animated: true)
         case 1:
-            self.setNavigationItemTitleAndPush(viewController: PasswordViewController(),
-                                         title: R.string.localizable.passwordChangPpassword())
+            self.navigationController?.pushViewController(PasswordViewController(), animated: true)
         case 2:
             break
         case 3:
             break
         case 4:
-            self.setNavigationItemTitleAndPush(viewController: MessagesViewController(),
-                                         title: R.string.localizable.accountMessages())
+            self.navigationController?.pushViewController(MessagesViewController(), animated: true)
         case 5:
-            self.setNavigationItemTitleAndPush(viewController: PolicyAndPrivacyViewController(),
-                                         title: R.string.localizable.aboutAppPolicyAndPrivacy())
+            self.navigationController?.pushViewController(PolicyAndPrivacyViewController(), animated: true)
         case 6:
-            self.setNavigationItemTitleAndPush(viewController: AboutAppViewController(),
-                                         title: R.string.localizable.aboutAppAboutApp())
+            self.navigationController?.pushViewController(AboutAppViewController(), animated: true)
         default:
             break
         }
     }
-    
-    private func setNavigationItemTitleAndPush(viewController: UIViewController, title: String) {
-        viewController.navigationItem.title = title
-        self.navigationController?.pushViewController(viewController, animated: true)
-        
-    }
+
 }
