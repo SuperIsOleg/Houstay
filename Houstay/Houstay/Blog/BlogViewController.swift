@@ -37,8 +37,7 @@ class BlogViewController: UIViewController {
             NSAttributedString.Key.foregroundColor: R.color.lnk100() ?? .black,
             NSAttributedString.Key.font: R.font.robotoMedium(size: 20) ?? .systemFont(ofSize: 20)
         ]
-        self.navigationController?.navigationItem.title = R.string.localizable.blogBlog()
-//        self.navigationItem.title = R.string.localizable.favouritesLiked()
+        self.navigationItem.title = R.string.localizable.blogBlog()
     }
   
 }

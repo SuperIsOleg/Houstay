@@ -54,3 +54,9 @@ extension AppFlowNavigationController: SplashScreenDelegate {
         self.mainFlowSetup()
     }
 }
+
+extension AppFlowNavigationController: LoginViewControllerDelegate {
+    func appFlow() {
+        self.mainFlowSetup()
+    }
+}

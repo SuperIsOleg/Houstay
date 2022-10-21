@@ -118,4 +118,4 @@ profile.isEmpty = "Пусто";
 
 // Mark: Password
 
-password.changPpassword = "Cменить пароль";
+password.changPassword = "Cменить пароль";

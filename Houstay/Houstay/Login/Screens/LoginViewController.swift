@@ -10,8 +10,13 @@ import FirebaseCore
 import GoogleSignIn
 import FirebaseAuth
 
+protocol LoginViewControllerDelegate: AnyObject {
+    func appFlow()
+}
+
 class LoginViewController: UIViewController {
     private let loginView = LoginView()
+    internal weak var appFlowDelegate: LoginViewControllerDelegate?
     
     override func loadView() {
         super.loadView()
@@ -54,8 +59,9 @@ extension LoginViewController: LoginViewDelegate {
             
             Auth.auth().signIn(with: credential) { authResult, error in
                 if  error == nil {
-                    let tabBar = TabBarController()
-                    self.navigationController?.setViewControllers([tabBar], animated: true)
+                    self.appFlowDelegate?.appFlow()
+//                    let tabBar = TabBarController()
+//                    self.navigationController?.setViewControllers([tabBar], animated: true)
                 } else {
                     print("Вход не выполнен")
                 }
