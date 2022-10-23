@@ -59,9 +59,6 @@ extension LoginViewController: LoginViewDelegate {
             
             Auth.auth().signIn(with: credential) { authResult, error in
                 if  error == nil {
-                    self.appFlowDelegate?.appFlow()
-//                    let tabBar = TabBarController()
-//                    self.navigationController?.setViewControllers([tabBar], animated: true)
                 } else {
                     print("Вход не выполнен")
                 }
