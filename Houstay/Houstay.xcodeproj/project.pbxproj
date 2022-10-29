@@ -72,6 +72,7 @@
 		F4480AD428BE95C6001AA98B /* ForgetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4480AD328BE95C6001AA98B /* ForgetPasswordView.swift */; };
 		F4480ADA28BE9ED6001AA98B /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4480AD928BE9ED6001AA98B /* RegistrationViewController.swift */; };
 		F4480ADC28BE9EEC001AA98B /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4480ADB28BE9EEC001AA98B /* RegistrationView.swift */; };
+		F4BF1095290D6B2D00D54138 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BF1094290D6B2D00D54138 /* KeychainManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -143,6 +144,7 @@
 		F4480AD328BE95C6001AA98B /* ForgetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordView.swift; sourceTree = "<group>"; };
 		F4480AD928BE9ED6001AA98B /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		F4480ADB28BE9EEC001AA98B /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		F4BF1094290D6B2D00D54138 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		FB75DE0874EAEC3C2A7D2F45 /* Pods_Houstay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Houstay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -312,6 +314,7 @@
 		0286246628BCBE00006C12C5 /* Houstay */ = {
 			isa = PBXGroup;
 			children = (
+				F4BF1093290D6AF600D54138 /* Keychain */,
 				0286247B28BCC7CE006C12C5 /* Application */,
 				F4480AC928BE6FD4001AA98B /* CustomView */,
 				02952B2E28BE2A2E00B2F43F /* SplashScreen */,
@@ -762,6 +765,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		F4BF1093290D6AF600D54138 /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				F4BF1094290D6B2D00D54138 /* KeychainManager.swift */,
+			);
+			path = Keychain;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -918,6 +929,7 @@
 				023EEAD528BCF9D700446893 /* OnboardingViewModel.swift in Sources */,
 				0286246828BCBE00006C12C5 /* AppDelegate.swift in Sources */,
 				02F8E1E128CB76E000517C69 /* AccountViewModel.swift in Sources */,
+				F4BF1095290D6B2D00D54138 /* KeychainManager.swift in Sources */,
 				02ABB21E28DD95B6004ECD55 /* PolicyAndPrivacyView.swift in Sources */,
 				02C4FEFE28BF3946005869F1 /* UIViewController+Extension.swift in Sources */,
 				02ABB20328DAFA73004ECD55 /* AccountCell.swift in Sources */,
