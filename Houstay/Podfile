@@ -9,6 +9,8 @@ target 'Houstay' do
 
   pod 'R.swift', '~> 6.1.0'
   pod 'SnapKit', '~> 5.6.0'
+  pod 'KeychainSwift', '~> 20.0'
+  pod 'RealmSwift', '~>10'
   pod 'Firebase' 
   pod 'FirebaseAuth'
   pod 'FirebaseFirestore'
