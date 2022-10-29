@@ -28,8 +28,6 @@
 		028097CC28C22C9F00C2ECD9 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028097CB28C22C9F00C2ECD9 /* TabBarController.swift */; };
 		028097D928C22E3F00C2ECD9 /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028097D828C22E3E00C2ECD9 /* FavouritesViewController.swift */; };
 		028097DB28C22E5300C2ECD9 /* FavouritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028097DA28C22E5300C2ECD9 /* FavouritesView.swift */; };
-		028097DD28C22E7100C2ECD9 /* BlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028097DC28C22E7100C2ECD9 /* BlogViewController.swift */; };
-		028097DF28C22E8300C2ECD9 /* BlogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028097DE28C22E8300C2ECD9 /* BlogView.swift */; };
 		028097E128C22E9A00C2ECD9 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028097E028C22E9A00C2ECD9 /* AccountViewController.swift */; };
 		028097E328C22EAE00C2ECD9 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028097E228C22EAE00C2ECD9 /* AccountView.swift */; };
 		0286246828BCBE00006C12C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0286246728BCBE00006C12C5 /* AppDelegate.swift */; };
@@ -98,8 +96,6 @@
 		028097CB28C22C9F00C2ECD9 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		028097D828C22E3E00C2ECD9 /* FavouritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
 		028097DA28C22E5300C2ECD9 /* FavouritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesView.swift; sourceTree = "<group>"; };
-		028097DC28C22E7100C2ECD9 /* BlogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogViewController.swift; sourceTree = "<group>"; };
-		028097DE28C22E8300C2ECD9 /* BlogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogView.swift; sourceTree = "<group>"; };
 		028097E028C22E9A00C2ECD9 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		028097E228C22EAE00C2ECD9 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		0286246428BCBE00006C12C5 /* Houstay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Houstay.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -251,15 +247,6 @@
 			path = Favourites;
 			sourceTree = "<group>";
 		};
-		028097CE28C22CF500C2ECD9 /* Blog */ = {
-			isa = PBXGroup;
-			children = (
-				028097D328C22DA900C2ECD9 /* Screens */,
-				028097DC28C22E7100C2ECD9 /* BlogViewController.swift */,
-			);
-			path = Blog;
-			sourceTree = "<group>";
-		};
 		028097CF28C22D0400C2ECD9 /* Account */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,22 +269,6 @@
 			isa = PBXGroup;
 			children = (
 				028097DA28C22E5300C2ECD9 /* FavouritesView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		028097D328C22DA900C2ECD9 /* Screens */ = {
-			isa = PBXGroup;
-			children = (
-				028097D428C22DB600C2ECD9 /* Views */,
-			);
-			path = Screens;
-			sourceTree = "<group>";
-		};
-		028097D428C22DB600C2ECD9 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				028097DE28C22E8300C2ECD9 /* BlogView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -353,11 +324,10 @@
 				028097CA28C22C6100C2ECD9 /* TabBar */,
 				F42C174928BFC8640056CF59 /* Home */,
 				028097CD28C22CED00C2ECD9 /* Favourites */,
-				028097CE28C22CF500C2ECD9 /* Blog */,
+				02ABB21F28DDA741004ECD55 /* Messages */,
 				028097CF28C22D0400C2ECD9 /* Account */,
 				F41F4A5828DE21E600958A91 /* Profile */,
 				F41F4A6428DE64BA00958A91 /* Password */,
-				02ABB21F28DDA741004ECD55 /* Messages */,
 				02ABB21828DD9551004ECD55 /* PolicyAndPrivacy */,
 				02ABB20F28DC57B7004ECD55 /* AboutApp */,
 				02065FBB28C603FF0064F2F1 /* model.json */,
@@ -979,13 +949,11 @@
 				F41F4A6328DE338300958A91 /* ProfileViewModel.swift in Sources */,
 				02065FC128C60C040064F2F1 /* HomeSectionsModel.swift in Sources */,
 				02C4FF0328BF6281005869F1 /* ChekPasswordViewController.swift in Sources */,
-				028097DD28C22E7100C2ECD9 /* BlogViewController.swift in Sources */,
 				02ABB21628DC5815004ECD55 /* AboutAppView.swift in Sources */,
 				F41F4A5E28DE223300958A91 /* ProfileView.swift in Sources */,
 				02ABB22528DDA7B4004ECD55 /* MessagesView.swift in Sources */,
 				023EEAD028BCE86700446893 /* OnboardingCollectionView.swift in Sources */,
 				02952B2D28BE22F000B2F43F /* LoginView.swift in Sources */,
-				028097DF28C22E8300C2ECD9 /* BlogView.swift in Sources */,
 				028097CC28C22C9F00C2ECD9 /* TabBarController.swift in Sources */,
 				028097C628C211DD00C2ECD9 /* HomeViewModel.swift in Sources */,
 				02C4FF0528BF629C005869F1 /* ChekPasswordView.swift in Sources */,

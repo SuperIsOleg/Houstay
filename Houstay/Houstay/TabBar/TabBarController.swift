@@ -11,7 +11,7 @@ class TabBarController: UITabBarController {
     
     private let homeViewController = HomeViewController()
     private let favouritesViewController = FavouritesViewController()
-    private let blogViewController = BlogViewController()
+    private let messagesViewController = MessagesViewController()
     private let accountViewController = AccountViewController()
     
     override func viewDidLoad() {
@@ -27,16 +27,16 @@ class TabBarController: UITabBarController {
         favouritesViewController.tabBarItem = UITabBarItem(title: nil,
                                                            image: R.image.favourites(),
                                                            selectedImage: R.image.favouritesActive())
-        blogViewController.tabBarItem = UITabBarItem(title: nil,
-                                                     image: R.image.blog(),
-                                                     selectedImage: R.image.blogActive())
+        messagesViewController.tabBarItem = UITabBarItem(title: nil,
+                                                     image: R.image.message(),
+                                                     selectedImage: R.image.messageActive())
         accountViewController.tabBarItem = UITabBarItem(title: nil,
                                                         image: R.image.account(),
                                                         selectedImage: R.image.accountActive())
         
         self.viewControllers = [
             homeViewController, favouritesViewController,
-            blogViewController, accountViewController
+            messagesViewController, accountViewController
         ]
     }
     

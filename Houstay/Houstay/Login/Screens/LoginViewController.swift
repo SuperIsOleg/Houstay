@@ -44,21 +44,20 @@ extension LoginViewController: LoginViewDelegate {
         // Create Google Sign In configuration object.
         let config = GIDConfiguration(clientID: clientID)
         // Start the sign in flow!
-        GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { [unowned self] user, error in
+        GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { [weak self] user, error in
             if error == nil {
             } else {
                 print("Не получен config")
             }
             
-            guard
-                let authentication = user?.authentication,
-                let idToken = authentication.idToken else { return }
+            guard let authentication = user?.authentication,
+                  let idToken = authentication.idToken else { return }
             
             let credential = GoogleAuthProvider.credential(withIDToken: idToken,
                                                            accessToken: authentication.accessToken)
             
             Auth.auth().signIn(with: credential) { authResult, error in
-                if  error == nil {
+                if error == nil {
                 } else {
                     print("Вход не выполнен")
                 }

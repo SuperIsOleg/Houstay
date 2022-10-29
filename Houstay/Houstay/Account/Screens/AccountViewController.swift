@@ -94,10 +94,8 @@ extension AccountViewController: UICollectionViewDelegate {
         case 3:
             break
         case 4:
-            self.navigationController?.pushViewController(MessagesViewController(), animated: true)
-        case 5:
             self.navigationController?.pushViewController(PolicyAndPrivacyViewController(), animated: true)
-        case 6:
+        case 5:
             self.navigationController?.pushViewController(AboutAppViewController(), animated: true)
         default:
             break
