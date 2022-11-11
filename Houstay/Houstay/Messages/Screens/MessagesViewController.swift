@@ -27,6 +27,7 @@ class MessagesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        userAuthenticationView.userAuthenticationDeleagte = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,6 +59,13 @@ class MessagesViewController: UIViewController {
     private func popViewController() {
         self.navigationController?.popViewController(animated: true)
     }
-    
- 
+}
+
+// MARK: - MessagesViewController
+
+extension MessagesViewController: UserAuthenticationDeleagte {
+    func logInAction() {
+        let loginViewController = LoginViewController()
+        self.navigationController?.pushViewController(loginViewController, animated: true)
+    }
 }

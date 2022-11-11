@@ -32,6 +32,7 @@ class AccountViewController: UIViewController {
         super.viewDidLoad()
         accountView.accountViewDelegate = self
         accountCollectionView.delegate = self
+        userAuthenticationView.userAuthenticationDeleagte = self
         accountView.setNameUserAndEmailLabel(userName: accountViewModel.name,
                                              email: accountViewModel.email)
         configureDataSource()
@@ -109,5 +110,13 @@ extension AccountViewController: UICollectionViewDelegate {
             break
         }
     }
+}
 
+// MARK: - UICollectionViewDelegate
+
+extension AccountViewController: UserAuthenticationDeleagte {
+    func logInAction() {
+        let loginViewController = LoginViewController()
+        self.navigationController?.pushViewController(loginViewController, animated: true)
+    }
 }

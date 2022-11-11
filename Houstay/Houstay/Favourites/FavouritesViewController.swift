@@ -27,6 +27,7 @@ class FavouritesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        userAuthenticationView.userAuthenticationDeleagte = self
         favouritesView.setupFavouritesView(.dontHave)
     }
 
@@ -50,4 +51,13 @@ class FavouritesViewController: UIViewController {
         self.navigationItem.title = R.string.localizable.favouritesLiked()
     }
     
+}
+
+// MARK: - FavouritesViewController
+
+extension FavouritesViewController: UserAuthenticationDeleagte {
+    func logInAction() {
+        let loginViewController = LoginViewController()
+        self.navigationController?.pushViewController(loginViewController, animated: true)
+    }
 }
