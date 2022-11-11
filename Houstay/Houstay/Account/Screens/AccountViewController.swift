@@ -35,12 +35,12 @@ class AccountViewController: UIViewController {
         userAuthenticationView.userAuthenticationDeleagte = self
         accountView.setNameUserAndEmailLabel(userName: accountViewModel.name,
                                              email: accountViewModel.email)
-        configureDataSource()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        configureDataSource()
     }
 
     /// - Tag: CellRegistration
