@@ -55,6 +55,7 @@
 		02C4FF0528BF629C005869F1 /* ChekPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C4FF0428BF629C005869F1 /* ChekPasswordView.swift */; };
 		02C4FF0A28BF7F3C005869F1 /* CreateNewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C4FF0928BF7F3C005869F1 /* CreateNewPasswordViewController.swift */; };
 		02C4FF0C28BF7F54005869F1 /* CreateNewPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C4FF0B28BF7F54005869F1 /* CreateNewPasswordView.swift */; };
+		02F1FAE8291E454D00EEBC1C /* UserAuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F1FAE7291E454D00EEBC1C /* UserAuthenticationView.swift */; };
 		02F8E1E128CB76E000517C69 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F8E1E028CB76E000517C69 /* AccountViewModel.swift */; };
 		A2B3E143E9556E544620167E /* Pods_Houstay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB75DE0874EAEC3C2A7D2F45 /* Pods_Houstay.framework */; };
 		F41F4A5C28DE222500958A91 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41F4A5B28DE222500958A91 /* ProfileViewController.swift */; };
@@ -126,6 +127,7 @@
 		02C4FF0428BF629C005869F1 /* ChekPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChekPasswordView.swift; sourceTree = "<group>"; };
 		02C4FF0928BF7F3C005869F1 /* CreateNewPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPasswordViewController.swift; sourceTree = "<group>"; };
 		02C4FF0B28BF7F54005869F1 /* CreateNewPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPasswordView.swift; sourceTree = "<group>"; };
+		02F1FAE7291E454D00EEBC1C /* UserAuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthenticationView.swift; sourceTree = "<group>"; };
 		02F8E1E028CB76E000517C69 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		80C35C1268B3C39A509A9F6B /* Pods-Houstay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Houstay.debug.xcconfig"; path = "Target Support Files/Pods-Houstay/Pods-Houstay.debug.xcconfig"; sourceTree = "<group>"; };
 		B865715D735DC631BA84A24E /* Pods-Houstay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Houstay.release.xcconfig"; path = "Target Support Files/Pods-Houstay/Pods-Houstay.release.xcconfig"; sourceTree = "<group>"; };
@@ -711,6 +713,7 @@
 				028097BD28C0ED5900C2ECD9 /* HeaderView.swift */,
 				028097C228C2021C00C2ECD9 /* SearcheTextFieldBase.swift */,
 				F41F4A5F28DE278B00958A91 /* FabricViewForProfileView.swift */,
+				02F1FAE7291E454D00EEBC1C /* UserAuthenticationView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -968,6 +971,7 @@
 				02952B2D28BE22F000B2F43F /* LoginView.swift in Sources */,
 				028097CC28C22C9F00C2ECD9 /* TabBarController.swift in Sources */,
 				028097C628C211DD00C2ECD9 /* HomeViewModel.swift in Sources */,
+				02F1FAE8291E454D00EEBC1C /* UserAuthenticationView.swift in Sources */,
 				02C4FF0528BF629C005869F1 /* ChekPasswordView.swift in Sources */,
 				023EEAD228BCE89900446893 /* OnboardingCollectionViewCell.swift in Sources */,
 				02ABB20628DAFE70004ECD55 /* HomeSectionEnum.swift in Sources */,

@@ -115,3 +115,9 @@ profile.isEmpty = "Пусто";
 // Mark: Password
 
 password.changPassword = "Cменить пароль";
+
+// Mark: userAuthentication
+
+userAuthentication.authorizationRequired = "Требуется авторизация";
+userAuthentication.needToLogged = "Вам необходимо войти, чтобы вы могли использовать эту функцию";
+userAuthentication.logIn = "Войти";
