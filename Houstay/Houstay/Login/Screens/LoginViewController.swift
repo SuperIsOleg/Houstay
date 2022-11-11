@@ -10,13 +10,8 @@ import FirebaseCore
 import GoogleSignIn
 import FirebaseAuth
 
-protocol LoginViewControllerDelegate: AnyObject {
-    func appFlow()
-}
-
 class LoginViewController: UIViewController {
     private let loginView = LoginView()
-    internal weak var appFlowDelegate: LoginViewControllerDelegate?
     
     override func loadView() {
         super.loadView()

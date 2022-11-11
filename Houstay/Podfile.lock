@@ -804,10 +804,10 @@ DEPENDENCIES:
   - FirebaseDatabase
   - FirebaseFirestore
   - GoogleSignIn
-  - KeychainSwift (~> 20.0)
-  - R.swift (~> 6.1.0)
-  - RealmSwift (~> 10)
-  - SnapKit (~> 5.6.0)
+  - KeychainSwift
+  - R.swift
+  - RealmSwift
+  - SnapKit
 
 SPEC REPOS:
   trunk:
@@ -874,6 +874,6 @@ SPEC CHECKSUMS:
   RealmSwift: aecc52389574be4d451bf6cb1b08824eaa17dad0
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: 36a880dd8e4ade99acd8a6c7b6a3a1d1151c990c
+PODFILE CHECKSUM: 454c35e43db603ceed091f5e8678ef3e223a3375
 
 COCOAPODS: 1.11.3
