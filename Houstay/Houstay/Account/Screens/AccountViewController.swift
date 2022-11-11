@@ -12,12 +12,20 @@ class AccountViewController: UIViewController {
     
     private let accountView = AccountView()
     private let accountViewModel = AccountViewModel()
+    private let userAuthenticationView = UserAuthenticationView()
     private lazy var accountCollectionView = accountView.getAccountCollectionView()
     private var dataSource: UICollectionViewDiffableDataSource<AccountSectionEnum, SettingsItemsModel>! = nil
     
     override func loadView() {
         super.loadView()
-        self.view = accountView
+        Auth.auth().addStateDidChangeListener { [weak self] (auth, user) in
+            guard let self = self else { return }
+            if user == nil {
+                self.view = self.userAuthenticationView
+            } else {
+                self.view = self.accountView
+            }
+        }
     }
 
     override func viewDidLoad() {

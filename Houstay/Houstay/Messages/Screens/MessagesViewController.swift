@@ -6,14 +6,23 @@
 //
 
 import UIKit
+import Firebase
 
 class MessagesViewController: UIViewController {
     
     private let messagesView = MessagesView()
+    private let userAuthenticationView = UserAuthenticationView()
     
     override func loadView() {
         super.loadView()
-        self.view = messagesView
+        Auth.auth().addStateDidChangeListener { [weak self] (auth, user) in
+            guard let self = self else { return }
+            if user == nil {
+                self.view = self.userAuthenticationView
+            } else {
+                self.view = self.messagesView
+            }
+        }
     }
     
     override func viewDidLoad() {

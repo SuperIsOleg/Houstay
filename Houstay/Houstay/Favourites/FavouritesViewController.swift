@@ -6,14 +6,23 @@
 //
 
 import UIKit
+import Firebase
 
 class FavouritesViewController: UIViewController {
     
     private let favouritesView = FavouritesView()
+    private let userAuthenticationView = UserAuthenticationView()
     
     override func loadView() {
         super.loadView()
-        self.view = favouritesView
+        Auth.auth().addStateDidChangeListener { [weak self] (auth, user) in
+            guard let self = self else { return }
+            if user == nil {
+                self.view = self.userAuthenticationView
+            } else {
+                self.view = self.favouritesView
+            }
+        }
     }
 
     override func viewDidLoad() {

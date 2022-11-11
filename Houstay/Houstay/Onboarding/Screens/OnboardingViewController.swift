@@ -73,8 +73,8 @@ extension OnboardingViewController: OnboardingViewDelegate {
         
         if viewModel.onboardingSlide.count - 1 == onboardingView.getPageControll().currentPage {
             UserDefaults.standard.set(true, forKey: "isFirstLaunch")
-            let loginViewController = LoginViewController()
-            self.navigationController?.pushViewController(loginViewController, animated: true)
+            let tabBarController = TabBarController()
+            self.navigationController?.setViewControllers([tabBarController], animated: true)
         } else {
             onboardingView.getPageControll().currentPage += 1
             onboardingView.getOnboardingCollectionView().isPagingEnabled = false
