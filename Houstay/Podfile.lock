@@ -773,6 +773,7 @@ PODS:
     - AppAuth/Core (~> 1.6)
     - GTMSessionFetcher/Core (< 3.0, >= 1.5)
   - GTMSessionFetcher/Core (2.1.0)
+  - JWTDecode (3.0.0)
   - KeychainSwift (20.0.0)
   - leveldb-library (1.22.1)
   - Libuv-gRPC (0.0.10):
@@ -804,6 +805,7 @@ DEPENDENCIES:
   - FirebaseDatabase
   - FirebaseFirestore
   - GoogleSignIn
+  - JWTDecode (~> 3.0)
   - KeychainSwift
   - R.swift
   - RealmSwift
@@ -831,6 +833,7 @@ SPEC REPOS:
     - gRPC-Core
     - GTMAppAuth
     - GTMSessionFetcher
+    - JWTDecode
     - KeychainSwift
     - leveldb-library
     - Libuv-gRPC
@@ -863,6 +866,7 @@ SPEC CHECKSUMS:
   gRPC-Core: 943e491cb0d45598b0b0eb9e910c88080369290b
   GTMAppAuth: 0ff230db599948a9ad7470ca667337803b3fc4dd
   GTMSessionFetcher: ffbb25ec00ebcb5201adab0a56d808f6f1902d9f
+  JWTDecode: 82480a7173f8a811954e7e14a2b59f688ca4222a
   KeychainSwift: 0ce6a4d13f7228054d1a71bb1b500448fb2ab837
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   Libuv-gRPC: 55e51798e14ef436ad9bc45d12d43b77b49df378
@@ -874,6 +878,6 @@ SPEC CHECKSUMS:
   RealmSwift: aecc52389574be4d451bf6cb1b08824eaa17dad0
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: 454c35e43db603ceed091f5e8678ef3e223a3375
+PODFILE CHECKSUM: eaa245d1e92a60045353a7a5070737aaed35edc2
 
 COCOAPODS: 1.11.3

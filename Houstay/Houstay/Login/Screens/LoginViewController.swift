@@ -9,6 +9,7 @@ import UIKit
 import FirebaseCore
 import GoogleSignIn
 import FirebaseAuth
+import JWTDecode
 
 class LoginViewController: UIViewController {
     private let loginView = LoginView()
@@ -75,6 +76,17 @@ extension LoginViewController: LoginViewDelegate {
             
             Auth.auth().signIn(with: credential) { authResult, error in
                 if error == nil {
+                    Auth.auth().currentUser?.getIDToken(completion: { (idToken, error) in
+                        if error == nil {
+                            do {
+                                guard let idToken else { return }
+                                let jwt = try decode(jwt: idToken)
+                                print(String(describing: jwt))
+                            } catch {
+                                print(error.localizedDescription)
+                            }
+                        }
+                    })
                     self.navigationController?.popViewController(animated: true)
                 } else {
                     print("Вход не выполнен")
@@ -93,6 +105,17 @@ extension LoginViewController: LoginViewDelegate {
         if !emailText.isEmpty && !enterPasswordText.isEmpty {
             Auth.auth().signIn(withEmail: emailText, password: enterPasswordText) { result, error in
                 if error == nil {
+                     Auth.auth().currentUser?.getIDToken(completion: { (idToken, error) in
+                        if error == nil {
+                            do {
+                                guard let idToken else { return }
+                                let jwt = try decode(jwt: idToken)
+                                print(String(describing: jwt))
+                            } catch {
+                                print(error.localizedDescription)
+                            }
+                        }
+                    })
                     self.navigationController?.popViewController(animated: true)
                 } else {
                     self.loginView.isWrongLoginOrPasswordLabelEnabled()

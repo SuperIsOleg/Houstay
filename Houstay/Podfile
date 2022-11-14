@@ -17,5 +17,6 @@ target 'Houstay' do
   pod 'FirebaseCore'
   pod 'FirebaseDatabase' 
   pod 'GoogleSignIn'
+  pod 'JWTDecode', '~> 3.0'
 
 end
