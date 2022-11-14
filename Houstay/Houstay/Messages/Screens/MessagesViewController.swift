@@ -19,6 +19,7 @@ class MessagesViewController: UIViewController {
             guard let self = self else { return }
             if user == nil {
                 self.view = self.userAuthenticationView
+                
             } else {
                 self.view = self.messagesView
             }
@@ -38,8 +39,7 @@ class MessagesViewController: UIViewController {
     private func setupNavigationBar() {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         let appearance = UINavigationBarAppearance()
-        appearance.configureWithTransparentBackground()
-        appearance.backgroundColor = R.color.white500()
+        appearance.backgroundColor = R.color.red80()
         self.navigationItem.standardAppearance = appearance
         self.navigationItem.scrollEdgeAppearance = appearance
         self.navigationItem.compactAppearance = appearance

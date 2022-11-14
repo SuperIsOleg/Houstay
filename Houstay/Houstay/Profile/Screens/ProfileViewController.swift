@@ -41,7 +41,6 @@ class ProfileViewController: UIViewController {
     private func setupNavigationBar() {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         let appearance = UINavigationBarAppearance()
-        appearance.configureWithTransparentBackground()
         appearance.backgroundColor = R.color.white500()
         self.navigationItem.standardAppearance = appearance
         self.navigationItem.scrollEdgeAppearance = appearance
