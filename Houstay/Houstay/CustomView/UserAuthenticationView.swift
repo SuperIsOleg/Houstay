@@ -33,6 +33,7 @@ class UserAuthenticationView: UIView {
         label.text = R.string.localizable.userAuthenticationNeedToLogged()
         label.font = R.font.robotoMedium(size: 16)
         label.textColor = R.color.lnk50()
+        label.textAlignment = .center
         label.numberOfLines = 0
         return label
     }()

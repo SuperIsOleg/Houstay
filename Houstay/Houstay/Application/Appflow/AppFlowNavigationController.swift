@@ -25,7 +25,7 @@ class AppFlowNavigationController: UINavigationController {
             self.setViewControllers([tabBar], animated: true)
         } else {
             let onboardingViewController = OnboardingViewController()
-            self.setViewControllers([onboardingViewController], animated: false)
+            self.setViewControllers([onboardingViewController], animated: true)
         }
         
     }

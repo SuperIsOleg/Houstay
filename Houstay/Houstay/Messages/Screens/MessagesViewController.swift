@@ -44,21 +44,13 @@ class MessagesViewController: UIViewController {
         self.navigationItem.scrollEdgeAppearance = appearance
         self.navigationItem.compactAppearance = appearance
         self.navigationController?.navigationBar.tintColor = R.color.lnk100()
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: R.image.chevronLeft(),
-                                                                style: .plain,
-                                                                target: self,
-                                                                action: #selector(self.popViewController))
         self.navigationController?.navigationBar.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: R.color.lnk100() ?? .black,
             NSAttributedString.Key.font: R.font.robotoMedium(size: 20) ?? .systemFont(ofSize: 20)
         ]
         self.navigationItem.title = R.string.localizable.accountMessages()
     }
-    
-    @objc
-    private func popViewController() {
-        self.navigationController?.popViewController(animated: true)
-    }
+
 }
 
 // MARK: - MessagesViewController
