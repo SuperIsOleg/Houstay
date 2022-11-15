@@ -6,13 +6,10 @@
 //
 
 import UIKit
-import FirebaseCore
-import GoogleSignIn
-import FirebaseAuth
-import JWTDecode
 
 class LoginViewController: UIViewController {
     private let loginView = LoginView()
+    private let viewModel = LoginViewModel()
     
     override func loadView() {
         super.loadView()
@@ -49,49 +46,15 @@ class LoginViewController: UIViewController {
     private func popViewController() {
         self.navigationController?.popViewController(animated: true)
     }
-
+    
 }
 
 // MARK: - LoginViewDelegate
 
 extension LoginViewController: LoginViewDelegate {
     func targetGoogleImageAction() {
-        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
-        // Create Google Sign In configuration object.
-        let config = GIDConfiguration(clientID: clientID)
-        // Start the sign in flow!
-        GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { [weak self] user, error in
-            guard let self = self else { return }
-            if error == nil {
-                self.navigationController?.popViewController(animated: true)
-            } else {
-                print("Не получен config")
-            }
-            
-            guard let authentication = user?.authentication,
-                  let idToken = authentication.idToken else { return }
-            
-            let credential = GoogleAuthProvider.credential(withIDToken: idToken,
-                                                           accessToken: authentication.accessToken)
-            
-            Auth.auth().signIn(with: credential) { authResult, error in
-                if error == nil {
-                    Auth.auth().currentUser?.getIDToken(completion: { (idToken, error) in
-                        if error == nil {
-                            do {
-                                guard let idToken else { return }
-                                let jwt = try decode(jwt: idToken)
-                                print(String(describing: jwt))
-                            } catch {
-                                print(error.localizedDescription)
-                            }
-                        }
-                    })
-                    self.navigationController?.popViewController(animated: true)
-                } else {
-                    print("Вход не выполнен")
-                }
-            }
+        self.viewModel.googleSignIn(viewController: self) {
+            self.navigationController?.popViewController(animated: true)
         }
     }
     
@@ -100,33 +63,18 @@ extension LoginViewController: LoginViewDelegate {
         let enterPassword = loginView.getPasswordTextField()
         
         guard let emailText = email.text,
-              let enterPasswordText = enterPassword.text else { return }
-        
-        if !emailText.isEmpty && !enterPasswordText.isEmpty {
-            Auth.auth().signIn(withEmail: emailText, password: enterPasswordText) { result, error in
-                if error == nil {
-                     Auth.auth().currentUser?.getIDToken(completion: { (idToken, error) in
-                        if error == nil {
-                            do {
-                                guard let idToken else { return }
-                                let jwt = try decode(jwt: idToken)
-                                print(String(describing: jwt))
-                            } catch {
-                                print(error.localizedDescription)
-                            }
-                        }
-                    })
-                    self.navigationController?.popViewController(animated: true)
-                } else {
-                    self.loginView.isWrongLoginOrPasswordLabelEnabled()
-                    email.layer.borderColor = R.color.red100()?.cgColor
-                    enterPassword.layer.borderColor = R.color.red100()?.cgColor
-                }
-            }
-        } else {
-            print("заполните поля")
+              let enterPasswordText = enterPassword.text else {
+            return  print("заполните поля")
         }
-        
+
+            self.viewModel.logIn(email: emailText,
+                                 enterPassword: enterPasswordText) {
+                self.navigationController?.popViewController(animated: true)
+            } errorCompletion: {
+                self.loginView.isWrongLoginOrPasswordLabelEnabled()
+                email.layer.borderColor = R.color.red100()?.cgColor
+                enterPassword.layer.borderColor = R.color.red100()?.cgColor
+            }
     }
     
     func targetRegistrationViewAction() {
