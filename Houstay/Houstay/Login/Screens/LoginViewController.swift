@@ -6,6 +6,10 @@
 //
 
 import UIKit
+import FirebaseCore
+import GoogleSignIn
+import FirebaseAuth
+import JWTDecode
 
 class LoginViewController: UIViewController {
     private let loginView = LoginView()
@@ -63,27 +67,30 @@ extension LoginViewController: LoginViewDelegate {
         let enterPassword = loginView.getPasswordTextField()
         
         guard let emailText = email.text,
-              let enterPasswordText = enterPassword.text else {
-            return  print("заполните поля")
-        }
+              let enterPasswordText = enterPassword.text else { return }
 
-            self.viewModel.logIn(email: emailText,
-                                 enterPassword: enterPasswordText) {
+        if !emailText.isEmpty && !enterPasswordText.isEmpty {
+            viewModel.logIn(email: emailText,
+                            enterPassword: enterPasswordText) {
                 self.navigationController?.popViewController(animated: true)
             } errorCompletion: {
                 self.loginView.isWrongLoginOrPasswordLabelEnabled()
                 email.layer.borderColor = R.color.red100()?.cgColor
                 enterPassword.layer.borderColor = R.color.red100()?.cgColor
             }
+            
+        } else {
+            print("заполните поля")
+        }
     }
-    
-    func targetRegistrationViewAction() {
-        let registrationViewController = RegistrationViewController()
-        self.navigationController?.pushViewController(registrationViewController, animated: true)
-    }
-    
-    func targetForgetPasswordViewAction() {
-        let forgetPasswordViewController = ForgetPasswordViewController()
-        self.navigationController?.pushViewController(forgetPasswordViewController, animated: true)
-    }
+
+func targetRegistrationViewAction() {
+    let registrationViewController = RegistrationViewController()
+    self.navigationController?.pushViewController(registrationViewController, animated: true)
+}
+
+func targetForgetPasswordViewAction() {
+    let forgetPasswordViewController = ForgetPasswordViewController()
+    self.navigationController?.pushViewController(forgetPasswordViewController, animated: true)
+}
 }
