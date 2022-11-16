@@ -9,15 +9,12 @@ import Foundation
 import Firebase
 
 class AccountViewModel {
+    internal let keychainManager = KeychainManager.shared
     internal var settingsItemsModel = [SettingsItemsModel]()
     internal var name: String = ""
     internal var email: String = ""
     
     init() {
-        guard let userName = Auth.auth().currentUser?.displayName,
-              let userEmail = Auth.auth().currentUser?.email else  { return }
-        self.name = userName
-        self.email = userEmail
         settingsItemsModel = [SettingsItemsModel(imageSettings: R.image.information() ?? UIImage(),
                                                  title: R.string.localizable.accountProfile(),
                                                  imageArrows: R.image.arrowsRight() ?? UIImage(),
@@ -49,5 +46,10 @@ class AccountViewModel {
                                                  switchSounds: true,
                                                  language: "")
         ]
+        
+        guard let userName = Auth.auth().currentUser?.displayName,
+              let userEmail = Auth.auth().currentUser?.email else  { return }
+        self.name = userName
+        self.email = userEmail
     }
 }

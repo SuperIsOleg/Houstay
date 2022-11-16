@@ -13,6 +13,7 @@ class AccountViewController: UIViewController {
     private let accountView = AccountView()
     private let accountViewModel = AccountViewModel()
     private let userAuthenticationView = UserAuthenticationView()
+    private let viewModel = AccountViewModel()
     private lazy var accountCollectionView = accountView.getAccountCollectionView()
     private var dataSource: UICollectionViewDiffableDataSource<AccountSectionEnum, SettingsItemsModel>! = nil
     private var handle: AuthStateDidChangeListenerHandle?

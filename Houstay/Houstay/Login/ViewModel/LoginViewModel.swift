@@ -21,7 +21,7 @@ class LoginViewModel {
         // Start the sign in flow!
         GIDSignIn.sharedInstance.signIn(with: config, presenting: viewController) { [weak self] (user, error) in
             guard let self = self else { return }
-
+            
             if let error = error {
                 print("Не получен config")
             }
@@ -32,7 +32,8 @@ class LoginViewModel {
             let credential = GoogleAuthProvider.credential(withIDToken: idToken,
                                                            accessToken: authentication.accessToken)
             
-            Auth.auth().signIn(with: credential) { authResult, error in
+            Auth.auth().signIn(with: credential) { [weak self] authResult, error in
+                guard let self = self else { return }
                 if error == nil {
                     succesCompletion()
                 } else {
@@ -46,7 +47,7 @@ class LoginViewModel {
                         enterPassword:String,
                         succesCompletion: @escaping () -> Void,
                         errorCompletion: @escaping () -> Void) {
-        Auth.auth().signIn(withEmail: email, password: enterPassword) { [weak self] result, error in
+        Auth.auth().signIn(withEmail: email, password: enterPassword) { [weak self] authResult, error in
             guard let self = self else { return }
             if error == nil {
                 succesCompletion()
