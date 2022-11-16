@@ -12,10 +12,17 @@ class MessagesViewController: UIViewController {
     
     private let messagesView = MessagesView()
     private let userAuthenticationView = UserAuthenticationView()
+    private var handle: AuthStateDidChangeListenerHandle?
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        userAuthenticationView.userAuthenticationDeleagte = self
+    }
     
-    override func loadView() {
-        super.loadView()
-        Auth.auth().addStateDidChangeListener { [weak self] (auth, user) in
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavigationBar()
+        handle = Auth.auth().addStateDidChangeListener { [weak self] (auth, user) in
             guard let self = self else { return }
             if user == nil {
                 self.view = self.userAuthenticationView
@@ -25,17 +32,12 @@ class MessagesViewController: UIViewController {
             }
         }
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        userAuthenticationView.userAuthenticationDeleagte = self
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        setupNavigationBar()
-    }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        guard let handle else { return }
+        Auth.auth().removeStateDidChangeListener(handle)
+    }
     private func setupNavigationBar() {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         let appearance = UINavigationBarAppearance()

@@ -9,22 +9,10 @@ import UIKit
 import Firebase
 
 class FavouritesViewController: UIViewController {
-    
     private let favouritesView = FavouritesView()
     private let userAuthenticationView = UserAuthenticationView()
+    private var handle: AuthStateDidChangeListenerHandle?
     
-    override func loadView() {
-        super.loadView()
-        Auth.auth().addStateDidChangeListener { [weak self] (auth, user) in
-            guard let self = self else { return }
-            if user == nil {
-                self.view = self.userAuthenticationView
-            } else {
-                self.view = self.favouritesView
-            }
-        }
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         userAuthenticationView.userAuthenticationDeleagte = self
@@ -34,6 +22,20 @@ class FavouritesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigationBar()
+        handle = Auth.auth().addStateDidChangeListener { [weak self] (auth, user) in
+            guard let self = self else { return }
+            if user == nil {
+                self.view = self.userAuthenticationView
+            } else {
+                self.view = self.favouritesView
+            }
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        guard let handle else { return }
+        Auth.auth().removeStateDidChangeListener(handle)
     }
 
     private func setupNavigationBar() {

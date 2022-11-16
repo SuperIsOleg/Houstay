@@ -15,19 +15,8 @@ class AccountViewController: UIViewController {
     private let userAuthenticationView = UserAuthenticationView()
     private lazy var accountCollectionView = accountView.getAccountCollectionView()
     private var dataSource: UICollectionViewDiffableDataSource<AccountSectionEnum, SettingsItemsModel>! = nil
+    private var handle: AuthStateDidChangeListenerHandle?
     
-    override func loadView() {
-        super.loadView()
-        Auth.auth().addStateDidChangeListener { [weak self] (auth, user) in
-            guard let self = self else { return }
-            if user == nil {
-                self.view = self.userAuthenticationView
-            } else {
-                self.view = self.accountView
-            }
-        }
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         accountView.accountViewDelegate = self
@@ -41,6 +30,20 @@ class AccountViewController: UIViewController {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         configureDataSource()
+        handle = Auth.auth().addStateDidChangeListener { [weak self] (auth, user) in
+            guard let self = self else { return }
+            if user == nil {
+                self.view = self.userAuthenticationView
+            } else {
+                self.view = self.accountView
+            }
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        guard let handle else { return }
+        Auth.auth().removeStateDidChangeListener(handle)
     }
 
     /// - Tag: CellRegistration
