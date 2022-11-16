@@ -69,9 +69,6 @@ extension RegistrationViewController: RegistrationViewDelegate {
                 Auth.auth().createUser(withEmail: emailText, password: enterPasswordText) { result, error in
                     if error == nil {
                         if let result = result {
-                            let reference = Database.database().reference().child("users")
-                            reference.child(result.user.uid).updateChildValues(["name": nameText, "email": emailText])
-                            
                             let homeViewController = HomeViewController()
                             self.navigationController?.setViewControllers([homeViewController], animated: false)
                         }
