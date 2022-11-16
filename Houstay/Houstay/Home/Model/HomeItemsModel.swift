@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct HomeItemsModel: Codable, Hashable {
-    let id: String
-    let address: String
-    let city: String
-    let price: String
-    let image: String
+struct HomeItemsModel: HomeItemsProtocol, Codable, Hashable {
+    var id: String
+    var address: String
+    var city: String
+    var price: String
+    var image: String
 }

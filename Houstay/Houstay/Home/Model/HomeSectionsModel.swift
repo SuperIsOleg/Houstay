@@ -7,8 +7,9 @@
 
 import Foundation
 
-struct HomeSectionsModel: Codable, Hashable {
-    let type: HomeSectionEnum
-    let title: String
-    let items: [HomeItemsModel]
+struct HomeSectionsModel: HomeSectionsProtocol, Codable, Hashable {
+    var type: HomeSectionEnum
+    var title: String
+    var items: [HomeItemsModel]
+
 }

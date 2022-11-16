@@ -23,6 +23,11 @@
 		023EEAD228BCE89900446893 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023EEAD128BCE89900446893 /* OnboardingCollectionViewCell.swift */; };
 		023EEAD528BCF9D700446893 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023EEAD428BCF9D700446893 /* OnboardingViewModel.swift */; };
 		024BACC12923C06400FC880D /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024BACC02923C06400FC880D /* LoginViewModel.swift */; };
+		024BACCA2924EA8B00FC880D /* HomeSectionsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024BACC92924EA8B00FC880D /* HomeSectionsProtocol.swift */; };
+		024BACCC2924EADE00FC880D /* HomeItemsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024BACCB2924EADE00FC880D /* HomeItemsProtocol.swift */; };
+		024BACD02924EC6A00FC880D /* RHomeItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024BACCF2924EC6A00FC880D /* RHomeItemsModel.swift */; };
+		024BACD22924F2E000FC880D /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024BACD12924F2E000FC880D /* RealmManager.swift */; };
+		024BACD62924F70500FC880D /* RealmManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024BACD52924F70500FC880D /* RealmManagerProtocol.swift */; };
 		028097BE28C0ED5900C2ECD9 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028097BD28C0ED5900C2ECD9 /* HeaderView.swift */; };
 		028097C328C2021C00C2ECD9 /* SearcheTextFieldBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028097C228C2021C00C2ECD9 /* SearcheTextFieldBase.swift */; };
 		028097C628C211DD00C2ECD9 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028097C528C211DD00C2ECD9 /* HomeViewModel.swift */; };
@@ -94,6 +99,11 @@
 		023EEAD128BCE89900446893 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		023EEAD428BCF9D700446893 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		024BACC02923C06400FC880D /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		024BACC92924EA8B00FC880D /* HomeSectionsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionsProtocol.swift; sourceTree = "<group>"; };
+		024BACCB2924EADE00FC880D /* HomeItemsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemsProtocol.swift; sourceTree = "<group>"; };
+		024BACCF2924EC6A00FC880D /* RHomeItemsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RHomeItemsModel.swift; sourceTree = "<group>"; };
+		024BACD12924F2E000FC880D /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		024BACD52924F70500FC880D /* RealmManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManagerProtocol.swift; sourceTree = "<group>"; };
 		028097BD28C0ED5900C2ECD9 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		028097C228C2021C00C2ECD9 /* SearcheTextFieldBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearcheTextFieldBase.swift; sourceTree = "<group>"; };
 		028097C528C211DD00C2ECD9 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -236,6 +246,43 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		024BACC52924E99400FC880D /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				F4BF1093290D6AF600D54138 /* Keychain */,
+				024BACC62924E9A000FC880D /* Realm */,
+			);
+			path = DataBase;
+			sourceTree = "<group>";
+		};
+		024BACC62924E9A000FC880D /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				024BACC82924EA1B00FC880D /* Protocol */,
+				024BACC72924E9BE00FC880D /* Model */,
+				024BACD12924F2E000FC880D /* RealmManager.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		024BACC72924E9BE00FC880D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				024BACCF2924EC6A00FC880D /* RHomeItemsModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		024BACC82924EA1B00FC880D /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				024BACC92924EA8B00FC880D /* HomeSectionsProtocol.swift */,
+				024BACCB2924EADE00FC880D /* HomeItemsProtocol.swift */,
+				024BACD52924F70500FC880D /* RealmManagerProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		028097C428C2114800C2ECD9 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -326,7 +373,7 @@
 		0286246628BCBE00006C12C5 /* Houstay */ = {
 			isa = PBXGroup;
 			children = (
-				F4BF1093290D6AF600D54138 /* Keychain */,
+				024BACC52924E99400FC880D /* DataBase */,
 				0286247B28BCC7CE006C12C5 /* Application */,
 				F4480AC928BE6FD4001AA98B /* CustomView */,
 				02952B2E28BE2A2E00B2F43F /* SplashScreen */,
@@ -932,6 +979,7 @@
 			files = (
 				F4480ACB28BE7011001AA98B /* CustomTextField.swift in Sources */,
 				02952B2B28BE22DA00B2F43F /* LoginViewController.swift in Sources */,
+				024BACCA2924EA8B00FC880D /* HomeSectionsProtocol.swift in Sources */,
 				02ABB22328DDA795004ECD55 /* MessagesViewController.swift in Sources */,
 				02ABB21128DC57D6004ECD55 /* AboutAppViewController.swift in Sources */,
 				02ABB21C28DD95A8004ECD55 /* PolicyAndPrivacyViewController.swift in Sources */,
@@ -954,6 +1002,7 @@
 				023EEAC928BCD0CE00446893 /* R.generated.swift in Sources */,
 				02065FCC28C62D550064F2F1 /* FavoriteEnum.swift in Sources */,
 				02065FC528C613CF0064F2F1 /* OffersCell.swift in Sources */,
+				024BACD22924F2E000FC880D /* RealmManager.swift in Sources */,
 				02952B3028BE2A8C00B2F43F /* SplashScreenViewController.swift in Sources */,
 				02065FC928C6143A0064F2F1 /* AllOffersCell.swift in Sources */,
 				F4480AD228BE95A1001AA98B /* ForgetPasswordViewController.swift in Sources */,
@@ -970,6 +1019,7 @@
 				02ABB20B28DB00DC004ECD55 /* SettingsItemsModel.swift in Sources */,
 				028097E328C22EAE00C2ECD9 /* AccountView.swift in Sources */,
 				02952B2228BDDE7D00B2F43F /* OnboardingModel.swift in Sources */,
+				024BACD62924F70500FC880D /* RealmManagerProtocol.swift in Sources */,
 				02065FBE28C60A6A0064F2F1 /* Bundle+Extrnsion.swift in Sources */,
 				02065FC728C6141B0064F2F1 /* RecentlyPostedCell.swift in Sources */,
 				02952B2428BDE6D800B2F43F /* OnboardingView.swift in Sources */,
@@ -986,9 +1036,11 @@
 				02F1FAE8291E454D00EEBC1C /* UserAuthenticationView.swift in Sources */,
 				02C4FF0528BF629C005869F1 /* ChekPasswordView.swift in Sources */,
 				023EEAD228BCE89900446893 /* OnboardingCollectionViewCell.swift in Sources */,
+				024BACCC2924EADE00FC880D /* HomeItemsProtocol.swift in Sources */,
 				02ABB20628DAFE70004ECD55 /* HomeSectionEnum.swift in Sources */,
 				02C4FF0C28BF7F54005869F1 /* CreateNewPasswordView.swift in Sources */,
 				028097DB28C22E5300C2ECD9 /* FavouritesView.swift in Sources */,
+				024BACD02924EC6A00FC880D /* RHomeItemsModel.swift in Sources */,
 				028097BE28C0ED5900C2ECD9 /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
