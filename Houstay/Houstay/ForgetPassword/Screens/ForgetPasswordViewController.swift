@@ -32,6 +32,7 @@ class ForgetPasswordViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         let appearance = UINavigationBarAppearance()
         appearance.configureWithTransparentBackground()
+        appearance.shadowColor = .clear
         appearance.backgroundColor = R.color.white500()
         self.navigationItem.standardAppearance = appearance
         self.navigationItem.scrollEdgeAppearance = appearance

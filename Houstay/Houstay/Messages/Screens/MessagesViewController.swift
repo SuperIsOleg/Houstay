@@ -38,19 +38,20 @@ class MessagesViewController: UIViewController {
         guard let handle else { return }
         Auth.auth().removeStateDidChangeListener(handle)
     }
+    
     private func setupNavigationBar() {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = R.color.red80()
-        self.navigationItem.standardAppearance = appearance
-        self.navigationItem.scrollEdgeAppearance = appearance
-        self.navigationItem.compactAppearance = appearance
-        self.navigationController?.navigationBar.tintColor = R.color.lnk100()
+        appearance.shadowColor = .clear
+        appearance.backgroundColor = R.color.white500()
+        self.navigationController?.navigationBar.standardAppearance = appearance
+        self.navigationController?.navigationBar.scrollEdgeAppearance =  appearance
+        self.navigationController?.navigationBar.compactAppearance =  appearance
         self.navigationController?.navigationBar.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: R.color.lnk100() ?? .black,
             NSAttributedString.Key.font: R.font.robotoMedium(size: 20) ?? .systemFont(ofSize: 20)
         ]
-        self.navigationItem.title = R.string.localizable.accountMessages()
+        self.parent?.title = R.string.localizable.accountMessages()
     }
 
 }

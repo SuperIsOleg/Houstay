@@ -21,10 +21,7 @@ class FavouritesViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        self.navigationController?.setNavigationBarHidden(false, animated: false)
-  
         setupNavigationBar()
-//        self.navigationController?.navigationBar.backgroundColor = .red
         handle = Auth.auth().addStateDidChangeListener { [weak self] (auth, user) in
             guard let self = self else { return }
             if user == nil {

@@ -110,7 +110,7 @@ class OffersCell: UICollectionViewCell {
         self.collectionViewCellDelegate?.favoriteAppartementAction()
     }
     
-    internal func configure( _ model: HomeItemsModel) {
+    internal func configure( _ model: HomeItemsProtocol) {
         self.addressLabel.text = model.address
         self.cityLabel.text = model.city
         self.priceLabel.text = model.price

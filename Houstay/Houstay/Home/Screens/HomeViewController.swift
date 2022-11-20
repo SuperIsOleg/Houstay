@@ -32,22 +32,6 @@ class HomeViewController: UIViewController {
         homeCollectionView.delegate = self
         homeCollectionView.dataSource = self
         setupLayout()
-
-        let dataBase = Database.database().reference()
-        dataBase.child("appartements").observe(.value) { snapshot in
-            guard let value = snapshot.value as? [Any] else { return }
-            for values in value {
-                guard let jsonobject = try? JSONSerialization.data(withJSONObject: values) else {
-                    print("error in serialization")
-                    return}
-                guard let json = try? JSONDecoder().decode(HomeItemsModel.self, from: jsonobject) else {
-                    print("error in data")
-                    return}
-//                let json = try! JSONDecoder().decode(HomeItemsModel.self, from: )
-                print(json)
-            }
-            print(value[0])
-        }
 //                createDataSource()
 //                reloadData()
     }
