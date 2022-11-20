@@ -21,7 +21,10 @@ class FavouritesViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+//        self.navigationController?.setNavigationBarHidden(false, animated: false)
+  
         setupNavigationBar()
+//        self.navigationController?.navigationBar.backgroundColor = .red
         handle = Auth.auth().addStateDidChangeListener { [weak self] (auth, user) in
             guard let self = self else { return }
             if user == nil {
@@ -41,15 +44,16 @@ class FavouritesViewController: UIViewController {
     private func setupNavigationBar() {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         let appearance = UINavigationBarAppearance()
+        appearance.shadowColor = .clear
         appearance.backgroundColor = R.color.white500()
-        self.navigationItem.standardAppearance = appearance
-        self.navigationItem.scrollEdgeAppearance = appearance
-        self.navigationItem.compactAppearance = appearance
+        self.navigationController?.navigationBar.standardAppearance = appearance
+        self.navigationController?.navigationBar.scrollEdgeAppearance =  appearance
+        self.navigationController?.navigationBar.compactAppearance =  appearance
         self.navigationController?.navigationBar.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: R.color.lnk100() ?? .black,
             NSAttributedString.Key.font: R.font.robotoMedium(size: 20) ?? .systemFont(ofSize: 20)
         ]
-        self.navigationItem.title = R.string.localizable.favouritesLiked()
+        self.parent?.title = R.string.localizable.favouritesLiked()
     }
     
 }

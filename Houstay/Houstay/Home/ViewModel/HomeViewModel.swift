@@ -7,6 +7,7 @@
 
 import Foundation
 import Firebase
+import FirebaseDatabase
 
 class HomeViewModel {
     var name: String = ""
@@ -15,5 +16,7 @@ class HomeViewModel {
     init() {
         guard let userName = Auth.auth().currentUser?.displayName else { return }
         self.name = userName
+        
+        
     }
 }

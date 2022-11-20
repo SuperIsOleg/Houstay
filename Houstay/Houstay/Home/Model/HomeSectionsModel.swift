@@ -6,10 +6,13 @@
 //
 
 import Foundation
+import FirebaseDatabase
+
 
 struct HomeSectionsModel: HomeSectionsProtocol, Codable, Hashable {
     var type: HomeSectionEnum
     var title: String
     var items: [HomeItemsModel]
+
 
 }
