@@ -10,10 +10,10 @@ import Firebase
 import FirebaseDatabase
 
 class HomeViewModel {
-    let sections = Bundle.main.decode([HomeSectionsModel].self, from: "model.json")
-    var arrayAppartmentes = [HomeItemsProtocol]()
+    internal let sections = Bundle.main.decode([HomeSectionsModel].self, from: "model.json")
+    internal var arrayAppartmentes = [HomeItemsProtocol]()
     
-    init() {
+    internal func getAppartments() {
         let dataBase = Database.database().reference()
         dataBase.child("appartements").observe(.value) { snapshot in
             guard let value = snapshot.value as? [Any] else { return }

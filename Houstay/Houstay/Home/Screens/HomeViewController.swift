@@ -26,6 +26,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardOnTap()
+        self.homeViewModel.getAppartments()
         self.homeCollectionView.register(OffersCell.self, forCellWithReuseIdentifier: OffersCell.reuseIdentifier)
         self.homeCollectionView.register(RecentlyPostedCell.self, forCellWithReuseIdentifier: RecentlyPostedCell.reuseIdentifier)
         self.homeCollectionView.register(AllOffersCell.self, forCellWithReuseIdentifier: AllOffersCell.reuseIdentifier)
@@ -194,7 +195,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let section = sections[indexPath.section]
-        let item = section.items[indexPath.item]
+        guard let item = self.homeViewModel.arrayAppartmentes[safe: indexPath.item] else { return UICollectionViewCell() }
         
         switch self.sections[indexPath.section].type {
         case .offers:

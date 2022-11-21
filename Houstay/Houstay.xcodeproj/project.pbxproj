@@ -61,6 +61,7 @@
 		02C4FF0528BF629C005869F1 /* ChekPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C4FF0428BF629C005869F1 /* ChekPasswordView.swift */; };
 		02C4FF0A28BF7F3C005869F1 /* CreateNewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C4FF0928BF7F3C005869F1 /* CreateNewPasswordViewController.swift */; };
 		02C4FF0C28BF7F54005869F1 /* CreateNewPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C4FF0B28BF7F54005869F1 /* CreateNewPasswordView.swift */; };
+		02CF0155292BC7E40043CA59 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CF0154292BC7E40043CA59 /* Array+Extensions.swift */; };
 		02F1FAE8291E454D00EEBC1C /* UserAuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F1FAE7291E454D00EEBC1C /* UserAuthenticationView.swift */; };
 		02F8E1E128CB76E000517C69 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F8E1E028CB76E000517C69 /* AccountViewModel.swift */; };
 		A2B3E143E9556E544620167E /* Pods_Houstay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB75DE0874EAEC3C2A7D2F45 /* Pods_Houstay.framework */; };
@@ -139,6 +140,7 @@
 		02C4FF0428BF629C005869F1 /* ChekPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChekPasswordView.swift; sourceTree = "<group>"; };
 		02C4FF0928BF7F3C005869F1 /* CreateNewPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPasswordViewController.swift; sourceTree = "<group>"; };
 		02C4FF0B28BF7F54005869F1 /* CreateNewPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPasswordView.swift; sourceTree = "<group>"; };
+		02CF0154292BC7E40043CA59 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		02F1FAE7291E454D00EEBC1C /* UserAuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthenticationView.swift; sourceTree = "<group>"; };
 		02F8E1E028CB76E000517C69 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		80C35C1268B3C39A509A9F6B /* Pods-Houstay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Houstay.debug.xcconfig"; path = "Target Support Files/Pods-Houstay/Pods-Houstay.debug.xcconfig"; sourceTree = "<group>"; };
@@ -373,6 +375,7 @@
 		0286246628BCBE00006C12C5 /* Houstay */ = {
 			isa = PBXGroup;
 			children = (
+				02CF0153292BC7BE0043CA59 /* Extensions */,
 				024BACC52924E99400FC880D /* DataBase */,
 				0286247B28BCC7CE006C12C5 /* Application */,
 				F4480AC928BE6FD4001AA98B /* CustomView */,
@@ -641,6 +644,14 @@
 				02C4FF0B28BF7F54005869F1 /* CreateNewPasswordView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		02CF0153292BC7BE0043CA59 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				02CF0154292BC7E40043CA59 /* Array+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		02F8E1DF28CB764600517C69 /* ViewModel */ = {
@@ -1002,6 +1013,7 @@
 				023EEAC928BCD0CE00446893 /* R.generated.swift in Sources */,
 				02065FCC28C62D550064F2F1 /* FavoriteEnum.swift in Sources */,
 				02065FC528C613CF0064F2F1 /* OffersCell.swift in Sources */,
+				02CF0155292BC7E40043CA59 /* Array+Extensions.swift in Sources */,
 				024BACD22924F2E000FC880D /* RealmManager.swift in Sources */,
 				02952B3028BE2A8C00B2F43F /* SplashScreenViewController.swift in Sources */,
 				02065FC928C6143A0064F2F1 /* AllOffersCell.swift in Sources */,
