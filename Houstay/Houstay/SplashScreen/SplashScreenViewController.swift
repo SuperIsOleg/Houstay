@@ -31,7 +31,7 @@ class SplashScreenViewController: UIViewController {
         super.viewDidLoad()
         setupLayout()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.splashScreenDelegate?.setupMainFlow()
         }
     }

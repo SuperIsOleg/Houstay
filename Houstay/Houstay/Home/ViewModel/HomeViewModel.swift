@@ -13,7 +13,7 @@ class HomeViewModel {
     internal let sections = Bundle.main.decode([HomeSectionsModel].self, from: "model.json")
     internal var arrayAppartmentes = [HomeItemsProtocol]()
     
-    internal func getAppartments() {
+    internal func getAppartments(completion: @escaping () -> Void) {
         let dataBase = Database.database().reference()
         dataBase.child("appartements").observe(.value) { snapshot in
             guard let value = snapshot.value as? [Any] else { return }
@@ -27,5 +27,6 @@ class HomeViewModel {
                 self.arrayAppartmentes.append(json)
             }
         }
+        completion()
     }
 }

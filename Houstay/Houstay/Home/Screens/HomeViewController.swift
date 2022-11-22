@@ -26,13 +26,18 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardOnTap()
-        self.homeViewModel.getAppartments()
-        self.homeCollectionView.register(OffersCell.self, forCellWithReuseIdentifier: OffersCell.reuseIdentifier)
-        self.homeCollectionView.register(RecentlyPostedCell.self, forCellWithReuseIdentifier: RecentlyPostedCell.reuseIdentifier)
-        self.homeCollectionView.register(AllOffersCell.self, forCellWithReuseIdentifier: AllOffersCell.reuseIdentifier)
-        homeCollectionView.delegate = self
-        homeCollectionView.dataSource = self
-        setupLayout()
+        self.homeViewModel.getAppartments(completion: { [weak self] in
+            guard let self = self else { return }
+            self.homeCollectionView.reloadData()
+            self.homeCollectionView.delegate = self
+            self.homeCollectionView.dataSource = self
+            self.homeCollectionView.register(OffersCell.self, forCellWithReuseIdentifier: OffersCell.reuseIdentifier)
+            self.homeCollectionView.register(RecentlyPostedCell.self, forCellWithReuseIdentifier: RecentlyPostedCell.reuseIdentifier)
+            self.homeCollectionView.register(AllOffersCell.self, forCellWithReuseIdentifier: AllOffersCell.reuseIdentifier)
+
+            self.setupLayout()
+        })
+
 //                createDataSource()
 //                reloadData()
     }
@@ -51,8 +56,7 @@ class HomeViewController: UIViewController {
             $0.trailing.equalToSuperview()
             $0.bottom.equalToSuperview()
         }
-        homeCollectionView.reloadData()
-        
+
     }
     
     private func createCompositionalLayout() -> UICollectionViewLayout {
@@ -197,7 +201,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let section = sections[indexPath.section]
         guard let item = self.homeViewModel.arrayAppartmentes[safe: indexPath.item] else { return UICollectionViewCell() }
         
-        switch self.sections[indexPath.section].type {
+        switch section.type {
         case .offers:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OffersCell.reuseIdentifier, for: indexPath) as?
                     OffersCell else { return UICollectionViewCell() }

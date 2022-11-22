@@ -46,6 +46,8 @@
 		02952B2D28BE22F000B2F43F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02952B2C28BE22F000B2F43F /* LoginView.swift */; };
 		02952B3028BE2A8C00B2F43F /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02952B2F28BE2A8C00B2F43F /* SplashScreenViewController.swift */; };
 		02952B3328BE2BA800B2F43F /* AppFlowNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02952B3228BE2BA800B2F43F /* AppFlowNavigationController.swift */; };
+		029D72B3292D0C1300AE7307 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029D72B2292D0C1300AE7307 /* LoaderView.swift */; };
+		029D72B5292D0C6300AE7307 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029D72B4292D0C6300AE7307 /* UIView+Extensions.swift */; };
 		02ABB20328DAFA73004ECD55 /* AccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02ABB20228DAFA73004ECD55 /* AccountCell.swift */; };
 		02ABB20628DAFE70004ECD55 /* HomeSectionEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02ABB20528DAFE70004ECD55 /* HomeSectionEnum.swift */; };
 		02ABB20828DAFE9A004ECD55 /* AccountSectionEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02ABB20728DAFE9A004ECD55 /* AccountSectionEnum.swift */; };
@@ -125,6 +127,8 @@
 		02952B2C28BE22F000B2F43F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		02952B2F28BE2A8C00B2F43F /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		02952B3228BE2BA800B2F43F /* AppFlowNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowNavigationController.swift; sourceTree = "<group>"; };
+		029D72B2292D0C1300AE7307 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
+		029D72B4292D0C6300AE7307 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		02ABB20228DAFA73004ECD55 /* AccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCell.swift; sourceTree = "<group>"; };
 		02ABB20528DAFE70004ECD55 /* HomeSectionEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionEnum.swift; sourceTree = "<group>"; };
 		02ABB20728DAFE9A004ECD55 /* AccountSectionEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSectionEnum.swift; sourceTree = "<group>"; };
@@ -650,6 +654,7 @@
 			isa = PBXGroup;
 			children = (
 				02CF0154292BC7E40043CA59 /* Array+Extensions.swift */,
+				029D72B4292D0C6300AE7307 /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -783,6 +788,7 @@
 				028097C228C2021C00C2ECD9 /* SearcheTextFieldBase.swift */,
 				F41F4A5F28DE278B00958A91 /* FabricViewForProfileView.swift */,
 				02F1FAE7291E454D00EEBC1C /* UserAuthenticationView.swift */,
+				029D72B2292D0C1300AE7307 /* LoaderView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -994,6 +1000,7 @@
 				02ABB22328DDA795004ECD55 /* MessagesViewController.swift in Sources */,
 				02ABB21128DC57D6004ECD55 /* AboutAppViewController.swift in Sources */,
 				02ABB21C28DD95A8004ECD55 /* PolicyAndPrivacyViewController.swift in Sources */,
+				029D72B5292D0C6300AE7307 /* UIView+Extensions.swift in Sources */,
 				0286246C28BCBE00006C12C5 /* OnboardingViewController.swift in Sources */,
 				F41F4A6028DE278B00958A91 /* FabricViewForProfileView.swift in Sources */,
 				F41F4A5C28DE222500958A91 /* ProfileViewController.swift in Sources */,
@@ -1006,6 +1013,7 @@
 				F4BF1095290D6B2D00D54138 /* KeychainManager.swift in Sources */,
 				02ABB21E28DD95B6004ECD55 /* PolicyAndPrivacyView.swift in Sources */,
 				02C4FEFE28BF3946005869F1 /* UIViewController+Extension.swift in Sources */,
+				029D72B3292D0C1300AE7307 /* LoaderView.swift in Sources */,
 				02ABB20328DAFA73004ECD55 /* AccountCell.swift in Sources */,
 				028097E128C22E9A00C2ECD9 /* AccountViewController.swift in Sources */,
 				02065FCE28C757210064F2F1 /* HomeItemsModel.swift in Sources */,
