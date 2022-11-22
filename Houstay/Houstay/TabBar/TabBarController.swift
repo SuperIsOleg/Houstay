@@ -38,6 +38,8 @@ class TabBarController: UITabBarController {
             homeViewController, favouritesViewController,
             messagesViewController, accountViewController
         ]
+        
+        self.selectedIndex = 1
     }
     
     private func setTabBarAppearance() {

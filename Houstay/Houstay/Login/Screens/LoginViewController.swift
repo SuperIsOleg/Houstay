@@ -9,7 +9,6 @@ import UIKit
 import FirebaseCore
 import GoogleSignIn
 import FirebaseAuth
-import JWTDecode
 
 class LoginViewController: UIViewController {
     private let loginView = LoginView()
