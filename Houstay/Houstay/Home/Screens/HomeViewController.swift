@@ -12,11 +12,20 @@ class HomeViewController: UIViewController {
     
     private let homeView = HomeView()
     private lazy var homeCollectionView = UICollectionView(frame: view.bounds, collectionViewLayout: self.createCompositionalLayout())
-    private let homeViewModel = HomeViewModel()
+    private let homeViewModel: HomeViewModel
     private lazy var sections = self.homeViewModel.sections
     private var dataSource: UICollectionViewDiffableDataSource<HomeSectionsModel, HomeItemsModel>! = nil
     
     var count = [HomeItemsModel]()
+    
+    init(homeViewModel: HomeViewModel) {
+        self.homeViewModel = homeViewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func loadView() {
         super.loadView()
@@ -26,20 +35,16 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardOnTap()
-        self.homeViewModel.getAppartments(completion: { [weak self] in
-            guard let self = self else { return }
-            self.homeCollectionView.reloadData()
-            self.homeCollectionView.delegate = self
-            self.homeCollectionView.dataSource = self
-            self.homeCollectionView.register(OffersCell.self, forCellWithReuseIdentifier: OffersCell.reuseIdentifier)
-            self.homeCollectionView.register(RecentlyPostedCell.self, forCellWithReuseIdentifier: RecentlyPostedCell.reuseIdentifier)
-            self.homeCollectionView.register(AllOffersCell.self, forCellWithReuseIdentifier: AllOffersCell.reuseIdentifier)
-
-            self.setupLayout()
-        })
-
-//                createDataSource()
-//                reloadData()
+        homeCollectionView.delegate = self
+        homeCollectionView.dataSource = self
+        homeCollectionView.register(OffersCell.self, forCellWithReuseIdentifier: OffersCell.reuseIdentifier)
+        homeCollectionView.register(RecentlyPostedCell.self, forCellWithReuseIdentifier: RecentlyPostedCell.reuseIdentifier)
+        homeCollectionView.register(AllOffersCell.self, forCellWithReuseIdentifier: AllOffersCell.reuseIdentifier)
+        homeCollectionView.reloadData()
+        setupLayout()
+        
+        //                createDataSource()
+        //                reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,7 +61,7 @@ class HomeViewController: UIViewController {
             $0.trailing.equalToSuperview()
             $0.bottom.equalToSuperview()
         }
-
+        
     }
     
     private func createCompositionalLayout() -> UICollectionViewLayout {
@@ -86,7 +91,7 @@ class HomeViewController: UIViewController {
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9),
                                                heightDimension: .estimated(232))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-
+        
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = NSDirectionalEdgeInsets.init(top: 0, leading: 16, bottom: 0, trailing: 16)
         section.interGroupSpacing = 16
@@ -129,16 +134,16 @@ class HomeViewController: UIViewController {
         return section
     }
     
-//    MARK: - UICollectionViewDiffableDataSource
+    //    MARK: - UICollectionViewDiffableDataSource
     private func createDataSource() {
         dataSource = UICollectionViewDiffableDataSource<HomeSectionsModel, HomeItemsModel>(collectionView: homeCollectionView, cellProvider: { (collectionView, indexPath, model) ->  UICollectionViewCell? in
-
+            
             switch self.sections[indexPath.section].type {
-
+                
             case .offers:
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OffersCell.reuseIdentifier, for: indexPath) as?
                         OffersCell else { return UICollectionViewCell() }
-
+                
                 cell.layer.cornerRadius = 12
                 cell.backgroundColor = R.color.white500()
                 cell.configure(model)
@@ -146,7 +151,7 @@ class HomeViewController: UIViewController {
             case .recentlyPosted:
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecentlyPostedCell.reuseIdentifier, for: indexPath) as?
                         RecentlyPostedCell else { return UICollectionViewCell() }
-
+                
                 cell.layer.cornerRadius = 12
                 cell.backgroundColor = R.color.blue80()
                 cell.configure(model)
@@ -154,7 +159,7 @@ class HomeViewController: UIViewController {
             case .allOffers:
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AllOffersCell.reuseIdentifier, for: indexPath) as?
                         AllOffersCell else { return UICollectionViewCell() }
-
+                
                 cell.layer.cornerRadius = 12
                 cell.backgroundColor = R.color.lnk50()
                 cell.configure(model)
@@ -167,7 +172,7 @@ class HomeViewController: UIViewController {
     private func reloadData() {
         var snapshot = NSDiffableDataSourceSnapshot<HomeSectionsModel, HomeItemsModel>()
         snapshot.appendSections(sections)
-
+        
         for section in sections {
             snapshot.appendItems(section.items, toSection: section)
         }
@@ -184,7 +189,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-
+        
         switch self.sections[section].type {
         case .offers:
             return homeViewModel.sections[section].items.count
@@ -199,12 +204,18 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let section = sections[indexPath.section]
-        guard let item = self.homeViewModel.arrayAppartmentes[safe: indexPath.item] else { return UICollectionViewCell() }
+        guard let item = self.homeViewModel.arrayAppartmentes[safe: indexPath.item] else {
+            print("something went wrong")
+            return UICollectionViewCell()
+        }
         
         switch section.type {
         case .offers:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OffersCell.reuseIdentifier, for: indexPath) as?
-                    OffersCell else { return UICollectionViewCell() }
+                    OffersCell else {
+                print("something went wrong")
+                return UICollectionViewCell()
+            }
             cell.configure(item)
             cell.layer.cornerRadius = 12
             cell.backgroundColor = R.color.white500()
@@ -218,7 +229,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return cell
         case .recentlyPosted:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecentlyPostedCell.reuseIdentifier, for: indexPath) as?
-                    RecentlyPostedCell else { return UICollectionViewCell() }
+                    RecentlyPostedCell else {
+                print("something went wrong")
+                return UICollectionViewCell()
+            }
             cell.configure(item)
             cell.layer.cornerRadius = 12
             cell.backgroundColor = R.color.white500()
@@ -231,7 +245,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return cell
         case .allOffers:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AllOffersCell.reuseIdentifier, for: indexPath) as?
-                    AllOffersCell else { return UICollectionViewCell() }
+                    AllOffersCell else {
+                print("something went wrong")
+                return UICollectionViewCell()
+            }
             cell.configure(item)
             cell.layer.cornerRadius = 12
             cell.backgroundColor = R.color.white500()

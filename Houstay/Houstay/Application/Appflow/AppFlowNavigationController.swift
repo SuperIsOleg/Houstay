@@ -9,6 +9,7 @@ import UIKit
 import Firebase
 
 class AppFlowNavigationController: UINavigationController {
+    let preLoader = PreLoader.shared
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -21,8 +22,14 @@ class AppFlowNavigationController: UINavigationController {
     
     private func mainFlowSetup() {
         if UserDefaults.standard.bool(forKey: "isFirstLaunch") {
-            let tabBar = TabBarController()
-            self.setViewControllers([tabBar], animated: true)
+            self.preLoader.getAppartments {
+                let tabBar = TabBarController(homeViewController:
+                                                HomeViewController(homeViewModel:
+                                                                    HomeViewModel(arrayAppartmentes:
+                                                                                    self.preLoader.getArrayAppartmentes)))
+                self.setViewControllers([tabBar], animated: true)
+            }
+            
         } else {
             let onboardingViewController = OnboardingViewController()
             self.setViewControllers([onboardingViewController], animated: true)

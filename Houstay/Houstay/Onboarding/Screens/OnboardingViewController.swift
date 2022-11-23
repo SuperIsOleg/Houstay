@@ -10,6 +10,7 @@ import UIKit
 class OnboardingViewController: UIViewController {
     private let onboardingView = OnboardingView()
     private let viewModel = OnboardingViewModel()
+    private let preLoader = PreLoader.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,8 +74,13 @@ extension OnboardingViewController: OnboardingViewDelegate {
         
         if viewModel.onboardingSlide.count - 1 == onboardingView.getPageControll().currentPage {
             UserDefaults.standard.set(true, forKey: "isFirstLaunch")
-            let tabBarController = TabBarController()
-            self.navigationController?.setViewControllers([tabBarController], animated: true)
+            self.preLoader.getAppartments {
+                let tabBarController = TabBarController(homeViewController:
+                                                            HomeViewController(homeViewModel:
+                                                                                HomeViewModel(arrayAppartmentes:
+                                                                                                self.preLoader.getArrayAppartmentes)))
+                self.navigationController?.setViewControllers([tabBarController], animated: true)
+            }
         } else {
             onboardingView.getPageControll().currentPage += 1
             onboardingView.getOnboardingCollectionView().isPagingEnabled = false

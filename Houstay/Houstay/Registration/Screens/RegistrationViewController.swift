@@ -70,8 +70,7 @@ extension RegistrationViewController: RegistrationViewDelegate {
                 Auth.auth().createUser(withEmail: emailText, password: enterPasswordText) { result, error in
                     if error == nil {
                         if let result = result {
-                            let homeViewController = HomeViewController()
-                            self.navigationController?.setViewControllers([homeViewController], animated: false)
+                            self.navigationController?.popViewController(animated: true)
                         }
                     } else {
                         self.registrationView.isEmailIncorrectlyLabelEnabled()

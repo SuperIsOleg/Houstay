@@ -48,6 +48,7 @@
 		02952B3328BE2BA800B2F43F /* AppFlowNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02952B3228BE2BA800B2F43F /* AppFlowNavigationController.swift */; };
 		029D72B3292D0C1300AE7307 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029D72B2292D0C1300AE7307 /* LoaderView.swift */; };
 		029D72B5292D0C6300AE7307 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029D72B4292D0C6300AE7307 /* UIView+Extensions.swift */; };
+		029D72B8292E03EA00AE7307 /* PreLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029D72B7292E03EA00AE7307 /* PreLoader.swift */; };
 		02ABB20328DAFA73004ECD55 /* AccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02ABB20228DAFA73004ECD55 /* AccountCell.swift */; };
 		02ABB20628DAFE70004ECD55 /* HomeSectionEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02ABB20528DAFE70004ECD55 /* HomeSectionEnum.swift */; };
 		02ABB20828DAFE9A004ECD55 /* AccountSectionEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02ABB20728DAFE9A004ECD55 /* AccountSectionEnum.swift */; };
@@ -129,6 +130,7 @@
 		02952B3228BE2BA800B2F43F /* AppFlowNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowNavigationController.swift; sourceTree = "<group>"; };
 		029D72B2292D0C1300AE7307 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		029D72B4292D0C6300AE7307 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		029D72B7292E03EA00AE7307 /* PreLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreLoader.swift; sourceTree = "<group>"; };
 		02ABB20228DAFA73004ECD55 /* AccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCell.swift; sourceTree = "<group>"; };
 		02ABB20528DAFE70004ECD55 /* HomeSectionEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionEnum.swift; sourceTree = "<group>"; };
 		02ABB20728DAFE9A004ECD55 /* AccountSectionEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSectionEnum.swift; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 		0286246628BCBE00006C12C5 /* Houstay */ = {
 			isa = PBXGroup;
 			children = (
+				029D72B6292E03AB00AE7307 /* PreLoader */,
 				02CF0153292BC7BE0043CA59 /* Extensions */,
 				024BACC52924E99400FC880D /* DataBase */,
 				0286247B28BCC7CE006C12C5 /* Application */,
@@ -506,6 +509,14 @@
 				02952B3228BE2BA800B2F43F /* AppFlowNavigationController.swift */,
 			);
 			path = Appflow;
+			sourceTree = "<group>";
+		};
+		029D72B6292E03AB00AE7307 /* PreLoader */ = {
+			isa = PBXGroup;
+			children = (
+				029D72B7292E03EA00AE7307 /* PreLoader.swift */,
+			);
+			path = PreLoader;
 			sourceTree = "<group>";
 		};
 		02ABB20928DB00C7004ECD55 /* Model */ = {
@@ -1038,6 +1049,7 @@
 				028097D928C22E3F00C2ECD9 /* FavouritesViewController.swift in Sources */,
 				02ABB20B28DB00DC004ECD55 /* SettingsItemsModel.swift in Sources */,
 				028097E328C22EAE00C2ECD9 /* AccountView.swift in Sources */,
+				029D72B8292E03EA00AE7307 /* PreLoader.swift in Sources */,
 				02952B2228BDDE7D00B2F43F /* OnboardingModel.swift in Sources */,
 				024BACD62924F70500FC880D /* RealmManagerProtocol.swift in Sources */,
 				02065FBE28C60A6A0064F2F1 /* Bundle+Extrnsion.swift in Sources */,
