@@ -12,6 +12,7 @@ protocol SplashScreenDelegate: AnyObject {
 }
 
 class SplashScreenViewController: UIViewController {
+    private let preLoader = PreLoader.shared
     
     private let layerView: UIView = {
         let view = UIView()
@@ -30,8 +31,7 @@ class SplashScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        preLoader.getAppartments {
             self.splashScreenDelegate?.setupMainFlow()
         }
     }
@@ -48,4 +48,5 @@ class SplashScreenViewController: UIViewController {
             $0.centerX.centerY.equalToSuperview()
         }
     }
+    
 }
