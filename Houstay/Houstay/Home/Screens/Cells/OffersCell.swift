@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol OffersCelllDelegate: AnyObject {
-    func favoriteAppartementAction()
-}
-
 class OffersCell: UICollectionViewCell {
     static var reuseIdentifier = String(describing: OffersCell.self)
     
@@ -27,12 +23,11 @@ class OffersCell: UICollectionViewCell {
     
     private let favoriteAppartementButton: UIButton = {
         let button = UIButton()
-        button.setImage(R.image.didTapLike(), for: .normal)
         return button
     }()
     
     private let addressLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.font = R.font.robotoRegular(size: 14)
         label.textColor = R.color.lnk50()
         label.text = ""
@@ -55,10 +50,15 @@ class OffersCell: UICollectionViewCell {
         return label
     }()
     
-    internal var getIsButtonSelected: Bool { isButtonSelected }
+    internal var getIsButtonSelected: Bool {
+        get {
+            return isButtonSelected
+        }
+        set {
+        }
+    }
     internal var getFavoriteAppartementButton: UIButton { favoriteAppartementButton }
-
-    internal weak var offersCelllDelegate: OffersCelllDelegate?
+    internal var closure: ((OffersCell) -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -70,7 +70,7 @@ class OffersCell: UICollectionViewCell {
     }
     
     private func setupLayout() {
-
+        
         self.addSubview(appartementImageView)
         appartementImageView.snp.makeConstraints {
             $0.top.equalToSuperview()
@@ -112,13 +112,8 @@ class OffersCell: UICollectionViewCell {
     
     @objc
     private func favoriteAppartementTap() {
-        self.offersCelllDelegate?.favoriteAppartementAction()
-        switch isButtonSelected {
-        case true:
-            self.favoriteAppartementButton.setImage(R.image.tapLike(), for: .normal)
-        case false:
-            self.favoriteAppartementButton.setImage(R.image.didTapLike(), for: .normal)
-        }
+        print(#function)
+        closure?(self)
     }
     
     internal func configure( _ model: HomeItemsProtocol) {
@@ -127,6 +122,12 @@ class OffersCell: UICollectionViewCell {
         self.priceLabel.text = model.price
         self.appartementImageView.image = UIImage(named: model.image)
         self.isButtonSelected = model.favorite
+        switch isButtonSelected {
+        case true:
+            self.favoriteAppartementButton.setImage(R.image.tapLike(), for: .normal)
+        case false:
+            self.favoriteAppartementButton.setImage(R.image.didTapLike(), for: .normal)
+        }
     }
     
 }

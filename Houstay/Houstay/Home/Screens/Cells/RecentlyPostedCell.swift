@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol RecentlyPostedCellDelegate: AnyObject {
-    func favoriteAppartementAction()
-}
-
 class RecentlyPostedCell: UICollectionViewCell {
     static var reuseIdentifier = String(describing: RecentlyPostedCell.self)
     
@@ -27,7 +23,6 @@ class RecentlyPostedCell: UICollectionViewCell {
     
     private let favoriteAppartementButton: UIButton = {
         let button = UIButton()
-        button.setImage(R.image.didTapLike(), for: .normal)
         return button
     }()
 
@@ -58,8 +53,6 @@ class RecentlyPostedCell: UICollectionViewCell {
     internal var getIsButtonSelected: Bool { isButtonSelected }
     internal var getFavoriteAppartementButton: UIButton { favoriteAppartementButton }
     
-    internal weak var recentlyPostedCellDelegate: RecentlyPostedCellDelegate?
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupLayout()
@@ -70,6 +63,7 @@ class RecentlyPostedCell: UICollectionViewCell {
     }
     
     private func setupLayout() {
+        self.contentView.isUserInteractionEnabled = false
 
         self.addSubview(appartementImageView)
         appartementImageView.snp.makeConstraints {
@@ -112,7 +106,7 @@ class RecentlyPostedCell: UICollectionViewCell {
     
     @objc
     private func favoriteAppartementTap() {
-        self.recentlyPostedCellDelegate?.favoriteAppartementAction()
+        isButtonSelected.toggle()
         switch isButtonSelected {
         case true:
             self.favoriteAppartementButton.setImage(R.image.tapLike(), for: .normal)
@@ -127,6 +121,12 @@ class RecentlyPostedCell: UICollectionViewCell {
         self.priceLabel.text = model.price
         self.appartementImageView.image = UIImage(named: model.image)
         self.isButtonSelected = model.favorite
+        switch isButtonSelected {
+        case true:
+            self.favoriteAppartementButton.setImage(R.image.tapLike(), for: .normal)
+        case false:
+            self.favoriteAppartementButton.setImage(R.image.didTapLike(), for: .normal)
+        }
     }
     
 }

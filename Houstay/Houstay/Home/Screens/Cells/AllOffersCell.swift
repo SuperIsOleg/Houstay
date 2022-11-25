@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol AllOffersCellDelegate: AnyObject {
-    func favoriteAppartementAction()
-}
-
 class AllOffersCell: UICollectionViewCell {
     static var reuseIdentifier = String(describing: AllOffersCell.self)
     
@@ -27,7 +23,6 @@ class AllOffersCell: UICollectionViewCell {
     
     private let favoriteAppartementButton: UIButton = {
         let button = UIButton()
-        button.setImage(R.image.didTapLike(), for: .normal)
         return button
     }()
     
@@ -57,8 +52,6 @@ class AllOffersCell: UICollectionViewCell {
     
     internal var getIsButtonSelected: Bool { isButtonSelected }
     internal var getFavoriteAppartementButton: UIButton { favoriteAppartementButton }
-    
-    internal weak var allOffersCellDelegate: AllOffersCellDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -111,7 +104,7 @@ class AllOffersCell: UICollectionViewCell {
     
     @objc
     private func favoriteAppartementTap() {
-        self.allOffersCellDelegate?.favoriteAppartementAction()
+        isButtonSelected.toggle()
         switch isButtonSelected {
         case true:
             self.favoriteAppartementButton.setImage(R.image.tapLike(), for: .normal)
@@ -126,5 +119,11 @@ class AllOffersCell: UICollectionViewCell {
         self.priceLabel.text = model.price
         self.appartementImageView.image = UIImage(named: model.image)
         self.isButtonSelected = model.favorite
+        switch isButtonSelected {
+        case true:
+            self.favoriteAppartementButton.setImage(R.image.tapLike(), for: .normal)
+        case false:
+            self.favoriteAppartementButton.setImage(R.image.didTapLike(), for: .normal)
+        }
     }
 }
