@@ -7,8 +7,14 @@
 
 import UIKit
 
+protocol RecentlyPostedCellDelegate: AnyObject {
+    func favoriteAppartementAction()
+}
+
 class RecentlyPostedCell: UICollectionViewCell {
     static var reuseIdentifier = String(describing: RecentlyPostedCell.self)
+    
+    private var isButtonSelected: Bool = false
     
     private let appartementImageView: UIImageView = {
         let imageView = UIImageView()
@@ -49,6 +55,10 @@ class RecentlyPostedCell: UICollectionViewCell {
         return label
     }()
     
+    internal var getIsButtonSelected: Bool { isButtonSelected }
+    internal var getFavoriteAppartementButton: UIButton { favoriteAppartementButton }
+    
+    internal weak var recentlyPostedCellDelegate: RecentlyPostedCellDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -96,6 +106,19 @@ class RecentlyPostedCell: UICollectionViewCell {
             $0.trailing.equalToSuperview().offset(-8)
         }
         
+        favoriteAppartementButton.addTarget(self, action: #selector(favoriteAppartementTap), for: .touchUpInside)
+        
+    }
+    
+    @objc
+    private func favoriteAppartementTap() {
+        self.recentlyPostedCellDelegate?.favoriteAppartementAction()
+        switch isButtonSelected {
+        case true:
+            self.favoriteAppartementButton.setImage(R.image.tapLike(), for: .normal)
+        case false:
+            self.favoriteAppartementButton.setImage(R.image.didTapLike(), for: .normal)
+        }
     }
     
     internal func configure( _ model: HomeItemsProtocol) {
@@ -103,6 +126,7 @@ class RecentlyPostedCell: UICollectionViewCell {
         self.cityLabel.text = model.city
         self.priceLabel.text = model.price
         self.appartementImageView.image = UIImage(named: model.image)
+        self.isButtonSelected = model.favorite
     }
     
 }

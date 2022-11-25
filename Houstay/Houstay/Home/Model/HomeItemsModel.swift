@@ -13,4 +13,5 @@ struct HomeItemsModel: HomeItemsProtocol, Codable, Hashable {
     var city: String
     var price: String
     var image: String
+    var favorite: Bool
 }

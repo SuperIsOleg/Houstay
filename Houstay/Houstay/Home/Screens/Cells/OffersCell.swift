@@ -7,12 +7,14 @@
 
 import UIKit
 
-protocol CollectionViewCellDelegate {
+protocol OffersCelllDelegate: AnyObject {
     func favoriteAppartementAction()
 }
 
 class OffersCell: UICollectionViewCell {
     static var reuseIdentifier = String(describing: OffersCell.self)
+    
+    private var isButtonSelected: Bool = false
     
     private let appartementImageView: UIImageView = {
         let imageView = UIImageView()
@@ -53,7 +55,10 @@ class OffersCell: UICollectionViewCell {
         return label
     }()
     
-    internal var collectionViewCellDelegate: CollectionViewCellDelegate?
+    internal var getIsButtonSelected: Bool { isButtonSelected }
+    internal var getFavoriteAppartementButton: UIButton { favoriteAppartementButton }
+
+    internal weak var offersCelllDelegate: OffersCelllDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -107,7 +112,13 @@ class OffersCell: UICollectionViewCell {
     
     @objc
     private func favoriteAppartementTap() {
-        self.collectionViewCellDelegate?.favoriteAppartementAction()
+        self.offersCelllDelegate?.favoriteAppartementAction()
+        switch isButtonSelected {
+        case true:
+            self.favoriteAppartementButton.setImage(R.image.tapLike(), for: .normal)
+        case false:
+            self.favoriteAppartementButton.setImage(R.image.didTapLike(), for: .normal)
+        }
     }
     
     internal func configure( _ model: HomeItemsProtocol) {
@@ -115,6 +126,7 @@ class OffersCell: UICollectionViewCell {
         self.cityLabel.text = model.city
         self.priceLabel.text = model.price
         self.appartementImageView.image = UIImage(named: model.image)
+        self.isButtonSelected = model.favorite
     }
     
 }

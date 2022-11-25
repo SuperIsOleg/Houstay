@@ -11,4 +11,5 @@ protocol HomeItemsProtocol {
     var city: String { get set }
     var price: String { get set }
     var image: String { get set }
+    var favorite: Bool { get set }
 }
