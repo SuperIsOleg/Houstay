@@ -12,4 +12,5 @@ protocol HomeItemsProtocol {
     var price: String { get set }
     var image: String { get set }
     var favorite: Bool { get set }
+    var publicationDate: String { get set }
 }

@@ -15,6 +15,7 @@ class RHomeItemsModel: Object, HomeItemsProtocol {
     @Persisted var price: String
     @Persisted var image: String
     @Persisted var favorite: Bool
+    @Persisted var publicationDate: String
     
     convenience init(homeItemsProtocol: HomeItemsProtocol) {
         self.init()
@@ -24,6 +25,7 @@ class RHomeItemsModel: Object, HomeItemsProtocol {
         self.price = homeItemsProtocol.price
         self.image = homeItemsProtocol.image
         self.favorite = homeItemsProtocol.favorite
+        self.publicationDate = homeItemsProtocol.publicationDate
     }
 
 }

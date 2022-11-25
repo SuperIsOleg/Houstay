@@ -14,4 +14,5 @@ struct HomeItemsModel: HomeItemsProtocol, Codable, Hashable {
     var price: String
     var image: String
     var favorite: Bool
+    var publicationDate: String
 }

@@ -9,7 +9,8 @@
                 "city":"Минск",
                 "price":"240/месяц",
                 "image":"appartement1",
-                "favorite": false
+                "favorite": false,
+                "publicationDate": "2022-11-25T20:29:00"
             },
             {
                 "id":"2",
@@ -17,7 +18,8 @@
                 "city":"Минск",
                 "price":"300/месяц",
                 "image":"appartement2",
-                "favorite": false
+                "favorite": false,
+                "publicationDate": "2022-11-25T20:29:00"
             },
             {
                 "id":"3",
@@ -25,7 +27,8 @@
                 "city":"Могилев",
                 "price":"120/месяц",
                 "image":"appartement3",
-                "favorite": false
+                "favorite": false,
+                "publicationDate": "2022-11-25T20:29:00"
             },
             {
                 "id":"4",
@@ -33,7 +36,8 @@
                 "city":"Борисов",
                 "price":"90/месяц",
                 "image":"appartement4",
-                "favorite": false
+                "favorite": false,
+                "publicationDate": "2022-11-25T20:29:00"
             },
             {
                 "id":"5",
@@ -41,7 +45,8 @@
                 "city":"Минск",
                 "price":"200/месяц",
                 "image":"appartement5",
-                "favorite": false
+                "favorite": false,
+                "publicationDate": "2022-11-25T20:29:00"
             }
         ]
     },
@@ -55,7 +60,8 @@
                 "city":"Минск",
                 "price":"240/месяц",
                 "image":"appartement1",
-                "favorite": false
+                "favorite": false,
+                "publicationDate": "2022-11-25T20:29:00"
             },
             {
                 "id":"2",
@@ -63,7 +69,8 @@
                 "city":"Минск",
                 "price":"300/месяц",
                 "image":"appartement2",
-                "favorite": false
+                "favorite": false,
+                "publicationDate": "2022-11-25T20:29:00"
             },
             {
                 "id":"3",
@@ -71,7 +78,8 @@
                 "city":"Могилев",
                 "price":"120/месяц",
                 "image":"appartement3",
-                "favorite": false
+                "favorite": false,
+                "publicationDate": "2022-11-25T20:29:00"
             },
             {
                 "id":"4",
@@ -79,7 +87,8 @@
                 "city":"Борисов",
                 "price":"90/месяц",
                 "image":"appartement4",
-                "favorite": false
+                "favorite": false,
+                "publicationDate": "2022-11-25T20:29:00"
             },
             {
                 "id":"5",
@@ -87,7 +96,8 @@
                 "city":"Минск",
                 "price":"200/месяц",
                 "image":"appartement5",
-                "favorite": false
+                "favorite": false,
+                "publicationDate": "2022-11-25T20:29:00"
             }
         ]
     },
@@ -101,7 +111,8 @@
                 "city":"Минск",
                 "price":"240/месяц",
                 "image":"appartement1",
-                "favorite": false
+                "favorite": false,
+                "publicationDate": "2022-11-25T20:29:00"
             },
             {
                 "id":"2",
@@ -109,7 +120,8 @@
                 "city":"Минск",
                 "price":"300/месяц",
                 "image":"appartement2",
-                "favorite": false
+                "favorite": false,
+                "publicationDate": "2022-11-25T20:29:00"
             },
             {
                 "id":"3",
@@ -117,7 +129,8 @@
                 "city":"Могилев",
                 "price":"120/месяц",
                 "image":"appartement3",
-                "favorite": false
+                "favorite": false,
+                "publicationDate": "2022-11-25T20:29:00"
             },
             {
                 "id":"4",
@@ -125,7 +138,8 @@
                 "city":"Борисов",
                 "price":"90/месяц",
                 "image":"appartement4",
-                "favorite": false
+                "favorite": false,
+                "publicationDate": "2022-11-25T20:29:00"
             },
             {
                 "id":"5",
@@ -133,7 +147,8 @@
                 "city":"Минск",
                 "price":"200/месяц",
                 "image":"appartement5",
-                "favorite": false
+                "favorite": false,
+                "publicationDate": "2022-11-25T20:29:00"
             }
         ]
     }
