@@ -27,5 +27,4 @@ class RHomeItemsModel: Object, HomeItemsProtocol {
         self.favorite = homeItemsProtocol.favorite
         self.publicationDate = homeItemsProtocol.publicationDate
     }
-
 }

@@ -83,6 +83,7 @@
 		F4480AD428BE95C6001AA98B /* ForgetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4480AD328BE95C6001AA98B /* ForgetPasswordView.swift */; };
 		F4480ADA28BE9ED6001AA98B /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4480AD928BE9ED6001AA98B /* RegistrationViewController.swift */; };
 		F4480ADC28BE9EEC001AA98B /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4480ADB28BE9EEC001AA98B /* RegistrationView.swift */; };
+		F4609F0E29316244008EDBE1 /* UIString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4609F0D29316244008EDBE1 /* UIString+Extensions.swift */; };
 		F4BF1095290D6B2D00D54138 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BF1094290D6B2D00D54138 /* KeychainManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -166,6 +167,7 @@
 		F4480AD328BE95C6001AA98B /* ForgetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordView.swift; sourceTree = "<group>"; };
 		F4480AD928BE9ED6001AA98B /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		F4480ADB28BE9EEC001AA98B /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		F4609F0D29316244008EDBE1 /* UIString+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIString+Extensions.swift"; sourceTree = "<group>"; };
 		F4BF1094290D6B2D00D54138 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		FB75DE0874EAEC3C2A7D2F45 /* Pods_Houstay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Houstay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -666,6 +668,7 @@
 			children = (
 				02CF0154292BC7E40043CA59 /* Array+Extensions.swift */,
 				029D72B4292D0C6300AE7307 /* UIView+Extensions.swift */,
+				F4609F0D29316244008EDBE1 /* UIString+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1051,6 +1054,7 @@
 				028097E328C22EAE00C2ECD9 /* AccountView.swift in Sources */,
 				029D72B8292E03EA00AE7307 /* PreLoader.swift in Sources */,
 				02952B2228BDDE7D00B2F43F /* OnboardingModel.swift in Sources */,
+				F4609F0E29316244008EDBE1 /* UIString+Extensions.swift in Sources */,
 				024BACD62924F70500FC880D /* RealmManagerProtocol.swift in Sources */,
 				02065FBE28C60A6A0064F2F1 /* Bundle+Extrnsion.swift in Sources */,
 				02065FC728C6141B0064F2F1 /* RecentlyPostedCell.swift in Sources */,
