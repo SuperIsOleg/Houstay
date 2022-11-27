@@ -50,13 +50,7 @@ class OffersCell: UICollectionViewCell {
         return label
     }()
     
-    internal var getIsButtonSelected: Bool {
-        get {
-            return isButtonSelected
-        }
-        set {
-        }
-    }
+    internal var getIsButtonSelected: Bool { isButtonSelected }
     internal var getFavoriteAppartementButton: UIButton { favoriteAppartementButton }
     internal var closure: ((OffersCell) -> Void)?
     
@@ -71,48 +65,47 @@ class OffersCell: UICollectionViewCell {
     
     private func setupLayout() {
         
-        self.addSubview(appartementImageView)
+        self.contentView.addSubview(appartementImageView)
         appartementImageView.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(140)
         }
         
-        appartementImageView.addSubview(favoriteAppartementButton)
+        self.contentView.addSubview(favoriteAppartementButton)
         favoriteAppartementButton.snp.makeConstraints {
             $0.top.equalTo(12)
             $0.trailing.equalTo(-12)
             $0.height.width.equalTo(30)
         }
         
-        self.addSubview(addressLabel)
+        favoriteAppartementButton.layer.zPosition = 5
+        
+        self.contentView.addSubview(addressLabel)
         addressLabel.snp.makeConstraints {
             $0.top.equalTo(appartementImageView.snp.bottom).offset(8)
             $0.leading.equalToSuperview().offset(8)
             $0.trailing.equalToSuperview().offset(-8)
         }
         
-        self.addSubview(cityLabel)
+        self.contentView.addSubview(cityLabel)
         cityLabel.snp.makeConstraints {
             $0.top.equalTo(addressLabel.snp.bottom).offset(8)
             $0.leading.equalToSuperview().offset(8)
             $0.trailing.equalToSuperview().offset(-8)
         }
         
-        self.addSubview(priceLabel)
+        self.contentView.addSubview(priceLabel)
         priceLabel.snp.makeConstraints {
             $0.top.equalTo(cityLabel.snp.bottom).offset(8)
             $0.leading.equalToSuperview().offset(8)
             $0.trailing.equalToSuperview().offset(-8)
         }
-        
         favoriteAppartementButton.addTarget(self, action: #selector(favoriteAppartementTap), for: .touchUpInside)
-        
     }
     
     @objc
     private func favoriteAppartementTap() {
-        print(#function)
         closure?(self)
     }
     
@@ -128,6 +121,10 @@ class OffersCell: UICollectionViewCell {
         case false:
             self.favoriteAppartementButton.setImage(R.image.didTapLike(), for: .normal)
         }
+    }
+    
+    internal func isButtonSelectedToggle() {
+        self.isButtonSelected.toggle()
     }
     
 }

@@ -52,6 +52,7 @@ class RecentlyPostedCell: UICollectionViewCell {
     
     internal var getIsButtonSelected: Bool { isButtonSelected }
     internal var getFavoriteAppartementButton: UIButton { favoriteAppartementButton }
+    internal var closure: ((RecentlyPostedCell) -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -63,37 +64,37 @@ class RecentlyPostedCell: UICollectionViewCell {
     }
     
     private func setupLayout() {
-        self.contentView.isUserInteractionEnabled = false
 
-        self.addSubview(appartementImageView)
+        self.contentView.addSubview(appartementImageView)
         appartementImageView.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.leading.equalToSuperview()
             $0.height.width.equalTo(100)
         }
         
-        appartementImageView.addSubview(favoriteAppartementButton)
+        self.contentView.addSubview(favoriteAppartementButton)
         favoriteAppartementButton.snp.makeConstraints {
             $0.top.equalTo(8)
-            $0.trailing.equalTo(-8)
+            $0.trailing.equalTo(appartementImageView.snp.trailing).offset(-8)
             $0.height.width.equalTo(30)
         }
+        favoriteAppartementButton.layer.zPosition = 5
 
-        self.addSubview(cityLabel)
+        self.contentView.addSubview(cityLabel)
         cityLabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(8)
             $0.leading.equalTo(appartementImageView.snp.trailing).offset(8)
             $0.trailing.equalToSuperview().offset(-8)
         }
         
-        self.addSubview(addressLabel)
+        self.contentView.addSubview(addressLabel)
         addressLabel.snp.makeConstraints {
             $0.top.equalTo(cityLabel.snp.bottom).offset(8)
             $0.leading.equalTo(cityLabel)
             $0.trailing.equalToSuperview().offset(-8)
         }
         
-        self.addSubview(priceLabel)
+        self.contentView.addSubview(priceLabel)
         priceLabel.snp.makeConstraints {
             $0.top.equalTo(addressLabel.snp.bottom).offset(8)
             $0.leading.equalTo(cityLabel)
@@ -106,13 +107,7 @@ class RecentlyPostedCell: UICollectionViewCell {
     
     @objc
     private func favoriteAppartementTap() {
-        isButtonSelected.toggle()
-        switch isButtonSelected {
-        case true:
-            self.favoriteAppartementButton.setImage(R.image.tapLike(), for: .normal)
-        case false:
-            self.favoriteAppartementButton.setImage(R.image.didTapLike(), for: .normal)
-        }
+        closure?(self)
     }
     
     internal func configure( _ model: HomeItemsProtocol) {
@@ -127,6 +122,10 @@ class RecentlyPostedCell: UICollectionViewCell {
         case false:
             self.favoriteAppartementButton.setImage(R.image.didTapLike(), for: .normal)
         }
+    }
+    
+    internal func isButtonSelectedToggle() {
+        self.isButtonSelected.toggle()
     }
     
 }

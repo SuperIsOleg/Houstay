@@ -24,15 +24,14 @@ class PreLoader: PreLoaderProtocol {
         let dataBase = Database.database().reference()
         dataBase.child("appartements").observe(.value) { snapshot in
             guard let value = snapshot.value as? [Any] else { return }
-            for values in value {
-                guard let jsonobject = try? JSONSerialization.data(withJSONObject: values) else {
-                    print("error in serialization")
-                    return }
-                guard let json = try? JSONDecoder().decode(HomeItemsModel.self, from: jsonobject) else {
-                    print("error in data")
-                    return }
-                self.arrayAppartmentes.append(json)
+            guard let jsonobject = try? JSONSerialization.data(withJSONObject: value) else {
+                print("error in serialization")
+                return }
+            guard let json = try? JSONDecoder().decode([HomeItemsModel].self, from: jsonobject) else {
+                print("error in data")
+                return
             }
+            self.arrayAppartmentes = json
             completion()
         }
         

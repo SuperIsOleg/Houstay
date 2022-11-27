@@ -217,7 +217,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 return UICollectionViewCell()
             }
             cell.configure(item)
-            cell.contentView.isUserInteractionEnabled = false
             cell.layer.cornerRadius = 12
             cell.backgroundColor = R.color.white500()
             cell.layer.borderWidth = 0.0
@@ -227,7 +226,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.layer.shadowOpacity = 1
             cell.layer.masksToBounds = false
             cell.closure = { (cell) in
-                cell.getIsButtonSelected.toggle()
+                cell.isButtonSelectedToggle()
                 switch cell.getIsButtonSelected {
                 case true:
                     cell.getFavoriteAppartementButton.setImage(R.image.tapLike(), for: .normal)
@@ -251,6 +250,15 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.layer.shadowRadius = 15.0
             cell.layer.shadowOpacity = 1
             cell.layer.masksToBounds = false
+            cell.closure = { (cell) in
+                cell.isButtonSelectedToggle()
+                switch cell.getIsButtonSelected {
+                case true:
+                    cell.getFavoriteAppartementButton.setImage(R.image.tapLike(), for: .normal)
+                case false:
+                    cell.getFavoriteAppartementButton.setImage(R.image.didTapLike(), for: .normal)
+                }
+            }
             return cell
         case .allOffers:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AllOffersCell.reuseIdentifier, for: indexPath) as?
@@ -267,6 +275,15 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.layer.shadowRadius = 15.0
             cell.layer.shadowOpacity = 1
             cell.layer.masksToBounds = false
+            cell.closure = { (cell) in
+                cell.isButtonSelectedToggle()
+                switch cell.getIsButtonSelected {
+                case true:
+                    cell.getFavoriteAppartementButton.setImage(R.image.tapLike(), for: .normal)
+                case false:
+                    cell.getFavoriteAppartementButton.setImage(R.image.didTapLike(), for: .normal)
+                }
+            }
             return cell
         }
     }

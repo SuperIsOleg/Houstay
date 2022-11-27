@@ -52,6 +52,7 @@ class AllOffersCell: UICollectionViewCell {
     
     internal var getIsButtonSelected: Bool { isButtonSelected }
     internal var getFavoriteAppartementButton: UIButton { favoriteAppartementButton }
+    internal var closure: ((AllOffersCell) -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -64,35 +65,36 @@ class AllOffersCell: UICollectionViewCell {
     
     private func setupLayout() {
 
-        self.addSubview(appartementImageView)
+        self.contentView.addSubview(appartementImageView)
         appartementImageView.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(120)
         }
         
-        appartementImageView.addSubview(favoriteAppartementButton)
+        self.contentView.addSubview(favoriteAppartementButton)
         favoriteAppartementButton.snp.makeConstraints {
             $0.top.equalTo(12)
             $0.trailing.equalTo(-12)
             $0.height.width.equalTo(30)
         }
+        favoriteAppartementButton.layer.zPosition = 5
         
-        self.addSubview(priceLabel)
+        self.contentView.addSubview(priceLabel)
         priceLabel.snp.makeConstraints {
             $0.top.equalTo(appartementImageView.snp.bottom).offset(8)
             $0.leading.equalToSuperview().offset(8)
             $0.trailing.equalToSuperview().offset(-8)
         }
         
-        self.addSubview(cityLabel)
+        self.contentView.addSubview(cityLabel)
         cityLabel.snp.makeConstraints {
             $0.top.equalTo(priceLabel.snp.bottom).offset(4)
             $0.leading.equalToSuperview().offset(8)
             $0.trailing.equalToSuperview().offset(-8)
         }
         
-        self.addSubview(addressLabel)
+        self.contentView.addSubview(addressLabel)
         addressLabel.snp.makeConstraints {
             $0.top.equalTo(cityLabel.snp.bottom).offset(4)
             $0.leading.equalToSuperview().offset(8)
@@ -104,13 +106,7 @@ class AllOffersCell: UICollectionViewCell {
     
     @objc
     private func favoriteAppartementTap() {
-        isButtonSelected.toggle()
-        switch isButtonSelected {
-        case true:
-            self.favoriteAppartementButton.setImage(R.image.tapLike(), for: .normal)
-        case false:
-            self.favoriteAppartementButton.setImage(R.image.didTapLike(), for: .normal)
-        }
+        closure?(self)
     }
     
     internal func configure( _ model: HomeItemsProtocol) {
@@ -126,4 +122,9 @@ class AllOffersCell: UICollectionViewCell {
             self.favoriteAppartementButton.setImage(R.image.didTapLike(), for: .normal)
         }
     }
+    
+    internal func isButtonSelectedToggle() {
+        self.isButtonSelected.toggle()
+    }
+   
 }
