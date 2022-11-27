@@ -19,16 +19,20 @@ class HomeViewModel {
     internal func removeFavoriteAppartments(id: String) {
         for (index, value) in self.preloader.getFavoriteAppartmentsArray.enumerated() {
             if value.id == id {
-                self.preloader.getFavoriteAppartmentsArray.remove(at: index)
+                self.preloader.removeObjectToFavoriteAppartmentsArray(index: index)
             }
         }
     }
     
     internal func addFavoriteAppartments(id: String) {
-      let favoriteAppartments = self.preloader.getArrayAppartmentes.first { item in
+      var favoriteAppartment = self.preloader.getArrayAppartmentes.first { item in
             item.id == id
-        }
-        guard let favoriteAppartments else { return }
-        self.preloader.getFavoriteAppartmentsArray.insert(favoriteAppartments, at: 0)
+      }
+        
+        guard var favoriteAppartment else { return }
+        
+        favoriteAppartment.favorite = true
+        
+        self.preloader.addObjectToFavoriteAppartmentsArray(object: favoriteAppartment)
     }
 }

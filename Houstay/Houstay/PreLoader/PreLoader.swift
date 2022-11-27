@@ -64,9 +64,14 @@ class PreLoader: PreLoaderProtocol {
             }
             return favoriteAppartmentsArray ?? []
         }
-        set (newValue) {
-            favoriteAppartmentsArray = newValue
-        }
+    }
+    
+    internal func addObjectToFavoriteAppartmentsArray(object: HomeItemsProtocol) {
+            self.favoriteAppartmentsArray?.insert(object, at: 0)
+    }
+    
+    internal func removeObjectToFavoriteAppartmentsArray(index: Int) {
+        self.favoriteAppartmentsArray?.remove(at: index)
     }
     
 }

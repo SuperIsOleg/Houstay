@@ -21,8 +21,6 @@ class FavouritesViewController: UIViewController {
                                                            forCellWithReuseIdentifier: OffersCell.reuseIdentifier)
         favouritesView.getFavoritesCollectionView.delegate = self
         favouritesView.getFavoritesCollectionView.dataSource = self
-        configureView()
-        favouritesView.getFavoritesCollectionView.reloadData()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -34,6 +32,8 @@ class FavouritesViewController: UIViewController {
                 self.view = self.userAuthenticationView
             } else {
                 self.view = self.favouritesView
+                self.configureView()
+                self.favouritesView.getFavoritesCollectionView.reloadData()
             }
         }
     }
@@ -60,10 +60,16 @@ class FavouritesViewController: UIViewController {
     }
     
     private func configureView() {
-        guard self.viewModel.favoriteAppartmentsArray != nil else {
+        guard let favoriteAppartmentsArray = self.viewModel.favoriteAppartmentsArray else {
             return favouritesView.setupFavoritesView(.dontHave)
         }
-        favouritesView.setupFavoritesView(.have)
+        
+        if favoriteAppartmentsArray.isEmpty {
+            favouritesView.setupFavoritesView(.dontHave)
+        } else {
+            favouritesView.setupFavoritesView(.have)
+        }
+        
     }
     
 }
@@ -96,9 +102,10 @@ extension FavouritesViewController: UICollectionViewDelegate, UICollectionViewDa
             cell.isButtonSelectedToggle()
             switch cell.getIsButtonSelected {
             case true:
-                cell.getFavoriteAppartementButton.setImage(R.image.tapLike(), for: .normal)
+                break
             case false:
-                cell.getFavoriteAppartementButton.setImage(R.image.didTapLike(), for: .normal)
+                self.viewModel.removeFavoriteAppartments(id: cell.getId)
+                self.favouritesView.getFavoritesCollectionView.reloadData()
             }
         }
         return cell

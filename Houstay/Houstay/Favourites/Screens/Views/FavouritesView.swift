@@ -73,9 +73,14 @@ class FavouritesView: UIView {
         switch setView {
         case .have:
             favoritesCollectionView.isHidden = false
+            
+            boxImages.isHidden = true
+            dontHaveFavoriteLabel.isHidden = true
         case .dontHave:
             boxImages.isHidden = false
             dontHaveFavoriteLabel.isHidden = false
+            
+            favoritesCollectionView.isHidden = true
         }
     }
 }
