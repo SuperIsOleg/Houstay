@@ -26,6 +26,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardOnTap()
+        homeCollectionView.showsVerticalScrollIndicator = false
         homeCollectionView.delegate = self
         homeCollectionView.dataSource = self
         homeCollectionView.register(OffersCell.self, forCellWithReuseIdentifier: OffersCell.reuseIdentifier)
@@ -209,14 +210,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 return UICollectionViewCell()
             }
             cell.configure(item)
-            cell.layer.cornerRadius = 12
-            cell.backgroundColor = R.color.white500()
-            cell.layer.borderWidth = 0.0
-            cell.layer.shadowColor = R.color.lnk10()?.cgColor
-            cell.layer.shadowOffset = CGSize(width: 0, height: 4)
-            cell.layer.shadowRadius = 15.0
-            cell.layer.shadowOpacity = 1
-            cell.layer.masksToBounds = false
             cell.closure = { (cell) in
                 cell.isButtonSelectedToggle()
                 switch cell.getIsButtonSelected {
@@ -234,14 +227,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 return UICollectionViewCell()
             }
             cell.configure(item)
-            cell.layer.cornerRadius = 12
-            cell.backgroundColor = R.color.white500()
-            cell.layer.borderWidth = 0.0
-            cell.layer.shadowColor = R.color.lnk10()?.cgColor
-            cell.layer.shadowOffset = CGSize(width: 0, height: 4)
-            cell.layer.shadowRadius = 15.0
-            cell.layer.shadowOpacity = 1
-            cell.layer.masksToBounds = false
             cell.closure = { (cell) in
                 cell.isButtonSelectedToggle()
                 switch cell.getIsButtonSelected {
@@ -259,14 +244,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 return UICollectionViewCell()
             }
             cell.configure(item)
-            cell.layer.cornerRadius = 12
-            cell.backgroundColor = R.color.white500()
-            cell.layer.borderWidth = 0.0
-            cell.layer.shadowColor = R.color.lnk10()?.cgColor
-            cell.layer.shadowOffset = CGSize(width: 0, height: 4)
-            cell.layer.shadowRadius = 15.0
-            cell.layer.shadowOpacity = 1
-            cell.layer.masksToBounds = false
             cell.closure = { (cell) in
                 cell.isButtonSelectedToggle()
                 switch cell.getIsButtonSelected {

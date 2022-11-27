@@ -50,12 +50,22 @@ class RecentlyPostedCell: UICollectionViewCell {
         return label
     }()
     
+    private var id: String?
+    
     internal var getIsButtonSelected: Bool { isButtonSelected }
     internal var getFavoriteAppartementButton: UIButton { favoriteAppartementButton }
     internal var closure: ((RecentlyPostedCell) -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.layer.cornerRadius = 12
+        self.backgroundColor = R.color.white500()
+        self.layer.borderWidth = 0.0
+        self.layer.shadowColor = R.color.lnk10()?.cgColor
+        self.layer.shadowOffset = CGSize(width: 0, height: 4)
+        self.layer.shadowRadius = 15.0
+        self.layer.shadowOpacity = 1
+        self.layer.masksToBounds = false
         setupLayout()
     }
     
@@ -111,6 +121,7 @@ class RecentlyPostedCell: UICollectionViewCell {
     }
     
     internal func configure( _ model: HomeItemsProtocol) {
+        self.id = model.id
         self.addressLabel.text = model.address
         self.cityLabel.text = model.city
         self.priceLabel.text = model.price

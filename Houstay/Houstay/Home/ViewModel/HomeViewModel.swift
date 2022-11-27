@@ -6,15 +6,20 @@
 //
 
 import Foundation
-import Firebase
-import FirebaseDatabase
 
 class HomeViewModel {
-    internal let preloader = PreLoader.shared
+    private let preloader = PreLoader.shared
     internal let sections = Bundle.main.decode([HomeSectionsModel].self, from: "model.json")
     internal var arrayAppartmentes: [HomeItemsProtocol]?
 
     init() {
         self.arrayAppartmentes = preloader.getArrayAppartmentes
+    }
+    
+    internal func removeFavoriteAppartments(id: String) {
+        
+    }
+    
+    internal func addFavoriteAppartments(id: String) {
     }
 }

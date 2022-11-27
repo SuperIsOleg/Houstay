@@ -14,11 +14,19 @@ protocol PreLoaderProtocol {
 }
 
 class PreLoader: PreLoaderProtocol {
-    internal static var shared = PreLoader()
     private var arrayAppartmentes: [HomeItemsProtocol]?
+    private var favoriteAppartmentsArray: [HomeItemsProtocol]?
     private let fairLock = NSLock()
     
+    internal static var shared = PreLoader()
+    
     private init() {}
+    
+    private func arrayFilter(array: [HomeItemsModel]) {
+        self.favoriteAppartmentsArray = array.filter { object in
+            object.favorite == true
+        }
+    }
     
     internal func getAppartments(completion: @escaping () -> Void){
         let dataBase = Database.database().reference()
@@ -32,6 +40,7 @@ class PreLoader: PreLoaderProtocol {
                 return
             }
             self.arrayAppartmentes = json
+            self.arrayFilter(array: json)
             completion()
         }
         
@@ -44,6 +53,19 @@ class PreLoader: PreLoaderProtocol {
                 fairLock.unlock()
             }
             return arrayAppartmentes ?? []
+        }
+    }
+    
+    internal var getFavoriteAppartmentsArray: [HomeItemsProtocol] {
+        get {
+            fairLock.lock()
+            defer {
+                fairLock.unlock()
+            }
+            return favoriteAppartmentsArray ?? []
+        }
+        set {
+            
         }
     }
     

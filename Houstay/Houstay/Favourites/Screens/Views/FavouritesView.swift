@@ -13,6 +13,12 @@ class FavouritesView: UIView {
         case have
         case dontHave
     }
+    
+    private let favoritesCollectionView: FavoritesCollectionView = {
+        let collectionView = FavoritesCollectionView()
+        collectionView.isHidden = true
+        return collectionView
+    }()
 
     private let boxImages: UIImageView = {
        let imageView = UIImageView()
@@ -31,7 +37,7 @@ class FavouritesView: UIView {
         return label
     }()
     
-    
+    internal var getFavoritesCollectionView: FavoritesCollectionView { favoritesCollectionView }
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupLayout()
@@ -44,6 +50,11 @@ class FavouritesView: UIView {
     
     private func setupLayout() {
         self.backgroundColor = R.color.white500()
+        
+        self.addSubview(favoritesCollectionView)
+        favoritesCollectionView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
 
         self.addSubview(boxImages)
         boxImages.snp.makeConstraints {
@@ -58,13 +69,15 @@ class FavouritesView: UIView {
         }
     }
     
-    internal func setupFavouritesView( _ setView: FavouritesHaveEnum) {
+    internal func setupFavoritesView( _ setView: FavouritesHaveEnum) {
         switch setView {
         case .have:
-            break
+            favoritesCollectionView.isHidden = false
         case .dontHave:
             boxImages.isHidden = false
             dontHaveFavoriteLabel.isHidden = false
         }
     }
 }
+
+

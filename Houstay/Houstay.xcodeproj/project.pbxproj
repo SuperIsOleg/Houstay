@@ -85,6 +85,8 @@
 		F4480ADC28BE9EEC001AA98B /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4480ADB28BE9EEC001AA98B /* RegistrationView.swift */; };
 		F4609F0E29316244008EDBE1 /* UIString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4609F0D29316244008EDBE1 /* UIString+Extensions.swift */; };
 		F4BF1095290D6B2D00D54138 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BF1094290D6B2D00D54138 /* KeychainManager.swift */; };
+		F4D5CEED2933CFB0003147EE /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D5CEEC2933CFB0003147EE /* FavoritesViewModel.swift */; };
+		F4D5CEEF2933E280003147EE /* FavoritesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D5CEEE2933E280003147EE /* FavoritesCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -169,6 +171,8 @@
 		F4480ADB28BE9EEC001AA98B /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		F4609F0D29316244008EDBE1 /* UIString+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIString+Extensions.swift"; sourceTree = "<group>"; };
 		F4BF1094290D6B2D00D54138 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		F4D5CEEC2933CFB0003147EE /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
+		F4D5CEEE2933E280003147EE /* FavoritesCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionView.swift; sourceTree = "<group>"; };
 		FB75DE0874EAEC3C2A7D2F45 /* Pods_Houstay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Houstay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -313,7 +317,7 @@
 			isa = PBXGroup;
 			children = (
 				028097D128C22D9700C2ECD9 /* Screens */,
-				028097D828C22E3E00C2ECD9 /* FavouritesViewController.swift */,
+				F4D5CEEB2933CF3D003147EE /* ViewModel */,
 			);
 			path = Favourites;
 			sourceTree = "<group>";
@@ -332,6 +336,7 @@
 			isa = PBXGroup;
 			children = (
 				028097D228C22DA100C2ECD9 /* Views */,
+				028097D828C22E3E00C2ECD9 /* FavouritesViewController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -340,6 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				028097DA28C22E5300C2ECD9 /* FavouritesView.swift */,
+				F4D5CEEE2933E280003147EE /* FavoritesCollectionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -865,6 +871,14 @@
 			path = Keychain;
 			sourceTree = "<group>";
 		};
+		F4D5CEEB2933CF3D003147EE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F4D5CEEC2933CFB0003147EE /* FavoritesViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1064,7 +1078,9 @@
 				02C4FF0328BF6281005869F1 /* ChekPasswordViewController.swift in Sources */,
 				02ABB21628DC5815004ECD55 /* AboutAppView.swift in Sources */,
 				F41F4A5E28DE223300958A91 /* ProfileView.swift in Sources */,
+				F4D5CEED2933CFB0003147EE /* FavoritesViewModel.swift in Sources */,
 				02ABB22528DDA7B4004ECD55 /* MessagesView.swift in Sources */,
+				F4D5CEEF2933E280003147EE /* FavoritesCollectionView.swift in Sources */,
 				023EEAD028BCE86700446893 /* OnboardingCollectionView.swift in Sources */,
 				02952B2D28BE22F000B2F43F /* LoginView.swift in Sources */,
 				028097CC28C22C9F00C2ECD9 /* TabBarController.swift in Sources */,
