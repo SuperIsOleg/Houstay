@@ -215,8 +215,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 switch cell.getIsButtonSelected {
                 case true:
                     cell.getFavoriteAppartementButton.setImage(R.image.tapLike(), for: .normal)
+                    self.homeViewModel.addFavoriteAppartments(id: cell.getId)
                 case false:
                     cell.getFavoriteAppartementButton.setImage(R.image.didTapLike(), for: .normal)
+                    self.homeViewModel.removeFavoriteAppartments(id: cell.getId)
                 }
             }
             return cell

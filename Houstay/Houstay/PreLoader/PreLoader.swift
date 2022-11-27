@@ -64,8 +64,8 @@ class PreLoader: PreLoaderProtocol {
             }
             return favoriteAppartmentsArray ?? []
         }
-        set {
-            
+        set (newValue) {
+            favoriteAppartmentsArray = newValue
         }
     }
     
