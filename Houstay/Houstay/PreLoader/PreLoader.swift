@@ -15,7 +15,7 @@ protocol PreLoaderProtocol {
 
 class PreLoader: PreLoaderProtocol {
     internal static var shared = PreLoader()
-    private var arrayAppartmentes: [HomeItemsProtocol] = []
+    private var arrayAppartmentes: [HomeItemsProtocol]?
     private let fairLock = NSLock()
     
     private init() {}
@@ -43,7 +43,7 @@ class PreLoader: PreLoaderProtocol {
             defer {
                 fairLock.unlock()
             }
-            return arrayAppartmentes
+            return arrayAppartmentes ?? []
         }
     }
     

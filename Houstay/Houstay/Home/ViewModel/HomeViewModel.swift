@@ -10,10 +10,11 @@ import Firebase
 import FirebaseDatabase
 
 class HomeViewModel {
+    internal let preloader = PreLoader.shared
     internal let sections = Bundle.main.decode([HomeSectionsModel].self, from: "model.json")
-    internal var arrayAppartmentes: [HomeItemsProtocol]
+    internal var arrayAppartmentes: [HomeItemsProtocol]?
 
-    init(arrayAppartmentes: [HomeItemsProtocol]) {
-        self.arrayAppartmentes = arrayAppartmentes
+    init() {
+        self.arrayAppartmentes = preloader.getArrayAppartmentes
     }
 }

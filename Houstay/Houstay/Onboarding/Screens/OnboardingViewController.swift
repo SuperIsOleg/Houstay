@@ -75,10 +75,7 @@ extension OnboardingViewController: OnboardingViewDelegate {
         if viewModel.onboardingSlide.count - 1 == onboardingView.getPageControll().currentPage {
             UserDefaults.standard.set(true, forKey: "isFirstLaunch")
             self.preLoader.getAppartments {
-                let tabBarController = TabBarController(homeViewController:
-                                                            HomeViewController(homeViewModel:
-                                                                                HomeViewModel(arrayAppartmentes:
-                                                                                                self.preLoader.getArrayAppartmentes)))
+                let tabBarController = TabBarController()
                 self.navigationController?.setViewControllers([tabBarController], animated: true)
             }
         } else {

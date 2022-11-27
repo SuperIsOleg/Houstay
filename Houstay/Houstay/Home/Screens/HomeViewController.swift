@@ -12,20 +12,11 @@ class HomeViewController: UIViewController {
     
     private let homeView = HomeView()
     private lazy var homeCollectionView = UICollectionView(frame: view.bounds, collectionViewLayout: self.createCompositionalLayout())
-    private let homeViewModel: HomeViewModel
+    private let homeViewModel = HomeViewModel()
     private lazy var sections = self.homeViewModel.sections
     private var dataSource: UICollectionViewDiffableDataSource<HomeSectionsModel, HomeItemsModel>! = nil
     
     var count = [HomeItemsModel]()
-    
-    init(homeViewModel: HomeViewModel) {
-        self.homeViewModel = homeViewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     override func loadView() {
         super.loadView()
@@ -204,7 +195,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let section = sections[indexPath.section]
-        guard let item = self.homeViewModel.arrayAppartmentes[safe: indexPath.item] else {
+        guard let arrayAppartments = self.homeViewModel.arrayAppartmentes,
+              let item = arrayAppartments[safe: indexPath.item] else {
             print("something went wrong")
             return UICollectionViewCell()
         }

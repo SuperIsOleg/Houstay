@@ -22,10 +22,7 @@ class AppFlowNavigationController: UINavigationController {
     
     private func mainFlowSetup() {
         if UserDefaults.standard.bool(forKey: "isFirstLaunch") {
-                let tabBar = TabBarController(homeViewController:
-                                                HomeViewController(homeViewModel:
-                                                                    HomeViewModel(arrayAppartmentes:
-                                                                                    self.preLoader.getArrayAppartmentes)))
+                let tabBar = TabBarController()
                 self.setViewControllers([tabBar], animated: true)
         } else {
             let onboardingViewController = OnboardingViewController()
