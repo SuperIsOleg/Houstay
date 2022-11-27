@@ -67,11 +67,25 @@ class PreLoader: PreLoaderProtocol {
     }
     
     internal func addObjectToFavoriteAppartmentsArray(object: HomeItemsProtocol) {
-            self.favoriteAppartmentsArray?.insert(object, at: 0)
+        self.favoriteAppartmentsArray?.insert(object, at: 0)
     }
     
     internal func removeObjectToFavoriteAppartmentsArray(index: Int) {
         self.favoriteAppartmentsArray?.remove(at: index)
     }
     
+    internal func changeIsFavoriteValue(id: String, valuew: Bool) {
+        guard var arrayAppartment = self.arrayAppartmentes else { return }
+        var apparment = arrayAppartment.first { object in
+            object.id == id
+        }
+        guard var apparment else { return }
+        apparment.favorite = valuew
+        
+        
+//        arrayAppartmentes?.first(where: { value in
+//            value.id == id
+//        })?.favorite = true
+        
+    }
 }

@@ -20,6 +20,7 @@ class FavoritesViewModel {
         for (index, value) in self.preloader.getFavoriteAppartmentsArray.enumerated() {
             if value.id == id {
                 self.preloader.removeObjectToFavoriteAppartmentsArray(index: index)
+                self.preloader.changeIsFavoriteValue(id: id, valuew: false)
             }
         }
     }
