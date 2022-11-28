@@ -75,17 +75,12 @@ class PreLoader: PreLoaderProtocol {
     }
     
     internal func changeIsFavoriteValue(id: String, valuew: Bool) {
-        guard var arrayAppartment = self.arrayAppartmentes else { return }
-        var apparment = arrayAppartment.first { object in
+        
+        let index = self.arrayAppartmentes?.firstIndex(where: { object in
             object.id == id
-        }
-        guard var apparment else { return }
-        apparment.favorite = valuew
+        })
         
-        
-//        arrayAppartmentes?.first(where: { value in
-//            value.id == id
-//        })?.favorite = true
-        
+        guard let index else { return }
+        self.arrayAppartmentes?[index].favorite = valuew
     }
 }
