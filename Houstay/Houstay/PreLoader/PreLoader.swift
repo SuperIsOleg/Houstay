@@ -30,20 +30,23 @@ class PreLoader: PreLoaderProtocol {
     
     internal func getAppartments(completion: @escaping () -> Void){
         let dataBase = Database.database().reference()
-        dataBase.child("appartements").observe(.value) { snapshot in
-            guard let value = snapshot.value as? [Any] else { return }
-            guard let jsonobject = try? JSONSerialization.data(withJSONObject: value) else {
-                print("error in serialization")
-                return }
-            guard let json = try? JSONDecoder().decode([HomeItemsModel].self, from: jsonobject) else {
-                print("error in data")
-                return
+        dataBase.child("appartements").getData { error, snapshot in
+            if error == nil {
+                guard let snapshot,
+                      let value = snapshot.value as? [Any] else { return }
+                guard let jsonobject = try? JSONSerialization.data(withJSONObject: value) else {
+                    print("error in serialization")
+                    return }
+                guard let json = try? JSONDecoder().decode([HomeItemsModel].self, from: jsonobject) else {
+                    print("error in data")
+                    return
+                }
+                self.arrayAppartmentes = json
+                self.arrayFilter(array: json)
+                
             }
-            self.arrayAppartmentes = json
-            self.arrayFilter(array: json)
             completion()
         }
-        
     }
     
     internal var getArrayAppartmentes: [HomeItemsProtocol] {

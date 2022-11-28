@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseDatabase
 
 class HomeViewModel {
     private let preloader = PreLoader.shared
@@ -21,6 +22,7 @@ class HomeViewModel {
             if value.id == id {
                 self.preloader.removeObjectToFavoriteAppartmentsArray(index: index)
                 self.preloader.changeIsFavoriteValue(id: id, valuew: false)
+                updateFireBaseData(id: id, key: "favorite", value: false)
             }
         }
     }
@@ -33,5 +35,12 @@ class HomeViewModel {
         guard var favoriteAppartment else { return }
         favoriteAppartment.favorite = true
         self.preloader.addObjectToFavoriteAppartmentsArray(object: favoriteAppartment)
+        updateFireBaseData(id: id, key: "favorite", value: true)
+    }
+    
+    private func updateFireBaseData(id: String, key: String, value: Bool) {
+        let reference = Database.database().reference()
+        let appartmentReference = reference.child("appartements").child(id)
+        appartmentReference.updateChildValues([key : value])
     }
 }
