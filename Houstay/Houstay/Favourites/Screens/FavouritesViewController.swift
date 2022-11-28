@@ -111,6 +111,11 @@ extension FavouritesViewController: UICollectionViewDelegate, UICollectionViewDa
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let descriptionViewController = DescriptionViewController()
+        self.navigationController?.pushViewController(descriptionViewController, animated: true)
+    }
+    
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout

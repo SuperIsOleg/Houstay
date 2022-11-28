@@ -52,6 +52,7 @@ class AllOffersCell: UICollectionViewCell {
     
     private var id: String?
     
+    internal var getId: String { id ?? "" }
     internal var getIsButtonSelected: Bool { isButtonSelected }
     internal var getFavoriteAppartementButton: UIButton { favoriteAppartementButton }
     internal var closure: ((AllOffersCell) -> Void)?
