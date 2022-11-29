@@ -41,8 +41,8 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        homeCollectionView.reloadData()
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        homeCollectionView.reloadData()
     }
     
     private func setupLayout() {

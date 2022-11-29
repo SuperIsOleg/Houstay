@@ -14,6 +14,8 @@ class FavouritesView: UIView {
         case dontHave
     }
     
+    private let headerView = HeaderView()
+    
     private let favoritesCollectionView: FavoritesCollectionView = {
         let collectionView = FavoritesCollectionView()
         collectionView.isHidden = true
@@ -51,9 +53,19 @@ class FavouritesView: UIView {
     private func setupLayout() {
         self.backgroundColor = R.color.white500()
         
+        self.addSubview(headerView)
+        headerView.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(100)
+        }
+        headerView.configureTitle(title: .favorite)
+        
         self.addSubview(favoritesCollectionView)
         favoritesCollectionView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.top.equalTo(headerView.snp.bottom)
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview()
         }
 
         self.addSubview(boxImages)

@@ -22,10 +22,10 @@ class FavouritesViewController: UIViewController {
         favouritesView.getFavoritesCollectionView.delegate = self
         favouritesView.getFavoritesCollectionView.dataSource = self
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupNavigationBar()
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
         handle = Auth.auth().addStateDidChangeListener { [weak self] (auth, user) in
             guard let self = self else { return }
             if user == nil {
@@ -42,21 +42,6 @@ class FavouritesViewController: UIViewController {
         super.viewWillDisappear(animated)
         guard let handle else { return }
         Auth.auth().removeStateDidChangeListener(handle)
-    }
-
-    private func setupNavigationBar() {
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
-        let appearance = UINavigationBarAppearance()
-        appearance.shadowColor = .clear
-        appearance.backgroundColor = R.color.white500()
-        self.navigationController?.navigationBar.standardAppearance = appearance
-        self.navigationController?.navigationBar.scrollEdgeAppearance =  appearance
-        self.navigationController?.navigationBar.compactAppearance =  appearance
-        self.navigationController?.navigationBar.titleTextAttributes = [
-            NSAttributedString.Key.foregroundColor: R.color.lnk100() ?? .black,
-            NSAttributedString.Key.font: R.font.robotoMedium(size: 20) ?? .systemFont(ofSize: 20)
-        ]
-        self.parent?.title = R.string.localizable.favouritesLiked()
     }
     
     private func configureView() {
@@ -122,20 +107,20 @@ extension FavouritesViewController: UICollectionViewDelegate, UICollectionViewDa
 extension FavouritesViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
-            let sizeForItemAt = CGSize(width: collectionView.frame.width - 32, height: 232)
-            return sizeForItemAt
+        
+        let sizeForItemAt = CGSize(width: collectionView.frame.width - 32, height: 232)
+        return sizeForItemAt
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-            return 16
+        return 16
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-            return 16
+        return 16
     }
 }
