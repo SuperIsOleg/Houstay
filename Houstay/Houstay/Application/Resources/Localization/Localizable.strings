@@ -21,6 +21,12 @@ onboarding2.description = "быстро, дружелюбно и очень то
 onboarding3.title = "Смело выбирайте с Houstay";
 onboarding3.description = "1000+ комфортабельных аппартаментов по всей Белурси";
 
+// Mark: Alert
+alert.contactForCommunication = "Контакт для связи";
+alert.copy = "Скопировать";
+alert.call = "Позвонить";
+alert.cancel = "Выйти";
+
 // Mark: Login
 
 login.title = "Houstay";

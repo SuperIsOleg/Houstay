@@ -32,6 +32,7 @@ class DescriptionViewController: UIViewController {
         descriptionView.getImagesCollectionView.dataSource = self
         descriptionView.getImagesCollectionView.register(ImagesCell.self,
                                                          forCellWithReuseIdentifier: ImagesCell.reuseIdentifier)
+        descriptionView.descriptionDelegate = self
         configure()
         guard let model = viewModel.descriptionAppatrment else { return }
         descriptionView.configureView(model: model)
@@ -132,5 +133,11 @@ extension DescriptionViewController: UICollectionViewDelegateFlowLayout {
         let sizeForItemAt = CGSize(width: collectionView.frame.width,
                                    height: collectionView.frame.height)
         return sizeForItemAt
+    }
+}
+
+extension DescriptionViewController: DescriptionDelegate {
+    func contactTapAction() {
+        self.contactAlert(in: self, numberOfTelefon: "+375(33)584-57-37")
     }
 }

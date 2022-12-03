@@ -90,6 +90,7 @@
 		F470F463293B985600C1FA33 /* ImagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F470F462293B985600C1FA33 /* ImagesCell.swift */; };
 		F470F465293BB17300C1FA33 /* AdditionsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F470F464293BB17300C1FA33 /* AdditionsCollectionView.swift */; };
 		F470F467293BF13300C1FA33 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F470F466293BF13300C1FA33 /* Date+Extensions.swift */; };
+		F470F469293BF83400C1FA33 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F470F468293BF83400C1FA33 /* UIViewController+Extensions.swift */; };
 		F4BF1095290D6B2D00D54138 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BF1094290D6B2D00D54138 /* KeychainManager.swift */; };
 		F4C03BEF293B6C0800719102 /* DescriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C03BEE293B6C0800719102 /* DescriptionViewModel.swift */; };
 		F4D5CEED2933CFB0003147EE /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D5CEEC2933CFB0003147EE /* FavoritesViewModel.swift */; };
@@ -183,6 +184,7 @@
 		F470F462293B985600C1FA33 /* ImagesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesCell.swift; sourceTree = "<group>"; };
 		F470F464293BB17300C1FA33 /* AdditionsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionsCollectionView.swift; sourceTree = "<group>"; };
 		F470F466293BF13300C1FA33 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		F470F468293BF83400C1FA33 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		F4BF1094290D6B2D00D54138 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		F4C03BEE293B6C0800719102 /* DescriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewModel.swift; sourceTree = "<group>"; };
 		F4D5CEEC2933CFB0003147EE /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
@@ -718,6 +720,7 @@
 				029D72B4292D0C6300AE7307 /* UIView+Extensions.swift */,
 				F4609F0D29316244008EDBE1 /* UIString+Extensions.swift */,
 				F470F466293BF13300C1FA33 /* Date+Extensions.swift */,
+				F470F468293BF83400C1FA33 /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1103,6 +1106,7 @@
 				F41F4A5C28DE222500958A91 /* ProfileViewController.swift in Sources */,
 				024BACC12923C06400FC880D /* LoginViewModel.swift in Sources */,
 				F42C174F28BFC8BB0056CF59 /* HomeView.swift in Sources */,
+				F470F469293BF83400C1FA33 /* UIViewController+Extensions.swift in Sources */,
 				F4480ADC28BE9EEC001AA98B /* RegistrationView.swift in Sources */,
 				023EEAD528BCF9D700446893 /* OnboardingViewModel.swift in Sources */,
 				02AC30AF2934FE5F007B9979 /* DescriptionViewController.swift in Sources */,

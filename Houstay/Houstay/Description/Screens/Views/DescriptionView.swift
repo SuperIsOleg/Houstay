@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol DescriptionDelegate: AnyObject {
+    func contactTapAction()
+}
+
 class DescriptionView: BasicView {
     
     private let imagesCollectionView: ImagesCollectionView = {
@@ -72,6 +76,7 @@ class DescriptionView: BasicView {
        let textView = UITextView()
         textView.textColor = R.color.white100()
         textView.textAlignment = .justified
+        textView.isScrollEnabled = false
         textView.font = R.font.robotoRegular(size: 16)
         return textView
     }()
@@ -123,6 +128,7 @@ class DescriptionView: BasicView {
     
     internal var getImagesCollectionView: ImagesCollectionView { imagesCollectionView }
     internal var getAdditionsCollectionView: AdditionsCollectionView { additionsCollectionView }
+    internal weak var descriptionDelegate: DescriptionDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -244,7 +250,9 @@ class DescriptionView: BasicView {
         userNameLabel.snp.makeConstraints {
             $0.top.equalTo(accountImage).offset(5)
             $0.leading.equalTo(accountImage.snp.trailing).offset(12)
-        }   
+        }
+        
+        contactButton.addTarget(self, action: #selector(contactTap), for: .touchUpInside)
     }
     
     internal func configureView(model: HomeItemsProtocol) {
@@ -253,6 +261,11 @@ class DescriptionView: BasicView {
         self.addressLabel.text = model.address
         self.datePublicationLabel.text?.append(model.publicationDate.convertToString() ?? "")
         self.descriptionTextView.text = model.descriptions
+    }
+    
+    @objc
+    private func contactTap() {
+        descriptionDelegate?.contactTapAction()
     }
     
 }
