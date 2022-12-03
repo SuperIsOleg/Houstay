@@ -60,6 +60,13 @@ class DescriptionView: BasicView {
         return label
     }()
     
+    private let descriptionView: UITextView = {
+       let textView = UITextView()
+        textView.backgroundColor = R.color.lnk5()
+        textView.layer.cornerRadius = 12
+        return textView
+    }()
+    
     private let userView: UIView = {
        let view = UIView()
         return view
@@ -170,11 +177,20 @@ class DescriptionView: BasicView {
             $0.trailing.equalToSuperview().offset(-16)
         }
         
-        contentView.addSubview(userView)
-        userView.snp.makeConstraints {
+        contentView.addSubview(descriptionView)
+        descriptionView.snp.makeConstraints {
             $0.top.equalTo(descriptionLabel.snp.bottom).offset(16)
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().offset(-16)
+            $0.height.equalTo(300)
+        }
+        
+        contentView.addSubview(userView)
+        userView.snp.makeConstraints {
+            $0.top.equalTo(descriptionView.snp.bottom).offset(16)
+            $0.leading.equalToSuperview().offset(16)
+            $0.trailing.equalToSuperview().offset(-16)
+            $0.bottom.equalToSuperview()
             $0.height.equalTo(80)
         }
         
