@@ -33,6 +33,8 @@ class DescriptionViewController: UIViewController {
         descriptionView.getImagesCollectionView.register(ImagesCell.self,
                                                          forCellWithReuseIdentifier: ImagesCell.reuseIdentifier)
         configure()
+        guard let model = viewModel.descriptionAppatrment else { return }
+        descriptionView.configureView(model: model)
     }
     
     override func viewWillAppear(_ animated: Bool) {

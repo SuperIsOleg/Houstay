@@ -121,3 +121,8 @@ password.changPassword = "Cменить пароль";
 userAuthentication.authorizationRequired = "Требуется авторизация";
 userAuthentication.needToLogged = "Вам необходимо войти, чтобы вы могли использовать эту функцию";
 userAuthentication.logIn = "Войти";
+
+// Mark: Description
+
+description.description = "Описание";
+description.contact = "Контакты";
