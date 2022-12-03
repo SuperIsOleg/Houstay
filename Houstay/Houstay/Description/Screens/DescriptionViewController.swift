@@ -7,17 +7,20 @@
 
 import UIKit
 
-protocol DescriptionDeleagte: AnyObject {
-    func fovoriteTapAction()
-}
-
 class DescriptionViewController: UIViewController {
     private let descriptionView = DescriptionView()
     private var isFavoriteButtonSelected: Bool = false
     private var appartmentID: String = ""
-    private let viewModel = DescriptionViewModel()
+    private let viewModel: DescriptionViewModel
     
-    internal weak var descriptionDeleagte: DescriptionDeleagte?
+    init(viewModel: DescriptionViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func loadView() {
         super.loadView()
@@ -26,13 +29,18 @@ class DescriptionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        descriptionView.getImagesCollectionView.delegate = self
+        descriptionView.getImagesCollectionView.dataSource = self
+        descriptionView.getImagesCollectionView.register(ImagesCell.self,
+                                                         forCellWithReuseIdentifier: ImagesCell.reuseIdentifier)
+        configure()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigationBar()
     }
-
+    
     private func setupNavigationBar() {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         let appearance = UINavigationBarAppearance()
@@ -48,9 +56,9 @@ class DescriptionViewController: UIViewController {
                                                                 action: #selector(self.popViewController))
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: configureRightBarButtonItem(),
-                                                                style: .plain,
-                                                                target: self,
-                                                                action: #selector(self.fovoriteTap))
+                                                                 style: .plain,
+                                                                 target: self,
+                                                                 action: #selector(self.fovoriteTap))
     }
     
     private func configureRightBarButtonItem() -> UIImage {
@@ -71,7 +79,8 @@ class DescriptionViewController: UIViewController {
         self.navigationItem.rightBarButtonItem?.image = configureRightBarButtonItem()
     }
     
-    internal func configure(view model: HomeItemsProtocol) {
+    private func configure() {
+        guard let model = viewModel.descriptionAppatrment else { return }
         self.isFavoriteButtonSelected = model.favorite
         self.appartmentID = model.id
     }
@@ -83,6 +92,7 @@ class DescriptionViewController: UIViewController {
     
     @objc
     private func fovoriteTap() {
+        
         isButtonTogle()
         switch isFavoriteButtonSelected {
         case true:
@@ -92,4 +102,35 @@ class DescriptionViewController: UIViewController {
         }
     }
     
+}
+
+// MARK: - UICollectionViewDelegate, UICollectionViewDataSource
+
+extension DescriptionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        guard let model = viewModel.descriptionAppatrment else { return 0 }
+        let images = model.image
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = descriptionView.getImagesCollectionView.dequeueReusableCell(withReuseIdentifier: ImagesCell.reuseIdentifier,
+                                                                                     for: indexPath) as? ImagesCell,
+              let model = viewModel.descriptionAppatrment else { return UICollectionViewCell() }
+        cell.setImage(to: model.image)
+        return cell
+    }
+    
+    
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+
+extension DescriptionViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let sizeForItemAt = CGSize(width: collectionView.frame.width,
+                                   height: collectionView.frame.height)
+        return sizeForItemAt
+    }
 }

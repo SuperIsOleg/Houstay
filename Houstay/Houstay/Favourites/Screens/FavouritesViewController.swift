@@ -97,9 +97,9 @@ extension FavouritesViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let descriptionViewController = DescriptionViewController()
         guard let model = self.viewModel.favoriteAppartmentsArray else { return }
-        descriptionViewController.configure(view: model[indexPath.row])
+        let descriptionViewController = DescriptionViewController(viewModel:
+                                                                    DescriptionViewModel(descriptionAppatrment: model[indexPath.row]))
         self.navigationController?.pushViewController(descriptionViewController, animated: true)
     }
     

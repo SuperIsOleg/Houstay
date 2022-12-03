@@ -10,6 +10,11 @@ import FirebaseDatabase
 
 class DescriptionViewModel {
     private let preloader = PreLoader.shared
+    internal var descriptionAppatrment: HomeItemsProtocol?
+    
+    init(descriptionAppatrment: HomeItemsProtocol) {
+        self.descriptionAppatrment = descriptionAppatrment
+    }
 
     internal func removeFavoriteAppartments(id: String) {
         for (index, value) in self.preloader.getFavoriteAppartmentsArray.enumerated() {
