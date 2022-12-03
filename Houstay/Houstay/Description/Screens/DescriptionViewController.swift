@@ -10,7 +10,6 @@ import UIKit
 class DescriptionViewController: UIViewController {
     private let descriptionView = DescriptionView()
     private var isFavoriteButtonSelected: Bool = false
-    private var appartmentID: String = ""
     private let viewModel: DescriptionViewModel
     
     init(viewModel: DescriptionViewModel) {
@@ -82,7 +81,6 @@ class DescriptionViewController: UIViewController {
     private func configure() {
         guard let model = viewModel.descriptionAppatrment else { return }
         self.isFavoriteButtonSelected = model.favorite
-        self.appartmentID = model.id
     }
     
     @objc
@@ -96,9 +94,9 @@ class DescriptionViewController: UIViewController {
         isButtonTogle()
         switch isFavoriteButtonSelected {
         case true:
-            break
+            self.viewModel.addFavoriteAppartments()
         case false:
-            self.viewModel.removeFavoriteAppartments(id: appartmentID)
+            self.viewModel.removeFavoriteAppartments()
         }
     }
     
