@@ -87,6 +87,7 @@
 		F4480ADC28BE9EEC001AA98B /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4480ADB28BE9EEC001AA98B /* RegistrationView.swift */; };
 		F4609F0E29316244008EDBE1 /* UIString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4609F0D29316244008EDBE1 /* UIString+Extensions.swift */; };
 		F4BF1095290D6B2D00D54138 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BF1094290D6B2D00D54138 /* KeychainManager.swift */; };
+		F4C03BEF293B6C0800719102 /* DescriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C03BEE293B6C0800719102 /* DescriptionViewModel.swift */; };
 		F4D5CEED2933CFB0003147EE /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D5CEEC2933CFB0003147EE /* FavoritesViewModel.swift */; };
 		F4D5CEEF2933E280003147EE /* FavoritesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D5CEEE2933E280003147EE /* FavoritesCollectionView.swift */; };
 /* End PBXBuildFile section */
@@ -175,6 +176,7 @@
 		F4480ADB28BE9EEC001AA98B /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		F4609F0D29316244008EDBE1 /* UIString+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIString+Extensions.swift"; sourceTree = "<group>"; };
 		F4BF1094290D6B2D00D54138 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		F4C03BEE293B6C0800719102 /* DescriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewModel.swift; sourceTree = "<group>"; };
 		F4D5CEEC2933CFB0003147EE /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
 		F4D5CEEE2933E280003147EE /* FavoritesCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionView.swift; sourceTree = "<group>"; };
 		FB75DE0874EAEC3C2A7D2F45 /* Pods_Houstay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Houstay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -619,6 +621,7 @@
 			isa = PBXGroup;
 			children = (
 				02AC30AD2934FE16007B9979 /* Screens */,
+				F4C03BED293B6BF100719102 /* ViewModel */,
 			);
 			path = Description;
 			sourceTree = "<group>";
@@ -901,6 +904,14 @@
 			path = Keychain;
 			sourceTree = "<group>";
 		};
+		F4C03BED293B6BF100719102 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F4C03BEE293B6C0800719102 /* DescriptionViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		F4D5CEEB2933CF3D003147EE /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1069,6 +1080,7 @@
 				02AC30AF2934FE5F007B9979 /* DescriptionViewController.swift in Sources */,
 				0286246828BCBE00006C12C5 /* AppDelegate.swift in Sources */,
 				02F8E1E128CB76E000517C69 /* AccountViewModel.swift in Sources */,
+				F4C03BEF293B6C0800719102 /* DescriptionViewModel.swift in Sources */,
 				F4BF1095290D6B2D00D54138 /* KeychainManager.swift in Sources */,
 				02ABB21E28DD95B6004ECD55 /* PolicyAndPrivacyView.swift in Sources */,
 				02C4FEFE28BF3946005869F1 /* UIViewController+Extension.swift in Sources */,

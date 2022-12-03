@@ -1,24 +1,17 @@
 //
-//  FavoritesViewModel.swift
+//  DescriptionViewModel.swift
 //  Houstay
 //
-//  Created by Oleg Kalistratov on 27.11.22.
+//  Created by Oleg Kalistratov on 3.12.22.
 //
 
 import Foundation
 import FirebaseDatabase
 
-class FavoritesViewModel {
+class DescriptionViewModel {
     private let preloader = PreLoader.shared
-    
-    internal var favoriteAppartmentsArray: [HomeItemsProtocol]? {
-        get {
-            return preloader.getFavoriteAppartmentsArray
-        }
-    }
-    
-    internal func removeFavoriteAppartments(id: String?) {
-        guard var id = id else { return }
+
+    internal func removeFavoriteAppartments(id: String) {
         for (index, value) in self.preloader.getFavoriteAppartmentsArray.enumerated() {
             if value.id == id {
                 self.preloader.removeObjectToFavoriteAppartmentsArray(index: index)
