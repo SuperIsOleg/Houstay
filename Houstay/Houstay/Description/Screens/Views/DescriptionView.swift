@@ -68,10 +68,11 @@ class DescriptionView: BasicView {
         return label
     }()
     
-    private let descriptionView: UITextView = {
+    private let descriptionTextView: UITextView = {
        let textView = UITextView()
-        textView.backgroundColor = R.color.lnk5()
-        textView.layer.cornerRadius = 12
+        textView.textColor = R.color.white100()
+        textView.textAlignment = .justified
+        textView.font = R.font.robotoRegular(size: 16)
         return textView
     }()
     
@@ -191,17 +192,16 @@ class DescriptionView: BasicView {
             $0.trailing.equalToSuperview().offset(-16)
         }
         
-        contentView.addSubview(descriptionView)
-        descriptionView.snp.makeConstraints {
-            $0.top.equalTo(descriptionLabel.snp.bottom).offset(16)
+        contentView.addSubview(descriptionTextView)
+        descriptionTextView.snp.makeConstraints {
+            $0.top.equalTo(descriptionLabel.snp.bottom)
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().offset(-16)
-            $0.height.equalTo(300)
         }
         
         contentView.addSubview(userView)
         userView.snp.makeConstraints {
-            $0.top.equalTo(descriptionView.snp.bottom).offset(16) 
+            $0.top.equalTo(descriptionTextView.snp.bottom).offset(16) 
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().offset(-16)
             $0.bottom.equalToSuperview()
@@ -252,6 +252,7 @@ class DescriptionView: BasicView {
         self.priceLabel.text = model.price
         self.addressLabel.text = model.address
         self.datePublicationLabel.text?.append(model.publicationDate.convertToString() ?? "")
+        self.descriptionTextView.text = model.descriptions
     }
     
 }
