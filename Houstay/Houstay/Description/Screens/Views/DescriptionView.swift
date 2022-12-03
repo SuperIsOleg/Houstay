@@ -14,6 +14,14 @@ class DescriptionView: BasicView {
         return collectionView
     }()
     
+    private let datePublicationLabel: UILabel = {
+        let label = UILabel()
+        label.font = R.font.robotoRegular(size: 14)
+        label.textColor = R.color.lnk50()
+        label.text = R.string.localizable.descriptionPublicationDate()
+        return label
+    }()
+    
     private var cityLabel: UILabel = {
         let label = UILabel()
         label.font = R.font.robotoMedium(size: 20)
@@ -135,9 +143,15 @@ class DescriptionView: BasicView {
             $0.height.equalTo(300)
         }
         
+        contentView.addSubview(datePublicationLabel)
+        datePublicationLabel.snp.makeConstraints {
+            $0.top.equalTo(imagesCollectionView.snp.bottom).offset(8)
+            $0.leading.equalToSuperview().offset(16)
+        }
+        
         contentView.addSubview(cityLabel)
         cityLabel.snp.makeConstraints {
-            $0.top.equalTo(imagesCollectionView.snp.bottom).offset(16)
+            $0.top.equalTo(datePublicationLabel.snp.bottom).offset(16)
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().offset(-16)
         }
@@ -187,7 +201,7 @@ class DescriptionView: BasicView {
         
         contentView.addSubview(userView)
         userView.snp.makeConstraints {
-            $0.top.equalTo(descriptionView.snp.bottom).offset(16)
+            $0.top.equalTo(descriptionView.snp.bottom).offset(16) 
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().offset(-16)
             $0.bottom.equalToSuperview()
@@ -237,6 +251,7 @@ class DescriptionView: BasicView {
         self.cityLabel.text = model.city
         self.priceLabel.text = model.price
         self.addressLabel.text = model.address
+        self.datePublicationLabel.text?.append(model.publicationDate.convertToString() ?? "")
     }
     
 }

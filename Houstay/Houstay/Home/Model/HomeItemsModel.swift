@@ -15,6 +15,7 @@ struct HomeItemsModel: HomeItemsProtocol, Codable, Hashable {
     var image: String
     var favorite: Bool
     var publicationDate: Date
+    var descriptions: String
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -24,6 +25,7 @@ struct HomeItemsModel: HomeItemsProtocol, Codable, Hashable {
         self.price = try container.decode(String.self, forKey: .price)
         self.image = try container.decode(String.self, forKey: .image)
         self.favorite = try container.decode(Bool.self, forKey: .favorite)
+        self.descriptions = try container.decode(String.self, forKey: .descriptions)
         
         do {
             self.publicationDate = try container.decode(String.self, forKey: .publicationDate).convertToDate() ?? Date()

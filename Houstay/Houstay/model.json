@@ -10,7 +10,8 @@
                 "price":"240/месяц",
                 "image":"appartement1",
                 "favorite": false,
-                "publicationDate": "2022-11-25T20:29:00"
+                "publicationDate": "2022-11-25T20:29:00",
+                "descriptions": ""
             },
             {
                 "id":"2",
@@ -19,7 +20,8 @@
                 "price":"300/месяц",
                 "image":"appartement2",
                 "favorite": false,
-                "publicationDate": "2022-11-25T20:29:00"
+                "publicationDate": "2022-11-25T20:29:00",
+                "descriptions": ""
             },
             {
                 "id":"3",
@@ -28,7 +30,8 @@
                 "price":"120/месяц",
                 "image":"appartement3",
                 "favorite": false,
-                "publicationDate": "2022-11-25T20:29:00"
+                "publicationDate": "2022-11-25T20:29:00",
+                "descriptions": ""
             },
             {
                 "id":"4",
@@ -37,7 +40,8 @@
                 "price":"90/месяц",
                 "image":"appartement4",
                 "favorite": false,
-                "publicationDate": "2022-11-25T20:29:00"
+                "publicationDate": "2022-11-25T20:29:00",
+                "descriptions": ""
             },
             {
                 "id":"5",
@@ -46,7 +50,8 @@
                 "price":"200/месяц",
                 "image":"appartement5",
                 "favorite": false,
-                "publicationDate": "2022-11-25T20:29:00"
+                "publicationDate": "2022-11-25T20:29:00",
+                "descriptions": ""
             }
         ]
     },
@@ -61,7 +66,8 @@
                 "price":"240/месяц",
                 "image":"appartement1",
                 "favorite": false,
-                "publicationDate": "2022-11-25T20:29:00"
+                "publicationDate": "2022-11-25T20:29:00",
+                "descriptions": ""
             },
             {
                 "id":"2",
@@ -70,7 +76,8 @@
                 "price":"300/месяц",
                 "image":"appartement2",
                 "favorite": false,
-                "publicationDate": "2022-11-25T20:29:00"
+                "publicationDate": "2022-11-25T20:29:00",
+                "descriptions": ""
             },
             {
                 "id":"3",
@@ -79,7 +86,8 @@
                 "price":"120/месяц",
                 "image":"appartement3",
                 "favorite": false,
-                "publicationDate": "2022-11-25T20:29:00"
+                "publicationDate": "2022-11-25T20:29:00",
+                "descriptions": ""
             },
             {
                 "id":"4",
@@ -88,7 +96,8 @@
                 "price":"90/месяц",
                 "image":"appartement4",
                 "favorite": false,
-                "publicationDate": "2022-11-25T20:29:00"
+                "publicationDate": "2022-11-25T20:29:00",
+                "descriptions": ""
             },
             {
                 "id":"5",
@@ -97,7 +106,8 @@
                 "price":"200/месяц",
                 "image":"appartement5",
                 "favorite": false,
-                "publicationDate": "2022-11-25T20:29:00"
+                "publicationDate": "2022-11-25T20:29:00",
+                "descriptions": ""
             }
         ]
     },
@@ -112,7 +122,8 @@
                 "price":"240/месяц",
                 "image":"appartement1",
                 "favorite": false,
-                "publicationDate": "2022-11-25T20:29:00"
+                "publicationDate": "2022-11-25T20:29:00",
+                "descriptions": ""
             },
             {
                 "id":"2",
@@ -121,7 +132,8 @@
                 "price":"300/месяц",
                 "image":"appartement2",
                 "favorite": false,
-                "publicationDate": "2022-11-25T20:29:00"
+                "publicationDate": "2022-11-25T20:29:00",
+                "descriptions": ""
             },
             {
                 "id":"3",
@@ -130,7 +142,8 @@
                 "price":"120/месяц",
                 "image":"appartement3",
                 "favorite": false,
-                "publicationDate": "2022-11-25T20:29:00"
+                "publicationDate": "2022-11-25T20:29:00",
+                "descriptions": ""
             },
             {
                 "id":"4",
@@ -139,7 +152,8 @@
                 "price":"90/месяц",
                 "image":"appartement4",
                 "favorite": false,
-                "publicationDate": "2022-11-25T20:29:00"
+                "publicationDate": "2022-11-25T20:29:00",
+                "descriptions": ""
             },
             {
                 "id":"5",
@@ -148,7 +162,8 @@
                 "price":"200/месяц",
                 "image":"appartement5",
                 "favorite": false,
-                "publicationDate": "2022-11-25T20:29:00"
+                "publicationDate": "2022-11-25T20:29:00",
+                "descriptions": ""
             }
         ]
     }

@@ -126,3 +126,4 @@ userAuthentication.logIn = "Войти";
 
 description.description = "Описание";
 description.contact = "Контакты";
+description.publicationDate = "Дата публикации: ";
