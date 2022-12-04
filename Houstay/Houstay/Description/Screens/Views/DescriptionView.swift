@@ -77,6 +77,7 @@ class DescriptionView: BasicView {
         textView.textColor = R.color.white100()
         textView.textAlignment = .justified
         textView.isScrollEnabled = false
+        textView.isSelectable = false
         textView.font = R.font.robotoRegular(size: 16)
         return textView
     }()

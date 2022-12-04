@@ -26,6 +26,8 @@ alert.contactForCommunication = "Контакт для связи";
 alert.copy = "Скопировать";
 alert.call = "Позвонить";
 alert.cancel = "Выйти";
+alert.copyInBuffer = "Номер телефона скопирован в буфер обмена";
+alert.ok = "Ok";
 
 // Mark: Login
 
