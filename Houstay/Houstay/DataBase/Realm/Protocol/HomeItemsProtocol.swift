@@ -16,4 +16,5 @@ protocol HomeItemsProtocol {
     var favorite: Bool { get set }
     var publicationDate: Date { get set }
     var descriptions: String { get set }
+    var numberOfTelefon: String { get set }
 }

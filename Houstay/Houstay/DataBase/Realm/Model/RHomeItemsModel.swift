@@ -8,6 +8,7 @@
 import RealmSwift
 
 class RHomeItemsModel: Object, HomeItemsProtocol {
+    
 
     @Persisted(primaryKey: true) var id: String
     @Persisted var address: String
@@ -17,6 +18,7 @@ class RHomeItemsModel: Object, HomeItemsProtocol {
     @Persisted var favorite: Bool
     @Persisted var publicationDate: Date
     @Persisted var descriptions: String
+    @Persisted var numberOfTelefon: String
     
     convenience init(homeItemsProtocol: HomeItemsProtocol) {
         self.init()
@@ -28,5 +30,6 @@ class RHomeItemsModel: Object, HomeItemsProtocol {
         self.favorite = homeItemsProtocol.favorite
         self.publicationDate = homeItemsProtocol.publicationDate
         self.descriptions = homeItemsProtocol.descriptions
+        self.numberOfTelefon = homeItemsProtocol.numberOfTelefon
     }
 }

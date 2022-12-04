@@ -11,7 +11,8 @@
                 "image":"appartement1",
                 "favorite": false,
                 "publicationDate": "2022-11-25T20:29:00",
-                "descriptions": ""
+                "descriptions": "",
+                "numberOfTelefon": ""
             },
             {
                 "id":"2",
@@ -21,7 +22,8 @@
                 "image":"appartement2",
                 "favorite": false,
                 "publicationDate": "2022-11-25T20:29:00",
-                "descriptions": ""
+                "descriptions": "",
+                "numberOfTelefon": ""
             },
             {
                 "id":"3",
@@ -31,7 +33,8 @@
                 "image":"appartement3",
                 "favorite": false,
                 "publicationDate": "2022-11-25T20:29:00",
-                "descriptions": ""
+                "descriptions": "",
+                "numberOfTelefon": ""
             },
             {
                 "id":"4",
@@ -41,7 +44,8 @@
                 "image":"appartement4",
                 "favorite": false,
                 "publicationDate": "2022-11-25T20:29:00",
-                "descriptions": ""
+                "descriptions": "",
+                "numberOfTelefon": ""
             },
             {
                 "id":"5",
@@ -51,7 +55,8 @@
                 "image":"appartement5",
                 "favorite": false,
                 "publicationDate": "2022-11-25T20:29:00",
-                "descriptions": ""
+                "descriptions": "",
+                "numberOfTelefon": ""
             }
         ]
     },
@@ -67,7 +72,8 @@
                 "image":"appartement1",
                 "favorite": false,
                 "publicationDate": "2022-11-25T20:29:00",
-                "descriptions": ""
+                "descriptions": "",
+                "numberOfTelefon": ""
             },
             {
                 "id":"2",
@@ -77,7 +83,8 @@
                 "image":"appartement2",
                 "favorite": false,
                 "publicationDate": "2022-11-25T20:29:00",
-                "descriptions": ""
+                "descriptions": "",
+                "numberOfTelefon": ""
             },
             {
                 "id":"3",
@@ -87,7 +94,8 @@
                 "image":"appartement3",
                 "favorite": false,
                 "publicationDate": "2022-11-25T20:29:00",
-                "descriptions": ""
+                "descriptions": "",
+                "numberOfTelefon": ""
             },
             {
                 "id":"4",
@@ -97,7 +105,8 @@
                 "image":"appartement4",
                 "favorite": false,
                 "publicationDate": "2022-11-25T20:29:00",
-                "descriptions": ""
+                "descriptions": "",
+                "numberOfTelefon": ""
             },
             {
                 "id":"5",
@@ -107,7 +116,8 @@
                 "image":"appartement5",
                 "favorite": false,
                 "publicationDate": "2022-11-25T20:29:00",
-                "descriptions": ""
+                "descriptions": "",
+                "numberOfTelefon": ""
             }
         ]
     },
@@ -123,7 +133,8 @@
                 "image":"appartement1",
                 "favorite": false,
                 "publicationDate": "2022-11-25T20:29:00",
-                "descriptions": ""
+                "descriptions": "",
+                "numberOfTelefon": ""
             },
             {
                 "id":"2",
@@ -133,7 +144,8 @@
                 "image":"appartement2",
                 "favorite": false,
                 "publicationDate": "2022-11-25T20:29:00",
-                "descriptions": ""
+                "descriptions": "",
+                "numberOfTelefon": ""
             },
             {
                 "id":"3",
@@ -143,7 +155,8 @@
                 "image":"appartement3",
                 "favorite": false,
                 "publicationDate": "2022-11-25T20:29:00",
-                "descriptions": ""
+                "descriptions": "",
+                "numberOfTelefon": ""
             },
             {
                 "id":"4",
@@ -153,7 +166,8 @@
                 "image":"appartement4",
                 "favorite": false,
                 "publicationDate": "2022-11-25T20:29:00",
-                "descriptions": ""
+                "descriptions": "",
+                "numberOfTelefon": ""
             },
             {
                 "id":"5",
@@ -163,7 +177,8 @@
                 "image":"appartement5",
                 "favorite": false,
                 "publicationDate": "2022-11-25T20:29:00",
-                "descriptions": ""
+                "descriptions": "",
+                "numberOfTelefon": ""
             }
         ]
     }

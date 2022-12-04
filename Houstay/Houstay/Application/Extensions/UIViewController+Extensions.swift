@@ -17,9 +17,11 @@ extension UIViewController {
         }))
         actionSheet.addAction(UIAlertAction(title: R.string.localizable.alertCopy(),
                                             style: .default, handler: { _ in
+            UIPasteboard.general.string = numberOfTelefon
         }))
         actionSheet.addAction(UIAlertAction(title: R.string.localizable.alertCancel(),
                                             style: .cancel, handler: nil))
         viewController.present(actionSheet, animated: true, completion: nil)
     }
+    
 }
