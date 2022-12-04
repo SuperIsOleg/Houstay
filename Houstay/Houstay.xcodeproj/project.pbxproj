@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		02065FBC28C603FF0064F2F1 /* model.json in Resources */ = {isa = PBXBuildFile; fileRef = 02065FBB28C603FF0064F2F1 /* model.json */; };
 		02065FBE28C60A6A0064F2F1 /* Bundle+Extrnsion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02065FBD28C60A6A0064F2F1 /* Bundle+Extrnsion.swift */; };
 		02065FC128C60C040064F2F1 /* HomeSectionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02065FC028C60C040064F2F1 /* HomeSectionsModel.swift */; };
 		02065FC528C613CF0064F2F1 /* OffersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02065FC428C613CF0064F2F1 /* OffersCell.swift */; };
@@ -97,7 +96,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		02065FBB28C603FF0064F2F1 /* model.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = model.json; sourceTree = "<group>"; };
 		02065FBD28C60A6A0064F2F1 /* Bundle+Extrnsion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extrnsion.swift"; sourceTree = "<group>"; };
 		02065FC028C60C040064F2F1 /* HomeSectionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionsModel.swift; sourceTree = "<group>"; };
 		02065FC428C613CF0064F2F1 /* OffersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffersCell.swift; sourceTree = "<group>"; };
@@ -403,9 +401,9 @@
 		0286246628BCBE00006C12C5 /* Houstay */ = {
 			isa = PBXGroup;
 			children = (
+				0286247B28BCC7CE006C12C5 /* Application */,
 				029D72B6292E03AB00AE7307 /* PreLoader */,
 				024BACC52924E99400FC880D /* DataBase */,
-				0286247B28BCC7CE006C12C5 /* Application */,
 				F4480AC928BE6FD4001AA98B /* CustomView */,
 				02952B2E28BE2A2E00B2F43F /* SplashScreen */,
 				0286247E28BCC870006C12C5 /* Onboarding */,
@@ -424,7 +422,6 @@
 				F41F4A6428DE64BA00958A91 /* Password */,
 				02ABB21828DD9551004ECD55 /* PolicyAndPrivacy */,
 				02ABB20F28DC57B7004ECD55 /* AboutApp */,
-				02065FBB28C603FF0064F2F1 /* model.json */,
 			);
 			path = Houstay;
 			sourceTree = "<group>";
@@ -1006,7 +1003,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				023EEACB28BCD24400446893 /* roboto-medium.ttf in Resources */,
-				02065FBC28C603FF0064F2F1 /* model.json in Resources */,
 				0286247428BCBE04006C12C5 /* LaunchScreen.storyboard in Resources */,
 				023EEACD28BCD25E00446893 /* roboto-regular.ttf in Resources */,
 				023EEAC528BCCF4F00446893 /* Localizable.strings in Resources */,

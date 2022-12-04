@@ -7,8 +7,8 @@
 
 import Foundation
 
-enum HomeSectionEnum: String, Codable {
-    case offers = "offers"
-    case recentlyPosted = "recently posted"
-    case allOffers = "all offers"
+enum HomeSectionEnum {
+    case offers
+    case recentlyPosted
+    case allOffers
 }

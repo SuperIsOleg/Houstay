@@ -9,7 +9,7 @@ import Foundation
 import FirebaseDatabase
 
 
-struct HomeSectionsModel: HomeSectionsProtocol, Codable, Hashable {
+struct HomeSectionsModel: HomeSectionsProtocol, Hashable {
     var type: HomeSectionEnum
     var title: String
     var items: [HomeItemsModel]
