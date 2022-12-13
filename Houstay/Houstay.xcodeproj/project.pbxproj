@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		02065FBE28C60A6A0064F2F1 /* Bundle+Extrnsion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02065FBD28C60A6A0064F2F1 /* Bundle+Extrnsion.swift */; };
-		02065FC128C60C040064F2F1 /* HomeSectionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02065FC028C60C040064F2F1 /* HomeSectionsModel.swift */; };
 		02065FC528C613CF0064F2F1 /* OffersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02065FC428C613CF0064F2F1 /* OffersCell.swift */; };
 		02065FC728C6141B0064F2F1 /* RecentlyPostedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02065FC628C6141B0064F2F1 /* RecentlyPostedCell.swift */; };
 		02065FC928C6143A0064F2F1 /* AllOffersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02065FC828C6143A0064F2F1 /* AllOffersCell.swift */; };
@@ -97,7 +96,6 @@
 
 /* Begin PBXFileReference section */
 		02065FBD28C60A6A0064F2F1 /* Bundle+Extrnsion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extrnsion.swift"; sourceTree = "<group>"; };
-		02065FC028C60C040064F2F1 /* HomeSectionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionsModel.swift; sourceTree = "<group>"; };
 		02065FC428C613CF0064F2F1 /* OffersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffersCell.swift; sourceTree = "<group>"; };
 		02065FC628C6141B0064F2F1 /* RecentlyPostedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyPostedCell.swift; sourceTree = "<group>"; };
 		02065FC828C6143A0064F2F1 /* AllOffersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllOffersCell.swift; sourceTree = "<group>"; };
@@ -203,7 +201,6 @@
 		02065FBF28C60BDD0064F2F1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				02065FC028C60C040064F2F1 /* HomeSectionsModel.swift */,
 				02065FCD28C757210064F2F1 /* HomeItemsModel.swift */,
 			);
 			path = Model;
@@ -1136,7 +1133,6 @@
 				02065FC728C6141B0064F2F1 /* RecentlyPostedCell.swift in Sources */,
 				02952B2428BDE6D800B2F43F /* OnboardingView.swift in Sources */,
 				F41F4A6328DE338300958A91 /* ProfileViewModel.swift in Sources */,
-				02065FC128C60C040064F2F1 /* HomeSectionsModel.swift in Sources */,
 				02C4FF0328BF6281005869F1 /* ChekPasswordViewController.swift in Sources */,
 				02ABB21628DC5815004ECD55 /* AboutAppView.swift in Sources */,
 				F41F4A5E28DE223300958A91 /* ProfileView.swift in Sources */,

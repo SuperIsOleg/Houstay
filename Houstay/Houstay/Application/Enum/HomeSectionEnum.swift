@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum HomeSectionEnum {
+enum HomeSectionEnum: Int, CaseIterable {
     case offers
     case recentlyPosted
     case allOffers

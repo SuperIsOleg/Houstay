@@ -13,10 +13,7 @@ class HomeViewController: UIViewController {
     private let homeView = HomeView()
     private lazy var homeCollectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UICollectionViewLayout())
     private let homeViewModel = HomeViewModel()
-    //    private var dataSource: UICollectionViewDiffableDataSource<HomeSectionEnum, HomeItemsModel>! = nil
-    private let homeSectionEnum: HomeSectionEnum = .allOffers
-    
-    
+//    private var dataSource: UICollectionViewDiffableDataSource<HomeSectionEnum, HomeItemsModel>! = nil
     
     override func loadView() {
         super.loadView()
@@ -36,19 +33,20 @@ class HomeViewController: UIViewController {
         setupLayout()
         
         let layout = UICollectionViewCompositionalLayout { sectionIndex, enviroment in
-            switch sectionIndex {
-            case 0 :
+            guard let section = HomeSectionEnum(rawValue: sectionIndex) else { fatalError("Unknown section") }
+            switch section {
+            case .offers:
                 return self.createOffersSection()
-            case 1 :
+            case .recentlyPosted:
                 return self.createRecentlyPostedSection()
-            default:
+            case .allOffers:
                 return self.createAllOffersSection()
             }
         }
         homeCollectionView.setCollectionViewLayout(layout, animated: true)
         
-        //                createDataSource()
-        //                reloadData()
+//        createDataSource()
+//        reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -123,49 +121,91 @@ class HomeViewController: UIViewController {
     }
     
     //    MARK: - UICollectionViewDiffableDataSource
-    //    private func createDataSource() {
-    //        dataSource = UICollectionViewDiffableDataSource<HomeSectionsModel, HomeItemsModel>(collectionView: homeCollectionView, cellProvider: { (collectionView, indexPath, model) ->  UICollectionViewCell? in
-    //
-    //            switch self.sections[indexPath.section].type {
-    //
-    //            case .offers:
-    //                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OffersCell.reuseIdentifier, for: indexPath) as?
-    //                        OffersCell else { return UICollectionViewCell() }
-    //
-    //                cell.layer.cornerRadius = 12
-    //                cell.backgroundColor = R.color.white500()
-    //                cell.configure(model)
-    //                return cell
-    //            case .recentlyPosted:
-    //                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecentlyPostedCell.reuseIdentifier, for: indexPath) as?
-    //                        RecentlyPostedCell else { return UICollectionViewCell() }
-    //
-    //                cell.layer.cornerRadius = 12
-    //                cell.backgroundColor = R.color.blue80()
-    //                cell.configure(model)
-    //                return cell
-    //            case .allOffers:
-    //                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AllOffersCell.reuseIdentifier, for: indexPath) as?
-    //                        AllOffersCell else { return UICollectionViewCell() }
-    //
-    //                cell.layer.cornerRadius = 12
-    //                cell.backgroundColor = R.color.lnk50()
-    //                cell.configure(model)
-    //                return cell
-    //            }
-    //        })
-    //
-    //    }
-    //
-    //    private func reloadData() {
-    //        var snapshot = NSDiffableDataSourceSnapshot<HomeSectionsModel, HomeItemsModel>()
-    //        snapshot.appendSections(sections)
-    //
-    //        for section in sections {
-    //            snapshot.appendItems(section.items, toSection: section)
-    //        }
-    //        dataSource?.apply(snapshot)
-    //    }
+    
+//        private func createDataSource() {
+//
+//            dataSource = UICollectionViewDiffableDataSource<HomeSectionEnum, HomeItemsModel>(collectionView: homeCollectionView) { (collectionView, indexPath, item) -> UICollectionViewCell? in
+//
+//
+//
+//                guard let section = HomeSectionEnum(rawValue: indexPath.section) else { fatalError("Unknown section") }
+//
+//                switch section {
+//                case .offers:
+//                    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OffersCell.reuseIdentifier, for: indexPath) as?
+//                            OffersCell else {
+//                        print("something went wrong")
+//                        return UICollectionViewCell()
+//                    }
+//                    cell.configure(item)
+//                    cell.closure = { (cell) in
+//                        cell.isButtonSelectedToggle()
+//                        switch cell.getIsButtonSelected {
+//                        case true:
+//                            cell.getFavoriteAppartementButton.setImage(R.image.tapLike(), for: .normal)
+//                            self.homeViewModel.addFavoriteAppartments(id: cell.getId)
+//                        case false:
+//                            cell.getFavoriteAppartementButton.setImage(R.image.didTapLike(), for: .normal)
+//                            self.homeViewModel.removeFavoriteAppartments(id: cell.getId)
+//                        }
+//                    }
+//                    return cell
+//                case .recentlyPosted:
+//                    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecentlyPostedCell.reuseIdentifier, for: indexPath) as?
+//                            RecentlyPostedCell else {
+//                        print("something went wrong")
+//                        return UICollectionViewCell()
+//                    }
+//                    cell.configure(item)
+//                    cell.closure = { (cell) in
+//                        cell.isButtonSelectedToggle()
+//                        switch cell.getIsButtonSelected {
+//                        case true:
+//                            cell.getFavoriteAppartementButton.setImage(R.image.tapLike(), for: .normal)
+//                            self.homeViewModel.addFavoriteAppartments(id: cell.getId)
+//                        case false:
+//                            cell.getFavoriteAppartementButton.setImage(R.image.didTapLike(), for: .normal)
+//                            self.homeViewModel.removeFavoriteAppartments(id: cell.getId)
+//                        }
+//                    }
+//                    return cell
+//                case .allOffers:
+//                    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AllOffersCell.reuseIdentifier, for: indexPath) as?
+//                            AllOffersCell else {
+//                        print("something went wrong")
+//                        return UICollectionViewCell()
+//                    }
+//                    cell.configure(item)
+//                    cell.closure = { (cell) in
+//                        cell.isButtonSelectedToggle()
+//                        switch cell.getIsButtonSelected {
+//                        case true:
+//                            cell.getFavoriteAppartementButton.setImage(R.image.tapLike(), for: .normal)
+//                            self.homeViewModel.addFavoriteAppartments(id: cell.getId)
+//                        case false:
+//                            cell.getFavoriteAppartementButton.setImage(R.image.didTapLike(), for: .normal)
+//                            self.homeViewModel.removeFavoriteAppartments(id: cell.getId)
+//                        }
+//                    }
+//                    return cell
+//                }
+//            }
+//
+//        }
+//
+//        private func reloadData() {
+//            var snapshot = NSDiffableDataSourceSnapshot<HomeSectionEnum, HomeItemsModel>()
+//            snapshot.appendSections([.offers, .recentlyPosted, .allOffers])
+//
+//            guard let arrayAppartments = self.homeViewModel.arrayAppartmentes as? [HomeItemsModel] else { return }
+//
+//            snapshot.appendItems(arrayAppartments, toSection: .offers)
+//            snapshot.appendItems(arrayAppartments, toSection: .recentlyPosted)
+//            snapshot.appendItems(arrayAppartments, toSection: .allOffers)
+//
+//            dataSource.apply(snapshot, animatingDifferences: false)
+//
+//        }
     
 }
 
@@ -173,34 +213,35 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 3
+        return HomeSectionEnum.allCases.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let model = homeViewModel.arrayAppartmentes else { return 0 }
-        
-        switch section {
-        case 0:
+
+        switch HomeSectionEnum(rawValue: section) {
+        case .offers:
             return model.count
-        case 1:
+        case .recentlyPosted:
             return 4
-        default:
+        case .allOffers:
             return 4
-            
+        case .none:
+            return 0
         }
     }
-    
-    
+
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
+
         guard let arrayAppartments = self.homeViewModel.arrayAppartmentes,
               let item = arrayAppartments[safe: indexPath.item] else {
             print("something went wrong")
             return UICollectionViewCell()
         }
-        
-        switch indexPath.section {
-        case 0:
+
+        switch HomeSectionEnum(rawValue: indexPath.section) {
+        case .offers:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OffersCell.reuseIdentifier, for: indexPath) as?
                     OffersCell else {
                 print("something went wrong")
@@ -219,7 +260,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 }
             }
             return cell
-        case 1:
+        case .recentlyPosted:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecentlyPostedCell.reuseIdentifier, for: indexPath) as?
                     RecentlyPostedCell else {
                 print("something went wrong")
@@ -238,7 +279,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 }
             }
             return cell
-        default:
+        case .allOffers:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AllOffersCell.reuseIdentifier, for: indexPath) as?
                     AllOffersCell else {
                 print("something went wrong")
@@ -257,7 +298,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 }
             }
             return cell
+        case .none:
+            return UICollectionViewCell()
         }
     }
-    
+
 }
