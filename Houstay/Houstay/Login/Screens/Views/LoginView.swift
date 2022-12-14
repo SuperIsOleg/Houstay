@@ -12,6 +12,7 @@ protocol LoginViewDelegate {
     func targetForgetPasswordViewAction()
     func targetRegistrationViewAction()
     func targetGoogleImageAction()
+    func targetFacebookImageAction()
 }
 
 class LoginView: BasicView {
@@ -259,10 +260,15 @@ class LoginView: BasicView {
         noAccountLabel.isUserInteractionEnabled = true
         noAccountLabel.addGestureRecognizer(gestureRegistrationView)
         
-        let gestureRegistrationImage = UITapGestureRecognizer(target: self, action: #selector(targetGoogleImageDidTapped))
-        gestureRegistrationImage.numberOfTapsRequired = 1
+        let gestureRegistrationGoogleImage = UITapGestureRecognizer(target: self, action: #selector(targetGoogleImageDidTapped))
+        gestureRegistrationGoogleImage.numberOfTapsRequired = 1
         googleImage.isUserInteractionEnabled = true
-        googleImage.addGestureRecognizer(gestureRegistrationImage)
+        googleImage.addGestureRecognizer(gestureRegistrationGoogleImage)
+        
+        let gestureRegistrationFacebookImage = UITapGestureRecognizer(target: self, action: #selector(targetFacebookImageDidTapped))
+        gestureRegistrationFacebookImage.numberOfTapsRequired = 1
+        facebookImage.isUserInteractionEnabled = true
+        facebookImage.addGestureRecognizer(gestureRegistrationFacebookImage)
     }
 
     private func configureLabel() {
@@ -313,6 +319,11 @@ class LoginView: BasicView {
     @objc
     private func targetGoogleImageDidTapped() {
         loginViewDelegate?.targetGoogleImageAction()
+    }
+    
+    @objc
+    private func targetFacebookImageDidTapped() {
+        loginViewDelegate?.targetFacebookImageAction()
     }
     
 }

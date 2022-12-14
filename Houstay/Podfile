@@ -17,5 +17,5 @@ target 'Houstay' do
   pod 'FirebaseCore'
   pod 'FirebaseDatabase' 
   pod 'GoogleSignIn'
-
+    
 end

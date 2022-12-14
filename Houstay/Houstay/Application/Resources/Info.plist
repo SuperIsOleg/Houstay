@@ -9,10 +9,23 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
+                <string>1142971563273952</string>
 				<string>com.googleusercontent.apps.1072068226791-ftfu13um7s0lgo1cimmj5fh6q0v33vvo</string>
 			</array>
+            <key>FacebookAppID</key>
+                <string>1142971563273952</string>
+            <key>FacebookClientToken</key>
+                <string>9791dc785f8a6bf6f83ee5744dc1a96b</string>
+            <key>FacebookDisplayName</key>
+                <string>Houstay</string>
+            <key>LSApplicationQueriesSchemes</key>
+                <array>
+                    <string>fbapi</string>
+                    <string>fb-messenger-share-api</string>
+                </array>
 		</dict>
 	</array>
+    
 	<key>UIAppFonts</key>
 	<array>
 		<string>roboto-regular.ttf</string>

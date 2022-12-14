@@ -9,6 +9,8 @@ import UIKit
 import FirebaseCore
 import GoogleSignIn
 import FirebaseAuth
+import FacebookCore
+import FacebookLogin
 
 class LoginViewController: UIViewController {
     private let loginView = LoginView()
@@ -46,6 +48,20 @@ class LoginViewController: UIViewController {
                                                                 action: #selector(self.popViewController))
     }
     
+    private func signIntoFirebase() {
+        guard let accesToken = AccessToken.current?.tokenString else { return }
+        let credential = FacebookAuthProvider.credential(withAccessToken: accesToken)
+        
+        Auth.auth().signIn(with: credential) { [weak self] authResult, error in
+            guard let self = self else { return }
+            if error == nil {
+                self.navigationController?.popViewController(animated: true)
+            } else {
+                print("Вход не выполнен")
+            }
+        }
+    }
+    
     @objc
     private func popViewController() {
         self.navigationController?.popViewController(animated: true)
@@ -56,6 +72,16 @@ class LoginViewController: UIViewController {
 // MARK: - LoginViewDelegate
 
 extension LoginViewController: LoginViewDelegate {
+    func targetFacebookImageAction() {
+        let loginManager = LoginManager()
+        loginManager.logIn(permissions: ["public_profile", "email"], from: self) { [weak self] (result, error) in
+            guard let self = self else { return }
+            if error == nil {
+                self.signIntoFirebase()
+            }
+        }
+    }
+    
     func targetGoogleImageAction() {
         self.viewModel.googleSignIn(viewController: self) {
             self.navigationController?.popViewController(animated: true)
