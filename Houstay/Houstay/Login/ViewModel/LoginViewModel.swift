@@ -28,9 +28,9 @@ class LoginViewModel {
                                succesCompletion: @escaping () -> Void) {
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }
         let config = GIDConfiguration(clientID: clientID)
-        GIDSignIn.sharedInstance.signIn(with: config, presenting: viewController) { (user, error) in
+        GIDSignIn.sharedInstance.signIn(with: config, presenting: viewController) { (result, error) in
             if error == nil {
-                guard let authentication = user?.authentication,
+                guard let authentication = result?.authentication,
                       let idToken = authentication.idToken else { return }
                 let credential = GoogleAuthProvider.credential(withIDToken: idToken,
                                                                accessToken: authentication.accessToken)

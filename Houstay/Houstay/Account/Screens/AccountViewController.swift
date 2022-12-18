@@ -36,7 +36,6 @@ class AccountViewController: UIViewController {
             guard let self = self else { return }
             if user == nil {
                 self.view = self.userAuthenticationView
-                self.setupNavigationBar()
             } else {
                 self.view = self.accountView
             }
@@ -47,21 +46,6 @@ class AccountViewController: UIViewController {
         super.viewWillDisappear(animated)
         guard let handle else { return }
         Auth.auth().removeStateDidChangeListener(handle)
-    }
-    
-    private func setupNavigationBar() {
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
-        let appearance = UINavigationBarAppearance()
-        appearance.shadowColor = .clear
-        appearance.backgroundColor = R.color.white500()
-        self.navigationController?.navigationBar.standardAppearance = appearance
-        self.navigationController?.navigationBar.scrollEdgeAppearance =  appearance
-        self.navigationController?.navigationBar.compactAppearance =  appearance
-        self.navigationController?.navigationBar.titleTextAttributes = [
-            NSAttributedString.Key.foregroundColor: R.color.lnk100() ?? .black,
-            NSAttributedString.Key.font: R.font.robotoMedium(size: 20) ?? .systemFont(ofSize: 20)
-        ]
-        self.parent?.title = R.string.localizable.accountProfile()
     }
 
     /// - Tag: CellRegistration
