@@ -119,6 +119,7 @@ profile.name = "Имя";
 profile.email = "Эл. почта";
 profile.phoneNumber = "Номер телефона";
 profile.isEmpty = "Пусто";
+profile.deleteAccount = "Удалить аккаунт";
 
 // Mark: Password
 

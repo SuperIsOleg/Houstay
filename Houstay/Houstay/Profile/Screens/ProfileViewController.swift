@@ -22,6 +22,7 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         self.hideKeyboardOnTap()
         self.setupLayout()
+        profileView.profileViewDelegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,6 +63,13 @@ class ProfileViewController: UIViewController {
     private func popViewController() {
         self.navigationController?.popViewController(animated: true)
     }
-    
- 
+}
+
+// MARK: - ProfileViewDelegate
+extension ProfileViewController: ProfileViewDelegate {
+    func deleteAccountLabelAction() {
+        self.viewModel.deleteAccount {
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
 }

@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol ProfileViewDelegate: AnyObject {
+    func deleteAccountLabelAction()
+}
+
 class ProfileView: BasicView {
     
     private let nameView: FabricViewForProfileView = {
@@ -26,13 +30,24 @@ class ProfileView: BasicView {
         return view
     }()
     
+    private let deleteAccountLabel: UILabel = {
+        let label = UILabel()
+        label.font = R.font.robotoRegular(size: 14)
+        label.textColor = R.color.red100()
+        label.text = R.string.localizable.profileDeleteAccount()
+        label.isUserInteractionEnabled = true
+        return label
+    }()
+    
     internal var nameViewConfigure: FabricViewForProfileView { nameView }
     internal var emailViewConfigure: FabricViewForProfileView { emailView }
     internal var phoneNumberViewConfigure: FabricViewForProfileView { phoneNumberView }
+    internal weak var profileViewDelegate: ProfileViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupLayout()
+        configureGecture()
     }
     
     required init?(coder: NSCoder) {
@@ -62,6 +77,22 @@ class ProfileView: BasicView {
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().offset(-16)
         }
+        
+        contentView.addSubview(deleteAccountLabel)
+        deleteAccountLabel.snp.makeConstraints {
+            $0.top.equalTo(phoneNumberView.snp.bottom).offset(16)
+            $0.centerX.equalToSuperview()
+        }
+    }
+    
+    private func configureGecture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(deleteAccountTap(sender:)))
+        deleteAccountLabel.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc
+    private func deleteAccountTap(sender: UITapGestureRecognizer) {
+        profileViewDelegate?.deleteAccountLabelAction()
     }
 }
 
