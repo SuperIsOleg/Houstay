@@ -9,35 +9,47 @@ import Foundation
 import FirebaseCore
 import GoogleSignIn
 import FirebaseAuth
+import FacebookLogin
 
 class LoginViewModel {
     internal let keychainManager = KeychainManager.shared
     
+    private func authViaFirebase(credential: AuthCredential, succesCompletion: @escaping () -> Void) {
+        Auth.auth().signIn(with: credential) { (authResult, error) in
+            if error == nil {
+                succesCompletion()
+            } else {
+                print("Вход не выполнен")
+            }
+        }
+    }
+    
     internal func googleSignIn(viewController: UIViewController,
                                succesCompletion: @escaping () -> Void) {
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }
-        // Create Google Sign In configuration object.
         let config = GIDConfiguration(clientID: clientID)
-        // Start the sign in flow!
-        GIDSignIn.sharedInstance.signIn(with: config, presenting: viewController) { [weak self] (user, error) in
-            guard let self = self else { return }
-            
-            if let error = error {
-                print("Не получен config")
-            }
-            
-            guard let authentication = user?.authentication,
-                  let idToken = authentication.idToken else { return }
-            
-            let credential = GoogleAuthProvider.credential(withIDToken: idToken,
-                                                           accessToken: authentication.accessToken)
-            
-            Auth.auth().signIn(with: credential) { [weak self] authResult, error in
-                guard let self = self else { return }
-                if error == nil {
+        GIDSignIn.sharedInstance.signIn(with: config, presenting: viewController) { (user, error) in
+            if error == nil {
+                guard let authentication = user?.authentication,
+                      let idToken = authentication.idToken else { return }
+                let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+                                                               accessToken: authentication.accessToken)
+                self.authViaFirebase(credential: credential) {
                     succesCompletion()
-                } else {
-                    print("Вход не выполнен")
+                }
+            }
+        }
+    }
+    
+    internal func facebookSignIn(viewController: UIViewController,
+                                 succesCompletion: @escaping () -> Void) {
+        let loginManager = LoginManager()
+        loginManager.logIn(permissions: ["public_profile", "email"], from: viewController) { (result, error) in
+            if error == nil {
+                guard let authentication = result?.token else { return }
+                let credential = FacebookAuthProvider.credential(withAccessToken: authentication.tokenString)
+                self.authViaFirebase(credential: credential) {
+                    succesCompletion()
                 }
             }
         }
@@ -47,8 +59,7 @@ class LoginViewModel {
                         enterPassword:String,
                         succesCompletion: @escaping () -> Void,
                         errorCompletion: @escaping () -> Void) {
-        Auth.auth().signIn(withEmail: email, password: enterPassword) { [weak self] authResult, error in
-            guard let self = self else { return }
+        Auth.auth().signIn(withEmail: email, password: enterPassword) { (authResult, error) in
             if error == nil {
                 succesCompletion()
             } else {
@@ -56,5 +67,4 @@ class LoginViewModel {
             }
         }
     }
-    
 }

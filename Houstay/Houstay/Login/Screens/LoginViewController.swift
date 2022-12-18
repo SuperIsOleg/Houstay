@@ -9,7 +9,6 @@ import UIKit
 import FirebaseCore
 import GoogleSignIn
 import FirebaseAuth
-import FacebookCore
 import FacebookLogin
 
 class LoginViewController: UIViewController {
@@ -48,20 +47,6 @@ class LoginViewController: UIViewController {
                                                                 action: #selector(self.popViewController))
     }
     
-    private func signIntoFirebase() {
-        guard let accesToken = AccessToken.current?.tokenString else { return }
-        let credential = FacebookAuthProvider.credential(withAccessToken: accesToken)
-        
-        Auth.auth().signIn(with: credential) { [weak self] authResult, error in
-            guard let self = self else { return }
-            if error == nil {
-                self.navigationController?.popViewController(animated: true)
-            } else {
-                print("Вход не выполнен")
-            }
-        }
-    }
-    
     @objc
     private func popViewController() {
         self.navigationController?.popViewController(animated: true)
@@ -73,12 +58,8 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController: LoginViewDelegate {
     func targetFacebookImageAction() {
-        let loginManager = LoginManager()
-        loginManager.logIn(permissions: ["public_profile", "email"], from: self) { [weak self] (result, error) in
-            guard let self = self else { return }
-            if error == nil {
-                self.signIntoFirebase()
-            }
+        self.viewModel.facebookSignIn(viewController: self) {
+            self.navigationController?.popViewController(animated: true)
         }
     }
     
@@ -94,7 +75,7 @@ extension LoginViewController: LoginViewDelegate {
         
         guard let emailText = email.text,
               let enterPasswordText = enterPassword.text else { return }
-
+        
         if !emailText.isEmpty && !enterPasswordText.isEmpty {
             viewModel.logIn(email: emailText,
                             enterPassword: enterPasswordText) {
@@ -109,14 +90,14 @@ extension LoginViewController: LoginViewDelegate {
             print("заполните поля")
         }
     }
-
-func targetRegistrationViewAction() {
-    let registrationViewController = RegistrationViewController()
-    self.navigationController?.pushViewController(registrationViewController, animated: true)
-}
-
-func targetForgetPasswordViewAction() {
-    let forgetPasswordViewController = ForgetPasswordViewController()
-    self.navigationController?.pushViewController(forgetPasswordViewController, animated: true)
-}
+    
+    func targetRegistrationViewAction() {
+        let registrationViewController = RegistrationViewController()
+        self.navigationController?.pushViewController(registrationViewController, animated: true)
+    }
+    
+    func targetForgetPasswordViewAction() {
+        let forgetPasswordViewController = ForgetPasswordViewController()
+        self.navigationController?.pushViewController(forgetPasswordViewController, animated: true)
+    }
 }
