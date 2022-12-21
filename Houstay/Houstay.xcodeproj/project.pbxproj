@@ -14,6 +14,7 @@
 		02065FCC28C62D550064F2F1 /* FavoriteEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02065FCB28C62D550064F2F1 /* FavoriteEnum.swift */; };
 		02065FCE28C757210064F2F1 /* HomeItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02065FCD28C757210064F2F1 /* HomeItemsModel.swift */; };
 		0238AE4E2952FFF4007E5D37 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0238AE4D2952FFF4007E5D37 /* FooterView.swift */; };
+		0238AE50295317CF007E5D37 /* ConfigurableTapAreaButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0238AE4F295317CF007E5D37 /* ConfigurableTapAreaButton.swift */; };
 		023EEAC528BCCF4F00446893 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 023EEAC428BCCF4F00446893 /* Localizable.strings */; };
 		023EEAC928BCD0CE00446893 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023EEAC828BCD0CE00446893 /* R.generated.swift */; };
 		023EEACB28BCD24400446893 /* roboto-medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 023EEACA28BCD24400446893 /* roboto-medium.ttf */; };
@@ -105,6 +106,7 @@
 		02065FCB28C62D550064F2F1 /* FavoriteEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteEnum.swift; sourceTree = "<group>"; };
 		02065FCD28C757210064F2F1 /* HomeItemsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemsModel.swift; sourceTree = "<group>"; };
 		0238AE4D2952FFF4007E5D37 /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
+		0238AE4F295317CF007E5D37 /* ConfigurableTapAreaButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableTapAreaButton.swift; sourceTree = "<group>"; };
 		023EEAC428BCCF4F00446893 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		023EEAC828BCD0CE00446893 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		023EEACA28BCD24400446893 /* roboto-medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "roboto-medium.ttf"; sourceTree = "<group>"; };
@@ -845,6 +847,7 @@
 				F41F4A5F28DE278B00958A91 /* FabricViewForProfileView.swift */,
 				02F1FAE7291E454D00EEBC1C /* UserAuthenticationView.swift */,
 				029D72B2292D0C1300AE7307 /* LoaderView.swift */,
+				0238AE4F295317CF007E5D37 /* ConfigurableTapAreaButton.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -1155,6 +1158,7 @@
 				02952B2D28BE22F000B2F43F /* LoginView.swift in Sources */,
 				028097CC28C22C9F00C2ECD9 /* TabBarController.swift in Sources */,
 				028097C628C211DD00C2ECD9 /* HomeViewModel.swift in Sources */,
+				0238AE50295317CF007E5D37 /* ConfigurableTapAreaButton.swift in Sources */,
 				02F1FAE8291E454D00EEBC1C /* UserAuthenticationView.swift in Sources */,
 				02C4FF0528BF629C005869F1 /* ChekPasswordView.swift in Sources */,
 				023EEAD228BCE89900446893 /* OnboardingCollectionViewCell.swift in Sources */,

@@ -88,8 +88,8 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource {
                                            image: R.image.english()) { (_) in
                 cell.getLanguageLabelText(R.string.localizable.accountEnglish())
             }
-            cell.arrowButton.showsMenuAsPrimaryAction = true
-            cell.arrowButton.menu = UIMenu(title: R.string.localizable.accountChooseLanguage(), children: [languageRussian, languageEnglish])
+            cell.getArrowButton.showsMenuAsPrimaryAction = true
+            cell.getArrowButton.menu = UIMenu(title: R.string.localizable.accountChooseLanguage(), children: [languageRussian, languageEnglish])
         }
         
         return cell

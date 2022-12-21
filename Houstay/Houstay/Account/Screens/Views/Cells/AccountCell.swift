@@ -36,8 +36,9 @@ class AccountCell: UITableViewCell {
         return label
     }()
     
-    private let arrowsButton: UIButton = {
-        let button = UIButton()
+    private let arrowButton: ConfigurableTapAreaButton = {
+        let button = ConfigurableTapAreaButton()
+        button.changeTapAreaBy(insets: UIEdgeInsets(top: -25, left: -25, bottom: 25, right: 25))
         return button
     }()
     
@@ -50,7 +51,7 @@ class AccountCell: UITableViewCell {
         return switchSounds
     }()
     
-    internal var arrowButton: UIButton { arrowsButton }
+    internal var getArrowButton: ConfigurableTapAreaButton { arrowButton }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -77,8 +78,8 @@ class AccountCell: UITableViewCell {
             $0.centerY.equalTo(settingsImageView)
         }
         
-        self.contentView.addSubview(arrowsButton)
-        arrowsButton.snp.makeConstraints {
+        self.contentView.addSubview(arrowButton)
+        arrowButton.snp.makeConstraints {
             $0.trailing.equalToSuperview().offset(-24)
             $0.height.width.equalTo(16)
             $0.centerY.equalTo(settingsImageView)
@@ -101,7 +102,7 @@ class AccountCell: UITableViewCell {
     internal func configure( _ model: SettingsItemsModel) {
         self.settingsImageView.image = model.imageSettings
         self.titleLabel.text = model.title
-        self.arrowsButton.setImage(model.imageArrows, for: .normal)
+        self.arrowButton.setImage(model.imageArrows, for: .normal)
         self.switchSounds.isHidden = model.switchSounds
         self.languageLabel.text = model.language
     }
