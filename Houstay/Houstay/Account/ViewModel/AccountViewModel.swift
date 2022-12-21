@@ -14,6 +14,13 @@ class AccountViewModel {
     internal var name: String = ""
     internal var email: String = ""
     
+    private func setLanguageText() -> String {
+        guard let language = UserDefaults.standard.string(forKey: UserDefaultsKey.language.rawValue) else {
+            return Bundle.main.preferredLocalizations[0]
+        }
+        return language
+    }
+    
     init() {
         settingsItemsModel = [SettingsItemsModel(imageSettings: R.image.information() ?? UIImage(),
                                                  title: R.string.localizable.accountProfile(),
@@ -34,7 +41,7 @@ class AccountViewModel {
                                                  title: R.string.localizable.accountLanguage(),
                                                  imageArrows: R.image.arrowsDown() ?? UIImage(),
                                                  switchSounds: true,
-                                                 language: R.string.localizable.accountRussian()),
+                                                 language: setLanguageText()),
                               SettingsItemsModel(imageSettings: R.image.policyAndPrivacy() ?? UIImage(),
                                                  title: R.string.localizable.accountPolicyAndPrivacy(),
                                                  imageArrows: R.image.arrowsRight() ?? UIImage(),

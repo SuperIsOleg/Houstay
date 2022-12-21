@@ -98,7 +98,9 @@ class AccountCell: UITableViewCell {
 
     }
     
-    
+    private func saveToUserDefaults(text: String) {
+        UserDefaults.standard.set(text, forKey: UserDefaultsKey.language.rawValue)
+    }
     
     internal func configureTapAreaButton() {
         guard let text = languageLabel.text else { return }
@@ -122,6 +124,7 @@ class AccountCell: UITableViewCell {
     internal func getLanguageLabelText(_ text: String) {
         self.languageLabel.text = text
         self.configureTapAreaButton()
+        self.saveToUserDefaults(text: text)
     }
     
 }

@@ -31,6 +31,7 @@
 		024BACD22924F2E000FC880D /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024BACD12924F2E000FC880D /* RealmManager.swift */; };
 		024BACD62924F70500FC880D /* RealmManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024BACD52924F70500FC880D /* RealmManagerProtocol.swift */; };
 		0266D63129534BCB008826D7 /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0266D63029534BCB008826D7 /* UserDefaultsKey.swift */; };
+		0266D633295356AF008826D7 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0266D632295356AF008826D7 /* Language.swift */; };
 		028097BE28C0ED5900C2ECD9 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028097BD28C0ED5900C2ECD9 /* HeaderView.swift */; };
 		028097C328C2021C00C2ECD9 /* SearcheTextFieldBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028097C228C2021C00C2ECD9 /* SearcheTextFieldBase.swift */; };
 		028097C628C211DD00C2ECD9 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028097C528C211DD00C2ECD9 /* HomeViewModel.swift */; };
@@ -122,6 +123,7 @@
 		024BACD12924F2E000FC880D /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		024BACD52924F70500FC880D /* RealmManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManagerProtocol.swift; sourceTree = "<group>"; };
 		0266D63029534BCB008826D7 /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
+		0266D632295356AF008826D7 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		028097BD28C0ED5900C2ECD9 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		028097C228C2021C00C2ECD9 /* SearcheTextFieldBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearcheTextFieldBase.swift; sourceTree = "<group>"; };
 		028097C528C211DD00C2ECD9 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				02ABB20728DAFE9A004ECD55 /* AccountSectionEnum.swift */,
 				02065FCB28C62D550064F2F1 /* FavoriteEnum.swift */,
 				0266D63029534BCB008826D7 /* UserDefaultsKey.swift */,
+				0266D632295356AF008826D7 /* Language.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -1117,6 +1120,7 @@
 				F470F465293BB17300C1FA33 /* AdditionsCollectionView.swift in Sources */,
 				02ABB20328DAFA73004ECD55 /* AccountCell.swift in Sources */,
 				028097E128C22E9A00C2ECD9 /* AccountViewController.swift in Sources */,
+				0266D633295356AF008826D7 /* Language.swift in Sources */,
 				02065FCE28C757210064F2F1 /* HomeItemsModel.swift in Sources */,
 				02ABB20828DAFE9A004ECD55 /* AccountSectionEnum.swift in Sources */,
 				023EEAC928BCD0CE00446893 /* R.generated.swift in Sources */,
