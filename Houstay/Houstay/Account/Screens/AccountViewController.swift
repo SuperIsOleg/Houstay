@@ -90,6 +90,7 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource {
             }
             cell.getArrowButton.showsMenuAsPrimaryAction = true
             cell.getArrowButton.menu = UIMenu(title: R.string.localizable.accountChooseLanguage(), children: [languageRussian, languageEnglish])
+            cell.configureTapAreaButton()
         }
         
         return cell

@@ -29,12 +29,11 @@ class ConfigurableTapAreaButton: UIButton {
     }
  
     func changeTapAreaBy(insets: UIEdgeInsets) {
-
         let dx = insets.left
         let dy = insets.top
         let dw = insets.right  - dx
         let dh = insets.bottom - dy
-
+        tapRect = CGRect.zero
         tapRect = CGRect(     x: tapRect.origin.x    + dx,
                               y: tapRect.origin.y    + dy,
                           width: tapRect.size.width  + dw,

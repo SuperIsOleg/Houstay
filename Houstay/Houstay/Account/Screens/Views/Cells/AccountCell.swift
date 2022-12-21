@@ -32,13 +32,11 @@ class AccountCell: UITableViewCell {
        let label = UILabel()
         label.font = R.font.robotoRegular(size: 16)
         label.textColor = R.color.lnk50()
-        label.text = ""
         return label
     }()
     
     private let arrowButton: ConfigurableTapAreaButton = {
         let button = ConfigurableTapAreaButton()
-        button.changeTapAreaBy(insets: UIEdgeInsets(top: -25, left: -25, bottom: 25, right: 25))
         return button
     }()
     
@@ -84,6 +82,7 @@ class AccountCell: UITableViewCell {
             $0.height.width.equalTo(16)
             $0.centerY.equalTo(settingsImageView)
         }
+        arrowButton.layer.zPosition = 3
         
         self.contentView.addSubview(switchSounds)
         switchSounds.snp.makeConstraints {
@@ -93,10 +92,21 @@ class AccountCell: UITableViewCell {
         
         self.contentView.addSubview(languageLabel)
         languageLabel.snp.makeConstraints {
-            $0.trailing.equalTo(switchSounds.snp.leading).offset(-12)
+            $0.trailing.equalTo(arrowButton.snp.leading).offset(-12)
             $0.centerY.equalTo(settingsImageView)
         }
 
+    }
+    
+    internal func configureTapAreaButton() {
+        guard let text = languageLabel.text else { return }
+        let languageLabelLight = text.size(withAttributes:
+                                            [NSAttributedString.Key.font:
+                                                languageLabel.font ?? UIFont()]).width + 12 // 12 - this languageLabel constraint
+        self.arrowButton.changeTapAreaBy(insets: UIEdgeInsets(top: -20,
+                                                              left: -languageLabelLight,
+                                                              bottom: 20,
+                                                              right: 20))
     }
     
     internal func configure( _ model: SettingsItemsModel) {
@@ -109,6 +119,7 @@ class AccountCell: UITableViewCell {
     
     internal func getLanguageLabelText(_ text: String) {
         self.languageLabel.text = text
+        self.configureTapAreaButton()
     }
     
 }
