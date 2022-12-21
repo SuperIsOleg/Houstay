@@ -30,6 +30,7 @@
 		024BACD02924EC6A00FC880D /* RHomeItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024BACCF2924EC6A00FC880D /* RHomeItemsModel.swift */; };
 		024BACD22924F2E000FC880D /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024BACD12924F2E000FC880D /* RealmManager.swift */; };
 		024BACD62924F70500FC880D /* RealmManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024BACD52924F70500FC880D /* RealmManagerProtocol.swift */; };
+		0266D63129534BCB008826D7 /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0266D63029534BCB008826D7 /* UserDefaultsKey.swift */; };
 		028097BE28C0ED5900C2ECD9 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028097BD28C0ED5900C2ECD9 /* HeaderView.swift */; };
 		028097C328C2021C00C2ECD9 /* SearcheTextFieldBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028097C228C2021C00C2ECD9 /* SearcheTextFieldBase.swift */; };
 		028097C628C211DD00C2ECD9 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028097C528C211DD00C2ECD9 /* HomeViewModel.swift */; };
@@ -120,6 +121,7 @@
 		024BACCF2924EC6A00FC880D /* RHomeItemsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RHomeItemsModel.swift; sourceTree = "<group>"; };
 		024BACD12924F2E000FC880D /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		024BACD52924F70500FC880D /* RealmManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManagerProtocol.swift; sourceTree = "<group>"; };
+		0266D63029534BCB008826D7 /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
 		028097BD28C0ED5900C2ECD9 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		028097C228C2021C00C2ECD9 /* SearcheTextFieldBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearcheTextFieldBase.swift; sourceTree = "<group>"; };
 		028097C528C211DD00C2ECD9 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 				02ABB20528DAFE70004ECD55 /* HomeSectionEnum.swift */,
 				02ABB20728DAFE9A004ECD55 /* AccountSectionEnum.swift */,
 				02065FCB28C62D550064F2F1 /* FavoriteEnum.swift */,
+				0266D63029534BCB008826D7 /* UserDefaultsKey.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -1125,6 +1128,7 @@
 				02952B3028BE2A8C00B2F43F /* SplashScreenViewController.swift in Sources */,
 				02065FC928C6143A0064F2F1 /* AllOffersCell.swift in Sources */,
 				F4480AD228BE95A1001AA98B /* ForgetPasswordViewController.swift in Sources */,
+				0266D63129534BCB008826D7 /* UserDefaultsKey.swift in Sources */,
 				0238AE4E2952FFF4007E5D37 /* FooterView.swift in Sources */,
 				F470F45F293B963300C1FA33 /* ImagesCollectionView.swift in Sources */,
 				028097C328C2021C00C2ECD9 /* SearcheTextFieldBase.swift in Sources */,

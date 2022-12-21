@@ -98,6 +98,8 @@ class AccountCell: UITableViewCell {
 
     }
     
+    
+    
     internal func configureTapAreaButton() {
         guard let text = languageLabel.text else { return }
         let languageLabelLight = text.size(withAttributes:
