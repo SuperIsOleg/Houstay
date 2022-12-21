@@ -13,6 +13,11 @@ class MessagesViewController: UIViewController {
     private let messagesView = MessagesView()
     private let userAuthenticationView = UserAuthenticationView()
     private var handle: AuthStateDidChangeListenerHandle?
+    
+    override func loadView() {
+        super.loadView()
+        self.view = messagesView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

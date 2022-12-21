@@ -10,8 +10,8 @@ import Foundation
 
 import UIKit
 
-class AccountCell: UICollectionViewCell {
-    static var reuseIdentifier = UUID()
+class AccountCell: UITableViewCell {
+    static var reuseIdentifier = String(describing: AccountCell.self)
     
     private let settingsImageView: UIImageView = {
         let imageView = UIImageView()
@@ -52,44 +52,45 @@ class AccountCell: UICollectionViewCell {
     
     internal var arrowButton: UIButton { arrowsButton }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupLayout()
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.setupLayout()
+        self.selectionStyle = .none
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+   
     private func setupLayout() {
 
-        self.addSubview(settingsImageView)
+        self.contentView.addSubview(settingsImageView)
         settingsImageView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(12)
             $0.leading.equalToSuperview().offset(16)
             $0.bottom.equalToSuperview().offset(-12)
         }
 
-        self.addSubview(titleLabel)
+        self.contentView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints {
             $0.leading.equalTo(settingsImageView.snp.trailing).offset(12)
             $0.centerY.equalTo(settingsImageView)
         }
         
-        self.addSubview(arrowsButton)
+        self.contentView.addSubview(arrowsButton)
         arrowsButton.snp.makeConstraints {
             $0.trailing.equalToSuperview().offset(-24)
             $0.height.width.equalTo(16)
             $0.centerY.equalTo(settingsImageView)
         }
         
-        self.addSubview(switchSounds)
+        self.contentView.addSubview(switchSounds)
         switchSounds.snp.makeConstraints {
             $0.trailing.equalToSuperview().offset(-24)
             $0.centerY.equalTo(settingsImageView)
         }
         
-        self.addSubview(languageLabel)
+        self.contentView.addSubview(languageLabel)
         languageLabel.snp.makeConstraints {
             $0.trailing.equalTo(switchSounds.snp.leading).offset(-12)
             $0.centerY.equalTo(settingsImageView)

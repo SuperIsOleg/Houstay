@@ -7,11 +7,7 @@
 
 import UIKit
 
-protocol AccountViewDelegate {
-    func exitAction()
-}
-
-class AccountView: BasicView {
+class AccountView: UIView {
     
     private let headerView: UIView = {
         let view = UIView()
@@ -48,20 +44,11 @@ class AccountView: BasicView {
         return label
     }()
 
-    private let exitButton: UIButton = {
-        let button = UIButton()
-        button.layer.cornerRadius = 12
-        button.backgroundColor = R.color.blue5()
-        button.setTitle(R.string.localizable.accountExit(), for: .normal)
-        button.titleLabel?.font = R.font.robotoMedium(size: 16)
-        button.setTitleColor(R.color.blue100(), for: .normal)
-        return button
-    }()
-
-    private lazy var accountCollectionView = UICollectionView(frame: .zero, collectionViewLayout: self.createCompositionalLayout())
+    private lazy var accountTableView = UITableView()
     
-    internal var accountViewDelegate: AccountViewDelegate?
+   
     internal var header: UIView { headerView }
+    internal var getAccountTableView: UITableView { accountTableView }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -74,11 +61,11 @@ class AccountView: BasicView {
 
     private func setupLayout() {
         
-        contentView.addSubview(headerView)
+        self.addSubview(headerView)
         headerView.snp.makeConstraints {
-            $0.top.equalToSuperview()
+            $0.top.equalTo(self.safeAreaLayoutGuide.snp.top)
             $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(100)
+            $0.height.equalTo(80)
         }
 
         headerView.addSubview(accoutImage)
@@ -108,41 +95,18 @@ class AccountView: BasicView {
             $0.leading.equalTo(userNameLabel)
         }
         
-        contentView.addSubview(accountCollectionView)
-        accountCollectionView.snp.makeConstraints {
+        self.addSubview(accountTableView)
+        accountTableView.snp.makeConstraints {
             $0.top.equalTo(headerView.snp.bottom)
             $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview()
         }
 
-        contentView.addSubview(exitButton)
-        exitButton.snp.makeConstraints {
-            $0.top.equalTo(accountCollectionView.snp.bottom).offset(24)
-            $0.leading.equalToSuperview().offset(16)
-            $0.trailing.equalToSuperview().offset(-16)
-            $0.height.equalTo(50)
-            $0.bottom.equalToSuperview().offset(-50)
-        }
-
-        exitButton.addTarget(self, action: #selector(exitTap), for: .touchUpInside)
     }
-    
-    
-    private func createCompositionalLayout() -> UICollectionViewLayout {
-        let config = UICollectionLayoutListConfiguration(appearance: .plain)
-        return UICollectionViewCompositionalLayout.list(using: config)
-    }
-    
     
     internal func setNameUserAndEmailLabel(userName: String, email: String) {
         self.userNameLabel.text = userName
         self.emailLabel.text = email
     }
-    
-    internal func getAccountCollectionView() -> UICollectionView {
-        return accountCollectionView
-    }
 
-    @objc func exitTap() {
-        accountViewDelegate?.exitAction()
-    }
 }

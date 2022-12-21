@@ -14,6 +14,11 @@ class FavouritesViewController: UIViewController {
     private let userAuthenticationView = UserAuthenticationView()
     private var handle: AuthStateDidChangeListenerHandle?
     
+    override func loadView() {
+        super.loadView()
+        self.view = favouritesView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         userAuthenticationView.userAuthenticationDeleagte = self

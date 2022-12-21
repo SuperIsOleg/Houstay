@@ -14,18 +14,22 @@ class AccountViewController: UIViewController {
     private let accountViewModel = AccountViewModel()
     private let userAuthenticationView = UserAuthenticationView()
     private let viewModel = AccountViewModel()
-    private lazy var accountCollectionView = accountView.getAccountCollectionView()
-    private var dataSource: UICollectionViewDiffableDataSource<AccountSectionEnum, SettingsItemsModel>! = nil
     private var handle: AuthStateDidChangeListenerHandle?
+    
+    override func loadView() {
+        super.loadView()
+        self.view = accountView
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        accountView.accountViewDelegate = self
-        accountCollectionView.delegate = self
+        self.view.backgroundColor = R.color.white500()
+        accountView.getAccountTableView.delegate = self
+        accountView.getAccountTableView.dataSource = self
+        accountView.getAccountTableView.register(AccountCell.self, forCellReuseIdentifier: AccountCell.reuseIdentifier)
         userAuthenticationView.userAuthenticationDeleagte = self
         accountView.setNameUserAndEmailLabel(userName: accountViewModel.name,
                                              email: accountViewModel.email)
-        configureDataSource()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,43 +51,12 @@ class AccountViewController: UIViewController {
         guard let handle else { return }
         Auth.auth().removeStateDidChangeListener(handle)
     }
-
-    /// - Tag: CellRegistration
-    private func configureDataSource() {
-        let cellRegistration = UICollectionView.CellRegistration<AccountCell, SettingsItemsModel> { (cell, indexPath, item) in
-            cell.configure(self.accountViewModel.settingsItemsModel[indexPath.row])
-            if indexPath.row == 3 {
-                
-                let languageRussian = UIAction(title: R.string.localizable.accountRussian(),
-                                               image: R.image.russian()) { (_) in
-                    cell.getLanguageLabelText(R.string.localizable.accountRussian())
-                }
-                
-                let languageEnglish = UIAction(title: R.string.localizable.accountEnglish(),
-                                               image: R.image.english()) { (_) in
-                    cell.getLanguageLabelText(R.string.localizable.accountEnglish())
-                }
-                cell.arrowButton.showsMenuAsPrimaryAction = true
-                cell.arrowButton.menu = UIMenu(title: R.string.localizable.accountChooseLanguage(), children: [languageRussian, languageEnglish])
-            }
-        }
-        
-        dataSource = UICollectionViewDiffableDataSource<AccountSectionEnum, SettingsItemsModel>(collectionView: accountCollectionView) {
-            (collectionView: UICollectionView, indexPath: IndexPath, item: SettingsItemsModel) -> UICollectionViewCell? in
-            return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: item)
-        }
-        
-        // initial data
-        var snapshot = NSDiffableDataSourceSnapshot<AccountSectionEnum, SettingsItemsModel>()
-        snapshot.appendSections([.settings])
-        snapshot.appendItems(self.accountViewModel.settingsItemsModel)
-        dataSource.apply(snapshot, animatingDifferences: false)
-    }
+    
 }
 
 // MARK: - AccountViewDelegate
 
-extension AccountViewController: AccountViewDelegate {
+extension AccountViewController: FooterViewDelegate {
     func exitAction() {
         do {
             try  Auth.auth().signOut()
@@ -93,11 +66,36 @@ extension AccountViewController: AccountViewDelegate {
     }
 }
 
-// MARK: - UICollectionViewDelegate
+// MARK: - UITableViewDelegate, UITableViewDataSource
 
-extension AccountViewController: UICollectionViewDelegate {
+extension AccountViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.settingsItemsModel.count
+    }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = accountView.getAccountTableView.dequeueReusableCell(withIdentifier: AccountCell.reuseIdentifier,
+                                                                             for: indexPath) as? AccountCell else { return UITableViewCell() }
+        cell.configure(self.viewModel.settingsItemsModel[indexPath.row])
+        
+        if indexPath.row == 3 {
+            let languageRussian = UIAction(title: R.string.localizable.accountRussian(),
+                                           image: R.image.russian()) { (_) in
+                cell.getLanguageLabelText(R.string.localizable.accountRussian())
+            }
+            
+            let languageEnglish = UIAction(title: R.string.localizable.accountEnglish(),
+                                           image: R.image.english()) { (_) in
+                cell.getLanguageLabelText(R.string.localizable.accountEnglish())
+            }
+            cell.arrowButton.showsMenuAsPrimaryAction = true
+            cell.arrowButton.menu = UIMenu(title: R.string.localizable.accountChooseLanguage(), children: [languageRussian, languageEnglish])
+        }
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
             self.navigationController?.pushViewController(ProfileViewController(), animated: true)
@@ -115,6 +113,14 @@ extension AccountViewController: UICollectionViewDelegate {
             break
         }
     }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footer = FooterView()
+        footer.footerViewDelegate = self
+        return footer
+    }
+    
+    
 }
 
 // MARK: - UICollectionViewDelegate
