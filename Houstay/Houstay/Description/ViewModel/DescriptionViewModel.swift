@@ -18,10 +18,10 @@ class DescriptionViewModel {
 
     internal func addFavoriteAppartments() {
         guard let descriptionAppatrment = descriptionAppatrment else { return }
-        let id = descriptionAppatrment.id
+        let id = descriptionAppatrment.appartementsId
         self.preloader.changeIsFavoriteValue(id: id, valuew: true)
         var favoriteAppartment = self.preloader.getArrayAppartmentes.first { item in
-            item.id == id
+            item.appartementsId == id
         }
         guard var favoriteAppartment else { return }
         favoriteAppartment.favorite = true
@@ -31,9 +31,9 @@ class DescriptionViewModel {
     
     internal func removeFavoriteAppartments() {
         guard let descriptionAppatrment = descriptionAppatrment else { return }
-        let id = descriptionAppatrment.id
+        let id = descriptionAppatrment.appartementsId
         for (index, value) in self.preloader.getFavoriteAppartmentsArray.enumerated() {
-            if value.id == id {
+            if value.appartementsId == id {
                 self.preloader.removeObjectToFavoriteAppartmentsArray(index: index)
                 self.preloader.changeIsFavoriteValue(id: id, valuew: false)
                 updateFireBaseData(id: id, key: "favorite", value: false)

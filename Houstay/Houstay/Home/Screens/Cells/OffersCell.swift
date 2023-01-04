@@ -120,12 +120,12 @@ class OffersCell: UICollectionViewCell {
         closure?(self)
     }
     
-    internal func configure( _ model: HomeItemsProtocol) {
-        self.id = model.id
+    internal func configure( _ model: HomeItemsProtocol, image: String) {
+        self.id = model.appartementsId
         self.addressLabel.text = model.address
         self.cityLabel.text = model.city
-        self.priceLabel.text = model.price
-        self.appartementImageView.image = UIImage(named: model.image)
+        self.priceLabel.text = String(model.price)
+        self.appartementImageView.image = UIImage(named: image)
         self.isButtonSelected = model.favorite
         switch isButtonSelected {
         case true:

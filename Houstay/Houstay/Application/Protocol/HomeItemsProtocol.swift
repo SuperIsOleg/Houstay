@@ -13,5 +13,16 @@ protocol HomeItemsProtocol {
     var numberOfTelefon: String { get set }
     var avatarLink: String { get set }
     var userName: String { get set }
-    var userAppartements: [UserAppartementsProtocol] { get set }
+    var address: String { get set }
+    var appartementsId: String { get set }
+    var city: String { get set }
+    var facilities: [String] { get set }
+    var price: Int { get set }
+    var imagesLink: [String] { get set }
+    var favorite: Bool { get set }
+    var period: String { get set }
+    var views: Int { get set }
+    var review: [String] { get set }
+    var publicationDate: Date { get set }
+    var descriptions: String { get set }
 }

@@ -94,8 +94,6 @@
 		F470F465293BB17300C1FA33 /* AdditionsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F470F464293BB17300C1FA33 /* AdditionsCollectionView.swift */; };
 		F470F467293BF13300C1FA33 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F470F466293BF13300C1FA33 /* Date+Extensions.swift */; };
 		F470F469293BF83400C1FA33 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F470F468293BF83400C1FA33 /* UIViewController+Extensions.swift */; };
-		F488955C296621470090B9F4 /* UserAppartementsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F488955B296621470090B9F4 /* UserAppartementsModel.swift */; };
-		F488955F296621D80090B9F4 /* UserAppartementsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F488955E296621D80090B9F4 /* UserAppartementsProtocol.swift */; };
 		F4BF1095290D6B2D00D54138 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BF1094290D6B2D00D54138 /* KeychainManager.swift */; };
 		F4C03BEF293B6C0800719102 /* DescriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C03BEE293B6C0800719102 /* DescriptionViewModel.swift */; };
 		F4D5CEED2933CFB0003147EE /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D5CEEC2933CFB0003147EE /* FavoritesViewModel.swift */; };
@@ -191,8 +189,6 @@
 		F470F464293BB17300C1FA33 /* AdditionsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionsCollectionView.swift; sourceTree = "<group>"; };
 		F470F466293BF13300C1FA33 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		F470F468293BF83400C1FA33 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
-		F488955B296621470090B9F4 /* UserAppartementsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAppartementsModel.swift; sourceTree = "<group>"; };
-		F488955E296621D80090B9F4 /* UserAppartementsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAppartementsProtocol.swift; sourceTree = "<group>"; };
 		F4BF1094290D6B2D00D54138 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		F4C03BEE293B6C0800719102 /* DescriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewModel.swift; sourceTree = "<group>"; };
 		F4D5CEEC2933CFB0003147EE /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
@@ -218,7 +214,6 @@
 			isa = PBXGroup;
 			children = (
 				02065FCD28C757210064F2F1 /* HomeItemsModel.swift */,
-				F488955B296621470090B9F4 /* UserAppartementsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -935,7 +930,6 @@
 			isa = PBXGroup;
 			children = (
 				024BACCB2924EADE00FC880D /* HomeItemsProtocol.swift */,
-				F488955E296621D80090B9F4 /* UserAppartementsProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -1127,11 +1121,9 @@
 				02AC30AF2934FE5F007B9979 /* DescriptionViewController.swift in Sources */,
 				0286246828BCBE00006C12C5 /* AppDelegate.swift in Sources */,
 				02F8E1E128CB76E000517C69 /* AccountViewModel.swift in Sources */,
-				F488955C296621470090B9F4 /* UserAppartementsModel.swift in Sources */,
 				F4C03BEF293B6C0800719102 /* DescriptionViewModel.swift in Sources */,
 				F4BF1095290D6B2D00D54138 /* KeychainManager.swift in Sources */,
 				02ABB21E28DD95B6004ECD55 /* PolicyAndPrivacyView.swift in Sources */,
-				F488955F296621D80090B9F4 /* UserAppartementsProtocol.swift in Sources */,
 				029D72B3292D0C1300AE7307 /* LoaderView.swift in Sources */,
 				F470F465293BB17300C1FA33 /* AdditionsCollectionView.swift in Sources */,
 				02ABB20328DAFA73004ECD55 /* AccountCell.swift in Sources */,

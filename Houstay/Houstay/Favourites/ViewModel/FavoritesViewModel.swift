@@ -20,7 +20,7 @@ class FavoritesViewModel {
     internal func removeFavoriteAppartments(id: String?) {
         guard var id = id else { return }
         for (index, value) in self.preloader.getFavoriteAppartmentsArray.enumerated() {
-            if value.id == id {
+            if value.appartementsId == id {
                 self.preloader.removeObjectToFavoriteAppartmentsArray(index: index)
                 self.preloader.changeIsFavoriteValue(id: id, valuew: false)
                 updateFireBaseData(id: id, key: "favorite", value: false)

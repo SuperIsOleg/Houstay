@@ -43,9 +43,11 @@ class PreLoader: PreLoaderProtocol {
                 }
                 self.arrayAppartmentes = json
                 self.arrayFilter(array: json)
-                
+                completion()
+            } else {
+                print(error?.localizedDescription)
             }
-            completion()
+            
         }
     }
     
@@ -80,7 +82,7 @@ class PreLoader: PreLoaderProtocol {
     internal func changeIsFavoriteValue(id: String, valuew: Bool) {
         
         let index = self.arrayAppartmentes?.firstIndex(where: { object in
-            object.id == id
+            object.appartementsId == id
         })
         
         guard let index else { return }

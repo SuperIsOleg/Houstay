@@ -258,7 +258,7 @@ class DescriptionView: BasicView {
     
     internal func configureView(model: HomeItemsProtocol) {
         self.cityLabel.text = model.city
-        self.priceLabel.text = model.price
+        self.priceLabel.text = String(model.price)
         self.addressLabel.text = model.address
         self.datePublicationLabel.text?.append(model.publicationDate.convertToString() ?? "")
         self.descriptionTextView.text = model.descriptions

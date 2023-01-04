@@ -110,7 +110,6 @@ class DescriptionViewController: UIViewController {
 extension DescriptionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let model = viewModel.descriptionAppatrment else { return 0 }
-        let images = model.image
         return 1
     }
     
@@ -118,7 +117,7 @@ extension DescriptionViewController: UICollectionViewDelegate, UICollectionViewD
         guard let cell = descriptionView.getImagesCollectionView.dequeueReusableCell(withReuseIdentifier: ImagesCell.reuseIdentifier,
                                                                                      for: indexPath) as? ImagesCell,
               let model = viewModel.descriptionAppatrment else { return UICollectionViewCell() }
-        cell.setImage(to: model.image)
+        cell.setImage(to: model.imagesLink[indexPath.row])
         return cell
     }
     
