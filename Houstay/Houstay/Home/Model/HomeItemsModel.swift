@@ -8,32 +8,20 @@
 import Foundation
 
 struct HomeItemsModel: HomeItemsProtocol, Codable, Hashable {
-    var id: String
-    var address: String
-    var city: String
-    var price: String
-    var image: String
-    var favorite: Bool
-    var publicationDate: Date
-    var descriptions: String
+    var userId: String
+    var email: String
     var numberOfTelefon: String
+    var avatarLink: String
+    var userName: String
+    var userAppartements: [UserAppartementsProtocol]
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.id = try container.decode(String.self, forKey: .id)
-        self.address = try container.decode(String.self, forKey: .address)
-        self.city = try container.decode(String.self, forKey: .city)
-        self.price = try container.decode(String.self, forKey: .price)
-        self.image = try container.decode(String.self, forKey: .image)
-        self.favorite = try container.decode(Bool.self, forKey: .favorite)
-        self.descriptions = try container.decode(String.self, forKey: .descriptions)
+        self.userId = try container.decode(String.self, forKey: .userId)
+        self.email = try container.decode(String.self, forKey: .email)
         self.numberOfTelefon = try container.decode(String.self, forKey: .numberOfTelefon)
-        
-        do {
-            self.publicationDate = try container.decode(String.self, forKey: .publicationDate).convertToDate() ?? Date()
-        } catch {
-            self.publicationDate = Date()
-            print(error.localizedDescription)
-        }
+        self.avatarLink = try container.decode(String.self, forKey: .avatarLink)
+        self.userName = try container.decode(String.self, forKey: .userName)
+        self.userAppartements = try container.decode([UserAppartementsModel].self, forKey: .userAppartements)
     }
 }
