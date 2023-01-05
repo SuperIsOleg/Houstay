@@ -87,7 +87,7 @@ extension FavouritesViewController: UICollectionViewDelegate, UICollectionViewDa
             print("something went wrong")
             return UICollectionViewCell()
         }
-        cell.configure(arrayAppartments[indexPath.row], image: arrayAppartments[indexPath.row].imagesLink[indexPath.row])
+        cell.configure(arrayAppartments[indexPath.row])
         cell.closure = { (cell) in
             cell.isButtonSelectedToggle()
             switch cell.getIsButtonSelected {

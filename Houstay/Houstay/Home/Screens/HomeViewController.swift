@@ -247,7 +247,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 print("something went wrong")
                 return UICollectionViewCell()
             }
-            cell.configure(item, image: item.imagesLink[indexPath.item])
+            cell.configure(item)
             cell.closure = { (cell) in
                 cell.isButtonSelectedToggle()
                 switch cell.getIsButtonSelected {
@@ -266,7 +266,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 print("something went wrong")
                 return UICollectionViewCell()
             }
-            cell.configure(item, image: item.imagesLink[indexPath.item])
+            cell.configure(item)
             cell.closure = { (cell) in
                 cell.isButtonSelectedToggle()
                 switch cell.getIsButtonSelected {
@@ -285,7 +285,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 print("something went wrong")
                 return UICollectionViewCell()
             }
-            cell.configure(item, image: item.imagesLink[indexPath.item])
+            cell.configure(item)
             cell.closure = { (cell) in
                 cell.isButtonSelectedToggle()
                 switch cell.getIsButtonSelected {
