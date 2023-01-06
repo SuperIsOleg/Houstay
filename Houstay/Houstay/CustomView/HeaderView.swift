@@ -11,7 +11,7 @@ class HeaderView: UIView {
     
     enum TopTitleEnum {
         case favorite
-        case messages
+        case news
     }
     
     private let topTitleLabel: UILabel = {
@@ -44,8 +44,8 @@ class HeaderView: UIView {
         switch title {
         case .favorite:
             topTitleLabel.text = R.string.localizable.favouritesLiked()
-        case .messages:
-            topTitleLabel.text = R.string.localizable.accountMessages()
+        case .news:
+            topTitleLabel.text = R.string.localizable.newsNews()
         }
     }
     

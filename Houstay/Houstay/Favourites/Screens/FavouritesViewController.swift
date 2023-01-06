@@ -11,8 +11,6 @@ import Firebase
 class FavouritesViewController: UIViewController {
     private let favouritesView = FavouritesView()
     private let viewModel = FavoritesViewModel()
-    private let userAuthenticationView = UserAuthenticationView()
-    private var handle: AuthStateDidChangeListenerHandle?
     
     override func loadView() {
         super.loadView()
@@ -21,7 +19,6 @@ class FavouritesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        userAuthenticationView.userAuthenticationDeleagte = self
         favouritesView.getFavoritesCollectionView.register(OffersCell.self,
                                                            forCellWithReuseIdentifier: OffersCell.reuseIdentifier)
         favouritesView.getFavoritesCollectionView.delegate = self
@@ -31,29 +28,15 @@ class FavouritesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-        handle = Auth.auth().addStateDidChangeListener { [weak self] (auth, user) in
-            guard let self = self else { return }
-            if user == nil {
-                self.view = self.userAuthenticationView
-            } else {
                 self.view = self.favouritesView
                 self.configureView()
                 self.favouritesView.getFavoritesCollectionView.reloadData()
-            }
-        }
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        guard let handle else { return }
-        Auth.auth().removeStateDidChangeListener(handle)
-    }
-    
+
     private func configureView() {
         guard let favoriteAppartmentsArray = self.viewModel.favoriteAppartmentsArray else {
             return favouritesView.setupFavoritesView(.dontHave)
         }
-        
         if favoriteAppartmentsArray.isEmpty {
             favouritesView.setupFavoritesView(.dontHave)
         } else {
@@ -62,15 +45,6 @@ class FavouritesViewController: UIViewController {
         
     }
     
-}
-
-// MARK: - FavouritesViewController
-
-extension FavouritesViewController: UserAuthenticationDeleagte {
-    func logInAction() {
-        let loginViewController = LoginViewController()
-        self.navigationController?.pushViewController(loginViewController, animated: true)
-    }
 }
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource

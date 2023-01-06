@@ -107,10 +107,9 @@ aboutApp.version = "Версия";
 aboutApp.appDescription = "Описания приложения";
 aboutApp.policyAndPrivacy = "Политика и конфиденциальность";
 
-// Mark: Messages
+// Mark: News
 
-messages.messages = "Переписка";
-messages.noMessages = "У вас нет открытых диалогов";
+news.news = "Новости";
 
 // Mark: Profile
 
