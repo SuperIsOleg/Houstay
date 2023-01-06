@@ -19,7 +19,16 @@ extension UIViewController {
         view.endEditing(true)
     }
     
-    func contactAlert(in viewController: UIViewController, numberOfTelefon: String) {
+    func infoAlert(text: String, completion: @escaping () -> Void) {
+        let alert = UIAlertController(title: text,
+                                            message: nil,
+                                            preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in
+            completion()
+        }))
+    }
+    
+    func contactAlert(numberOfTelefon: String) {
         let actionSheet = UIAlertController(title: R.string.localizable.alertContactForCommunication(),
                                             message: numberOfTelefon,
                                             preferredStyle: .actionSheet)
@@ -35,12 +44,12 @@ extension UIViewController {
                                           message: R.string.localizable.alertCopyInBuffer(),
                                           preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: R.string.localizable.alertOk(), style: .cancel))
-            viewController.present(alert, animated: true, completion: nil)
+            self.present(alert, animated: true, completion: nil)
             
         }))
         actionSheet.addAction(UIAlertAction(title: R.string.localizable.alertCancel(),
                                             style: .cancel, handler: nil))
-        viewController.present(actionSheet, animated: true, completion: nil)
+        self.present(actionSheet, animated: true, completion: nil)
     }
     
 }

@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol AccountViewDelegate: AnyObject {
+    func changePhotoAction()
+}
+
 class AccountView: UIView {
     
     private let headerView: UIView = {
@@ -18,10 +22,12 @@ class AccountView: UIView {
     private let accoutImage: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = R.color.lnk30()
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         return imageView
     }()
     
-    private let photoImage: UIImageView = {
+    private let cameraImage: UIImageView = {
         let imageView = UIImageView()
         imageView.image = R.image.photo()
         imageView.contentMode = .scaleAspectFill
@@ -49,6 +55,8 @@ class AccountView: UIView {
    
     internal var header: UIView { headerView }
     internal var getAccountTableView: UITableView { accountTableView }
+    internal var getAccountImage: UIImageView { accoutImage }
+    internal weak var accountViewDelegate: AccountViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -76,11 +84,12 @@ class AccountView: UIView {
         }
         accoutImage.layer.cornerRadius = 28
         
-        accoutImage.addSubview(photoImage)
-        photoImage.snp.makeConstraints {
-            $0.bottom.equalToSuperview()
-            $0.trailing.equalToSuperview()
+        self.addSubview(cameraImage)
+        cameraImage.snp.makeConstraints {
+            $0.bottom.equalTo(accoutImage.snp.bottom)
+            $0.trailing.equalTo(accoutImage.snp.trailing)
         }
+        cameraImage.layer.zPosition = 3
         
         headerView.addSubview(userNameLabel)
         userNameLabel.snp.makeConstraints {
@@ -101,12 +110,23 @@ class AccountView: UIView {
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalToSuperview()
         }
+        
+        let gesture = UITapGestureRecognizer(target: self,
+                                          action: #selector(changePhoto(tapGestureRecognizer: )))
+        accoutImage.isUserInteractionEnabled = true
+        accoutImage.addGestureRecognizer(gesture)
+        
 
     }
     
     internal func setNameUserAndEmailLabel(userName: String, email: String) {
         self.userNameLabel.text = userName
         self.emailLabel.text = email
+    }
+    
+    @objc
+    private func changePhoto(tapGestureRecognizer: UITapGestureRecognizer) {
+        accountViewDelegate?.changePhotoAction()
     }
 
 }

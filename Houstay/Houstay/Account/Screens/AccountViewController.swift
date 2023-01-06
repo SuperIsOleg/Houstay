@@ -24,6 +24,7 @@ class AccountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = R.color.white500()
+        accountView.accountViewDelegate = self
         accountView.getAccountTableView.delegate = self
         accountView.getAccountTableView.dataSource = self
         accountView.getAccountTableView.register(AccountCell.self, forCellReuseIdentifier: AccountCell.reuseIdentifier)
@@ -131,4 +132,32 @@ extension AccountViewController: UserAuthenticationDeleagte {
         let loginViewController = LoginViewController()
         self.navigationController?.pushViewController(loginViewController, animated: true)
     }
+}
+
+// MARK: - AccountViewDelegate
+
+extension AccountViewController: AccountViewDelegate {
+    func changePhotoAction() {
+        let photoPicker = UIImagePickerController()
+        photoPicker.allowsEditing = true
+        photoPicker.delegate = self
+        photoPicker.sourceType = .photoLibrary
+        present(photoPicker, animated: true)
+    }
+    
+}
+
+extension AccountViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[.editedImage] as? UIImage,
+              let data = image.jpegData(compressionQuality: 1) else { return }
+        self.accountView.getAccountImage.image = UIImage(data: data)
+        picker.dismiss(animated: true)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true)
+    }
+    
 }

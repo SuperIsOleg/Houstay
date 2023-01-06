@@ -262,6 +262,7 @@ class DescriptionView: BasicView {
         self.addressLabel.text = model.address
         self.datePublicationLabel.text?.append(model.publicationDate.convertToString() ?? "")
         self.descriptionTextView.text = model.descriptions
+        self.userNameLabel.text = model.userName
     }
     
     @objc

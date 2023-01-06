@@ -33,7 +33,7 @@ class DescriptionViewController: UIViewController {
         descriptionView.getImagesCollectionView.register(ImagesCell.self,
                                                          forCellWithReuseIdentifier: ImagesCell.reuseIdentifier)
         descriptionView.descriptionDelegate = self
-        configure()
+        configureFavoriteButton()
         guard let model = viewModel.descriptionAppatrment else { return }
         descriptionView.configureView(model: model)
     }
@@ -81,7 +81,7 @@ class DescriptionViewController: UIViewController {
         self.navigationItem.rightBarButtonItem?.image = configureRightBarButtonItem()
     }
     
-    private func configure() {
+    private func configureFavoriteButton() {
         guard let model = viewModel.descriptionAppatrment else { return }
         self.isFavoriteButtonSelected = model.favorite
     }
@@ -110,7 +110,7 @@ class DescriptionViewController: UIViewController {
 extension DescriptionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let model = viewModel.descriptionAppatrment else { return 0 }
-        return 1
+        return model.imagesLink.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -137,6 +137,6 @@ extension DescriptionViewController: UICollectionViewDelegateFlowLayout {
 
 extension DescriptionViewController: DescriptionDelegate {
     func contactTapAction() {
-        self.contactAlert(in: self, numberOfTelefon: "+375(33)584-57-37")
+        self.contactAlert(numberOfTelefon: "+375(33)584-57-37")
     }
 }
