@@ -28,6 +28,7 @@ alert.call = "Позвонить";
 alert.cancel = "Выйти";
 alert.copyInBuffer = "Номер телефона скопирован в буфер обмена";
 alert.ok = "Ok";
+alert.deleteAccount = "Ваш аккаунт удален";
 
 // Mark: Login
 
@@ -135,3 +136,9 @@ userAuthentication.logIn = "Войти";
 description.description = "Описание";
 description.contact = "Контакты";
 description.publicationDate = "Дата публикации: ";
+
+// Mark: CollectionView
+
+collectionView.allAppartments = "Все объявления";
+collectionView.popular = "Популярные";
+collectionView.recentlyPosted = "Недавно добавленные";

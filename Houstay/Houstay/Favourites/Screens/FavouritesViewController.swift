@@ -19,6 +19,7 @@ class FavouritesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.delegate = self
         favouritesView.getFavoritesCollectionView.register(OffersCell.self,
                                                            forCellWithReuseIdentifier: OffersCell.reuseIdentifier)
         favouritesView.getFavoritesCollectionView.delegate = self
@@ -85,7 +86,7 @@ extension FavouritesViewController: UICollectionViewDelegate, UICollectionViewDa
                 break
             case false:
                 self.viewModel.removeFavoriteAppartments(id: cell.getId)
-                self.favouritesView.getFavoritesCollectionView.reloadData()
+                self.configureView()
             }
         }
         return cell
@@ -119,5 +120,11 @@ extension FavouritesViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 16
+    }
+}
+
+extension FavouritesViewController: FavoritesViewModelDelegate {
+    func reloadLobby() {
+        favouritesView.getFavoritesCollectionView.reloadData()
     }
 }

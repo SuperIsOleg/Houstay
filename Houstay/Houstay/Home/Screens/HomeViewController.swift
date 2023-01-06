@@ -11,8 +11,9 @@ import Firebase
 class HomeViewController: UIViewController {
     
     private let homeView = HomeView()
-    private lazy var homeCollectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UICollectionViewLayout())
+    private lazy var homeCollectionView = self.homeView.getHomeCollectionView
     private let homeViewModel = HomeViewModel()
+
 //    private var dataSource: UICollectionViewDiffableDataSource<HomeSectionEnum, HomeItemsModel>! = nil
     
     override func loadView() {
@@ -26,25 +27,13 @@ class HomeViewController: UIViewController {
         homeCollectionView.showsVerticalScrollIndicator = false
         homeCollectionView.delegate = self
         homeCollectionView.dataSource = self
+        homeCollectionView.register(SectionHeaderView.self,
+                                    forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                    withReuseIdentifier: SectionHeaderView.reuseIdentifier)
         homeCollectionView.register(OffersCell.self, forCellWithReuseIdentifier: OffersCell.reuseIdentifier)
         homeCollectionView.register(RecentlyPostedCell.self, forCellWithReuseIdentifier: RecentlyPostedCell.reuseIdentifier)
         homeCollectionView.register(AllOffersCell.self, forCellWithReuseIdentifier: AllOffersCell.reuseIdentifier)
         homeCollectionView.reloadData()
-        setupLayout()
-        
-        let layout = UICollectionViewCompositionalLayout { sectionIndex, enviroment in
-            guard let section = HomeSectionEnum(rawValue: sectionIndex) else { fatalError("Unknown section") }
-            switch section {
-            case .offers:
-                return self.createOffersSection()
-            case .recentlyPosted:
-                return self.createRecentlyPostedSection()
-            case .allOffers:
-                return self.createAllOffersSection()
-            }
-        }
-        homeCollectionView.setCollectionViewLayout(layout, animated: true)
-        
 //        createDataSource()
 //        reloadData()
     }
@@ -53,71 +42,6 @@ class HomeViewController: UIViewController {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         homeCollectionView.reloadData()
-    }
-    
-    private func setupLayout() {
-        self.view.backgroundColor = R.color.white500()
-        homeView.addSubview(homeCollectionView)
-        homeCollectionView.snp.makeConstraints {
-            $0.top.equalToSuperview()
-            $0.leading.equalToSuperview()
-            $0.trailing.equalToSuperview()
-            $0.bottom.equalToSuperview()
-        }
-        
-    }
-    
-    private func createOffersSection() -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                              heightDimension: .fractionalHeight(1.0))
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
-        
-        
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9),
-                                               heightDimension: .estimated(232))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-        
-        let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets.init(top: 0, leading: 16, bottom: 0, trailing: 16)
-        section.interGroupSpacing = 16
-        
-        section.orthogonalScrollingBehavior = .groupPaging
-        return section
-        
-    }
-    
-    private func createRecentlyPostedSection() -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                              heightDimension: .fractionalHeight(1.0))
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                               heightDimension: .estimated(100))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-        
-        let section = NSCollectionLayoutSection(group: group)
-        section.interGroupSpacing = 16.0
-        section.contentInsets = NSDirectionalEdgeInsets.init(top: 16, leading: 16, bottom: 0, trailing: 16)
-        
-        return section
-    }
-    
-    private func createAllOffersSection() -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                              heightDimension: .fractionalHeight(1.0))
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                               heightDimension: .estimated(260))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 2)
-        group.interItemSpacing = .fixed(16.0)
-        
-        let section = NSCollectionLayoutSection(group: group)
-        section.interGroupSpacing = 16.0
-        section.contentInsets = NSDirectionalEdgeInsets.init(top: 16, leading: 16, bottom: 16, trailing: 16)
-        
-        return section
     }
     
     //    MARK: - UICollectionViewDiffableDataSource
@@ -231,7 +155,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
     }
 
-
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         guard let arrayAppartments = self.homeViewModel.arrayAppartmentes,
@@ -302,5 +225,30 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return UICollectionViewCell()
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let arrayAppartments = self.homeViewModel.arrayAppartmentes else { return }
+        let descriptionViewController = DescriptionViewController(viewModel:
+                                                                    DescriptionViewModel(descriptionAppatrment: arrayAppartments[indexPath.row]))
+        self.navigationController?.pushViewController(descriptionViewController, animated: true)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
 
+        guard let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
+                                                                                  withReuseIdentifier: SectionHeaderView.reuseIdentifier,
+                                                                                  for: indexPath) as? SectionHeaderView else { return UICollectionReusableView() }
+        switch HomeSectionEnum(rawValue: indexPath.section) {
+
+        case .allOffers:
+            sectionHeader.setTitle(configure: .allAppartments)
+        case .offers:
+            sectionHeader.setTitle(configure: .popular)
+        case .recentlyPosted:
+            sectionHeader.setTitle(configure: .recentlyPosted)
+        case .none:
+            break
+        }
+        return UICollectionReusableView()
+    }
 }

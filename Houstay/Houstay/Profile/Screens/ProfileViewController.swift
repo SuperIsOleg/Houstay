@@ -69,7 +69,9 @@ class ProfileViewController: UIViewController {
 extension ProfileViewController: ProfileViewDelegate {
     func deleteAccountLabelAction() {
         self.viewModel.deleteAccount {
-            self.navigationController?.popViewController(animated: true)
+            self.infoAlert(text: R.string.localizable.alertDeleteAccount()) {
+                self.navigationController?.popViewController(animated: true)
+            }
         }
     }
 }

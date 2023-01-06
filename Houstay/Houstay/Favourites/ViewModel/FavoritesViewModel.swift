@@ -8,8 +8,14 @@
 import Foundation
 import FirebaseDatabase
 
+protocol FavoritesViewModelDelegate: AnyObject {
+    func reloadLobby()
+}
+
 class FavoritesViewModel {
     private let preloader = PreLoader.shared
+    
+    internal weak var delegate: FavoritesViewModelDelegate?
     
     internal var favoriteAppartmentsArray: [HomeItemsProtocol]? {
         get {
@@ -24,6 +30,7 @@ class FavoritesViewModel {
                 self.preloader.removeObjectToFavoriteAppartmentsArray(index: index)
                 self.preloader.changeIsFavoriteValue(id: id, valuew: false)
                 updateFireBaseData(id: id, key: "favorite", value: false)
+                delegate?.reloadLobby()
             }
         }
     }

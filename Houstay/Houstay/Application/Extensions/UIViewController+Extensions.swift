@@ -26,6 +26,7 @@ extension UIViewController {
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in
             completion()
         }))
+        self.present(alert, animated: true)
     }
     
     func contactAlert(numberOfTelefon: String) {

@@ -82,6 +82,8 @@
 		F42C174D28BFC8A70056CF59 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42C174C28BFC8A70056CF59 /* HomeViewController.swift */; };
 		F42C174F28BFC8BB0056CF59 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42C174E28BFC8BA0056CF59 /* HomeView.swift */; };
 		F4329DEE28BFBE3900D38EAE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4329DED28BFBE3900D38EAE /* GoogleService-Info.plist */; };
+		F44325A22968C43E00167924 /* HomeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44325A12968C43E00167924 /* HomeCollectionView.swift */; };
+		F44325A42968DAD600167924 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44325A32968DAD600167924 /* SectionHeaderView.swift */; };
 		F4480ACB28BE7011001AA98B /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4480ACA28BE7011001AA98B /* CustomTextField.swift */; };
 		F4480ACD28BE8E99001AA98B /* BasicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4480ACC28BE8E99001AA98B /* BasicView.swift */; };
 		F4480AD228BE95A1001AA98B /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4480AD128BE95A1001AA98B /* ForgetPasswordViewController.swift */; };
@@ -177,6 +179,8 @@
 		F42C174C28BFC8A70056CF59 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F42C174E28BFC8BA0056CF59 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F4329DED28BFBE3900D38EAE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F44325A12968C43E00167924 /* HomeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionView.swift; sourceTree = "<group>"; };
+		F44325A32968DAD600167924 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		F4480ACA28BE7011001AA98B /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		F4480ACC28BE8E99001AA98B /* BasicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicView.swift; sourceTree = "<group>"; };
 		F4480AD128BE95A1001AA98B /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
@@ -225,8 +229,7 @@
 				02065FC628C6141B0064F2F1 /* RecentlyPostedCell.swift */,
 				02065FC828C6143A0064F2F1 /* AllOffersCell.swift */,
 			);
-			name = Cells;
-			path = ../Cells;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		02065FCA28C62D2D0064F2F1 /* Enum */ = {
@@ -837,10 +840,20 @@
 		F42C174B28BFC8850056CF59 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				02065FC328C6139E0064F2F1 /* Cells */,
+				F44325A02968C41300167924 /* CollectionView */,
 				F42C174E28BFC8BA0056CF59 /* HomeView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		F44325A02968C41300167924 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				02065FC328C6139E0064F2F1 /* Cells */,
+				F44325A32968DAD600167924 /* SectionHeaderView.swift */,
+				F44325A12968C43E00167924 /* HomeCollectionView.swift */,
+			);
+			path = CollectionView;
 			sourceTree = "<group>";
 		};
 		F4480AC928BE6FD4001AA98B /* CustomView */ = {
@@ -1169,6 +1182,8 @@
 				02AC30B22934FE91007B9979 /* DescriptionView.swift in Sources */,
 				F4D5CEED2933CFB0003147EE /* FavoritesViewModel.swift in Sources */,
 				02ABB22528DDA7B4004ECD55 /* NewsView.swift in Sources */,
+				F44325A22968C43E00167924 /* HomeCollectionView.swift in Sources */,
+				F44325A42968DAD600167924 /* SectionHeaderView.swift in Sources */,
 				F4D5CEEF2933E280003147EE /* FavoritesCollectionView.swift in Sources */,
 				023EEAD028BCE86700446893 /* OnboardingCollectionView.swift in Sources */,
 				02952B2D28BE22F000B2F43F /* LoginView.swift in Sources */,
