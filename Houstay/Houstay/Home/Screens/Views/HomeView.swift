@@ -39,18 +39,18 @@ class HomeView: UIView {
             guard let section = HomeSectionEnum(rawValue: sectionIndex),
                   let self = self else { fatalError("Unknown section") }
             switch section {
-            case .offers:
-                return self.createOffersSection()
-            case .recentlyPosted:
-                return self.createRecentlyPostedSection()
             case .allOffers:
                 return self.createAllOffersSection()
+            case .recentlyPosted:
+                return self.createRecentlyPostedSection()
+            case .popular:
+                return self.createPopularSection()
             }
         }
         homeCollectionView.setCollectionViewLayout(layout, animated: true)
     }
     
-    private func createOffersSection() -> NSCollectionLayoutSection {
+    private func createAllOffersSection() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                               heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -62,7 +62,7 @@ class HomeView: UIView {
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets.init(top: 0, leading: 16, bottom: 0, trailing: 16)
+        section.contentInsets = NSDirectionalEdgeInsets.init(top: 0, leading: 16, bottom: 16, trailing: 16)
         section.interGroupSpacing = 16
         
         let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
@@ -73,7 +73,7 @@ class HomeView: UIView {
                         alignment: .top)
         
         section.orthogonalScrollingBehavior = .groupPaging
-//        section.boundarySupplementaryItems = [header]
+        section.boundarySupplementaryItems = [header]
         return section
         
     }
@@ -95,13 +95,13 @@ class HomeView: UIView {
                         alignment: .top)
         let section = NSCollectionLayoutSection(group: group)
         section.interGroupSpacing = 16.0
-//        section.boundarySupplementaryItems = [header]
-        section.contentInsets = NSDirectionalEdgeInsets.init(top: 16, leading: 16, bottom: 0, trailing: 16)
+        section.boundarySupplementaryItems = [header]
+        section.contentInsets = NSDirectionalEdgeInsets.init(top: 0, leading: 16, bottom: 16, trailing: 16)
         
         return section
     }
     
-    private func createAllOffersSection() -> NSCollectionLayoutSection {
+    private func createPopularSection() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                               heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -119,8 +119,8 @@ class HomeView: UIView {
                         alignment: .top)
         let section = NSCollectionLayoutSection(group: group)
         section.interGroupSpacing = 16.0
-//        section.boundarySupplementaryItems = [header]
-        section.contentInsets = NSDirectionalEdgeInsets.init(top: 16, leading: 16, bottom: 16, trailing: 16)
+        section.boundarySupplementaryItems = [header]
+        section.contentInsets = NSDirectionalEdgeInsets.init(top: 0, leading: 16, bottom: 16, trailing: 16)
         
         return section
     }

@@ -34,7 +34,7 @@ class SectionHeaderView: UICollectionReusableView {
     private func setupLayout() {
         self.addSubview(titleLabel)
         titleLabel.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.leading.trailing.equalToSuperview()
             $0.centerY.equalToSuperview()
         }
     }

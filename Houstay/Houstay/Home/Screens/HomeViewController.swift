@@ -144,7 +144,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         guard let model = homeViewModel.arrayAppartmentes else { return 0 }
 
         switch HomeSectionEnum(rawValue: section) {
-        case .offers:
+        case .popular:
             return model.count
         case .recentlyPosted:
             return 4
@@ -164,7 +164,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
 
         switch HomeSectionEnum(rawValue: indexPath.section) {
-        case .offers:
+        case .popular:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OffersCell.reuseIdentifier, for: indexPath) as?
                     OffersCell else {
                 print("something went wrong")
@@ -235,20 +235,25 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
 
-        guard let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
-                                                                                  withReuseIdentifier: SectionHeaderView.reuseIdentifier,
-                                                                                  for: indexPath) as? SectionHeaderView else { return UICollectionReusableView() }
+        guard let header = collectionView.dequeueReusableSupplementaryView(
+         ofKind: UICollectionView.elementKindSectionHeader,
+         withReuseIdentifier: SectionHeaderView.reuseIdentifier,
+         for: indexPath
+        ) as? SectionHeaderView else { return UICollectionReusableView() }
+
+        
         switch HomeSectionEnum(rawValue: indexPath.section) {
 
         case .allOffers:
-            sectionHeader.setTitle(configure: .allAppartments)
-        case .offers:
-            sectionHeader.setTitle(configure: .popular)
+            header.setTitle(configure: .allAppartments)
+        case .popular:
+            header.setTitle(configure: .popular)
         case .recentlyPosted:
-            sectionHeader.setTitle(configure: .recentlyPosted)
+            header.setTitle(configure: .recentlyPosted)
         case .none:
             break
         }
-        return UICollectionReusableView()
+        return header
     }
+    
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 enum HomeSectionEnum: Int, CaseIterable {
-    case offers
-    case recentlyPosted
     case allOffers
+    case recentlyPosted
+    case popular
 }
