@@ -32,21 +32,21 @@ class HomeView: UIView {
         }
         
         let layout = UICollectionViewCompositionalLayout { [weak self] sectionIndex, enviroment in
-            guard let section = HomeSectionEnum(rawValue: sectionIndex),
+            guard let section = SectionType(rawValue: sectionIndex),
                   let self = self else { fatalError("Unknown section") }
             switch section {
-            case .allOffers:
-                return self.createAllOffersSection()
-            case .recentlyPosted:
-                return self.createRecentlyPostedSection()
-            case .popular:
-                return self.createPopularSection()
+            case .allAppartments:
+                return self.configureAllAppartmentsSection()
+            case .recentlyPostedAppartments:
+                return self.configureRecentlyPostedAppartmentsSection()
+            case .popularAppartments:
+                return self.configurePopularAppartmentsSection()
             }
         }
         homeCollectionView.setCollectionViewLayout(layout, animated: true)
     }
     
-    private func createAllOffersSection() -> NSCollectionLayoutSection {
+    private func configureAllAppartmentsSection() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                               heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -74,7 +74,7 @@ class HomeView: UIView {
         
     }
     
-    private func createRecentlyPostedSection() -> NSCollectionLayoutSection {
+    private func configureRecentlyPostedAppartmentsSection() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                               heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -97,7 +97,7 @@ class HomeView: UIView {
         return section
     }
     
-    private func createPopularSection() -> NSCollectionLayoutSection {
+    private func configurePopularAppartmentsSection() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                               heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)

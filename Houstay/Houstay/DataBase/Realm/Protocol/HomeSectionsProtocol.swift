@@ -6,7 +6,7 @@
 //
 
 protocol HomeSectionsProtocol {
-    var type: HomeSectionEnum { get set }
+    var type: SectionType { get set }
     var title: String { get set }
     var items: [HomeItemsModel] { get set }
 }

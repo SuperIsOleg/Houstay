@@ -7,8 +7,8 @@
 
 import UIKit
 
-class AllOffersCell: UICollectionViewCell {
-    static var reuseIdentifier = String(describing: AllOffersCell.self)
+class AllAppartmentsCell: UICollectionViewCell {
+    static var reuseIdentifier = String(describing: AllAppartmentsCell.self)
     
     private var isButtonSelected: Bool = false
     
@@ -45,7 +45,7 @@ class AllOffersCell: UICollectionViewCell {
     private let priceLabel: UILabel = {
         let label = UILabel()
         label.font = R.font.robotoRegular(size: 14)
-        label.textColor = R.color.lnk100()
+        label.textColor = R.color.blue100()
         label.text = ""
         return label
     }()
@@ -55,7 +55,7 @@ class AllOffersCell: UICollectionViewCell {
     internal var getId: String { id ?? "" }
     internal var getIsButtonSelected: Bool { isButtonSelected }
     internal var getFavoriteAppartementButton: UIButton { favoriteAppartementButton }
-    internal var closure: ((AllOffersCell) -> Void)?
+    internal var closure: ((AllAppartmentsCell) -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)

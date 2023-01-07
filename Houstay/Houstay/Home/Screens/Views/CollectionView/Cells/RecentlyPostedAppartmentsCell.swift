@@ -1,5 +1,5 @@
 //
-//  OffersCell.swift
+//  RecentlyPostedCell.swift
 //  Houstay
 //
 //  Created by Oleg Kalistratov on 5.09.22.
@@ -7,8 +7,8 @@
 
 import UIKit
 
-class OffersCell: UICollectionViewCell {
-    static var reuseIdentifier = String(describing: OffersCell.self)
+class RecentlyPostedAppartmentsCell: UICollectionViewCell {
+    static var reuseIdentifier = String(describing: RecentlyPostedAppartmentsCell.self)
     
     private var isButtonSelected: Bool = false
     
@@ -25,9 +25,9 @@ class OffersCell: UICollectionViewCell {
         let button = UIButton()
         return button
     }()
-    
+
     private let addressLabel: UILabel = {
-        let label = UILabel()
+       let label = UILabel()
         label.font = R.font.robotoRegular(size: 14)
         label.textColor = R.color.lnk50()
         label.text = ""
@@ -45,7 +45,7 @@ class OffersCell: UICollectionViewCell {
     private let priceLabel: UILabel = {
         let label = UILabel()
         label.font = R.font.robotoRegular(size: 14)
-        label.textColor = R.color.lnk100()
+        label.textColor = R.color.blue100()
         label.text = ""
         return label
     }()
@@ -55,7 +55,7 @@ class OffersCell: UICollectionViewCell {
     internal var getId: String { id ?? "" }
     internal var getIsButtonSelected: Bool { isButtonSelected }
     internal var getFavoriteAppartementButton: UIButton { favoriteAppartementButton }
-    internal var closure: ((OffersCell) -> Void)?
+    internal var closure: ((RecentlyPostedAppartmentsCell) -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -75,44 +75,45 @@ class OffersCell: UICollectionViewCell {
     }
     
     private func setupLayout() {
-        
+
         self.contentView.addSubview(appartementImageView)
         appartementImageView.snp.makeConstraints {
             $0.top.equalToSuperview()
-            $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(140)
+            $0.leading.equalToSuperview()
+            $0.height.width.equalTo(100)
         }
         
         self.contentView.addSubview(favoriteAppartementButton)
         favoriteAppartementButton.snp.makeConstraints {
-            $0.top.equalTo(12)
-            $0.trailing.equalTo(-12)
+            $0.top.equalTo(8)
+            $0.trailing.equalTo(appartementImageView.snp.trailing).offset(-8)
             $0.height.width.equalTo(30)
         }
-        
         favoriteAppartementButton.layer.zPosition = 5
-        
-        self.contentView.addSubview(addressLabel)
-        addressLabel.snp.makeConstraints {
-            $0.top.equalTo(appartementImageView.snp.bottom).offset(8)
-            $0.leading.equalToSuperview().offset(8)
+
+        self.contentView.addSubview(cityLabel)
+        cityLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(8)
+            $0.leading.equalTo(appartementImageView.snp.trailing).offset(8)
             $0.trailing.equalToSuperview().offset(-8)
         }
         
-        self.contentView.addSubview(cityLabel)
-        cityLabel.snp.makeConstraints {
-            $0.top.equalTo(addressLabel.snp.bottom).offset(8)
-            $0.leading.equalToSuperview().offset(8)
+        self.contentView.addSubview(addressLabel)
+        addressLabel.snp.makeConstraints {
+            $0.top.equalTo(cityLabel.snp.bottom).offset(8)
+            $0.leading.equalTo(cityLabel)
             $0.trailing.equalToSuperview().offset(-8)
         }
         
         self.contentView.addSubview(priceLabel)
         priceLabel.snp.makeConstraints {
-            $0.top.equalTo(cityLabel.snp.bottom).offset(8)
-            $0.leading.equalToSuperview().offset(8)
+            $0.top.equalTo(addressLabel.snp.bottom).offset(8)
+            $0.leading.equalTo(cityLabel)
             $0.trailing.equalToSuperview().offset(-8)
         }
+        
         favoriteAppartementButton.addTarget(self, action: #selector(favoriteAppartementTap), for: .touchUpInside)
+        
     }
     
     @objc

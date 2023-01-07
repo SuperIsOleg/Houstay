@@ -26,9 +26,9 @@ class HomeViewController: UIViewController {
         homeCollectionView.register(SectionHeaderView.self,
                                     forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                     withReuseIdentifier: SectionHeaderView.reuseIdentifier)
-        homeCollectionView.register(OffersCell.self, forCellWithReuseIdentifier: OffersCell.reuseIdentifier)
-        homeCollectionView.register(RecentlyPostedCell.self, forCellWithReuseIdentifier: RecentlyPostedCell.reuseIdentifier)
-        homeCollectionView.register(AllOffersCell.self, forCellWithReuseIdentifier: AllOffersCell.reuseIdentifier)
+        homeCollectionView.register(PopularAppartmentsCell.self, forCellWithReuseIdentifier: PopularAppartmentsCell.reuseIdentifier)
+        homeCollectionView.register(RecentlyPostedAppartmentsCell.self, forCellWithReuseIdentifier: RecentlyPostedAppartmentsCell.reuseIdentifier)
+        homeCollectionView.register(AllAppartmentsCell.self, forCellWithReuseIdentifier: AllAppartmentsCell.reuseIdentifier)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,18 +43,18 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return HomeSectionEnum.allCases.count
+        return SectionType.allCases.count
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let model = homeViewModel.arrayAppartmentes else { return 0 }
 
-        switch HomeSectionEnum(rawValue: section) {
-        case .popular:
+        switch SectionType(rawValue: section) {
+        case .popularAppartments:
             return model.count
-        case .recentlyPosted:
+        case .recentlyPostedAppartments:
             return 4
-        case .allOffers:
+        case .allAppartments:
             return 4
         case .none:
             return 0
@@ -69,10 +69,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return UICollectionViewCell()
         }
 
-        switch HomeSectionEnum(rawValue: indexPath.section) {
-        case .popular:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OffersCell.reuseIdentifier, for: indexPath) as?
-                    OffersCell else {
+        switch SectionType(rawValue: indexPath.section) {
+        case .popularAppartments:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularAppartmentsCell.reuseIdentifier, for: indexPath) as?
+                    PopularAppartmentsCell else {
                 print("something went wrong")
                 return UICollectionViewCell()
             }
@@ -89,9 +89,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 }
             }
             return cell
-        case .recentlyPosted:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecentlyPostedCell.reuseIdentifier, for: indexPath) as?
-                    RecentlyPostedCell else {
+        case .recentlyPostedAppartments:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecentlyPostedAppartmentsCell.reuseIdentifier, for: indexPath) as?
+                    RecentlyPostedAppartmentsCell else {
                 print("something went wrong")
                 return UICollectionViewCell()
             }
@@ -108,9 +108,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 }
             }
             return cell
-        case .allOffers:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AllOffersCell.reuseIdentifier, for: indexPath) as?
-                    AllOffersCell else {
+        case .allAppartments:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AllAppartmentsCell.reuseIdentifier, for: indexPath) as?
+                    AllAppartmentsCell else {
                 print("something went wrong")
                 return UICollectionViewCell()
             }
@@ -137,12 +137,12 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let descriptionViewController = DescriptionViewController(viewModel:
                                                                     DescriptionViewModel(descriptionAppatrment: arrayAppartments[indexPath.row]))
         
-        switch HomeSectionEnum(rawValue: indexPath.section) {
-        case .allOffers:
+        switch SectionType(rawValue: indexPath.section) {
+        case .allAppartments:
             self.navigationController?.pushViewController(descriptionViewController, animated: true)
-        case .popular:
+        case .popularAppartments:
             self.navigationController?.pushViewController(descriptionViewController, animated: true)
-        case .recentlyPosted:
+        case .recentlyPostedAppartments:
             self.navigationController?.pushViewController(descriptionViewController, animated: true)
         case .none:
             break
@@ -157,12 +157,12 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
          for: indexPath
         ) as? SectionHeaderView else { return UICollectionReusableView() }
 
-        switch HomeSectionEnum(rawValue: indexPath.section) {
-        case .allOffers:
+        switch SectionType(rawValue: indexPath.section) {
+        case .allAppartments:
             header.setTitle(configure: .allAppartments)
-        case .popular:
+        case .popularAppartments:
             header.setTitle(configure: .popular)
-        case .recentlyPosted:
+        case .recentlyPostedAppartments:
             header.setTitle(configure: .recentlyPosted)
         case .none:
             break
