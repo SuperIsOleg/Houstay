@@ -14,8 +14,6 @@ class HomeViewController: UIViewController {
     private lazy var homeCollectionView = self.homeView.getHomeCollectionView
     private let homeViewModel = HomeViewModel()
 
-//    private var dataSource: UICollectionViewDiffableDataSource<HomeSectionEnum, HomeItemsModel>! = nil
-    
     override func loadView() {
         super.loadView()
         self.view = homeView
@@ -23,8 +21,6 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hideKeyboardOnTap()
-        homeCollectionView.showsVerticalScrollIndicator = false
         homeCollectionView.delegate = self
         homeCollectionView.dataSource = self
         homeCollectionView.register(SectionHeaderView.self,
@@ -33,9 +29,6 @@ class HomeViewController: UIViewController {
         homeCollectionView.register(OffersCell.self, forCellWithReuseIdentifier: OffersCell.reuseIdentifier)
         homeCollectionView.register(RecentlyPostedCell.self, forCellWithReuseIdentifier: RecentlyPostedCell.reuseIdentifier)
         homeCollectionView.register(AllOffersCell.self, forCellWithReuseIdentifier: AllOffersCell.reuseIdentifier)
-        homeCollectionView.reloadData()
-//        createDataSource()
-//        reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,93 +36,6 @@ class HomeViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         homeCollectionView.reloadData()
     }
-    
-    //    MARK: - UICollectionViewDiffableDataSource
-    
-//        private func createDataSource() {
-//
-//            dataSource = UICollectionViewDiffableDataSource<HomeSectionEnum, HomeItemsModel>(collectionView: homeCollectionView) { (collectionView, indexPath, item) -> UICollectionViewCell? in
-//
-//
-//
-//                guard let section = HomeSectionEnum(rawValue: indexPath.section) else { fatalError("Unknown section") }
-//
-//                switch section {
-//                case .offers:
-//                    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OffersCell.reuseIdentifier, for: indexPath) as?
-//                            OffersCell else {
-//                        print("something went wrong")
-//                        return UICollectionViewCell()
-//                    }
-//                    cell.configure(item)
-//                    cell.closure = { (cell) in
-//                        cell.isButtonSelectedToggle()
-//                        switch cell.getIsButtonSelected {
-//                        case true:
-//                            cell.getFavoriteAppartementButton.setImage(R.image.tapLike(), for: .normal)
-//                            self.homeViewModel.addFavoriteAppartments(id: cell.getId)
-//                        case false:
-//                            cell.getFavoriteAppartementButton.setImage(R.image.didTapLike(), for: .normal)
-//                            self.homeViewModel.removeFavoriteAppartments(id: cell.getId)
-//                        }
-//                    }
-//                    return cell
-//                case .recentlyPosted:
-//                    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecentlyPostedCell.reuseIdentifier, for: indexPath) as?
-//                            RecentlyPostedCell else {
-//                        print("something went wrong")
-//                        return UICollectionViewCell()
-//                    }
-//                    cell.configure(item)
-//                    cell.closure = { (cell) in
-//                        cell.isButtonSelectedToggle()
-//                        switch cell.getIsButtonSelected {
-//                        case true:
-//                            cell.getFavoriteAppartementButton.setImage(R.image.tapLike(), for: .normal)
-//                            self.homeViewModel.addFavoriteAppartments(id: cell.getId)
-//                        case false:
-//                            cell.getFavoriteAppartementButton.setImage(R.image.didTapLike(), for: .normal)
-//                            self.homeViewModel.removeFavoriteAppartments(id: cell.getId)
-//                        }
-//                    }
-//                    return cell
-//                case .allOffers:
-//                    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AllOffersCell.reuseIdentifier, for: indexPath) as?
-//                            AllOffersCell else {
-//                        print("something went wrong")
-//                        return UICollectionViewCell()
-//                    }
-//                    cell.configure(item)
-//                    cell.closure = { (cell) in
-//                        cell.isButtonSelectedToggle()
-//                        switch cell.getIsButtonSelected {
-//                        case true:
-//                            cell.getFavoriteAppartementButton.setImage(R.image.tapLike(), for: .normal)
-//                            self.homeViewModel.addFavoriteAppartments(id: cell.getId)
-//                        case false:
-//                            cell.getFavoriteAppartementButton.setImage(R.image.didTapLike(), for: .normal)
-//                            self.homeViewModel.removeFavoriteAppartments(id: cell.getId)
-//                        }
-//                    }
-//                    return cell
-//                }
-//            }
-//
-//        }
-//
-//        private func reloadData() {
-//            var snapshot = NSDiffableDataSourceSnapshot<HomeSectionEnum, HomeItemsModel>()
-//            snapshot.appendSections([.offers, .recentlyPosted, .allOffers])
-//
-//            guard let arrayAppartments = self.homeViewModel.arrayAppartmentes as? [HomeItemsModel] else { return }
-//
-//            snapshot.appendItems(arrayAppartments, toSection: .offers)
-//            snapshot.appendItems(arrayAppartments, toSection: .recentlyPosted)
-//            snapshot.appendItems(arrayAppartments, toSection: .allOffers)
-//
-//            dataSource.apply(snapshot, animatingDifferences: false)
-//
-//        }
     
 }
 

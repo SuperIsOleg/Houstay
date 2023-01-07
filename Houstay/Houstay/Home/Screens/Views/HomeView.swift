@@ -26,13 +26,9 @@ class HomeView: UIView {
     
     
     private func setupLayout() {
-        self.backgroundColor = R.color.white500()
         self.addSubview(homeCollectionView)
         homeCollectionView.snp.makeConstraints {
-            $0.top.equalToSuperview()
-            $0.leading.equalToSuperview()
-            $0.trailing.equalToSuperview()
-            $0.bottom.equalToSuperview()
+            $0.edges.equalToSuperview()
         }
         
         let layout = UICollectionViewCompositionalLayout { [weak self] sectionIndex, enviroment in

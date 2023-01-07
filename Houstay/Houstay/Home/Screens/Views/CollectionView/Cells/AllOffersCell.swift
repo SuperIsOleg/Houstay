@@ -80,7 +80,7 @@ class AllOffersCell: UICollectionViewCell {
         appartementImageView.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(120)
+            $0.height.equalTo(140)
         }
         
         self.contentView.addSubview(favoriteAppartementButton)
