@@ -142,3 +142,4 @@ description.publicationDate = "Дата публикации: ";
 collectionView.allAppartments = "Все объявления";
 collectionView.popular = "Популярные";
 collectionView.recentlyPosted = "Недавно добавленные";
+collectionView.viewAll = "Все";

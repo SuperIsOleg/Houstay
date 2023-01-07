@@ -156,14 +156,28 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
          withReuseIdentifier: SectionHeaderView.reuseIdentifier,
          for: indexPath
         ) as? SectionHeaderView else { return UICollectionReusableView() }
-
+        
+        
+        
         switch SectionType(rawValue: indexPath.section) {
         case .allAppartments:
             header.setTitle(configure: .allAppartments)
+            header.closure = {
+                let viewAllAppartmentsViewController = ViewAllAppartmentsViewController(navigationTitle: .allAppartments)
+                self.navigationController?.pushViewController(viewAllAppartmentsViewController, animated: true)
+            }
         case .popularAppartments:
             header.setTitle(configure: .popular)
+            header.closure = {
+                let viewAllAppartmentsViewController = ViewAllAppartmentsViewController(navigationTitle: .popular)
+                self.navigationController?.pushViewController(viewAllAppartmentsViewController, animated: true)
+            }
         case .recentlyPostedAppartments:
             header.setTitle(configure: .recentlyPosted)
+            header.closure = {
+                let viewAllAppartmentsViewController = ViewAllAppartmentsViewController(navigationTitle: .recentlyPosted)
+                self.navigationController?.pushViewController(viewAllAppartmentsViewController, animated: true)
+            }
         case .none:
             break
         }
