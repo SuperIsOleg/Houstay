@@ -230,7 +230,17 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         guard let arrayAppartments = self.homeViewModel.arrayAppartmentes else { return }
         let descriptionViewController = DescriptionViewController(viewModel:
                                                                     DescriptionViewModel(descriptionAppatrment: arrayAppartments[indexPath.row]))
-        self.navigationController?.pushViewController(descriptionViewController, animated: true)
+        
+        switch HomeSectionEnum(rawValue: indexPath.section) {
+        case .allOffers:
+            self.navigationController?.pushViewController(descriptionViewController, animated: true)
+        case .popular:
+            self.navigationController?.pushViewController(descriptionViewController, animated: true)
+        case .recentlyPosted:
+            self.navigationController?.pushViewController(descriptionViewController, animated: true)
+        case .none:
+            break
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -241,9 +251,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
          for: indexPath
         ) as? SectionHeaderView else { return UICollectionReusableView() }
 
-        
         switch HomeSectionEnum(rawValue: indexPath.section) {
-
         case .allOffers:
             header.setTitle(configure: .allAppartments)
         case .popular:
