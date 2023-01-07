@@ -20,8 +20,8 @@ class FavouritesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
-        favouritesView.getFavoritesCollectionView.register(PopularAppartmentsCell.self,
-                                                           forCellWithReuseIdentifier: PopularAppartmentsCell.reuseIdentifier)
+        favouritesView.getFavoritesCollectionView.register(AllAppartmentsCell.self,
+                                                           forCellWithReuseIdentifier: AllAppartmentsCell.reuseIdentifier)
         favouritesView.getFavoritesCollectionView.delegate = self
         favouritesView.getFavoritesCollectionView.dataSource = self
     }
@@ -72,8 +72,8 @@ extension FavouritesViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularAppartmentsCell.reuseIdentifier, for: indexPath) as?
-                PopularAppartmentsCell,
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AllAppartmentsCell.reuseIdentifier, for: indexPath) as?
+                AllAppartmentsCell,
               let arrayAppartments = self.viewModel.favoriteAppartmentsArray else {
             print("something went wrong")
             return UICollectionViewCell()

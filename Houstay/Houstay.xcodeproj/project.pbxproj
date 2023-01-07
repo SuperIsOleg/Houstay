@@ -98,6 +98,8 @@
 		F49AB6512969D4EF00762862 /* ViewAllAppartmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49AB6502969D4EF00762862 /* ViewAllAppartmentsViewController.swift */; };
 		F49AB6532969D52800762862 /* ViewAllAppartmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49AB6522969D52800762862 /* ViewAllAppartmentsView.swift */; };
 		F49AB6552969D93100762862 /* ConfigureSectionTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49AB6542969D93100762862 /* ConfigureSectionTitle.swift */; };
+		F49AB6572969DBE000762862 /* ViewAllAppartmentsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49AB6562969DBE000762862 /* ViewAllAppartmentsCollectionView.swift */; };
+		F49AB65A2969DD9600762862 /* ViewAllAppartmentsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49AB6592969DD9600762862 /* ViewAllAppartmentsModel.swift */; };
 		F4BF1095290D6B2D00D54138 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BF1094290D6B2D00D54138 /* KeychainManager.swift */; };
 		F4C03BEF293B6C0800719102 /* DescriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C03BEE293B6C0800719102 /* DescriptionViewModel.swift */; };
 		F4D5CEED2933CFB0003147EE /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D5CEEC2933CFB0003147EE /* FavoritesViewModel.swift */; };
@@ -197,6 +199,8 @@
 		F49AB6502969D4EF00762862 /* ViewAllAppartmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAllAppartmentsViewController.swift; sourceTree = "<group>"; };
 		F49AB6522969D52800762862 /* ViewAllAppartmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAllAppartmentsView.swift; sourceTree = "<group>"; };
 		F49AB6542969D93100762862 /* ConfigureSectionTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureSectionTitle.swift; sourceTree = "<group>"; };
+		F49AB6562969DBE000762862 /* ViewAllAppartmentsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAllAppartmentsCollectionView.swift; sourceTree = "<group>"; };
+		F49AB6592969DD9600762862 /* ViewAllAppartmentsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAllAppartmentsModel.swift; sourceTree = "<group>"; };
 		F4BF1094290D6B2D00D54138 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		F4C03BEE293B6C0800719102 /* DescriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewModel.swift; sourceTree = "<group>"; };
 		F4D5CEEC2933CFB0003147EE /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
@@ -973,6 +977,7 @@
 		F49AB64E2969D44000762862 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				F49AB6592969DD9600762862 /* ViewAllAppartmentsModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -980,9 +985,18 @@
 		F49AB64F2969D44D00762862 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F49AB6582969DC9F00762862 /* CollectionView */,
 				F49AB6522969D52800762862 /* ViewAllAppartmentsView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		F49AB6582969DC9F00762862 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				F49AB6562969DBE000762862 /* ViewAllAppartmentsCollectionView.swift */,
+			);
+			path = CollectionView;
 			sourceTree = "<group>";
 		};
 		F4BF1093290D6AF600D54138 /* Keychain */ = {
@@ -1166,6 +1180,7 @@
 				F41F4A5C28DE222500958A91 /* ProfileViewController.swift in Sources */,
 				024BACC12923C06400FC880D /* LoginViewModel.swift in Sources */,
 				F42C174F28BFC8BB0056CF59 /* HomeView.swift in Sources */,
+				F49AB65A2969DD9600762862 /* ViewAllAppartmentsModel.swift in Sources */,
 				F470F469293BF83400C1FA33 /* UIViewController+Extensions.swift in Sources */,
 				F4480ADC28BE9EEC001AA98B /* RegistrationView.swift in Sources */,
 				023EEAD528BCF9D700446893 /* OnboardingViewModel.swift in Sources */,
@@ -1188,6 +1203,7 @@
 				F470F467293BF13300C1FA33 /* Date+Extensions.swift in Sources */,
 				02065FC528C613CF0064F2F1 /* PopularAppartmentsCell.swift in Sources */,
 				02CF0155292BC7E40043CA59 /* Array+Extensions.swift in Sources */,
+				F49AB6572969DBE000762862 /* ViewAllAppartmentsCollectionView.swift in Sources */,
 				024BACD22924F2E000FC880D /* RealmManager.swift in Sources */,
 				02952B3028BE2A8C00B2F43F /* SplashScreenViewController.swift in Sources */,
 				02065FC928C6143A0064F2F1 /* AllAppartmentsCell.swift in Sources */,

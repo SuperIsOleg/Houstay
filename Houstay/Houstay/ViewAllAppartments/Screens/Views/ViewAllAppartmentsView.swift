@@ -9,6 +9,9 @@ import UIKit
 
 class ViewAllAppartmentsView: UIView {
     
+    private let collectionView = ViewAllAppartmentsCollectionView()
+    internal var getCollectionView: ViewAllAppartmentsCollectionView { collectionView }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupLayout()
@@ -21,5 +24,10 @@ class ViewAllAppartmentsView: UIView {
     
     private func setupLayout() {
         self.backgroundColor = R.color.white500()
+        
+        self.addSubview(collectionView)
+        collectionView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
     }
 }
