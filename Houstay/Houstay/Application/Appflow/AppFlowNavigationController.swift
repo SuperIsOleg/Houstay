@@ -13,6 +13,7 @@ class AppFlowNavigationController: UINavigationController {
     
     init() {
         super.init(nibName: nil, bundle: nil)
+        self.setNavigationBarHidden(true, animated: true)
         setupSplashScreen()
     }
     

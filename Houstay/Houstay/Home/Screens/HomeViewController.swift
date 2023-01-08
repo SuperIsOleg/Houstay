@@ -13,6 +13,8 @@ class HomeViewController: UIViewController {
     private let homeView = HomeView()
     private lazy var homeCollectionView = self.homeView.getHomeCollectionView
     private let homeViewModel = HomeViewModel()
+    private let searchResultsViewController = SearchResultsViewController()
+    private lazy var searchController = UISearchController(searchResultsController: searchResultsViewController)
 
     override func loadView() {
         super.loadView()
@@ -29,12 +31,33 @@ class HomeViewController: UIViewController {
         homeCollectionView.register(PopularAppartmentsCell.self, forCellWithReuseIdentifier: PopularAppartmentsCell.reuseIdentifier)
         homeCollectionView.register(RecentlyPostedAppartmentsCell.self, forCellWithReuseIdentifier: RecentlyPostedAppartmentsCell.reuseIdentifier)
         homeCollectionView.register(AllAppartmentsCell.self, forCellWithReuseIdentifier: AllAppartmentsCell.reuseIdentifier)
+        configureSearchController()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        setupNavigationBar()
         homeCollectionView.reloadData()
+    }
+    
+    private func configureSearchController() {
+        searchController.searchResultsUpdater = searchResultsViewController
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        self.definesPresentationContext = true
+        self.navigationItem.searchController = searchController
+        self.navigationItem.hidesSearchBarWhenScrolling = false
+    }
+    
+    private func setupNavigationBar() {
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        let appearance = UINavigationBarAppearance()
+        appearance.shadowColor = .clear
+        appearance.backgroundColor = R.color.white500()
+        self.navigationItem.standardAppearance = appearance
+        self.navigationItem.scrollEdgeAppearance = appearance
+        self.navigationItem.compactAppearance = appearance
+        self.navigationItem.title = "Главная"
     }
     
 }

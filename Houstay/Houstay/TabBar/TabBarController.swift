@@ -21,22 +21,28 @@ class TabBarController: UITabBarController {
     }
     
     private func prepareTabBarItems() {
-        homeViewController.tabBarItem = UITabBarItem(title: nil,
+        
+        let navigationHomeViewController = UINavigationController(rootViewController: homeViewController)
+        let navigationFavouritesViewController = UINavigationController(rootViewController: favouritesViewController)
+        let navigationMessagesViewController = UINavigationController(rootViewController: messagesViewController)
+        let navigationAccountViewController = UINavigationController(rootViewController: accountViewController)
+        
+        navigationHomeViewController.tabBarItem = UITabBarItem(title: nil,
                                                      image: R.image.home(),
                                                      selectedImage: R.image.homeActive())
-        favouritesViewController.tabBarItem = UITabBarItem(title: nil,
+        navigationFavouritesViewController.tabBarItem = UITabBarItem(title: nil,
                                                            image: R.image.favourites(),
                                                            selectedImage: R.image.favouritesActive())
-        messagesViewController.tabBarItem = UITabBarItem(title: nil,
+        navigationMessagesViewController.tabBarItem = UITabBarItem(title: nil,
                                                      image: R.image.news(),
                                                      selectedImage: R.image.newsActive())
-        accountViewController.tabBarItem = UITabBarItem(title: nil,
+        navigationAccountViewController.tabBarItem = UITabBarItem(title: nil,
                                                         image: R.image.account(),
                                                         selectedImage: R.image.accountActive())
         
         self.viewControllers = [
-            homeViewController, favouritesViewController,
-            messagesViewController, accountViewController
+            navigationHomeViewController, navigationFavouritesViewController,
+            navigationMessagesViewController, navigationAccountViewController
         ]
         
     }

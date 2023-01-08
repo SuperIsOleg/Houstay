@@ -48,18 +48,17 @@ class FavouritesViewController: UIViewController {
     private func setupNavigationBar() {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = R.color.white500()
         appearance.shadowColor = .clear
-        appearance.titleTextAttributes = [
-            .foregroundColor: R.color.white100() ?? .black,
-            .font: R.font.robotoMedium(size: 18) ?? .systemFont(ofSize: 18),
+        appearance.backgroundColor = R.color.white500()
+        self.navigationItem.standardAppearance = appearance
+        self.navigationItem.scrollEdgeAppearance = appearance
+        self.navigationItem.compactAppearance = appearance
+        self.navigationController?.navigationBar.tintColor = R.color.lnk100()
+        self.navigationController?.navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: R.color.lnk100() ?? .black,
+            NSAttributedString.Key.font: R.font.robotoMedium(size: 20) ?? .systemFont(ofSize: 20)
         ]
-        
-        self.navigationController?.navigationBar.standardAppearance = appearance
-        self.navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        self.navigationController?.navigationBar.compactAppearance = appearance
-        self.tabBarController?.navigationItem.title = R.string.localizable.favouritesLiked().uppercased()
+        self.navigationItem.title = R.string.localizable.favouritesLiked().uppercased()
     }
     
 }
