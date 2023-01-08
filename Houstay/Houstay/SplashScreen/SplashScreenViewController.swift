@@ -13,13 +13,7 @@ protocol SplashScreenDelegate: AnyObject {
 
 class SplashScreenViewController: UIViewController {
     private let preLoader = PreLoader.shared
-    
-    private let layerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = R.color.white500()
-        return view
-    }()
-    
+
     private let iconImage: UIImageView = {
         let imageView = UIImageView()
         imageView.image = R.image.logo()
@@ -31,21 +25,45 @@ class SplashScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
+        print(#function, ": ", iconImage.frame)
         preLoader.getAppartments {
             self.splashScreenDelegate?.setupMainFlow()
         }
     }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        print(#function, ": ", iconImage.frame)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        animationIcon()
+        print(#function, ": ", iconImage.frame)
+    }
     
     private func setupLayout() {
-        view.addSubview(layerView)
-        layerView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
-        
-        layerView.addSubview(iconImage)
+        self.view.backgroundColor = R.color.white500()
+
+        self.view.addSubview(iconImage)
         iconImage.snp.makeConstraints {
             $0.height.width.equalTo(150)
-            $0.centerX.centerY.equalToSuperview()
+            $0.centerX.equalToSuperview()
+            $0.centerY.equalToSuperview()
+        }
+    }
+    
+    private func animationIcon() {
+        
+        UIView.animate(withDuration: 0.3, delay: 0.1) {
+            self.iconImage.snp.remakeConstraints {
+                $0.height.width.equalTo(150)
+                $0.top.greaterThanOrEqualToSuperview().offset(10)
+                $0.centerX.equalToSuperview()
+                $0.centerY.equalToSuperview().offset(-150)
+
+            }
+            self.view.layoutIfNeeded()
         }
     }
     
