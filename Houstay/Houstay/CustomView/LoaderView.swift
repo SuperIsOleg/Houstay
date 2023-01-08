@@ -53,7 +53,8 @@ class LoaderView: UIView {
         
         loaderView.addSubview(logoImage)
         logoImage.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(270)
+            $0.top.greaterThanOrEqualToSuperview().offset(10)
+            $0.centerY.equalToSuperview().offset(-150)
             $0.centerX.equalToSuperview()
             $0.height.width.equalTo(90)
         }
@@ -68,7 +69,7 @@ class LoaderView: UIView {
         activityIndicator.snp.makeConstraints {
             $0.top.equalTo(logoLabel.snp.bottom).offset(170)
             $0.centerX.equalToSuperview()
-            $0.width.height.equalTo(50)
+            $0.width.height.equalTo(25)
         }
     }
 }
