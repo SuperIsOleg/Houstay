@@ -43,10 +43,9 @@ class HomeViewController: UIViewController {
     private func configureSearchController() {
         searchController.searchResultsUpdater = searchResultsViewController
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search"
+        searchController.searchBar.placeholder = R.string.localizable.searchSearch()
         self.definesPresentationContext = true
-        self.navigationItem.searchController = searchController
-        self.navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.hidesNavigationBarDuringPresentation = false
     }
     
     private func setupNavigationBar() {
@@ -57,7 +56,8 @@ class HomeViewController: UIViewController {
         self.navigationItem.standardAppearance = appearance
         self.navigationItem.scrollEdgeAppearance = appearance
         self.navigationItem.compactAppearance = appearance
-        self.navigationItem.title = "Главная"
+        self.navigationItem.hidesSearchBarWhenScrolling = false
+        self.navigationItem.titleView = searchController.searchBar
     }
     
 }
