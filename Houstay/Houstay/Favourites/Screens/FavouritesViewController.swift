@@ -30,6 +30,7 @@ class FavouritesViewController: UIViewController {
         super.viewWillAppear(animated)
         self.setupNavigationBar()
         self.configureView()
+        self.tabBarController?.tabBar.isHidden = false
         self.favouritesView.getFavoritesCollectionView.reloadData()
     }
     

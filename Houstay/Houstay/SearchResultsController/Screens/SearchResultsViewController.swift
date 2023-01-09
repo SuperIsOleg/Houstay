@@ -11,7 +11,12 @@ class SearchResultsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .red
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
     }
 }
 
@@ -20,4 +25,10 @@ extension SearchResultsViewController: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
     }
+}
+
+// MARK: - UISearchBarDelegate
+extension SearchResultsViewController: UISearchBarDelegate {
+    
+
 }

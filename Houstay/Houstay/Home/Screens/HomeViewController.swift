@@ -37,11 +37,14 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigationBar()
+        self.tabBarController?.tabBar.isHidden = false
         homeCollectionView.reloadData()
     }
     
     private func configureSearchController() {
-        searchController.searchResultsUpdater = searchResultsViewController
+//        searchController.searchResultsUpdater = searchResultsViewController
+        searchController.delegate = self
+//        searchController.searchBar.delegate = searchResultsViewController
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = R.string.localizable.searchSearch()
         self.definesPresentationContext = true
@@ -207,4 +210,28 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         return header
     }
     
+}
+
+// MARK: - UISearchControllerDelegate
+extension HomeViewController: UISearchControllerDelegate {
+    
+    @available(iOS 16.0, *)
+    func searchController(_ searchController: UISearchController, willChangeTo newPlacement: UINavigationItem.SearchBarPlacement) {
+        print(#function)
+    }
+    
+    func presentSearchController(_ searchController: UISearchController) {
+        let searchResultsViewController = SearchResultsViewController()
+        self.navigationController?.pushViewController(searchResultsViewController, animated: true)
+        print(#function)
+    }
+    
+    func didPresentSearchController(_ searchController: UISearchController) {
+        print(#function)
+    }
+    
+    func willPresentSearchController(_ searchController: UISearchController) {
+        print(#function)
+    }
+
 }
