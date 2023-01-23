@@ -13,7 +13,6 @@ class HomeViewController: UIViewController {
     private let homeView = HomeView()
     private lazy var homeCollectionView = self.homeView.getHomeCollectionView
     private let homeViewModel = HomeViewModel()
-    private let searchResultsViewController = SearchResultsViewController()
     private lazy var searchController = UISearchController(searchResultsController: nil)
 
     override func loadView() {
@@ -43,6 +42,7 @@ class HomeViewController: UIViewController {
     
     private func configureSearchController() {
         searchController.delegate = self
+        searchController.searchBar.delegate = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = R.string.localizable.searchSearch()
         self.definesPresentationContext = true
@@ -214,7 +214,15 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 extension HomeViewController: UISearchControllerDelegate {
 
     func presentSearchController(_ searchController: UISearchController) {
-        let searchResultsViewController = SearchResultsViewController()
-        self.navigationController?.pushViewController(searchResultsViewController, animated: true)
+       let searchView = SearchView()
+        self.view = searchView
+    }
+}
+
+// MARK: - UISearchBarDelegate
+extension HomeViewController: UISearchBarDelegate {
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.view = homeView
     }
 }
