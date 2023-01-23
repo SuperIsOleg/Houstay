@@ -171,6 +171,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         case .none:
             break
         }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {

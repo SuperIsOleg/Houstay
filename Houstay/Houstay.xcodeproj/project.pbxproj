@@ -33,6 +33,7 @@
 		0266D63129534BCB008826D7 /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0266D63029534BCB008826D7 /* UserDefaultsKey.swift */; };
 		0266D633295356AF008826D7 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0266D632295356AF008826D7 /* Language.swift */; };
 		027C59E2297EA9BA004EC960 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027C59E1297EA9BA004EC960 /* SearchView.swift */; };
+		027C59E5297ED75F004EC960 /* ResultCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027C59E4297ED75F004EC960 /* ResultCollectionView.swift */; };
 		028097C328C2021C00C2ECD9 /* SearcheTextFieldBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028097C228C2021C00C2ECD9 /* SearcheTextFieldBase.swift */; };
 		028097C628C211DD00C2ECD9 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028097C528C211DD00C2ECD9 /* HomeViewModel.swift */; };
 		028097CC28C22C9F00C2ECD9 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028097CB28C22C9F00C2ECD9 /* TabBarController.swift */; };
@@ -132,6 +133,7 @@
 		0266D63029534BCB008826D7 /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
 		0266D632295356AF008826D7 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		027C59E1297EA9BA004EC960 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		027C59E4297ED75F004EC960 /* ResultCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCollectionView.swift; sourceTree = "<group>"; };
 		028097C228C2021C00C2ECD9 /* SearcheTextFieldBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearcheTextFieldBase.swift; sourceTree = "<group>"; };
 		028097C528C211DD00C2ECD9 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		028097CB28C22C9F00C2ECD9 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -331,6 +333,15 @@
 				024BACD52924F70500FC880D /* RealmManagerProtocol.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		027C59E3297ED73F004EC960 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				027C59E1297EA9BA004EC960 /* SearchView.swift */,
+				027C59E4297ED75F004EC960 /* ResultCollectionView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		028097C428C2114800C2ECD9 /* ViewModel */ = {
@@ -1013,7 +1024,7 @@
 		F49AB65C296B436600762862 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				027C59E1297EA9BA004EC960 /* SearchView.swift */,
+				027C59E3297ED73F004EC960 /* Views */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -1224,6 +1235,7 @@
 				02CF0155292BC7E40043CA59 /* Array+Extensions.swift in Sources */,
 				F49AB6572969DBE000762862 /* ViewAllAppartmentsCollectionView.swift in Sources */,
 				024BACD22924F2E000FC880D /* RealmManager.swift in Sources */,
+				027C59E5297ED75F004EC960 /* ResultCollectionView.swift in Sources */,
 				02952B3028BE2A8C00B2F43F /* SplashScreenViewController.swift in Sources */,
 				02065FC928C6143A0064F2F1 /* AllAppartmentsCell.swift in Sources */,
 				F4480AD228BE95A1001AA98B /* ForgetPasswordViewController.swift in Sources */,

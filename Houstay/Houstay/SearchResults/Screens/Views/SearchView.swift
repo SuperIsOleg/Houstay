@@ -8,6 +8,17 @@
 import UIKit
 
 class SearchView: UIView {
+    
+    enum SearchView {
+        case history
+        case result
+    }
+    
+    private let resultCollectionView: ResultCollectionView = {
+        let collectionView = ResultCollectionView()
+        collectionView.isHidden = true
+        return collectionView
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
