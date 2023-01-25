@@ -31,7 +31,7 @@ class SearchView: UIView {
     
     private func setupLayout() {
         self.backgroundColor = R.color.white500()
-
+        
     }
 }
 
