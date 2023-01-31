@@ -16,6 +16,8 @@ class HomeViewModel {
         }
     }
     
+    internal var searchResult: [HomeItemsProtocol]?
+    
     internal func removeFavoriteAppartments(id: String) {
         for (index, value) in self.preloader.getFavoriteAppartmentsArray.enumerated() {
             if value.appartementsId == id {

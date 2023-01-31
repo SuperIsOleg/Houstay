@@ -14,7 +14,7 @@ class HomeViewController: UIViewController {
     private lazy var homeCollectionView = self.homeView.getHomeCollectionView
     private let homeViewModel = HomeViewModel()
     private lazy var searchController = UISearchController(searchResultsController: nil)
-
+    
     override func loadView() {
         super.loadView()
         self.view = homeView
@@ -69,10 +69,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return SectionType.allCases.count
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let model = homeViewModel.arrayAppartmentes else { return 0 }
-
+        
         switch SectionType(rawValue: section) {
         case .popularAppartments:
             return model.count
@@ -84,15 +84,15 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return 0
         }
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
+        
         guard let arrayAppartments = self.homeViewModel.arrayAppartmentes,
               let item = arrayAppartments[safe: indexPath.item] else {
             print("something went wrong")
             return UICollectionViewCell()
         }
-
+        
         switch SectionType(rawValue: indexPath.section) {
         case .popularAppartments:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularAppartmentsCell.reuseIdentifier, for: indexPath) as?
@@ -175,11 +175,11 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-
+        
         guard let header = collectionView.dequeueReusableSupplementaryView(
-         ofKind: UICollectionView.elementKindSectionHeader,
-         withReuseIdentifier: SectionHeaderView.reuseIdentifier,
-         for: indexPath
+            ofKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: SectionHeaderView.reuseIdentifier,
+            for: indexPath
         ) as? SectionHeaderView else { return UICollectionReusableView() }
         
         
@@ -213,17 +213,30 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
 // MARK: - UISearchControllerDelegate
 extension HomeViewController: UISearchControllerDelegate {
-
+    
     func presentSearchController(_ searchController: UISearchController) {
-       let searchView = SearchView()
+        self.tabBarController?.tabBar.isHidden = true
+        let searchView = HistorySearchView()
         self.view = searchView
     }
 }
 
 // MARK: - UISearchBarDelegate
 extension HomeViewController: UISearchBarDelegate {
-
+    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.tabBarController?.tabBar.isHidden = false
         self.view = homeView
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        self.tabBarController?.tabBar.isHidden = true
+        guard let searchResult = self.homeViewModel.searchResult else {
+            let noResultView = NoResultView()
+            self.view = noResultView
+            return
+        }
+        let resultView = ResultCollectionView()
+        self.view = resultView
     }
 }

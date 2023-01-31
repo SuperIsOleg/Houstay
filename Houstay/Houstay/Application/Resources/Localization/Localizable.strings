@@ -147,3 +147,4 @@ collectionView.viewAll = "Все";
 // Mark: Search
 
 search.search = "Поиск ...";
+search.noResult = "Совпадений не найдено";
